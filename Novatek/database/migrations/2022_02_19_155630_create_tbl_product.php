@@ -26,7 +26,7 @@ class CreateTblProduct extends Migration
             $table->text('product_sort_descriptions');
             $table->string('product_image_gallery');
             $table->string('product_main_image');
-           
+
             $table->integer('product_status');
             $table->integer('product_isHot')->default('0');
             $table->integer('product_isNew')->default('0');

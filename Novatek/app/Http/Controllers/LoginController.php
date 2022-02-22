@@ -18,6 +18,10 @@ class LoginController extends Controller
         return Socialite::driver('facebook')->redirect();
     }
 
+    public function login(){
+        return view('client.login');
+    }
+
     
 
     public function login_facebook_callback(){
@@ -110,28 +114,29 @@ class LoginController extends Controller
     }
 
     public function register(Request $request){
-        $data = $request->validate([
-            'user_name' => 'required|min:8|not_regex:/^[-0-9\+]+$/',
-            'user_phone'=>'required|numeric|min:10',
-            'user_email'=>'required|email:rfc,dns',
-            'user_address'=>'required',
-            'user_password'=>'required|min:8',
-            'user_repeat_password'=>'required|same:user_password',
-        ],[
-            'user_name.required' => 'Name cannot blank',
-            'user_name.min:8' => 'Name at least 8 characters',
-            'user_name.not_regex:/^[-0-9\+]+$/'=>'Names cannot contain numbers ',
-            'user_phone.required'=> 'Phone cannot blank',
-            'user_phone.numeric'=> 'Phone must be digits',
-            'user_phone.min:10' => 'Phone at least 8 digits',
-            'user_email.required' => 'Email cannot blank',
-            'user_email.email:rfc,dns' => 'Email invalid format',
-            'user_address.required' =>'Address cannot blank',
-            'user_password.required' => 'Password cannot blank',
-            'user_password.min:8'=>'Password at least 8 characters',
-            'user_repeat_password.required' => 'Repeat password cannot blank ',
-            'user_password.same:user_password' => 'Repeat password not same password'
-        ]);
+        // $data = $request->validate([
+        //     'user_name' => 'required|min:8|not_regex:/^[-0-9\+]+$/',
+        //     'user_phone'=>'required|numeric|min:10',
+        //     'user_email'=>'required|email:rfc,dns',
+        //     'user_address'=>'required',
+        //     'user_password'=>'required|min:8',
+        //     'user_repeat_password'=>'required|same:user_password',
+        // ],[
+        //     'user_name.required' => 'Name cannot blank',
+        //     'user_name.min:8' => 'Name at least 8 characters',
+        //     'user_name.not_regex:/^[-0-9\+]+$/'=>'Names cannot contain numbers ',
+        //     'user_phone.required'=> 'Phone cannot blank',
+        //     'user_phone.numeric'=> 'Phone must be digits',
+        //     'user_phone.min:10' => 'Phone at least 8 digits',
+        //     'user_email.required' => 'Email cannot blank',
+        //     'user_email.email:rfc,dns' => 'Email invalid format',
+        //     'user_address.required' =>'Address cannot blank',
+        //     'user_password.required' => 'Password cannot blank',
+        //     'user_password.min:8'=>'Password at least 8 characters',
+        //     'user_repeat_password.required' => 'Repeat password cannot blank ',
+        //     'user_password.same:user_password' => 'Repeat password not same password'
+        // ]);
+        $data = $request->all();
         $values = array();
         $values['name'] = $data['user_name'];
         $values['phone'] = $data['user_phone'];
