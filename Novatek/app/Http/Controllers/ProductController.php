@@ -178,9 +178,76 @@ class ProductController extends Controller
         return view('admin.product.product_details',compact('product'));
     }
 
-
+    public function edit_product($product_id){
+        $this->AuthLogin();
+        $product = Product::where('product_id',$product_id)->first();
+        $supplier = Supplier::all();
+        $category = Category::all();
+        $parent_id='';
+        $htmlOption = $this->getCategory($parent_id);
+        $brand = Brand::all();
+        return view('admin.product.update_product',compact('product','supplier','category','brand','htmlOption'));
+    }
     
-
+    public function save_update_product($product_id, Request $request){
+        $data = array();
+        $data['product_name'] = $request->product_name;
+        $data['product_slug'] = Str::slug($data['product_name'],'-');
+        $data['category_id'] = $request->category;
+        $data['component'] = $this->getComponent($data['category_id']);
+        $data['brand_id'] = $request->brand;
+        $data['supplier_id'] = $request->supplier;
+        $data['product_price'] = $request->product_price;
+        $data['product_sku'] = $request->product_sku;
+        $data['product_descriptions'] = $request->product_description;
+        $data['product_sort_descriptions'] = $request->product_sort_description;
+        $data['product_isHot'] = $request->isHot;
+        $data['product_isNew'] = $request->isNew;
+        $data['product_inStock'] = $request->stock;
+        $get_image_gallery = $request->file('product_image_gallery');
+        $get_image_main = $request->file('product_image_main');
+        // echo '<pre>';
+        // print_r($data);
+        // die();
+        // echo '</pre>';
+        
+        if($get_image_main == true && $get_image_gallery == true){
+            //main
+            $get_name_image = $get_image_main->getClientOriginalName();// lấy tên file
+            $name_image = current(explode('.',$get_name_image));// cắt tên file thành nhiều phần tử, lấy phần tử đầu
+            $extension = explode('.',$get_name_image);
+            $get_extension = end($extension);
+            $extensionChange = strtolower($get_extension);
+            $extensionArray = ['jpg','jpeg','gif','tiff','psb','eps','png'];
+            //gallery
+            $get_name_image_gallery = $get_image_gallery->getClientOriginalName();// lấy tên file
+            $name_image_gallery = current(explode('.',$get_name_image_gallery));// cắt tên file thành nhiều phần tử, lấy phần tử đầu
+            $extension_gallery = explode('.',$get_name_image_gallery);
+            $get_extension_gallery = end($extension_gallery);
+            $extensionChange_gallery = strtolower($get_extension_gallery);
+            if(in_array($extensionChange,$extensionArray) && in_array($extensionChange_gallery,$extensionArray)){
+                $new_image = $name_image.rand(0,9999) . '.' . $get_image_main->getClientOriginalExtension(); //hàm lấy đuôi file
+                $new_image_gallery = $name_image_gallery.rand(0,99) . '.' . $get_image_gallery->getClientOriginalExtension();
+                $stored = $get_image_main->move(public_path().'/images/product', $new_image);
+                $store_gallery = $get_image_gallery->move(public_path().'/images/product', $new_image_gallery);
+                $data['product_main_image'] = $new_image;
+                $data['product_image_gallery'] = $new_image_gallery;
+                DB::table('Product')->where('product_id',$product_id)->update($data);
+                
+                Session::put('message', 'Create product successfully');
+                return Redirect::to('admin/view_product');
+            }else{
+            Session::put('message','File is incorrect . Try again');
+            return Redirect::to('admin/view_product');
+            }
+        // }else{
+        //     Session::put('message', 'Create product failed. Try again');
+        //     return Redirect::to('admin/view_product');
+        }
+            DB::table('Product')->where('product_id',$product_id)->update($data);
+            Session::put('message', 'Update product successfully');
+            return Redirect::to('admin/view_product');
+    }
 
     
 }
