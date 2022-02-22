@@ -18,8 +18,7 @@ session_start();
 class ProductController extends Controller
 {
     public function getCategory($parent_id){
-        $data = Category::all();
-        $recursive = new Recursive($data);
+        $recursive = new Recursive();
        $htmlOption = $recursive->categoryRecursive($parent_id);
         return $htmlOption;
     }
@@ -34,13 +33,15 @@ class ProductController extends Controller
     }
     
     public function getComponent($category_id){
-        $category = Category::find($category_id);
+        $category = Category::where('category_id',$category_id)->first();
         if ($category->parent_id==0){
             $component=$category->category_name;
             return $component;
         }
         else{
-            $component=$this->getCategoryParent($category->parent_id);
+            $recursive = new Recursive();
+            $component=$recursive->getCategoryParent($category->parent_id);
+            return $component;
         }
     }
 
@@ -111,9 +112,9 @@ class ProductController extends Controller
         return view('admin.product.view_product',compact('product','category','brand','supplier'));
     }
 
-    public function view_product_cate($category_id){
+    public function view_product_cate($category_name){
         $category = Category::where('parent_id', '=', 0)->get();
-        $product = Product::where('category_id',$category_id)->paginate(10);
+        $product = Product::where('component',$category_name)->paginate(10);
         $brand = Brand::all();
         $supplier = Supplier::all();
         return view('admin.product.category_product',compact('product','category','brand','supplier'));

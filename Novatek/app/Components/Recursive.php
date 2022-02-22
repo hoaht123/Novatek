@@ -7,11 +7,10 @@ use App\Models\Category;
 class Recursive{
     private $htmlSelect = '';
     private $data;
-    function __construct($data) {
-        $this->data = $data;
-    }
+    private $component='';
 
     public function categoryRecursive($parent_id,$id = 0,$text = ''){
+        $this->data = Category::all();
         foreach ($this->data as $value) 
         {
             if($value['parent_id'] ==$id){
@@ -28,11 +27,12 @@ class Recursive{
 
     public function getCategoryParent($parent_id){
         $category = Category::where('category_id',$parent_id)->first();
-            if($category->parent_id==0){
-                $component=$category->category_name;
-                return $component;
-            }else{
-                $component = $this->getCategoryParent($category->parent_id);
-            }
+         if($category->parent_id==0){
+            $this->component=$category->category_name;
+            return $this->component;
+        }else{
+            // $recursive = new Recursive($category);
+            $this->component = $this->getCategoryParent($category->parent_id);
         }
+    }
 }

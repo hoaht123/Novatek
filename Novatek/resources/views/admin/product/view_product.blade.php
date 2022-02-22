@@ -5,12 +5,12 @@
     <div class="right" style="display: flex;">
         <div class="dropdown" style="padding-right: 50px;">
             <button  class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Category
+              Component
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
               <a class="dropdown-item" href="{{URL::to('admin/view_product')}}">All</a>
               @foreach($category as $key=>$cate)
-              <a class="dropdown-item" href="{{URL::to('admin/view_product_cate/'.$cate->category_id)}}">{{$cate->category_name}}</a>
+              <a class="dropdown-item" href="{{URL::to('admin/view_product_cate/'.$cate->category_name)}}">{{$cate->category_name}}</a>
               @endforeach   
             </div>
     </div>

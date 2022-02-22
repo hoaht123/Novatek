@@ -5,12 +5,12 @@
         <div class="right" style="display: flex;">
             <div class="dropdown" style="padding-right: 50px;">
                 <button  class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Category
+                  Component
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                   <a class="dropdown-item" href="{{URL::to('admin/view_product')}}">All</a>
                   @foreach($category as $key=>$cate)
-                  <a class="dropdown-item" href="{{URL::to('admin/view_product_cate/'.$cate->category_id)}}">{{$cate->category_name}}</a>
+                  <a class="dropdown-item" href="{{URL::to('admin/view_product_cate/'.$cate->category_name)}}">{{$cate->category_name}}</a>
                   @endforeach   
                 </div>
         </div>
@@ -45,7 +45,7 @@
             <th>STT</th>
             <th>Name</th>
             <th>Image</th>
-            <th>Category</th>
+            <th>Component</th>
             <th>Brand</th>
             <th>Supplier</th>
             <th>isHot</th>
@@ -69,7 +69,7 @@
                 <td>{{$i++}}</td>
                 <td>{{$pro->product_name}}</td>
                 <td><img src="{{asset('images/product/'.$pro->product_main_image)}}" alt="{{$pro->product_name}}" style="width:100;height:100px"></td>
-                <td>{{$pro->category_spec}}</td>
+                <td>{{$pro->component}}</td>
                 <td>{{$pro->brands->brand_name}}</td>
                 <td>{{$pro->suppliers->supplier_name}}</td>
                 <td>
