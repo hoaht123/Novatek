@@ -57,7 +57,9 @@ Route::prefix('')->group(function(){
     //Google
     Route::get('/login-google',[App\Http\Controllers\LoginController::class,'login_google']);
     Route::get('/login-google/callback',[App\Http\Controllers\LoginController::class,'login_google_callback']);
-
+    //Login
+    Route::get('/login',[App\Http\Controllers\LoginController::class,'login']);
+    Route::post('/checkLogin',[App\Http\Controllers\LoginController::class,'checkLogin']);
     //Register
     Route::post('/register',[App\Http\Controllers\LoginController::class,'register']);
     //logout

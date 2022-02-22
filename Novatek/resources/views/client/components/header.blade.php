@@ -16,7 +16,7 @@
                                 {{$user_name}}
                                 <a style="margin-left:10px " href="{{URL::to('log-out')}}">Logout</a>
                                 @else
-                                <a class="open-popup" data-rel="1"><b>login</b></a>&nbsp; or &nbsp;<a class="open-popup" data-rel="2"><b>register</b></a>
+                                <a href="{{URL::to('login')}}""><b>login</b></a>&nbsp; or &nbsp;<a  href="{{URL::to('login')}}"><b>register</b></a>
                                 @endif
                             </div>
                             

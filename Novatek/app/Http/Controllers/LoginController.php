@@ -18,6 +18,10 @@ class LoginController extends Controller
         return Socialite::driver('facebook')->redirect();
     }
 
+    public function login(){
+        return view('client.login');
+    }
+
     
 
     public function login_facebook_callback(){
@@ -111,27 +115,28 @@ class LoginController extends Controller
 
     public function register(Request $request){
         $data = $request->validate([
-            'user_name' => 'required|min:8|not_regex:/^[-0-9\+]+$/',
-            'user_phone'=>'required|numeric|min:10',
+            'user_name' => 'required|not_regex:/^[-0-9\+]+$/',
+            'user_phone'=> array('required','numeric','regex:/^(0?)(3[2-9]|5[6|8|9]|7[0|6-9]|8[0-6|8|9]|9[0-4|6-9])[0-9]{7}$/'),
             'user_email'=>'required|email:rfc,dns',
             'user_address'=>'required',
             'user_password'=>'required|min:8',
             'user_repeat_password'=>'required|same:user_password',
         ],[
             'user_name.required' => 'Name cannot blank',
-            'user_name.min:8' => 'Name at least 8 characters',
-            'user_name.not_regex:/^[-0-9\+]+$/'=>'Names cannot contain numbers ',
+            'user_name.not_regex'=>'Names cannot contain numbers ',
             'user_phone.required'=> 'Phone cannot blank',
             'user_phone.numeric'=> 'Phone must be digits',
             'user_phone.min:10' => 'Phone at least 8 digits',
+            'user_phone.regex' => 'Phone incorrect format',
             'user_email.required' => 'Email cannot blank',
             'user_email.email:rfc,dns' => 'Email invalid format',
             'user_address.required' =>'Address cannot blank',
             'user_password.required' => 'Password cannot blank',
             'user_password.min:8'=>'Password at least 8 characters',
             'user_repeat_password.required' => 'Repeat password cannot blank ',
-            'user_password.same:user_password' => 'Repeat password not same password'
+            'user_repeat_password.same:user_password' => 'Repeat password not same password'
         ]);
+        $data = $request->all();
         $values = array();
         $values['name'] = $data['user_name'];
         $values['phone'] = $data['user_phone'];
@@ -141,9 +146,23 @@ class LoginController extends Controller
         $values['password'] = md5($data['user_password']);
 
         DB::table('Users')->insert($values);
-        return redirect()->route('client.home');
+        return Redirect::back();
     }
 
+
+    public function checkLogin(Request $request){
+        $data = $request->all();
+        $check = DB::table('Users')->where('email',$data['user_email'])->where('password',md5($data['user_password']))->first();
+        if($check){
+             Session::put('user_name',$check->name); 
+            Session::put('user_id',$check->user_id);
+            return  Redirect::to('/');
+        }else{
+            Session::put('message','Email or password incorrect . Try again!');
+            return Redirect::back();
+        }
+           
+    }
 
 
 
