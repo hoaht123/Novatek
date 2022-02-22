@@ -31,8 +31,8 @@ class Recursive{
             $this->component=$category->category_name;
             return $this->component;
         }else{
-            // $recursive = new Recursive($category);
             $this->component = $this->getCategoryParent($category->parent_id);
         }
+        return $this->component;
     }
 }
