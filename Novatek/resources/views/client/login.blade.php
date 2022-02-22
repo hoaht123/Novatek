@@ -23,9 +23,9 @@
 @endsection
 @section('content')
 <div class="header-empty-space"></div>
-<div class="container">
+<div class="container" style="margin-top:-150px">
     <div class="row">   
-        <div class="col-lg-6">
+        <div class="col-lg-6" >
             <div class="limiter">
                 <div class="container-login100" style="background:white;">
                     <div class="wrap-login100">
