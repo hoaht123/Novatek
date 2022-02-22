@@ -7,6 +7,8 @@ use App\Http\Controllers\client\HomeController;
 Route::prefix('admin')->group(function(){
     Route::get('/',[App\Http\Controllers\AdminController::class,'index']);
     Route::get('/login',[App\Http\Controllers\AdminController::class,'login']);
+    Route::post('checkLogin',[App\Http\Controllers\AdminController::class,'checkLogin']);
+    Route::get('/logout',[App\Http\Controllers\AdminController::class,'logout']);
     //Category
     Route::get('/create_category',[App\Http\Controllers\CategoryController::class,'create_category'])->name('create_category');
     Route::post('/save_category',[App\Http\Controllers\CategoryController::class,'save_category']);
@@ -36,6 +38,7 @@ Route::prefix('admin')->group(function(){
 
     //User
     Route::get('/view_user',[App\Http\Controllers\AdminController::class,'view_user']); 
+    Route::get('/delete_user/{user_id}',[App\Http\Controllers\AdminController::class,'delete_user']);
 
     Route::post('/save_product',[App\Http\Controllers\ProductController::class,'save_product']);
     Route::get('/view_product',[App\Http\Controllers\ProductController::class,'view_product']);

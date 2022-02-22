@@ -16,14 +16,24 @@ use Illuminate\Support\Facades\Redirect;
 session_start(); 
 
 class ProductController extends Controller
-{
+{   
+    public function AuthLogin(){
+        $admin_id = Session::get('admin_id');
+        if($admin_id){
+            return Redirect::to('admin');
+        }else{
+            return Redirect::to('admin/login')->send();
+        }
+    }
+
     public function getCategory($parent_id){
         $recursive = new Recursive();
        $htmlOption = $recursive->categoryRecursive($parent_id);
         return $htmlOption;
     }
-    //CPU
+    
     public function create_product(){
+        $this->AuthLogin();
         $supplier = Supplier::all();
         $category = Category::all();
         $parent_id='';
@@ -105,6 +115,7 @@ class ProductController extends Controller
 
 
     public function view_product(){
+        $this->AuthLogin();
         $product = Product::paginate(10);
         $category = Category::where('parent_id', '=', 0)->get();
         $brand = Brand::all();
@@ -113,13 +124,16 @@ class ProductController extends Controller
     }
 
     public function view_product_cate($category_name){
+        $this->AuthLogin();
         $category = Category::where('parent_id', '=', 0)->get();
         $product = Product::where('component',$category_name)->paginate(10);
         $brand = Brand::all();
         $supplier = Supplier::all();
         return view('admin.product.category_product',compact('product','category','brand','supplier'));
     }
+
     public function view_product_brand($brand_id){
+        $this->AuthLogin();
         $product = Product::where('brand_id',$brand_id)->paginate(10);
         $category = Category::all();
         $brand = Brand::all();
@@ -128,6 +142,7 @@ class ProductController extends Controller
     }
 
     public function view_product_supplier($supplier_id){
+        $this->AuthLogin();
         $product = Product::where('supplier_id',$supplier_id)->paginate(10);
         $category = Category::all();
         $brand = Brand::all();
@@ -136,18 +151,21 @@ class ProductController extends Controller
     }
 
     public function active_product($product_id){
+        $this->AuthLogin();
         DB::table('Product')->where('product_id',$product_id)->update(['product_status'=>0]);
         Session::put('message','Show product successfully');
         return Redirect::to('admin/view_product');
     }
 
     public function unactive_product($product_id){
+        $this->AuthLogin();
         DB::table('Product')->where('product_id',$product_id)->update(['product_status'=>1]);
         Session::put('message','Hide product successfully');
         return Redirect::to('admin/view_product');
     }
 
     public function delete_product($product_id){
+        $this->AuthLogin();
         Product::find($product_id)->delete();
         Session::put('message','Delete product successfully');
         return Redirect::to('admin/view_product');
@@ -155,6 +173,7 @@ class ProductController extends Controller
 
 
     public function product_details($product_id){
+        $this->AuthLogin();
         $product = Product::where('product_id',$product_id)->get();
         return view('admin.product.product_details',compact('product'));
     }

@@ -13,7 +13,18 @@ session_start();
 
 class BrandController extends Controller
 {
+
+    public function AuthLogin(){
+        $admin_id = Session::get('admin_id');
+        if($admin_id){
+            return Redirect::to('admin');
+        }else{
+            return Redirect::to('admin/login')->send();
+        }
+    }
+
     public function create_brand(){
+        $this->AuthLogin();
         return view('admin.brand.create_brand');
     }
 
@@ -29,11 +40,13 @@ class BrandController extends Controller
     }
     
     public function view_brand(){
+        $this->AuthLogin();
         $brand = Brand::all();
         return view('admin.brand.view_brand',compact('brand'));
     }
 
     public function update_brand($brand_id){
+        $this->AuthLogin();
        $brand = DB::table('Brands')->where('brand_id',$brand_id)->first();
         return view('admin.brand.update_brand',compact('brand'));
 
@@ -48,18 +61,21 @@ class BrandController extends Controller
     }
 
     public function active_brand($brand_id){
+        $this->AuthLogin();
         DB::table('Brands')->where('brand_id',$brand_id)->update(['brand_status'=>0]);
         Session::put('message','Show brand successfully');
         return Redirect::to('admin/view_brand');
     }
 
     public function unactive_brand($brand_id){
+        $this->AuthLogin();
         DB::table('Brands')->where('brand_id',$brand_id)->update(['brand_status'=>1]);
         Session::put('message','Hide brand successfully');
         return Redirect::to('admin/view_brand');
     }
 
     public function delete_brand($brand_id){
+        $this->AuthLogin();
         DB::table('Brands')->where('brand_id',$brand_id)->delete();
         Session::put('message','Delete brand successfully');
         return Redirect::to('admin/view_brand');

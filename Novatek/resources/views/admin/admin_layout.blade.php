@@ -40,9 +40,14 @@
 			        </div><!--//col-->
 		            <div class="app-utilities col-auto">
 			            <div class="app-utility-item app-user-dropdown dropdown">
+							<?php
+								$admin_name = Session::get('admin_name');
+								echo $admin_name;
+							?>
 				            <a class="dropdown-toggle" id="user-dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><img src="{{asset('/images/user.png')}}" alt="user profile"></a>
+						
 				            <ul class="dropdown-menu" aria-labelledby="user-dropdown-toggle">
-								<li><a class="dropdown-item" href="login.html">Log Out</a></li>
+								<li><a class="dropdown-item" href="{{URL::to('admin/logout')}}">Log Out</a></li>
 							</ul>
 			            </div><!--//app-user-dropdown--> 
 		            </div><!--//app-utilities-->

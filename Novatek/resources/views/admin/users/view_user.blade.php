@@ -10,7 +10,7 @@
             <th>Email</th>
             <th>Phone</th>
             <th>Address</th>
-            <th>Social</th>
+            <th>Action</th>
             
         </tr>
       </thead>
@@ -30,7 +30,9 @@
                 <td>{{$user->email}}</td>
                 <td>{{$user->phone}}</td>
                 <td>{{$user->address}}</td>
-                <td>{{$user->provider}}</td>
+                <td>
+                <a href="{{URL::to('admin/delete_user/'.$user->user_id)}}" class="active" ui-toggle-class="" onclick="return confirm('Do you wanna delete {{$user->name}}')"><i style="font-size:25px')"><i style="font-size:25px" class="fa fa-trash text-danger text"></i></a>
+                </td>
             </tr>
             @endforeach
       </tbody>
