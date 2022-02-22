@@ -182,9 +182,8 @@ class ProductController extends Controller
         $this->AuthLogin();
         $product = Product::where('product_id',$product_id)->first();
         $supplier = Supplier::all();
-        $category = Category::all();
-        $parent_id='';
-        $htmlOption = $this->getCategory($parent_id);
+        $category = Category::find($product->category_id);
+        $htmlOption = $this->getCategory($category->parent_id);
         $brand = Brand::all();
         return view('admin.product.update_product',compact('product','supplier','category','brand','htmlOption'));
     }
