@@ -33,20 +33,23 @@ class ProductController extends Controller
         return view('admin.product.create_product',compact('supplier','category','brand','htmlOption'));
     }
     
-
+    public function getComponent($category_id){
+        $category = Category::find($category_id);
+        if ($category->parent_id==0){
+            $component=$category->category_name;
+            return $component;
+        }
+        else{
+            $component=$this->getCategoryParent($category->parent_id);
+        }
+    }
 
     public function save_product(Request $request){
         $data = array();
         $data['product_name'] = $request->product_name;
         $data['product_slug'] = Str::slug($data['product_name'],'-');
         $data['category_id'] = $request->category;
-        $category = Category::find($data['category_id']);
-        $data['category_spec'] = '';
-        if($category->parent_id == 0){
-            $data['category_spec'] .= $category->category_name;
-        }else{
-            $data['category_spec'] .= $category->category_name.'-'.Category::find($category->parent_id)->category_name;
-        }
+        $data['component'] = $this->getComponent($data['category_id']);
         $data['brand_id'] = $request->brand;
         $data['supplier_id'] = $request->supplier;
         $data['product_price'] = $request->product_price;
@@ -102,15 +105,15 @@ class ProductController extends Controller
 
     public function view_product(){
         $product = Product::paginate(10);
-        $category = Category::all();
+        $category = Category::where('parent_id', '=', 0)->get();
         $brand = Brand::all();
         $supplier = Supplier::all();
         return view('admin.product.view_product',compact('product','category','brand','supplier'));
     }
 
     public function view_product_cate($category_id){
+        $category = Category::where('parent_id', '=', 0)->get();
         $product = Product::where('category_id',$category_id)->paginate(10);
-        $category = Category::all();
         $brand = Brand::all();
         $supplier = Supplier::all();
         return view('admin.product.category_product',compact('product','category','brand','supplier'));

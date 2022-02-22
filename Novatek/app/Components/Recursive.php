@@ -1,6 +1,8 @@
 <?php
 namespace App\Components;
 
+use App\Models\Category;
+
 
 class Recursive{
     private $htmlSelect = '';
@@ -18,9 +20,19 @@ class Recursive{
                 } else{
                     $this->htmlSelect .= "<option value='".$value['category_id']."'>".$text.$value['category_name']."</option>";
                 }
-                $this->categoryRecursive($parent_id,$value['category_id'], $text.'--');
+                $this->categoryRecursive($parent_id,$value['category_id'], $text.'&nbsp;&nbsp;&nbsp;&nbsp;');
             }
         }
         return $this->htmlSelect;
     }
+
+    public function getCategoryParent($parent_id){
+        $category = Category::where('category_id',$parent_id)->first();
+            if($category->parent_id==0){
+                $component=$category->category_name;
+                return $component;
+            }else{
+                $component = $this->getCategoryParent($category->parent_id);
+            }
+        }
 }

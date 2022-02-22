@@ -14,7 +14,7 @@ class AddCoulmnProducts extends Migration
     public function up()
     {
         Schema::table('Product', function (Blueprint $table) {
-            $table->string('category_spec');
+            $table->string('component');
         });
     }
 
