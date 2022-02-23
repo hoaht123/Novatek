@@ -1,6 +1,7 @@
 @extends('admin.admin_layout')
 @section('admin-content')
-<h2 class="text-center">List all categories</h1>
+<div style="margin-top:20px;font-weight:bold">CATEGORY / VIEW</div>
+<h2 class="text-center">VIEW CATEGORY</h1>
 <div class="table-responsive" style="margin-top:50px; text-align:center">
   <p class="float-right"><a href="{{route('create_category')}}" class="btn btn-primary">Add Category</a></p>
     <table class="table table-striped b-t b-light">

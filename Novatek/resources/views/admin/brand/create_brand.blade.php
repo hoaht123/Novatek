@@ -1,6 +1,7 @@
 @extends('admin.admin_layout')
 @section('admin-content')
-<h2 class="text-center">Create new brand</h2>
+<div style="margin-top:20px;font-weight:bold">BRAND / CREATE</div>
+<h2 class="text-center">CREATE BRAND</h1>
 <div class="container" style="margin-left: 300px">
     <form action="{{URL::to('admin/save_brand')}}" method="post">
         @csrf

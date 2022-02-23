@@ -20,18 +20,24 @@
         <div class="form-group" >
             Brand
             <select  name="brand" class="form-control"style="width:200px">
-                <option value="">-----Choose-----</option>
-                @foreach($brand as $key=>$bra)
-                <option value="{{$bra->brand_id}}"> {{$bra->brand_name}}</option>
+                @foreach($brands as $key=>$brand)
+                @if($product->product_id == $brand->brand_id)
+                <option selected value="{{$brand->brand_id}}">{{$brand->brand_name}}</option>
+                @else
+                <option value="{{$brand->brand_id}}"> {{$brand->brand_name}}</option>
+                @endif
                 @endforeach
             </select>
         </div>
         <div class="form-group">
             Supplier
             <select name="supplier" class="form-control"style="width:200px">
-                <option value="">-----Choose-----</option>
-                @foreach($supplier as $key=>$sup)
-                <option value="{{$sup->supplier_id}}"> {{$sup->supplier_name}}</option>
+                @foreach($suppliers as $key=>$supplier)
+                @if($product->product_id == $supplier->supplier_id)
+                <option selected value="{{$supplier->supplier_id}}">{{$supplier->supplier_name}}</option>
+                @else
+                <option value="{{$supplier->supplier_id}}"> {{$supplier->supplier_name}}</option>
+                @endif
                 @endforeach
             </select>
         </div>

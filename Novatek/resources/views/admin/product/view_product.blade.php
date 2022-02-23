@@ -1,6 +1,7 @@
 @extends('admin.admin_layout')
 @section('admin-content')
-<h2 class="text-center">List all products</h1>
+<div style="margin-top:20px;font-weight:bold">PRODUCT / VIEW</div>
+<h2 class="text-center">LIST ALL PRODUCT </h1>
 <div class="button" style="display: flex;justify-content: end;">
     <div class="right" style="display: flex;">
         <div class="dropdown" style="padding-right: 50px;">

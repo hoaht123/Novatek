@@ -1,6 +1,7 @@
 @extends('admin.admin_layout')
 @section('admin-content')
-<h1 class="text-center">Update brand</h1>
+<div style="margin-top:20px;font-weight:bold">BRAND / EDIT</div>
+<h2 class="text-center">EDIT BRAND</h1>
 
 <div class="container" style="margin-left: 300px">
     <form action="{{URL::to('admin/saveUpdate_brand/'.$brand->brand_id)}}" method="post">

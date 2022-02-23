@@ -181,11 +181,11 @@ class ProductController extends Controller
     public function edit_product($product_id){
         $this->AuthLogin();
         $product = Product::where('product_id',$product_id)->first();
-        $supplier = Supplier::all();
+        $suppliers = Supplier::all();
         $category = Category::find($product->category_id);
         $htmlOption = $this->getCategory($category->parent_id);
-        $brand = Brand::all();
-        return view('admin.product.update_product',compact('product','supplier','category','brand','htmlOption'));
+        $brands = Brand::all();
+        return view('admin.product.update_product',compact('product','suppliers','category','brands','htmlOption'));
     }
     
     public function save_update_product($product_id, Request $request){
@@ -205,12 +205,58 @@ class ProductController extends Controller
         $data['product_inStock'] = $request->stock;
         $get_image_gallery = $request->file('product_image_gallery');
         $get_image_main = $request->file('product_image_main');
+        // echo $get_image_gallery;
+        // echo $get_image_main;
+        // die();
         // echo '<pre>';
         // print_r($data);
         // die();
         // echo '</pre>';
         
-        if($get_image_main == true && $get_image_gallery == true){
+        if($get_image_main){
+            //main
+            $get_name_image = $get_image_main->getClientOriginalName();// lấy tên file
+            $name_image = current(explode('.',$get_name_image));// cắt tên file thành nhiều phần tử, lấy phần tử đầu
+            $extension = explode('.',$get_name_image);
+            $get_extension = end($extension);
+            $extensionChange = strtolower($get_extension);
+            $extensionArray = ['jpg','jpeg','gif','tiff','psb','eps','png'];
+            //gallery
+            if(in_array($extensionChange,$extensionArray)){
+                $new_image = $name_image.rand(0,9999) . '.' . $get_image_main->getClientOriginalExtension(); //hàm lấy đuôi file
+                $stored = $get_image_main->move(public_path().'/images/product', $new_image);
+                $data['product_main_image'] = $new_image;
+                DB::table('Product')->where('product_id',$product_id)->update($data);
+                
+                Session::put('message', 'Update product successfully');
+                return Redirect::to('admin/view_product');
+            }else{
+            Session::put('message','File is incorrect . Try again');
+            return Redirect::to('admin/view_product');
+            }
+        // }else{
+        //     Session::put('message', 'Create product failed. Try again');
+        //     return Redirect::to('admin/view_product');
+        }elseif($get_image_gallery){
+            //gallery
+            $get_name_image_gallery = $get_image_gallery->getClientOriginalName();// lấy tên file
+            $name_image_gallery = current(explode('.',$get_name_image_gallery));// cắt tên file thành nhiều phần tử, lấy phần tử đầu
+            $extension_gallery = explode('.',$get_name_image_gallery);
+            $get_extension_gallery = end($extension_gallery);
+            $extensionChange_gallery = strtolower($get_extension_gallery);
+            $extensionArray = ['jpg','jpeg','gif','tiff','psb','eps','png'];
+            if(in_array($extensionChange_gallery,$extensionArray)){
+                $new_image_gallery = $name_image_gallery.rand(0,999) . '.' . $get_image_gallery->getClientOriginalExtension();
+                $store_gallery = $get_image_gallery->move(public_path().'/images/product', $new_image_gallery);
+                $data['product_image_gallery'] = $new_image_gallery;
+                DB::table('Product')->where('product_id',$product_id)->update($data);
+                Session::put('message', 'Update product successfully');
+                return Redirect::to('admin/view_product');
+            }else{
+            Session::put('message','File is incorrect . Try again');
+            return Redirect::to('admin/view_product');
+            }
+        }elseif($get_image_main == true && $get_image_gallery == true){
             //main
             $get_name_image = $get_image_main->getClientOriginalName();// lấy tên file
             $name_image = current(explode('.',$get_name_image));// cắt tên file thành nhiều phần tử, lấy phần tử đầu
@@ -233,19 +279,17 @@ class ProductController extends Controller
                 $data['product_image_gallery'] = $new_image_gallery;
                 DB::table('Product')->where('product_id',$product_id)->update($data);
                 
-                Session::put('message', 'Create product successfully');
+                Session::put('message', 'Update product successfully');
                 return Redirect::to('admin/view_product');
             }else{
             Session::put('message','File is incorrect . Try again');
             return Redirect::to('admin/view_product');
             }
-        // }else{
-        //     Session::put('message', 'Create product failed. Try again');
-        //     return Redirect::to('admin/view_product');
-        }
+        }else{
             DB::table('Product')->where('product_id',$product_id)->update($data);
             Session::put('message', 'Update product successfully');
             return Redirect::to('admin/view_product');
+        } 
     }
 
     

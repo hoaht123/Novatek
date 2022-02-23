@@ -35,11 +35,6 @@ Route::prefix('admin')->group(function(){
         Route::get('/',[App\Http\Controllers\ProductController::class,'create_product']);
        
     });
-
-    //User
-    Route::get('/view_user',[App\Http\Controllers\AdminController::class,'view_user']); 
-    Route::get('/delete_user/{user_id}',[App\Http\Controllers\AdminController::class,'delete_user']);
-
     Route::post('/save_product',[App\Http\Controllers\ProductController::class,'save_product']);
     Route::get('/view_product',[App\Http\Controllers\ProductController::class,'view_product']);
     Route::get('/product_details/{product_id}',[App\Http\Controllers\ProductController::class,'product_details']);
@@ -51,6 +46,17 @@ Route::prefix('admin')->group(function(){
     Route::get('/view_product/active_product/{product_id}',[App\Http\Controllers\ProductController::class,'active_product']);
     Route::get('/view_product/unactive_product/{product_id}',[App\Http\Controllers\ProductController::class,'unactive_product']);
     Route::get('delete_product/{product_id}',[App\Http\Controllers\ProductController::class,'delete_product']);
+    //User
+    Route::get('/view_user',[App\Http\Controllers\AdminController::class,'view_user']); 
+    Route::get('/delete_user/{user_id}',[App\Http\Controllers\AdminController::class,'delete_user']);
+
+    //Supplier
+    Route::get('/view_supplier',[App\Http\Controllers\SupplierController::class,'view_supplier']);
+    Route::get('/create_supplier',[App\Http\Controllers\SupplierController::class,'create_supplier']);
+    Route::post('/save_supplier',[App\Http\Controllers\SupplierController::class,'save_supplier']);
+    Route::get('/update_supplier/{supplier_id}',[App\Http\Controllers\SupplierController::class,'update_supplier']);
+    Route::post('/saveUpdate_supplier/{supplier_id}',[App\Http\Controllers\SupplierController::class,'saveUpdate_supplier']);
+
 });
 
 Route::prefix('')->group(function(){
