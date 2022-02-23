@@ -13,7 +13,7 @@
         <div class="form-group">
             Category
             <select name="category" class="form-control"style="width:200px">
-                <option value="">-----Choose-----</option>
+                <option value="0">-----Choose-----</option>
                 {!! $htmlOption !!}
             </select>
         </div>

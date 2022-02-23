@@ -44,7 +44,7 @@ class ProductController extends Controller
     
     public function getComponent($category_id){
         $category = Category::where('category_id',$category_id)->first();
-        if ($category->parent_id==0){
+        if (!empty($category->parent_id) &&$category->parent_id==0){         
             $component=$category->category_name;
             return $component;
         }
@@ -183,7 +183,7 @@ class ProductController extends Controller
         $product = Product::where('product_id',$product_id)->first();
         $suppliers = Supplier::all();
         $category = Category::find($product->category_id);
-        $htmlOption = $this->getCategory($category->parent_id);
+        $htmlOption = $this->getCategory($product->category_id);
         $brands = Brand::all();
         return view('admin.product.update_product',compact('product','suppliers','category','brands','htmlOption'));
     }
