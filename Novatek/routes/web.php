@@ -32,10 +32,19 @@ Route::prefix('admin')->group(function(){
 
     //Product
     Route::prefix('/create_product')->group(function(){
-        Route::get('/',[App\Http\Controllers\ProductController::class,'create_product']);
-       
+        Route::get('/',function(){return view('admin.product.create_product');})->name('create_product');
+        Route::get('/ram',[App\Http\Controllers\ProductController::class,'create_ram'])->name('create_ram');
+        Route::get('/cpu',[App\Http\Controllers\ProductController::class,'create_cpu'])->name('create_cpu');
+        Route::get('/keyboard',[App\Http\Controllers\ProductController::class,'create_keyboard'])->name('create_keyboard');
+        Route::get('/psu',[App\Http\Controllers\ProductController::class,'create_psu'])->name('create_psu');
+        Route::get('/gpu',[App\Http\Controllers\ProductController::class,'create_gpu'])->name('create_gpu');
+        Route::get('/storage',[App\Http\Controllers\ProductController::class,'create_storage'])->name('create_storage');
+        Route::get('/mouse',[App\Http\Controllers\ProductController::class,'create_mouse'])->name('create_mouse');
+        Route::get('/headphone',[App\Http\Controllers\ProductController::class,'create_mouse'])->name('create_headphone');
+        Route::get('/motherboard',[App\Http\Controllers\ProductController::class,'create_mouse'])->name('create_motherboard');
     });
-    Route::post('/save_product',[App\Http\Controllers\ProductController::class,'save_product']);
+    
+    Route::post('/save_product',[App\Http\Controllers\ProductController::class,'save_product'])->name('save_product');
     Route::get('/view_product',[App\Http\Controllers\ProductController::class,'view_product']);
     Route::get('/product_details/{product_id}',[App\Http\Controllers\ProductController::class,'product_details']);
     Route::get('/view_product_cate/{category_id}',[App\Http\Controllers\ProductController::class,'view_product_cate']);
