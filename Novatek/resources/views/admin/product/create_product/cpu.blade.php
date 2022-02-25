@@ -57,8 +57,6 @@
                 </div>
                 {{-- spec type --}}
                 {{-- <input type="hidden" name="component" value ="Ram"> --}}
-                <div class="form-group">
-                    Socket
                     <div class="form-group">
                         Socket
                        <select name="cpu_socket" class="form-control"style="width:200px">
@@ -75,7 +73,6 @@
                         </optgroup>
                        </select>
                    </div>
-                </div>
                 <div class="form-group">
                     Speed
                     <input type="text" name="cpu_speed" class="form-control" style="width:200px">
