@@ -36,6 +36,11 @@
         <!-- styled select -->
         <script src="{{ asset('client/js/jquery.sumoselect.min.js') }}"></script>
     
+        <!-- MAP -->
+        <script src="https://maps.googleapis.com/maps/api/js"></script>
+        <script src="{{ asset('client/js/map.js') }}"></script>
+
+       
         <!-- counter -->
         <script src="{{ asset('client/js/jquery.classycountdown.js') }}"></script>
         <script src="{{ asset('client/js/jquery.knob.js') }}"></script>
