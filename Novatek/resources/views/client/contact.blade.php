@@ -86,7 +86,7 @@
             $correct = Session::get('correct');
             if($correct){
                 echo '<script>alert("'.$correct.'");</script>';
-                Session::put('message', null);
+                Session::put('correct', null);
             }
             ?>
     
