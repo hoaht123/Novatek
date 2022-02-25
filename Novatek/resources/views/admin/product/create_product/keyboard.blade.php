@@ -58,11 +58,11 @@
                 {{-- spec type --}}
                 {{-- <input type="hidden" name="component" value ="Ram"> --}}
                 <div class="form-group">
-                    KEY QUANTITY
+                    Key quantity
                     <input type="number" name="keyboard_qty" class="form-control" style="width:200px">
                </div>
                 <div class="form-group">
-                    COLOR
+                    Color
                     <input type="text" name="keyboard_color" class="form-control" style="width:200px">
                </div>
                <div class="form-group">
@@ -78,7 +78,7 @@
                     </select>
                 </div>
                <div class="form-group">
-                    WIRELESS
+                Wireless
                     <select name="keyboard_wireless" class="form-control"style="width:200px">
                         <option value="YES">Yes</option>
                         <option value="NO">No</option>
