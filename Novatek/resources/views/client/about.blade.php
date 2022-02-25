@@ -23,7 +23,7 @@
         </div>
 
         <div class="empty-space col-xs-b35 col-md-b70"></div>
-        <div class="empty-space col-xs-b35 col-md-b70"></div>
+        {{-- <div class="empty-space col-xs-b35 col-md-b70"></div> --}}
 
         <div class="container">
             <div class="row">
@@ -111,7 +111,7 @@
         </div>
 
         <div class="empty-space col-xs-b35 col-md-b70"></div>
-        <div class="empty-space col-xs-b35 col-md-b70"></div>
+        {{-- <div class="empty-space col-xs-b35 col-md-b70"></div> --}}
 
         <div class="container">
             <div class="text-center">
@@ -320,7 +320,7 @@
         </div>
 
         <div class="empty-space col-xs-b35 col-md-b70"></div>
-        <div class="empty-space col-xs-b35 col-md-b70"></div>
+        {{-- <div class="empty-space col-xs-b35 col-md-b70"></div> --}}
 
         <div class="container">
             <div class="text-center">
@@ -376,7 +376,7 @@
         </div>
 
         <div class="empty-space col-xs-b35 col-md-b70"></div>
-        <div class="empty-space col-xs-b35 col-md-b70"></div>
+        {{-- <div class="empty-space col-xs-b35 col-md-b70"></div> --}}
 
         <div class="container">
             <div class="row">
