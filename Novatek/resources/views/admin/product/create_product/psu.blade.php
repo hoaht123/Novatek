@@ -58,31 +58,37 @@
                 {{-- spec type --}}
                 {{-- <input type="hidden" name="component" value ="Ram"> --}}
                 <div class="form-group">
-                     Speed
-                    <select name="ram_speed" class="form-control"style="width:200px">
-                        <option value="1333 MHz - 2133 MHz">1333 MHz - 2133 MHz</option>
-                        <option value="2133 MHz - 2666 MHz">2133 MHz - 2666 MHz</option>
+                    Type
+                    <select name="psu_type" class="form-control"style="width:200px">
+                        <option value="LINEAR">LINEAR</option>
+                        <option value="SWITCHED">SWITCHED</option>
+                        <option value="BATTERY-BASE">BATTERY-BASE</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    Capacity
-                   <select name="memory_size" class="form-control"style="width:200px">
-                       <option value="8GB">8GB</option>
-                       <option value="16GB">16GB</option>
+                    Power
+                   <select name="psu_power" class="form-control"style="width:200px">
+                       <option value="120W">120W</option>
+                       <option value="200W">200W</option>
+                       <option value="400W">400W</option>
+                       <option value="450W">450W</option>
+                       <option value="500W">500W</option>
+                       <option value="600W">600W</option>
+                       <option value="650W">650W</option>
+                       <option value="700W">700W</option>
+                       <option value="750W">750W</option>
+                       <option value="1000W">1000W</option>
+                       <option value="1200W">1200W</option>
+                       <option value="1250W">1250W</option>
                    </select>
                </div>
                <div class="form-group">
-                    Type
-                    <select name="ram_type" class="form-control"style="width:200px">
-                        <option value="DRAM">DRAM</option>
-                        <option value="SRAM">SRAM</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    Bandwidth
-                    <select name="ram_bandwidth" class="form-control"style="width:200px">
-                        <option value="DDR3">DDR3 </option>
-                        <option value="DDR5">DDR5</option>
+                    Efficiency
+                    <select name="psu_efficiency" class="form-control"style="width:200px">
+                        <option value="80 PLUS">80 PLUS</option>
+                        <option value="80 PLUS BROZEN">80 PLUS BROZEN</option>
+                        <option value="80 PLUS SLIVER">80 PLUS SLIVER</option>
+                        <option value="80 PLUS GOLD">80 PLUS GOLD</option>
                     </select>
                 </div>
                 {{-- end spec type --}}

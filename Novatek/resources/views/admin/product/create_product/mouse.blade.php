@@ -58,31 +58,22 @@
                 {{-- spec type --}}
                 {{-- <input type="hidden" name="component" value ="Ram"> --}}
                 <div class="form-group">
-                     Speed
-                    <select name="ram_speed" class="form-control"style="width:200px">
-                        <option value="1333 MHz - 2133 MHz">1333 MHz - 2133 MHz</option>
-                        <option value="2133 MHz - 2666 MHz">2133 MHz - 2666 MHz</option>
+                    Type
+                    <select name="mouse_type" class="form-control"style="width:200px">
+                        <option value="LINEAR">LINEAR</option>
+                        <option value="SWITCHED">SWITCHED</option>
+                        <option value="BATTERY-BASE">BATTERY-BASE</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    Capacity
-                   <select name="memory_size" class="form-control"style="width:200px">
-                       <option value="8GB">8GB</option>
-                       <option value="16GB">16GB</option>
-                   </select>
+                    DPI
+                    <input type="text" name="mouse_dpi" class="form-control" style="width:200px">
                </div>
                <div class="form-group">
-                    Type
-                    <select name="ram_type" class="form-control"style="width:200px">
-                        <option value="DRAM">DRAM</option>
-                        <option value="SRAM">SRAM</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    Bandwidth
-                    <select name="ram_bandwidth" class="form-control"style="width:200px">
-                        <option value="DDR3">DDR3 </option>
-                        <option value="DDR5">DDR5</option>
+                    WIRELESS
+                    <select name="mouse_wireless" class="form-control"style="width:200px">
+                        <option value="YES">YES</option>
+                        <option value="NO">NO</option>
                     </select>
                 </div>
                 {{-- end spec type --}}
