@@ -75,6 +75,7 @@
                        <option value="1TB">1TB</option>
                    </select>
                </div>
+            </div>
             <div class="col">
                 <div class="form-group">
                     Price
