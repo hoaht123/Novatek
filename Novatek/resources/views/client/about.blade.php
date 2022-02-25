@@ -163,7 +163,7 @@
                                         <div class="h6">Dr.Nguyễn Hoàng Tân</div>
                                     </div>
                                     <div class="description">
-                                        <div class="simple-article text size-2">Mollis nec consequat at In feugiat molestie tortor a malesuada</div>
+                                        <div class="simple-article text size-2"></div>
                                     </div>
                                     <div class="follow light">
                                         <a class="entry" href="#"><i class="fa fa-facebook"></i></a>
@@ -186,7 +186,7 @@
                                         <div class="h6">Dr. Triệu Văn Tình</div>
                                     </div>
                                     <div class="description">
-                                        <div class="simple-article text size-2">Mollis nec consequat at In feugiat molestie tortor a malesuada</div>
+                                        <div class="simple-article text size-2"></div>
                                     </div>
                                     <div class="follow light">
                                         <a class="entry" href="#"><i class="fa fa-facebook"></i></a>
@@ -209,7 +209,7 @@
                                         <div class="h6">Sir Lý Triệu Đạt</div>
                                     </div>
                                     <div class="description">
-                                        <div class="simple-article text size-2">Mollis nec consequat at In feugiat molestie tortor a malesuada</div>
+                                        <div class="simple-article text size-2"></div>
                                     </div>
                                     <div class="follow light">
                                         <a class="entry" href="#"><i class="fa fa-facebook"></i></a>
@@ -232,7 +232,7 @@
                                         <div class="h6">Tom Cruise</div>
                                     </div>
                                     <div class="description">
-                                        <div class="simple-article text size-2">Mollis nec consequat at In feugiat molestie tortor a malesuada</div>
+                                        <div class="simple-article text size-2"></div>
                                     </div>
                                     <div class="follow light">
                                         <a class="entry" href="#"><i class="fa fa-facebook"></i></a>
@@ -255,7 +255,7 @@
                                         <div class="h6">Johnny Depp</div>
                                     </div>
                                     <div class="description">
-                                        <div class="simple-article text size-2">Mollis nec consequat at In feugiat molestie tortor a malesuada</div>
+                                        <div class="simple-article text size-2"></div>
                                     </div>
                                     <div class="follow light">
                                         <a class="entry" href="#"><i class="fa fa-facebook"></i></a>
@@ -278,7 +278,7 @@
                                         <div class="h6">Leonardo DiCaprio</div>
                                     </div>
                                     <div class="description">
-                                        <div class="simple-article text size-2">Mollis nec consequat at In feugiat molestie tortor a malesuada</div>
+                                        <div class="simple-article text size-2"></div>
                                     </div>
                                     <div class="follow light">
                                         <a class="entry" href="#"><i class="fa fa-facebook"></i></a>
@@ -301,7 +301,7 @@
                                         <div class="h6">Keanu Reeves</div>
                                     </div>
                                     <div class="description">
-                                        <div class="simple-article text size-2">Mollis nec consequat at In feugiat molestie tortor a malesuada</div>
+                                        <div class="simple-article text size-2"></div>
                                     </div>
                                     <div class="follow light">
                                         <a class="entry" href="#"><i class="fa fa-facebook"></i></a>
@@ -354,7 +354,7 @@
                 <img src={{ asset("client/img/Intel-Logo-700x394.png") }}  alt="" />
             </a>
             <a class="client-logo-entry">
-                <img src={{ asset("client/img/Gigabyte-Logo-700x394.png") }} " alt="" />
+                <img src={{ asset("client/img/Gigabyte-Logo-700x394.png") }}  alt="" />
                 <img src={{ asset("client/img/Gigabyte-Logo-700x394.png") }}  alt="" />
             </a>
             <a class="client-logo-entry">
