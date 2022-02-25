@@ -12,7 +12,7 @@ class Product extends Model
     protected $fillable = ['product_name','product_price','product_sku','product_slug','product_sort_description','product_description','product_image','product_status','product_isHot','product_isNew','product_inStock'];
     protected $foreignKey = ['category_id','brand_id','supplier_id'];
     protected $primaryKey = 'product_id';
-    protected $table = 'Product';
+    protected $table = 'product';
 
     public function brands(){
         return $this->belongsTo(Brand::class,'brand_id');

@@ -37,7 +37,7 @@ class ProductController extends Controller
         $this->AuthLogin();
         $supplier = Supplier::all();
         $cate = Category::where('category_name','like','Ram')->first();
-        $category = DB::select('select * from Categories where category_name like "Ram" or parent_id ='. $cate->category_id);
+        $category = DB::select('select * from categories where category_name like "Ram" or parent_id ='. $cate->category_id);
         // $parent_id='';
         // $htmlOption = $this->getCategory($parent_id);
         $brand = Brand::all();

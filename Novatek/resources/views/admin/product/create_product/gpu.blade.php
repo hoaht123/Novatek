@@ -17,7 +17,7 @@
                 <a class="dropdown-item" href="{{route('create_headphone')}}">Headphone</a>
             </div>
         </div>
-<h2 class="text-center">CREATE NEW RAM </h1>
+<h2 class="text-center">CREATE NEW GPU </h1>
 <div class="container">
     <form action="{{URL::to('admin/save_product')}}" method="post" enctype="multipart/form-data">
         @csrf

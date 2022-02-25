@@ -11,7 +11,7 @@ class Social extends Model
     protected $fillable = ['provider_id','provider'];
     protected $primaryKey = 'social_id';
     protected $foreignKey = ['user_id'];
-    protected $table = 'Socials';
+    protected $table = 'socials';
 
     public function login(){
        return $this->belongsTo(Users::class,'user_id');
