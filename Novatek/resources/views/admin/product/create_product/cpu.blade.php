@@ -78,30 +78,33 @@
                 </div>
                 <div class="form-group">
                     Speed
-                   <select name="cpu_speed" class="form-control"style="width:200px">
-                       <option value="0">In stock</option>
-                       <option value="1">Out stock</option>
-                   </select>
+                    <input type="text" name="cpu_speed" class="form-control" style="width:200px">
                </div>
                <div class="form-group">
                     Core
                     <select name="cpu_core" class="form-control"style="width:200px">
-                        <option value="0">In stock</option>
-                        <option value="1">Out stock</option>
+                        <option value="2">2</option>
+                        <option value="4">4</option>
+                        <option value="6">6</option>
+                        <option value="8">8</option>
                     </select>
                 </div>
                 <div class="form-group">
                     Thread
                     <select name="cpu_thread" class="form-control"style="width:200px">
-                        <option value="0">In stock</option>
-                        <option value="1">Out stock</option>
+                        <option value="4">4</option>
+                        <option value="8">8</option>
+                        <option value="12">12</option>
+                        <option value="16">16</option>
                     </select>
                 </div>
                 <div class="form-group">
                     Cache
                     <select name="cpu_cache" class="form-control"style="width:200px">
-                        <option value="0">In stock</option>
-                        <option value="1">Out stock</option>
+                        <option value="256KB">256KB</option>
+                        <option value="512KB">512KB</option>
+                        <option value="1MB">1MB</option>
+                        <option value="2MB">2MB</option>
                     </select>
                 </div>
                 {{-- end spec type --}}
