@@ -43,6 +43,86 @@ class ProductController extends Controller
         $brand = Brand::all();
         return view('admin.product.create_product.ram',compact('supplier','category','brand'));
     }
+    public function create_gpu(){
+        $this->AuthLogin();
+        $supplier = Supplier::all();
+        $cate = Category::where('category_name','like','gpu')->first();
+        $category = DB::select('select * from categories where category_name like "gpu" or parent_id ='. $cate->category_id);
+        // $parent_id='';
+        // $htmlOption = $this->getCategory($parent_id);
+        $brand = Brand::all();
+        return view('admin.product.create_product.gpu',compact('supplier','category','brand'));
+    }
+    public function create_motherboard(){
+        $this->AuthLogin();
+        $supplier = Supplier::all();
+        $cate = Category::where('category_name','like','motherboard')->first();
+        $category = DB::select('select * from categories where category_name like "motherboard" or parent_id ='. $cate->category_id);
+        // $parent_id='';
+        // $htmlOption = $this->getCategory($parent_id);
+        $brand = Brand::all();
+        return view('admin.product.create_product.motherboard',compact('supplier','category','brand'));
+    }
+    public function create_psu(){
+        $this->AuthLogin();
+        $supplier = Supplier::all();
+        $cate = Category::where('category_name','like','psu')->first();
+        $category = DB::select('select * from categories where category_name like "psu" or parent_id ='. $cate->category_id);
+        // $parent_id='';
+        // $htmlOption = $this->getCategory($parent_id);
+        $brand = Brand::all();
+        return view('admin.product.create_product.psu',compact('supplier','category','brand'));
+    }
+    public function create_storage(){
+        $this->AuthLogin();
+        $supplier = Supplier::all();
+        $cate = Category::where('category_name','like','storage')->first();
+        $category = DB::select('select * from categories where category_name like "storage" or parent_id ='. $cate->category_id);
+        // $parent_id='';
+        // $htmlOption = $this->getCategory($parent_id);
+        $brand = Brand::all();
+        return view('admin.product.create_product.storage',compact('supplier','category','brand'));
+    }
+    public function create_mouse(){
+        $this->AuthLogin();
+        $supplier = Supplier::all();
+        $cate = Category::where('category_name','like','mouse')->first();
+        $category = DB::select('select * from categories where category_name like "mouse" or parent_id ='. $cate->category_id);
+        // $parent_id='';
+        // $htmlOption = $this->getCategory($parent_id);
+        $brand = Brand::all();
+        return view('admin.product.create_product.mouse',compact('supplier','category','brand'));
+    }
+    public function create_cpu(){
+        $this->AuthLogin();
+        $supplier = Supplier::all();
+        $cate = Category::where('category_name','like','CPU')->first();
+        $category = DB::select('select * from categories where category_name like "CPU" or parent_id ='. $cate->category_id);
+        // $parent_id='';
+        // $htmlOption = $this->getCategory($parent_id);
+        $brand = Brand::all();
+        return view('admin.product.create_product.cpu',compact('supplier','category','brand'));
+    }
+    public function create_keyboard(){
+        $this->AuthLogin();
+        $supplier = Supplier::all();
+        $cate = Category::where('category_name','like','keyboard')->first();
+        $category = DB::select('select * from categories where category_name like "keyboard" or parent_id ='. $cate->category_id);
+        // $parent_id='';
+        // $htmlOption = $this->getCategory($parent_id);
+        $brand = Brand::all();
+        return view('admin.product.create_product.keyboard',compact('supplier','category','brand'));
+    }
+    public function create_headphone(){
+        $this->AuthLogin();
+        $supplier = Supplier::all();
+        $cate = Category::where('category_name','like','headphone')->first();
+        $category = DB::select('select * from categories where category_name like "headphone" or parent_id ='. $cate->category_id);
+        // $parent_id='';
+        // $htmlOption = $this->getCategory($parent_id);
+        $brand = Brand::all();
+        return view('admin.product.create_product.headphone',compact('supplier','category','brand'));
+    }
     
     public function getComponent($category_id){
         $category = Category::where('category_id',$category_id)->first();
@@ -137,14 +217,12 @@ class ProductController extends Controller
             $gpu['gpu_type'] = $request->gpu_type;
             $gpu['gpu_speed'] = $request->gpu_speed;
             $gpu['gpu_memory'] = $request->gpu_memory;
-            $gpu['gpu_brand'] = $request->gpu_brand;
             DB::table('gpu')->insert($gpu);
             $data['spec_gpu'] = DB::getPdo()->lastInsertId();
         }
         else if(strcasecmp($data['component'], 'storage')==0){
             $storage = array();
             $storage['storage_type'] = $request->storage_type;
-            $storage['storage_size'] = $request->storage_size;
             $storage['storage_speed'] = $request->storage_speed;
             $storage['storage_capacity'] = $request->storage_capacity;
             DB::table('storage')->insert($storage);
@@ -195,7 +273,6 @@ class ProductController extends Controller
             $motherboard['motherboard_size'] = $request->motherboard_size;
             $motherboard['motherboard_socket'] = $request->motherboard_socket;
             $motherboard['motherboard_chipset'] = $request->motherboard_chipset;
-            $motherboard['motherboard_brand'] = $request->motherboard_brand;
             DB::table('motherboard')->insert($motherboard);
             $data['spec_motherboard'] = DB::getPdo()->lastInsertId();
         }

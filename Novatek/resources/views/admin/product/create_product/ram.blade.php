@@ -65,7 +65,7 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    Memory Size
+                    Capacity
                    <select name="memory_size" class="form-control"style="width:200px">
                        <option value="8GB">8GB</option>
                        <option value="16GB">16GB</option>

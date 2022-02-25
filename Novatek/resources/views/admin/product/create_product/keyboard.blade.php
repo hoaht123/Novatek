@@ -57,51 +57,31 @@
                 </div>
                 {{-- spec type --}}
                 {{-- <input type="hidden" name="component" value ="Ram"> --}}
-                    <div class="form-group">
-                        Socket
-                       <select name="cpu_socket" class="form-control"style="width:200px">
-                        <optgroup label="Intel">Intel
-                            <option value="LGA 1151">LGA 1151</option>
-                            <option value="LGA 1366">LGA 1366</option>
-                            <option value="LGA1200">LGA1200</option>
-                        </optgroup>
-                        <optgroup label="AMD">AMD
-                            <option value="AM2">AM2</option>
-                            <option value="AM2+">AM2+</option>
-                            <option value="AM3">AM3</option>
-                            <option value="AM4">AM4</option>
-                        </optgroup>
-                       </select>
-                   </div>
                 <div class="form-group">
-                    Speed
-                    <input type="text" name="cpu_speed" class="form-control" style="width:200px">
+                    KEY QUANTITY
+                    <input type="number" name="keyboard_qty" class="form-control" style="width:200px">
+               </div>
+                <div class="form-group">
+                    COLOR
+                    <input type="text" name="keyboard_color" class="form-control" style="width:200px">
                </div>
                <div class="form-group">
-                    Core
-                    <select name="cpu_core" class="form-control"style="width:200px">
-                        <option value="2">2</option>
-                        <option value="4">4</option>
-                        <option value="6">6</option>
-                        <option value="8">8</option>
+                    SWITCH COLOR
+                    <select name="keyboard_switch" class="form-control"style="width:200px">
+                        <option value="Normal">Normal</option>
+                        <option value="Blue">Blue</option>
+                        <option value="Brown">Brown</option>
+                        <option value="Reb">Reb</option>
+                        <option value="Green">Green</option>
+                        <option value="White">White</option>
+                        <option value="Black">Black</option>
                     </select>
                 </div>
-                <div class="form-group">
-                    Thread
-                    <select name="cpu_thread" class="form-control"style="width:200px">
-                        <option value="4">4</option>
-                        <option value="8">8</option>
-                        <option value="12">12</option>
-                        <option value="16">16</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    Cache
-                    <select name="cpu_cache" class="form-control"style="width:200px">
-                        <option value="256KB">256KB</option>
-                        <option value="512KB">512KB</option>
-                        <option value="1MB">1MB</option>
-                        <option value="2MB">2MB</option>
+               <div class="form-group">
+                    WIRELESS
+                    <select name="keyboard_wireless" class="form-control"style="width:200px">
+                        <option value="YES">Yes</option>
+                        <option value="NO">No</option>
                     </select>
                 </div>
                 {{-- end spec type --}}
