@@ -181,6 +181,89 @@ class ProductController extends Controller
                 $store_gallery = $get_image_gallery->move(public_path().'/images/product', $new_image_gallery);
                 $data['product_main_image'] = $new_image;
                 $data['product_image_gallery'] = $new_image_gallery;
+                if(strcasecmp($data['component'], 'Ram')==0){
+                    $ram = array();
+                    $ram['ram_type'] = $request->ram_type;
+                    $ram['memory_size'] = $request->memory_size;
+                    $ram['ram_speed'] = $request->ram_speed;
+                    $ram['ram_bandwidth'] = $request->ram_bandwidth;
+                    DB::table('ram')->insert($ram);
+                    $data['spec_ram'] = DB::getPdo()->lastInsertId();
+                }
+                else if(strcasecmp($data['component'], 'CPU')==0){
+                    $cpu = array();
+                    $cpu['cpu_socket'] = $request->cpu_socket;
+                    $cpu['cpu_speed'] = $request->cpu_speed;
+                    $cpu['cpu_core'] = $request->cpu_core;
+                    $cpu['cpu_thread'] = $request->cpu_thread;
+                    $cpu['cpu_cache'] = $request->cpu_cache;
+                    DB::table('cpu')->insert($cpu);
+                    $data['spec_cpu'] = DB::getPdo()->lastInsertId();
+                }
+                else if(strcasecmp($data['component'], 'GPU')==0){
+                    $gpu = array();
+                    $gpu['gpu_type'] = $request->gpu_type;
+                    $gpu['gpu_speed'] = $request->gpu_speed;
+                    $gpu['gpu_memory'] = $request->gpu_memory;
+                    DB::table('gpu')->insert($gpu);
+                    $data['spec_gpu'] = DB::getPdo()->lastInsertId();
+                }
+                else if(strcasecmp($data['component'], 'storage')==0){
+                    $storage = array();
+                    $storage['storage_type'] = $request->storage_type;
+                    $storage['storage_speed'] = $request->storage_speed;
+                    $storage['storage_capacity'] = $request->storage_capacity;
+                    DB::table('storage')->insert($storage);
+                    $data['spec_storage'] = DB::getPdo()->lastInsertId();
+                }
+                else if(strcasecmp($data['component'], 'PSU')==0){
+                    $psu = array();
+                    $psu['psu_type'] = $request->psu_type;
+                    $psu['psu_power'] = $request->psu_power;
+                    $psu['psu_efficiency'] = $request->psu_efficiency;
+                    DB::table('psu')->insert($psu);
+                    $data['spec_psu'] = DB::getPdo()->lastInsertId();
+                }
+                else if(strcasecmp($data['component'], 'Mouse')==0){
+                    $mouse = array();
+                    $mouse['mouse_type'] = $request->mouse_type;
+                    $mouse['mouse_dpi'] = $request->mouse_dpi;
+                    $mouse['mouse_wireless'] = $request->mouse_wireless;
+                    DB::table('mouse')->insert($mouse);
+                    $data['spec_mouse'] = DB::getPdo()->lastInsertId();
+                }
+                else if(strcasecmp($data['component'], 'Keyboard')==0){
+                    $keyboard = array();
+                    $keyboard['keyboard_qty'] = $request->keyboard_qty;
+                    $keyboard['keyboard_wireless'] = $request->keyboard_wireless;
+                    $keyboard['keyboard_color'] = $request->keyboard_color;
+                    $keyboard['keyboard_switch'] = $request->keyboard_switch;
+                    DB::table('keyboard')->insert($keyboard);
+                    $data['spec_keyboard'] = DB::getPdo()->lastInsertId();
+                }
+                else if(strcasecmp($data['component'], 'Headphone')==0){
+                    $headphone = array();
+                    $headphone['headphone_type'] = $request->headphone_type;
+                    $headphone['headphone_wireless'] = $request->headphone_wireless;
+                    $headphone['headphone_micro'] = $request->headphone_micro;
+                    DB::table('headphone')->insert($headphone);
+                    $data['spec_headphone'] = DB::getPdo()->lastInsertId();
+                }
+                else if(strcasecmp($data['component'], 'Case')==0){
+                    $case = array();
+                    $case['case_type'] = $request->case_type;
+                    $case['case_size'] = $request->case_size;
+                    $case['case_brand'] = $request->case_brand;
+                    DB::table('case')->insert($case);
+                }
+                else if(strcasecmp($data['component'], 'Motherboard')==0){
+                    $motherboard = array();
+                    $motherboard['motherboard_size'] = $request->motherboard_size;
+                    $motherboard['motherboard_socket'] = $request->motherboard_socket;
+                    $motherboard['motherboard_chipset'] = $request->motherboard_chipset;
+                    DB::table('motherboard')->insert($motherboard);
+                    $data['spec_motherboard'] = DB::getPdo()->lastInsertId();
+                }
                 DB::table('product')->insert($data);
                 
                 Session::put('message', 'Create product successfully');
@@ -193,89 +276,7 @@ class ProductController extends Controller
             Session::put('message', 'Create product failed. Try again');
             return Redirect::to('admin/view_product');
         }
-        if(strcasecmp($data['component'], 'Ram')==0){
-            $ram = array();
-            $ram['ram_type'] = $request->ram_type;
-            $ram['memory_size'] = $request->memory_size;
-            $ram['ram_speed'] = $request->ram_speed;
-            $ram['ram_bandwidth'] = $request->ram_bandwidth;
-            DB::table('ram')->insert($ram);
-            $data['spec_ram'] = DB::getPdo()->lastInsertId();
-        }
-        else if(strcasecmp($data['component'], 'CPU')==0){
-            $cpu = array();
-            $cpu['cpu_socket'] = $request->cpu_socket;
-            $cpu['cpu_speed'] = $request->cpu_speed;
-            $cpu['cpu_core'] = $request->cpu_core;
-            $cpu['cpu_thread'] = $request->cpu_thread;
-            $cpu['cpu_cache'] = $request->cpu_cache;
-            DB::table('cpu')->insert($cpu);
-            $data['spec_cpu'] = DB::getPdo()->lastInsertId();
-        }
-        else if(strcasecmp($data['component'], 'GPU')==0){
-            $gpu = array();
-            $gpu['gpu_type'] = $request->gpu_type;
-            $gpu['gpu_speed'] = $request->gpu_speed;
-            $gpu['gpu_memory'] = $request->gpu_memory;
-            DB::table('gpu')->insert($gpu);
-            $data['spec_gpu'] = DB::getPdo()->lastInsertId();
-        }
-        else if(strcasecmp($data['component'], 'storage')==0){
-            $storage = array();
-            $storage['storage_type'] = $request->storage_type;
-            $storage['storage_speed'] = $request->storage_speed;
-            $storage['storage_capacity'] = $request->storage_capacity;
-            DB::table('storage')->insert($storage);
-            $data['spec_storage'] = DB::getPdo()->lastInsertId();
-        }
-        else if(strcasecmp($data['component'], 'PSU')==0){
-            $psu = array();
-            $psu['psu_type'] = $request->psu_type;
-            $psu['psu_power'] = $request->psu_power;
-            $psu['psu_efficiency'] = $request->psu_efficiency;
-            DB::table('psu')->insert($psu);
-            $data['spec_psu'] = DB::getPdo()->lastInsertId();
-        }
-        else if(strcasecmp($data['component'], 'Mouse')==0){
-            $mouse = array();
-            $mouse['mouse_type'] = $request->mouse_type;
-            $mouse['mouse_dpi'] = $request->mouse_dpi;
-            $mouse['mouse_wireless'] = $request->mouse_wireless;
-            DB::table('mouse')->insert($mouse);
-            $data['spec_mouse'] = DB::getPdo()->lastInsertId();
-        }
-        else if(strcasecmp($data['component'], 'Keyboard')==0){
-            $keyboard = array();
-            $keyboard['keyboard_qty'] = $request->keyboard_qty;
-            $keyboard['keyboard_wireless'] = $request->keyboard_wireless;
-            $keyboard['keyboard_color'] = $request->keyboard_color;
-            $keyboard['keyboard_switch'] = $request->keyboard_switch;
-            DB::table('keyboard')->insert($keyboard);
-            $data['spec_keyboard'] = DB::getPdo()->lastInsertId();
-        }
-        else if(strcasecmp($data['component'], 'Headphone')==0){
-            $headphone = array();
-            $headphone['headphone_type'] = $request->headphone_type;
-            $headphone['headphone_wireless'] = $request->headphone_wireless;
-            $headphone['headphone_micro'] = $request->headphone_micro;
-            DB::table('headphone')->insert($headphone);
-            $data['spec_headphone'] = DB::getPdo()->lastInsertId();
-        }
-        else if(strcasecmp($data['component'], 'Case')==0){
-            $case = array();
-            $case['case_type'] = $request->case_type;
-            $case['case_size'] = $request->case_size;
-            $case['case_brand'] = $request->case_brand;
-            DB::table('case')->insert($case);
-        }
-        else if(strcasecmp($data['component'], 'Motherboard')==0){
-            $motherboard = array();
-            $motherboard['motherboard_size'] = $request->motherboard_size;
-            $motherboard['motherboard_socket'] = $request->motherboard_socket;
-            $motherboard['motherboard_chipset'] = $request->motherboard_chipset;
-            DB::table('motherboard')->insert($motherboard);
-            $data['spec_motherboard'] = DB::getPdo()->lastInsertId();
-        }
+        
     }
 
 
