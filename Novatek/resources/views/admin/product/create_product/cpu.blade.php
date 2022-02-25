@@ -59,10 +59,22 @@
                 {{-- <input type="hidden" name="component" value ="Ram"> --}}
                 <div class="form-group">
                     Socket
-                    <select name="cpu_socket" class="form-control"style="width:200px">
-                        <option value="0">In stock</option>
-                        <option value="1">Out stock</option>
-                    </select>
+                    <div class="form-group">
+                        Socket
+                       <select name="cpu_socket" class="form-control"style="width:200px">
+                        <optgroup label="Intel">Intel
+                            <option value="LGA 1151">LGA 1151</option>
+                            <option value="LGA 1366">LGA 1366</option>
+                            <option value="LGA1200">LGA1200</option>
+                        </optgroup>
+                        <optgroup label="AMD">AMD
+                            <option value="AM2">AM2</option>
+                            <option value="AM2+">AM2+</option>
+                            <option value="AM3">AM3</option>
+                            <option value="AM4">AM4</option>
+                        </optgroup>
+                       </select>
+                   </div>
                 </div>
                 <div class="form-group">
                     Speed
