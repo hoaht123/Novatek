@@ -81,28 +81,50 @@
         </div>
 
         <div class="empty-space col-xs-b25 col-sm-b50"></div>
-
+        <?php
+        
+            $correct = Session::get('correct');
+            if($correct){
+                echo '<script>alert("'.$correct.'");</script>';
+                Session::put('message', null);
+            }
+            ?>
+    
         <div class="container">
             <h4 class="h4 text-center col-xs-b25">have a questions?</h4>
             <div class="row">
                 <div class="col-md-10 col-md-offset-1">
-                    <form class="contact-form">
+                    <form class="contact-form" action="{{URL::to('save_contact')}}" method="post">
+                        @csrf
                         <div class="row m5">
                             <div class="col-sm-6">
-                                <input class="simple-input col-xs-b20" type="text" value="" placeholder="Name" name="name" />
+                                <input class="simple-input col-xs-b20" type="text" value="{{old('contact_name')}}" placeholder="Name" name="contact_name" />
+                                @error('contact_name')
+                            <div style="font-size:15px; color:red">{{ $message }}</div>
+                             @enderror
                             </div>
+                            
                             <div class="col-sm-6">
-                                <input class="simple-input col-xs-b20" type="text" value="" placeholder="Email" name="email" />
+                                <input class="simple-input col-xs-b20" type="text" value="{{old('contact_email')}}" placeholder="Email" name="contact_email" />
+                                @error('contact_email')
+                                <div style="font-size:15px; color:red">{{ $message }}</div>
+                                 @enderror
                             </div>
+                           
                             <div class="col-sm-6">
-                                <input class="simple-input col-xs-b20" type="text" value="" placeholder="Phone" name="phone" />
+                                <input class="simple-input col-xs-b20" type="text" value="{{old('contact_phone')}}" placeholder="Phone" name="contact_phone" />
+                                @error('contact_phone')
+                                <div style="font-size:15px; color:red">{{ $message }}</div>
+                                 @enderror
                             </div>
-                            <div class="col-sm-6">
-                                <input class="simple-input col-xs-b20" type="text" value="" placeholder="Subject" name="subject" />
-                            </div>
+                           
                             <div class="col-sm-12">
-                                <textarea class="simple-input col-xs-b20" placeholder="Your message" name="message"></textarea>
+                                <textarea class="simple-input col-xs-b20" placeholder="Your message" name="contact_message">{{old('contact_message')}}</textarea>
+                                @error('contact_message')
+                                <div style="font-size:15px; color:red">{{ $message }}</div>
+                                 @enderror
                             </div>
+                           
                             <div class="col-sm-12">
                                 <div class="text-center">
                                     <div class="button size-2 style-3">

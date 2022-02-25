@@ -9,6 +9,7 @@ Route::prefix('admin')->group(function(){
     Route::get('/login',[App\Http\Controllers\AdminController::class,'login']);
     Route::post('checkLogin',[App\Http\Controllers\AdminController::class,'checkLogin']);
     Route::get('/logout',[App\Http\Controllers\AdminController::class,'logout']);
+    Route::get('/view_contact',[App\Http\Controllers\AdminController::class,'view_contact']);
     //Category
     Route::get('/create_category',[App\Http\Controllers\CategoryController::class,'create_category'])->name('create_category');
     Route::post('/save_category',[App\Http\Controllers\CategoryController::class,'save_category']);
@@ -92,4 +93,5 @@ Route::prefix('')->group(function(){
     Route::get('/checkout',[HomeController::class,'checkout'])->name('client.checkout');
     Route::get('/contact',[HomeController::class,'contact'])->name('client.contact');
     Route::get('/about',[HomeController::class,'about'])->name('client.about');
+    Route::post('save_contact',[HomeController::class,'save_contact']);
 });
