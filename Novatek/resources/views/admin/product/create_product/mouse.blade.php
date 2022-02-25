@@ -70,7 +70,7 @@
                     <input type="text" name="mouse_dpi" class="form-control" style="width:200px">
                </div>
                <div class="form-group">
-                    WIRELESS
+                Wireless
                     <select name="mouse_wireless" class="form-control"style="width:200px">
                         <option value="YES">YES</option>
                         <option value="NO">NO</option>
