@@ -63,4 +63,9 @@ class AdminController extends Controller
         return Redirect::to('admin/login');
     }
 
+    public function view_contact(){
+        $contacts = DB::table('contact')->get();
+        return view('admin.view_contact',compact('contacts'));
+    }
+
 }

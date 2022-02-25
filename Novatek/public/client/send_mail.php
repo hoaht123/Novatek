@@ -1,5 +1,5 @@
 <?php
-$mail_to = "yourpersonalemail@gmail.com";
+$mail_to = "datltts2103010@fpt.edu.vn";
 $mail_from = "webmaster@example.com";
 
 $name = strip_tags(trim($_POST['name']));
