@@ -181,7 +181,7 @@ class ProductController extends Controller
                 $store_gallery = $get_image_gallery->move(public_path().'/images/product', $new_image_gallery);
                 $data['product_main_image'] = $new_image;
                 $data['product_image_gallery'] = $new_image_gallery;
-                DB::table('Product')->insert($data);
+                DB::table('product')->insert($data);
                 
                 Session::put('message', 'Create product successfully');
                 return Redirect::to('admin/view_product');
