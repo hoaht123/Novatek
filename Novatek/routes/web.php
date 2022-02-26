@@ -94,4 +94,7 @@ Route::prefix('')->group(function(){
     Route::get('/contact',[HomeController::class,'contact'])->name('client.contact');
     Route::get('/about',[HomeController::class,'about'])->name('client.about');
     Route::post('save_contact',[HomeController::class,'save_contact']);
+
+    //Category sidebar clicked
+    Route::get('/products/category/{category_id}',[HomeController::class,'category_sidebar_clicked'])->name('category_sidebar_clicked');
 });

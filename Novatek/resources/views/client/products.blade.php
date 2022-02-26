@@ -127,7 +127,7 @@
                                                 </div>
                                             </div>
                                             <div class="price">
-                                                <div class="simple-article size-4"><span class="color">${{$product->product_price}}</span>&nbsp;&nbsp;&nbsp;<span class={{$product->product_price_sale? "line-through" :""}}>{{$product->product_price_sale? $product->product_price_sale : ''}}</span></div>
+                                                <div class="simple-article size-4"><span class="color">${{$product->product_price}}</span>&nbsp;&nbsp;&nbsp;<span class=""></span></div>
                                             </div>
                                             <div class="description">
                                                 <div class="simple-article text size-2">{{$product->product_sort_descriptions}}</div>

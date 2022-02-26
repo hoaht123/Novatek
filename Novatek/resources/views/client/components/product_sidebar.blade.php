@@ -3,20 +3,12 @@
     <ul class="categories-menu transparent">
         @foreach($categories as $category)
             <li>
-                <a href="#">{{ $category->category_name }}</a>
+                <a href="{{route('category_sidebar_clicked',$category->category_id)}}">{{ $category->category_name }}</a>
                 <div class="toggle"></div>
                 <ul>
                     @foreach($category->categoryChildren as $categoryChild)                          
                     <li>
-                        <a href="#">{{ $categoryChild->category_name }}</a>
-                        <div class="toggle"></div>
-                        <ul>
-                            @foreach($categoryChild->categoryChildren as $categoryGrandChild)
-                            <li>
-                                <a href="#">{{ $categoryGrandChild->category_name }}</a>
-                            </li>
-                            @endforeach
-                        </ul>
+                        <a href="{{route('category_sidebar_clicked',$categoryChild->category_id)}}">{{ $categoryChild->category_name }}</a>          
                     </li>
                     @endforeach
                 </ul>
