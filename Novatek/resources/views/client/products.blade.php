@@ -101,7 +101,7 @@
                         <div class="products-wrapper">
                             <div class="row nopadding">
                                 @foreach($products as $product)
-                                    <div class="col-sm-4">
+                                    <div class="col-sm-4 brand-{{$product->brand_id}}">
                                         <div class="product-shortcode style-1">
                                             <div class="title">
                                                 <div class="simple-article size-1 color col-xs-b5"><a href="{{ route('client.product_detail',['product_id' => $product->product_id])}}">{{$product ->product_name}}</a></div>
@@ -310,8 +310,8 @@
 @section('js')
 
     <!-- range slider -->
-    <script src="js/jquery-ui.min.js"></script>
-    <script src="js/jquery.ui.touch-punch.min.js"></script>
+    <script src="{{ asset('client/js/jquery-ui.min.js')}}"></script>
+    <script src="{{ asset('client/js/jquery.ui.touch-punch.min.js')}}"></script>
     <script>
         $(document).ready(function(){
             var minVal = parseInt($('.min-price').text());
@@ -329,6 +329,20 @@
             });
         });
         
+        //fillter by check box
+        $(document).ready(function(){
+            $('.checkbox-entry input').click(function(){
+                var brand = $(this).val();
+                // if (!$(this).attr('checked')){
+                //         $('.nopadding .brand-'+brand).hide();
+                //     }else{
+                //         $('.nopadding .brand-'+brand).show();
+                //     }
+                $('.nopadding .col-sm-4').hide();
+                $('.nopadding .brand-'+brand).addClass('checked');
+                $('.nopadding .checked').show();
+            })
+        })
     </script>
 @endsection
 
