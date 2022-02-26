@@ -58,11 +58,6 @@ class HomeController extends Controller
     {
         return view('client.contact');
     }
-    public function about()
-    {
-        return view('client.about');
-    }
-
     public function save_contact(Request $request){
         $data = $request->validate([
             'contact_name' =>'required',
@@ -87,5 +82,9 @@ class HomeController extends Controller
         DB::table('contact')->insert($contact);
         Session::put('correct','Thank you contacted !');
         return Redirect::back();
+    }
+    public function about()
+    {
+        return view('client.about');
     }
 }
