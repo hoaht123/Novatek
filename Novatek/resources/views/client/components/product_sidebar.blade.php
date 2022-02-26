@@ -24,10 +24,10 @@
 
     <div class="empty-space col-xs-b25 col-sm-b50"></div>
 
-    <div class="h4 col-xs-b25">Brands</div>
+    <div class="h4 col-xs-b25" id="check-brand">Brands</div>
     @foreach($brands as $brand)
     <label class="checkbox-entry">
-        <input type="checkbox"><span>{{ $brand->brand_name}}</span>
+        <input type="checkbox" value = "{{ $brand->brand_name}}"><span>{{ $brand->brand_name}}</span>
         </label>
         <div class="empty-space col-xs-b10"></div>
     @endforeach

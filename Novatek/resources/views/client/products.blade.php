@@ -21,7 +21,7 @@
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
                                 <div class="banner-shortcode style-1">
-                                    <div class="background" style="background-image: url(client/img/thumbnail-14.jpg);"></div>
+                                    <div class="background" style="background-image: url({{ asset('client/img/thumbnail-14.jpg')}}");></div>
                                     <div class="description valign-middle">
                                         <div class="valign-middle-content">
                                             <div class="simple-article size-3 light fulltransparent">DON'T MISS!</div>
@@ -30,7 +30,7 @@
                                             <div class="empty-space col-xs-b25"></div>
                                             <a class="button size-1 style-3" href="#">
                                                 <span class="button-wrapper">
-                                                    <span class="icon"><img src="client/img/icon-4.png" alt=""></span>
+                                                    <span class="icon"><img src="{{ asset('client/img/icon-4.png')}}"alt=""></span>
                                                     <span class="text">learn more</span>
                                                 </span>
                                             </a>
@@ -41,7 +41,7 @@
                             </div>
                             <div class="swiper-slide">
                                 <div class="banner-shortcode style-1">
-                                    <div class="background" style="background-image: url(client/img/thumbnail-10.jpg);"></div>
+                                    <div class="background" style="background-image: url({{ asset('client/img/thumbnail-10.jpg')}}");></div>
                                     <div class="description valign-middle">
                                         <div class="valign-middle-content">
                                             <div class="simple-article size-3 light fulltransparent">DON'T MISS!</div>
@@ -50,7 +50,7 @@
                                             <div class="empty-space col-xs-b25"></div>
                                             <a class="button size-1 style-3" href="#">
                                                 <span class="button-wrapper">
-                                                    <span class="icon"><img src="client/img/icon-4.png" alt=""></span>
+                                                    <span class="icon"><img src="{{ asset('client/img/icon-4.png')}}"alt=""></span>
                                                     <span class="text">learn more</span>
                                                 </span>
                                             </a>
@@ -72,8 +72,8 @@
                         <div class="simple-article size-1">SHOWING <b class="grey">15</b> OF <b class="grey">2 358</b> RESULTS</div>
                     </div>
                     <div class="align-inline spacing-1 hidden-xs">
-                        <a class="pagination toggle-products-view active"><img src="client/img/icon-14.png" alt="" /><img src="client/img/icon-15.png" alt="" /></a>
-                        <a class="pagination toggle-products-view"><img src="client/img/icon-16.png" alt="" /><img src="client/img/icon-17.png" alt="" /></a>
+                        <a class="pagination toggle-products-view active"><img src="{{ asset('client/img/icon-14.png')}}"alt="" /><img src="{{ asset('client/img/icon-15.png')}}"alt="" /></a>
+                        <a class="pagination toggle-products-view"><img src="{{ asset('client/img/icon-16.png')}}"alt="" /><img src="{{ asset('client/img/icon-17.png')}}"alt="" /></a>
                     </div>
                     <div class="align-inline spacing-1 filtration-cell-width-1">
                         <select class="SlectBox small">
@@ -113,13 +113,13 @@
                                                     <div class="valign-middle-content">
                                                         <a class="button size-2 style-2" href="{{ route('client.product_detail',['product_id' => $product->product_id])}}">
                                                             <span class="button-wrapper">
-                                                                <span class="icon"><img src="client/img/icon-1.png" alt=""></span>
+                                                                <span class="icon"><img src="{{ asset('client/img/icon-1.png')}}"alt=""></span>
                                                                 <span class="text">Learn More</span>
                                                             </span>
                                                         </a>
                                                         <a class="button size-2 style-3" href="#">
                                                             <span class="button-wrapper">
-                                                                <span class="icon"><img src="client/img/icon-3.png" alt=""></span>
+                                                                <span class="icon"><img src="{{ asset('client/img/icon-3.png')}}"alt=""></span>
                                                                 <span class="text">Add To Cart</span>
                                                             </span>
                                                         </a>
@@ -157,7 +157,7 @@
                 <div class="col-sm-6 col-md-3 col-xs-b25">
                     <div class="h4 col-xs-b25">Hot Sale</div>
                     <div class="product-shortcode style-4 rounded clearfix">
-                        <a class="preview" href="#"><img src="client/img/product-28.jpg" alt="" /></a>
+                        <a class="preview" href="#"><img src="{{ asset('client/img/product-28.jpg')}}" alt="" /></a>
                         <div class="description">
                             <div class="simple-article color size-1 col-xs-b5"><a href="#">WIRELESS</a></div>
                             <h6 class="h6 col-xs-b10"><a href="#">wireless headphones</a></h6>
@@ -166,7 +166,7 @@
                     </div>
                     <div class="col-xs-b10"></div>
                     <div class="product-shortcode style-4 rounded clearfix">
-                        <a class="preview" href="#"><img src="client/img/product-29.jpg" alt="" /></a>
+                        <a class="preview" href="#"><img src="{{ asset('client/img/product-29.jpg')}}" alt="" /></a>
                         <div class="description">
                             <div class="simple-article color size-1 col-xs-b5"><a href="#">CASES</a></div>
                             <h6 class="h6 col-xs-b10"><a href="#">earphones case</a></h6>
@@ -175,7 +175,7 @@
                     </div>
                     <div class="col-xs-b10"></div>
                     <div class="product-shortcode style-4 rounded clearfix">
-                        <a class="preview" href="#"><img src="client/img/product-30.jpg" alt="" /></a>
+                        <a class="preview" href="#"><img src="{{ asset('client/img/product-30.jpg')}}" alt="" /></a>
                         <div class="description">
                             <div class="simple-article color size-1 col-xs-b5"><a href="#">CASES</a></div>
                             <h6 class="h6 col-xs-b10"><a href="#">headphones case</a></h6>
@@ -186,7 +186,7 @@
                 <div class="col-sm-6 col-md-3 col-xs-b25">
                     <div class="h4 col-xs-b25">Top Rated</div>
                     <div class="product-shortcode style-4 rounded clearfix">
-                        <a class="preview" href="#"><img src="client/img/product-31.jpg" alt="" /></a>
+                        <a class="preview" href="#"><img src="{{ asset('client/img/product-31.jpg')}}" alt="" /></a>
                         <div class="description">
                             <div class="simple-article color size-1 col-xs-b5"><a href="#">WIRELESS</a></div>
                             <h6 class="h6 col-xs-b10"><a href="#">wireless headphones</a></h6>
@@ -195,7 +195,7 @@
                     </div>
                     <div class="col-xs-b10"></div>
                     <div class="product-shortcode style-4 rounded clearfix">
-                        <a class="preview" href="#"><img src="client/img/product-32.jpg" alt="" /></a>
+                        <a class="preview" href="#"><img src="{{ asset('client/img/product-32.jpg')}}" alt="" /></a>
                         <div class="description">
                             <div class="simple-article color size-1 col-xs-b5"><a href="#">CASES</a></div>
                             <h6 class="h6 col-xs-b10"><a href="#">earphones case</a></h6>
@@ -204,7 +204,7 @@
                     </div>
                     <div class="col-xs-b10"></div>
                     <div class="product-shortcode style-4 rounded clearfix">
-                        <a class="preview" href="#"><img src="client/img/product-33.jpg" alt="" /></a>
+                        <a class="preview" href="#"><img src="{{ asset('client/img/product-33.jpg')}}" alt="" /></a>
                         <div class="description">
                             <div class="simple-article color size-1 col-xs-b5"><a href="#">CASES</a></div>
                             <h6 class="h6 col-xs-b10"><a href="#">headphones case</a></h6>
@@ -215,7 +215,7 @@
                 <div class="col-sm-6 col-md-3 col-xs-b25">
                     <div class="h4 col-xs-b25">Popular</div>
                     <div class="product-shortcode style-4 rounded clearfix">
-                        <a class="preview" href="#"><img src="client/img/product-34.jpg" alt="" /></a>
+                        <a class="preview" href="#"><img src="{{ asset('client/img/product-34.jpg')}}" alt="" /></a>
                         <div class="description">
                             <div class="simple-article color size-1 col-xs-b5"><a href="#">WIRELESS</a></div>
                             <h6 class="h6 col-xs-b10"><a href="#">wireless headphones</a></h6>
@@ -224,7 +224,7 @@
                     </div>
                     <div class="col-xs-b10"></div>
                     <div class="product-shortcode style-4 rounded clearfix">
-                        <a class="preview" href="#"><img src="client/img/product-35.jpg" alt="" /></a>
+                        <a class="preview" href="#"><img src="{{ asset('client/img/product-35.jpg')}}" alt="" /></a>
                         <div class="description">
                             <div class="simple-article color size-1 col-xs-b5"><a href="#">CASES</a></div>
                             <h6 class="h6 col-xs-b10"><a href="#">earphones case</a></h6>
@@ -233,7 +233,7 @@
                     </div>
                     <div class="col-xs-b10"></div>
                     <div class="product-shortcode style-4 rounded clearfix">
-                        <a class="preview" href="#"><img src="client/img/product-36.jpg" alt="" /></a>
+                        <a class="preview" href="#"><img src="{{ asset('client/img/product-36.jpg')}}" alt="" /></a>
                         <div class="description">
                             <div class="simple-article color size-1 col-xs-b5"><a href="#">CASES</a></div>
                             <h6 class="h6 col-xs-b10"><a href="#">headphones case</a></h6>
@@ -244,7 +244,7 @@
                 <div class="col-sm-6 col-md-3 col-xs-b25">
                     <div class="h4 col-xs-b25">Best Choice</div>
                     <div class="product-shortcode style-4 rounded clearfix">
-                        <a class="preview" href="#"><img src="client/img/product-37.jpg" alt="" /></a>
+                        <a class="preview" href="#"><img src="{{ asset('client/img/product-37.jpg')}}" alt="" /></a>
                         <div class="description">
                             <div class="simple-article color size-1 col-xs-b5"><a href="#">WIRELESS</a></div>
                             <h6 class="h6 col-xs-b10"><a href="#">wireless headphones</a></h6>
@@ -253,7 +253,7 @@
                     </div>
                     <div class="col-xs-b10"></div>
                     <div class="product-shortcode style-4 rounded clearfix">
-                        <a class="preview" href="#"><img src="client/img/product-38.jpg" alt="" /></a>
+                        <a class="preview" href="#"><img src="{{ asset('client/img/product-38.jpg')}}" alt="" /></a>
                         <div class="description">
                             <div class="simple-article color size-1 col-xs-b5"><a href="#">CASES</a></div>
                             <h6 class="h6 col-xs-b10"><a href="#">earphones case</a></h6>
@@ -262,7 +262,7 @@
                     </div>
                     <div class="col-xs-b10"></div>
                     <div class="product-shortcode style-4 rounded clearfix">
-                        <a class="preview" href="#"><img src="client/img/product-39.jpg" alt="" /></a>
+                        <a class="preview" href="#"><img src="{{ asset('client/img/product-39.jpg')}}" alt="" /></a>
                         <div class="description">
                             <div class="simple-article color size-1 col-xs-b5"><a href="#">CASES</a></div>
                             <h6 class="h6 col-xs-b10"><a href="#">headphones case</a></h6>
@@ -295,7 +295,7 @@
                             <input class="simple-input light" type="text" value="" placeholder="Your email">
                             <div class="button size-2 style-1">
                                 <span class="button-wrapper">
-                                    <span class="icon"><img src="client/img/icon-1.png" alt=""></span>
+                                    <span class="icon"><img src="{{ asset('client/img/icon-1.png')}}"alt=""></span>
                                     <span class="text">submit</span>
                                 </span>
                                 <input type="submit" value="">
@@ -328,6 +328,7 @@
                 }
             });
         });
+        
     </script>
 @endsection
 
