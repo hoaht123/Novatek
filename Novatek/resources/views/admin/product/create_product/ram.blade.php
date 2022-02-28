@@ -34,7 +34,6 @@
                             @foreach($category as $cate)
                             <option value="{{$cate->category_id}}">{!! $cate->parent_id ==0? $cate->category_name : '&nbsp;&nbsp;&nbsp;&nbsp;'.$cate->category_name !!}</option>
                             @endforeach
-                            {{-- {!! $htmlOption !!} --}}
                         </select>
                 </div>
                 <div class="form-group" >
@@ -56,7 +55,6 @@
                      </select>
                 </div>
                 {{-- spec type --}}
-                {{-- <input type="hidden" name="component" value ="Ram"> --}}
                 <div class="form-group">
                      Speed
                     <select name="ram_speed" class="form-control"style="width:200px">
@@ -82,7 +80,9 @@
                     Bandwidth
                     <select name="ram_bandwidth" class="form-control"style="width:200px">
                         <option value="DDR3">DDR3 </option>
+                        <option value="DDR4">DDR4</option>
                         <option value="DDR5">DDR5</option>
+                        <option value="DDR6">DDR6</option>
                     </select>
                 </div>
                 {{-- end spec type --}}

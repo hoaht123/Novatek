@@ -34,7 +34,7 @@
                             @foreach($category as $cate)
                             <option value="{{$cate->category_id}}">{!! $cate->parent_id ==0? $cate->category_name : '&nbsp;&nbsp;&nbsp;&nbsp;'.$cate->category_name !!}</option>
                             @endforeach
-                            {{-- {!! $htmlOption !!} --}}
+
                         </select>
                 </div>
                 <div class="form-group" >
@@ -56,7 +56,6 @@
                      </select>
                 </div>
                 {{-- spec type --}}
-                {{-- <input type="hidden" name="component" value ="Ram"> --}}
                 <div class="form-group">
                     Type
                     <select name="mouse_type" class="form-control"style="width:200px">
