@@ -32,7 +32,7 @@
                         <select name="category" class="form-control"style="width:200px">
                             <option value="">-----Choose-----</option>
                             @foreach($category as $cate)
-                            <option value="{{$cate->category_id}}">{{$cate->category_name}}</option>
+                            <option value="{{$cate->category_id}}">{!! $cate->parent_id ==0? $cate->category_name : '&nbsp;&nbsp;&nbsp;&nbsp;'.$cate->category_name !!}</option>
                             @endforeach
                             {{-- {!! $htmlOption !!} --}}
                         </select>
@@ -63,7 +63,8 @@
                         <optgroup label="Intel">Intel
                             <option value="LGA 1151">LGA 1151</option>
                             <option value="LGA 1366">LGA 1366</option>
-                            <option value="LGA1200">LGA1200</option>
+                            <option value="LGA 1200">LGA 1200</option>
+                            <option value="LGA 1700">LGA1700</option>
                         </optgroup>
                         <optgroup label="AMD">AMD
                             <option value="AM2">AM2</option>
@@ -84,6 +85,7 @@
                         <option value="4">4</option>
                         <option value="6">6</option>
                         <option value="8">8</option>
+                        <option value="16">16</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -93,6 +95,7 @@
                         <option value="8">8</option>
                         <option value="12">12</option>
                         <option value="16">16</option>
+                        <option value="24">24</option>
                     </select>
                 </div>
                 <div class="form-group">

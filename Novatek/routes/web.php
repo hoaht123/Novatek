@@ -41,8 +41,8 @@ Route::prefix('admin')->group(function(){
         Route::get('/gpu',[App\Http\Controllers\ProductController::class,'create_gpu'])->name('create_gpu');
         Route::get('/storage',[App\Http\Controllers\ProductController::class,'create_storage'])->name('create_storage');
         Route::get('/mouse',[App\Http\Controllers\ProductController::class,'create_mouse'])->name('create_mouse');
-        Route::get('/headphone',[App\Http\Controllers\ProductController::class,'create_mouse'])->name('create_headphone');
-        Route::get('/motherboard',[App\Http\Controllers\ProductController::class,'create_mouse'])->name('create_motherboard');
+        Route::get('/headphone',[App\Http\Controllers\ProductController::class,'create_headphone'])->name('create_headphone');
+        Route::get('/motherboard',[App\Http\Controllers\ProductController::class,'create_motherboard'])->name('create_motherboard');
     });
     
     Route::post('/save_product',[App\Http\Controllers\ProductController::class,'save_product'])->name('save_product');

@@ -32,7 +32,7 @@
                         <select name="category" class="form-control"style="width:200px">
                             <option value="">-----Choose-----</option>
                             @foreach($category as $cate)
-                            <option value="{{$cate->category_id}}">{{$cate->category_name}}</option>
+                            <option value="{{$cate->category_id}}">{!! $cate->parent_id ==0? $cate->category_name : '&nbsp;&nbsp;&nbsp;&nbsp;'.$cate->category_name !!}</option>
                             @endforeach
                             {{-- {!! $htmlOption !!} --}}
                         </select>
@@ -66,7 +66,7 @@
                     <input type="text" name="keyboard_color" class="form-control" style="width:200px">
                </div>
                <div class="form-group">
-                    SWITCH COLOR
+                    Switch Color
                     <select name="keyboard_switch" class="form-control"style="width:200px">
                         <option value="Normal">Normal</option>
                         <option value="Blue">Blue</option>
