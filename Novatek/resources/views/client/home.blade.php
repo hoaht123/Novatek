@@ -14,21 +14,22 @@
                 <div class="swiper-button-next visible-lg"></div>
                 <div class="swiper-container" data-parallax="1" data-auto-height="1">
                    <div class="swiper-wrapper">
-                       <div class="swiper-slide" style="background-image: url(client/img/background-4.jpg);">
+                       @foreach($sliders as $slider) 
+                        <div class="swiper-slide" style="background-image: url({{ asset('client/img/'.$slider->image)}});">
                             <div class="container">
                                 <div class="row">
                                     <div class="col-sm-6 col-sm-offset-6">
                                         <div class="cell-view simple-banner-height">
                                             <div class="col-xs-b35 col-sm-b70"></div>
                                             <div data-swiper-parallax-x="-600">
-                                                <div class="simple-article light transparent size-3">MODERN COLLECTION</div>
+                                                {{-- <div class="simple-article light transparent size-3">MODERN COLLECTION</div> --}}
                                                 <div class="col-xs-b5"></div>
                                             </div>
-                                            <div data-swiper-parallax-x="-500">
+                                            {{-- <div data-swiper-parallax-x="-500">
                                                 <h2 class="h2 light">headphones mdx</h2>
                                                 <div class="title-underline light left"><span></span></div>
-                                            </div>
-                                            <div data-swiper-parallax-x="-400">
+                                            </div> --}}
+                                            {{-- <div data-swiper-parallax-x="-400">
                                                 <div class="simple-article size-4 light transparent">
                                                     <p>Praesent nec finibus massa. Phasellus id auctor lacus, at iaculis lorem. Donec quis arcu elit. In vehicula purus sem, eu mattis est lacinia.</p>
                                                     <div class="row">
@@ -49,20 +50,20 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-xs-b30"></div>
-                                            </div>
+                                            </div> --}}
                                             <div data-swiper-parallax-x="-300">
                                                 <div class="buttons-wrapper">
-                                                    <div class="simple-article size-5 light transparent">BEST PRICE: $195.00</div>
-                                                    <a class="button size-2 style-1" href="#">
+                                                    {{-- <div class="simple-article size-5 light transparent">BEST PRICE: $195.00</div> --}}
+                                                    <a class="button size-2 style-1" href="{{route('client.product_detail',['product_id' =>$slider->product_id])}}">
                                                         <span class="button-wrapper">
                                                             <span class="icon"><img src="client/img/icon-1.png" alt=""></span>
                                                             <span class="text">Learn More</span>
                                                         </span>
                                                     </a>
                                                     <a class="button size-2 style-2" href="#">
-                                                        <span class="button-wrapper">
+                                                        {{-- <span class="button-wrapper">
                                                             <span class="icon"><img src="client/img/icon-2.png" alt=""></span>
-                                                            <span class="text">Add To Cart</span>
+                                                            <span class="text">Add To Cart</span> --}}
                                                         </span>
                                                     </a>
                                                 </div>
@@ -73,101 +74,25 @@
                                 </div>
                                 <div class="slider-product-preview align-left">
                                     <div class="product-preview-shortcode light">
-                                        <div class="preview">
+                                        {{-- <div class="preview">
                                             <div class="swiper-lazy-preloader"></div>
                                             <div class="entry full-size swiper-lazy active" data-background="client/img/product-preview-14.png"></div>
                                             <div class="entry full-size swiper-lazy" data-background="client/img/product-preview-13.png"></div>
                                             <div class="entry full-size swiper-lazy" data-background="client/img/product-preview-12.png"></div>
-                                        </div>
+                                        </div> --}}
                                         <div class="sidebar valign-middle" data-swiper-parallax-x="-300">
-                                            <div class="valign-middle-content">
+                                            {{-- <div class="valign-middle-content">
                                                 <div class="entry active"><img src="client/img/product-71.png" alt="" /></div>
                                                 <div class="entry"><img src="client/img/product-72.png" alt="" /></div>
                                                 <div class="entry"><img src="client/img/product-73.png" alt="" /></div>
-                                            </div>
+                                            </div> --}}
                                         </div>
                                     </div>
                                 </div>
                                 <div class="empty-space col-xs-b80 col-sm-b0"></div>
                             </div>
-                       </div>
-                       <div class="swiper-slide" style="background-image: url(client/img/background-3.jpg);">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="cell-view simple-banner-height">
-                                            <div class="col-xs-b35 col-sm-b70"></div>
-                                            <div data-swiper-parallax-x="-600">
-                                                <div class="simple-article light transparent size-3">MODERN COLLECTION</div>
-                                                <div class="col-xs-b5"></div>
-                                            </div>
-                                            <div data-swiper-parallax-x="-500">
-                                                <h2 class="h2 light">headphones mdx</h2>
-                                                <div class="title-underline light left"><span></span></div>
-                                            </div>
-                                            <div data-swiper-parallax-x="-400">
-                                                <div class="simple-article size-4 light transparent">
-                                                    <p>Praesent nec finibus massa. Phasellus id auctor lacus, at iaculis lorem. Donec quis arcu elit. In vehicula purus sem, eu mattis est lacinia.</p>
-                                                    <div class="row">
-                                                        <div class="col-md-6">
-                                                            <ul>
-                                                                <li>20.000h of high quality music</li>
-                                                                <li>perfect insulation</li>
-                                                                <li>5 years guaranteed work</li>
-                                                            </ul>
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <ul>
-                                                                <li>consectetur adipiscing elit</li>
-                                                                <li>porta tortor sit amet</li>
-                                                                <li>feugiat augue placerat</li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xs-b30"></div>
-                                            </div>
-                                            <div data-swiper-parallax-x="-300">
-                                                <div class="buttons-wrapper">
-                                                    <div class="simple-article size-5 light transparent">BEST PRICE: $195.00</div>
-                                                    <a class="button size-2 style-1" href="#">
-                                                        <span class="button-wrapper">
-                                                            <span class="icon"><img src="client/img/icon-1.png" alt=""></span>
-                                                            <span class="text">Learn More</span>
-                                                        </span>
-                                                    </a>
-                                                    <a class="button size-2 style-2" href="#">
-                                                        <span class="button-wrapper">
-                                                            <span class="icon"><img src="client/img/icon-2.png" alt=""></span>
-                                                            <span class="text">Add To Cart</span>
-                                                        </span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            <div class="col-xs-b35 col-sm-b70"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="slider-product-preview">
-                                    <div class="product-preview-shortcode light">
-                                        <div class="preview">
-                                            <div class="swiper-lazy-preloader"></div>
-                                            <div class="entry full-size swiper-lazy active" data-background="client/img/product-preview-14.png"></div>
-                                            <div class="entry full-size swiper-lazy" data-background="client/img/product-preview-13.png"></div>
-                                            <div class="entry full-size swiper-lazy" data-background="client/img/product-preview-12.png"></div>
-                                        </div>
-                                        <div class="sidebar valign-middle" data-swiper-parallax-x="-300">
-                                            <div class="valign-middle-content">
-                                                <div class="entry active"><img src="client/img/product-71.png" alt="" /></div>
-                                                <div class="entry"><img src="client/img/product-72.png" alt="" /></div>
-                                                <div class="entry"><img src="client/img/product-73.png" alt="" /></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="empty-space col-xs-b80 col-sm-b0"></div>
-                            </div>
-                       </div>
+                    </div>
+                       @endforeach
                    </div>
                    <div class="swiper-pagination swiper-pagination-white hidden-lg"></div>
                 </div>
@@ -216,7 +141,7 @@
                 <div class="swiper-button-prev visible-lg"></div>
                 <div class="swiper-button-next visible-lg"></div>
                 <div class="swiper-container" data-breakpoints="1" data-xs-slides="1" data-sm-slides="2" data-md-slides="2" data-lt-slides="3"  data-slides-per-view="4">
-                    <div class="swiper-wrapper">
+                    <div class="swiper-wrapper" style="height: 700px; margin-bottom:100px">
                         <div class="swiper-slide">
                             <div class="product-shortcode style-1 big">
                                 <div class="product-label green">best price</div>
@@ -723,9 +648,9 @@
                         <div class="swiper-button-prev hidden-xs hidden-sm"></div>
                         <div class="swiper-button-next hidden-xs hidden-sm"></div>
                         <div class="swiper-container" data-breakpoints="1" data-xs-slides="1" data-sm-slides="2" data-md-slides="3" data-lt-slides="4"  data-slides-per-view="5">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <div class="product-shortcode style-5 small">
+                            <div class="swiper-wrapper" style="height:500px" >
+                                <div class="swiper-slide" style="height:500px">
+                                    <div class="product-shortcode style-5 small" style="height:300px">
                                         <div class="product-label green">best price</div>
                                         <div class="icons">
                                             <a class="entry"><i class="fa fa-check" aria-hidden="true"></i></a>
@@ -777,7 +702,7 @@
                                     </div>
                                 </div>
                                 <div class="swiper-slide">
-                                    <div class="product-shortcode style-5 small">
+                                    <div class="product-shortcode style-5 small" style="height:300px">
                                         <div class="product-label red">20% discount</div>
                                         <div class="icons">
                                             <a class="entry"><i class="fa fa-check" aria-hidden="true"></i></a>
@@ -829,7 +754,7 @@
                                     </div>
                                 </div>
                                 <div class="swiper-slide">
-                                    <div class="product-shortcode style-5 small">
+                                    <div class="product-shortcode style-5 small" style="height:300px">
                                         <div class="icons">
                                             <a class="entry"><i class="fa fa-check" aria-hidden="true"></i></a>
                                             <a class="entry open-popup" data-rel="3"><i class="fa fa-eye" aria-hidden="true"></i></a>
@@ -880,7 +805,7 @@
                                     </div>
                                 </div>
                                 <div class="swiper-slide">
-                                    <div class="product-shortcode style-5 small">
+                                    <div class="product-shortcode style-5 small" style="height:300px">
                                         <div class="icons">
                                             <a class="entry"><i class="fa fa-check" aria-hidden="true"></i></a>
                                             <a class="entry open-popup" data-rel="3"><i class="fa fa-eye" aria-hidden="true"></i></a>
@@ -931,7 +856,7 @@
                                     </div>
                                 </div>
                                 <div class="swiper-slide">
-                                    <div class="product-shortcode style-5 small">
+                                    <div class="product-shortcode style-5 small" style="height:300px">
                                         <div class="icons">
                                             <a class="entry"><i class="fa fa-check" aria-hidden="true"></i></a>
                                             <a class="entry open-popup" data-rel="3"><i class="fa fa-eye" aria-hidden="true"></i></a>
@@ -982,7 +907,7 @@
                                     </div>
                                 </div>
                                 <div class="swiper-slide">
-                                    <div class="product-shortcode style-5 small">
+                                    <div class="product-shortcode style-5 small" style="height:300px">
                                         <div class="product-label green">best price</div>
                                         <div class="icons">
                                             <a class="entry"><i class="fa fa-check" aria-hidden="true"></i></a>
@@ -1034,133 +959,7 @@
                                     </div>
                                 </div>
                                 <div class="swiper-slide">
-                                    <div class="product-shortcode style-5 small">
-                                        <div class="product-label red">20% discount</div>
-                                        <div class="icons">
-                                            <a class="entry"><i class="fa fa-check" aria-hidden="true"></i></a>
-                                            <a class="entry open-popup" data-rel="3"><i class="fa fa-eye" aria-hidden="true"></i></a>
-                                            <a class="entry"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
-                                        </div>
-                                        <div class="preview">
-                                            <div class="swiper-container" data-loop="1" data-touch="0">
-                                                <div class="swiper-button-prev style-1"></div>
-                                                <div class="swiper-button-next style-1"></div>
-                                                <div class="swiper-wrapper">
-                                                    <div class="swiper-slide">
-                                                        <img src="client/img/product-67.jpg" alt="" />
-                                                    </div>
-                                                    <div class="swiper-slide">
-                                                        <img src="client/img/product-68.jpg" alt="" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="title">
-                                            <div class="simple-article size-1 color col-xs-b5"><a href="#">Modern edition</a></div>
-                                            <div class="h6 animate-to-green"><a href="#">modern beat nine</a></div>
-                                        </div>
-                                        <div class="description">
-                                            <div class="simple-article text size-2">Mollis nec consequat at In feugiat molestie tortor a malesuada</div>
-                                        </div>
-                                        <div class="price">
-                                            <div class="simple-article size-4 dark"><span class="color">$155.00</span>&nbsp;&nbsp;&nbsp;<span class="line-through">$350.00</span></div>
-                                        </div>
-
-                                        <div class="preview-buttons">
-                                            <div class="buttons-wrapper">
-                                                <a class="button size-2 style-2" href="#">
-                                                    <span class="button-wrapper">
-                                                        <span class="icon"><img src="client/img/icon-1.png" alt=""></span>
-                                                        <span class="text">Learn More</span>
-                                                    </span>
-                                                </a>
-                                                <a class="button size-2 style-3" href="#">
-                                                    <span class="button-wrapper">
-                                                        <span class="icon"><img src="client/img/icon-3.png" alt=""></span>
-                                                        <span class="text">Add To Cart</span>
-                                                    </span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-pagination relative-pagination visible-xs visible-sm"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="tab-entry">
-                    <div class="slider-wrapper side-borders">
-                        <div class="swiper-button-prev hidden-xs hidden-sm"></div>
-                        <div class="swiper-button-next hidden-xs hidden-sm"></div>
-                        <div class="swiper-container" data-breakpoints="1" data-xs-slides="1" data-sm-slides="2" data-md-slides="3" data-lt-slides="4"  data-slides-per-view="5">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <div class="product-shortcode style-5 small">
-                                        <div class="product-label green">best price</div>
-                                        <div class="icons">
-                                            <a class="entry"><i class="fa fa-check" aria-hidden="true"></i></a>
-                                            <a class="entry open-popup" data-rel="3"><i class="fa fa-eye" aria-hidden="true"></i></a>
-                                            <a class="entry"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
-                                        </div>
-                                        <div class="preview">
-                                            <div class="swiper-container" data-loop="1" data-touch="0">
-                                                <div class="swiper-button-prev style-1"></div>
-                                                <div class="swiper-button-next style-1"></div>
-                                                <div class="swiper-wrapper">
-                                                    <div class="swiper-slide">
-                                                        <img src="client/img/product-66.jpg" alt="" />
-                                                    </div>
-                                                    <div class="swiper-slide">
-                                                        <img src="client/img/product-67.jpg" alt="" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="title">
-                                            <div class="simple-article size-1 color col-xs-b5"><a href="#">Modern edition</a></div>
-                                            <div class="h6 animate-to-green"><a href="#">modern beat nine</a></div>
-                                        </div>
-                                        <div class="description">
-                                            <div class="simple-article text size-2">Mollis nec consequat at In feugiat molestie tortor a malesuada</div>
-                                        </div>
-                                        <div class="price">
-                                            <div class="simple-article size-4 dark">$630.00</div>
-                                        </div>
-
-                                        <div class="preview-buttons">
-                                            <div class="buttons-wrapper">
-                                                <a class="button size-2 style-2" href="#">
-                                                    <span class="button-wrapper">
-                                                        <span class="icon"><img src="client/img/icon-1.png" alt=""></span>
-                                                        <span class="text">Learn More</span>
-                                                    </span>
-                                                </a>
-                                                <a class="button size-2 style-3" href="#">
-                                                    <span class="button-wrapper">
-                                                        <span class="icon"><img src="client/img/icon-3.png" alt=""></span>
-                                                        <span class="text">Add To Cart</span>
-                                                    </span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-pagination relative-pagination visible-xs visible-sm"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="tab-entry">
-                    <div class="slider-wrapper side-borders">
-                        <div class="swiper-button-prev hidden-xs hidden-sm"></div>
-                        <div class="swiper-button-next hidden-xs hidden-sm"></div>
-                        <div class="swiper-container" data-breakpoints="1" data-xs-slides="1" data-sm-slides="2" data-md-slides="3" data-lt-slides="4"  data-slides-per-view="5">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <div class="product-shortcode style-5 small">
+                                    <div class="product-shortcode style-5 small" style="height:300px">
                                         <div class="product-label red">20% discount</div>
                                         <div class="icons">
                                             <a class="entry"><i class="fa fa-check" aria-hidden="true"></i></a>
@@ -1223,7 +1022,133 @@
                         <div class="swiper-container" data-breakpoints="1" data-xs-slides="1" data-sm-slides="2" data-md-slides="3" data-lt-slides="4"  data-slides-per-view="5">
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide">
-                                    <div class="product-shortcode style-5 small">
+                                    <div class="product-shortcode style-5 small" style="height:300px">
+                                        <div class="product-label green">best price</div>
+                                        <div class="icons">
+                                            <a class="entry"><i class="fa fa-check" aria-hidden="true"></i></a>
+                                            <a class="entry open-popup" data-rel="3"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                            <a class="entry"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+                                        </div>
+                                        <div class="preview">
+                                            <div class="swiper-container" data-loop="1" data-touch="0">
+                                                <div class="swiper-button-prev style-1"></div>
+                                                <div class="swiper-button-next style-1"></div>
+                                                <div class="swiper-wrapper">
+                                                    <div class="swiper-slide">
+                                                        <img src="client/img/product-66.jpg" alt="" />
+                                                    </div>
+                                                    <div class="swiper-slide">
+                                                        <img src="client/img/product-67.jpg" alt="" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="title">
+                                            <div class="simple-article size-1 color col-xs-b5"><a href="#">Modern edition</a></div>
+                                            <div class="h6 animate-to-green"><a href="#">modern beat nine</a></div>
+                                        </div>
+                                        <div class="description">
+                                            <div class="simple-article text size-2">Mollis nec consequat at In feugiat molestie tortor a malesuada</div>
+                                        </div>
+                                        <div class="price">
+                                            <div class="simple-article size-4 dark">$630.00</div>
+                                        </div>
+
+                                        <div class="preview-buttons">
+                                            <div class="buttons-wrapper">
+                                                <a class="button size-2 style-2" href="#">
+                                                    <span class="button-wrapper">
+                                                        <span class="icon"><img src="client/img/icon-1.png" alt=""></span>
+                                                        <span class="text">Learn More</span>
+                                                    </span>
+                                                </a>
+                                                <a class="button size-2 style-3" href="#">
+                                                    <span class="button-wrapper">
+                                                        <span class="icon"><img src="client/img/icon-3.png" alt=""></span>
+                                                        <span class="text">Add To Cart</span>
+                                                    </span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-pagination relative-pagination visible-xs visible-sm"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-entry">
+                    <div class="slider-wrapper side-borders">
+                        <div class="swiper-button-prev hidden-xs hidden-sm"></div>
+                        <div class="swiper-button-next hidden-xs hidden-sm"></div>
+                        <div class="swiper-container" data-breakpoints="1" data-xs-slides="1" data-sm-slides="2" data-md-slides="3" data-lt-slides="4"  data-slides-per-view="5">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="product-shortcode style-5 small" style="height:300px">
+                                        <div class="product-label red">20% discount</div>
+                                        <div class="icons">
+                                            <a class="entry"><i class="fa fa-check" aria-hidden="true"></i></a>
+                                            <a class="entry open-popup" data-rel="3"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                            <a class="entry"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+                                        </div>
+                                        <div class="preview">
+                                            <div class="swiper-container" data-loop="1" data-touch="0">
+                                                <div class="swiper-button-prev style-1"></div>
+                                                <div class="swiper-button-next style-1"></div>
+                                                <div class="swiper-wrapper">
+                                                    <div class="swiper-slide">
+                                                        <img src="client/img/product-67.jpg" alt="" />
+                                                    </div>
+                                                    <div class="swiper-slide">
+                                                        <img src="client/img/product-68.jpg" alt="" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="title">
+                                            <div class="simple-article size-1 color col-xs-b5"><a href="#">Modern edition</a></div>
+                                            <div class="h6 animate-to-green"><a href="#">modern beat nine</a></div>
+                                        </div>
+                                        <div class="description">
+                                            <div class="simple-article text size-2">Mollis nec consequat at In feugiat molestie tortor a malesuada</div>
+                                        </div>
+                                        <div class="price">
+                                            <div class="simple-article size-4 dark"><span class="color">$155.00</span>&nbsp;&nbsp;&nbsp;<span class="line-through">$350.00</span></div>
+                                        </div>
+
+                                        <div class="preview-buttons">
+                                            <div class="buttons-wrapper">
+                                                <a class="button size-2 style-2" href="#">
+                                                    <span class="button-wrapper">
+                                                        <span class="icon"><img src="client/img/icon-1.png" alt=""></span>
+                                                        <span class="text">Learn More</span>
+                                                    </span>
+                                                </a>
+                                                <a class="button size-2 style-3" href="#">
+                                                    <span class="button-wrapper">
+                                                        <span class="icon"><img src="client/img/icon-3.png" alt=""></span>
+                                                        <span class="text">Add To Cart</span>
+                                                    </span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-pagination relative-pagination visible-xs visible-sm"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-entry">
+                    <div class="slider-wrapper side-borders">
+                        <div class="swiper-button-prev hidden-xs hidden-sm"></div>
+                        <div class="swiper-button-next hidden-xs hidden-sm"></div>
+                        <div class="swiper-container" data-breakpoints="1" data-xs-slides="1" data-sm-slides="2" data-md-slides="3" data-lt-slides="4"  data-slides-per-view="5">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="product-shortcode style-5 small" style="height:300px">
                                         <div class="icons">
                                             <a class="entry"><i class="fa fa-check" aria-hidden="true"></i></a>
                                             <a class="entry open-popup" data-rel="3"><i class="fa fa-eye" aria-hidden="true"></i></a>
@@ -1285,7 +1210,7 @@
                         <div class="swiper-container" data-breakpoints="1" data-xs-slides="1" data-sm-slides="2" data-md-slides="3" data-lt-slides="4"  data-slides-per-view="5">
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide">
-                                    <div class="product-shortcode style-5 small">
+                                    <div class="product-shortcode style-5 small" style="height:300px">
                                         <div class="icons">
                                             <a class="entry"><i class="fa fa-check" aria-hidden="true"></i></a>
                                             <a class="entry open-popup" data-rel="3"><i class="fa fa-eye" aria-hidden="true"></i></a>
@@ -1347,7 +1272,7 @@
                         <div class="swiper-container" data-breakpoints="1" data-xs-slides="1" data-sm-slides="2" data-md-slides="3" data-lt-slides="4"  data-slides-per-view="5">
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide">
-                                    <div class="product-shortcode style-5 small">
+                                    <div class="product-shortcode style-5 small" style="height:300px">
                                         <div class="icons">
                                             <a class="entry"><i class="fa fa-check" aria-hidden="true"></i></a>
                                             <a class="entry open-popup" data-rel="3"><i class="fa fa-eye" aria-hidden="true"></i></a>

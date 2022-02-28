@@ -15,7 +15,9 @@ class HomeController extends Controller
 {
     public function index()
     {
-        return view('client.home');
+        $sliders = DB::select('select * from slider');
+
+        return view('client.home', compact('sliders'));
     }
     public function products()
     {
