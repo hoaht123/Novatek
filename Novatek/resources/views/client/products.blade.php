@@ -331,16 +331,12 @@
         
         //fillter by check box
         $(document).ready(function(){
-            $('.checkbox-entry input').click(function(){
+            $('.checkbox-entry .btn').click(function(){
                 var brand = $(this).val();
-                // if (!$(this).attr('checked')){
-                //         $('.nopadding .brand-'+brand).hide();
-                //     }else{
-                //         $('.nopadding .brand-'+brand).show();
-                //     }
                 $('.nopadding .col-sm-4').hide();
-                $('.nopadding .brand-'+brand).addClass('checked');
-                $('.nopadding .checked').show();
+                $('.checkbox-entry .btn').removeClass('btn-info');
+                $(this).addClass('btn-info');
+                $('.nopadding .brand-'+brand).show();
             })
         })
     </script>

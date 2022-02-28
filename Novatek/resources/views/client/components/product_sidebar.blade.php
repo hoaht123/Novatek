@@ -27,8 +27,9 @@
     <div class="h4 col-xs-b25" id="check-brand">Brands</div>
     @foreach($brands as $brand)
     <label class="checkbox-entry">
-        <input type="checkbox" value = "{{ $brand->brand_id}}"><span>{{ $brand->brand_name}}</span>
-        </label>
+    <button class="btn" value = "{{ $brand->brand_id}}" style ="width: 200px" name="btn-brand">{{ $brand->brand_name}}</button>
+        {{-- <input type="checkbox" value = "{{ $brand->brand_id}}"><span>{{ $brand->brand_name}}</span> --}}
+    </label>
         <div class="empty-space col-xs-b10"></div>
     @endforeach
 
