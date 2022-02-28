@@ -32,7 +32,7 @@
                         <select name="category" class="form-control"style="width:200px">
                             <option value="">-----Choose-----</option>
                             @foreach($category as $cate)
-                            <option value="{{$cate->category_id}}">{{$cate->category_name}}</option>
+                            <option value="{{$cate->category_id}}">{!! $cate->parent_id ==0? $cate->category_name : '&nbsp;&nbsp;&nbsp;&nbsp;'.$cate->category_name !!}</option>
                             @endforeach
                             {{-- {!! $htmlOption !!} --}}
                         </select>
@@ -58,22 +58,22 @@
                 {{-- spec type --}}
                 {{-- <input type="hidden" name="component" value ="Ram"> --}}
                 <div class="form-group">
-                     Type
-                    <select name="gpu_type" class="form-control"style="width:200px">
+                    Speed
+                    <select name="gpu_speed" class="form-control"style="width:200px">
                         <option value="1333 MHz - 2133 MHz">1333 MHz - 2133 MHz</option>
                         <option value="2133 MHz - 2666 MHz">2133 MHz - 2666 MHz</option>
                     </select>
                 </div>
                 <div class="form-group">
-                     Speed
-                   <select name="gpu_speed" class="form-control"style="width:200px">
+                    Memory 
+                   <select name="gpu_memory" class="form-control"style="width:200px">
                        <option value="8GB">8GB</option>
                        <option value="16GB">16GB</option>
                    </select>
                </div>
                <div class="form-group">
-                    Memory
-                    <select name="gpu_memory" class="form-control"style="width:200px">
+                    Type
+                    <select name="gpu_type" class="form-control"style="width:200px">
                         <option value="DRAM">DRAM</option>
                         <option value="SRAM">SRAM</option>
                     </select>

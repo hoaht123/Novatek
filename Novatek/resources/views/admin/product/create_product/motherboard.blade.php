@@ -32,9 +32,8 @@
                         <select name="category" class="form-control"style="width:200px">
                             <option value="">-----Choose-----</option>
                             @foreach($category as $cate)
-                            <option value="{{$cate->category_id}}">{{$cate->category_name}}</option>
+                            <option value="{{$cate->category_id}}">{!! $cate->parent_id ==0? $cate->category_name : '&nbsp;&nbsp;&nbsp;&nbsp;'.$cate->category_name !!}</option>
                             @endforeach
-                            {{-- {!! $htmlOption !!} --}}
                         </select>
                 </div>
                 <div class="form-group" >
@@ -56,7 +55,6 @@
                      </select>
                 </div>
                 {{-- spec type --}}
-                {{-- <input type="hidden" name="component" value ="Ram"> --}}
                 <div class="form-group">
                     Size
                     <select name="motherboard_size" class="form-control"style="width:200px">
@@ -70,8 +68,9 @@
                    <select name="motherboard_socket" class="form-control"style="width:200px">
                     <optgroup label="Intel">Intel
                         <option value="LGA 1151">LGA 1151</option>
-                        <option value="LGA 1366">LGA 1366</option>
                         <option value="LGA1200">LGA1200</option>
+                        <option value="LGA 1366">LGA 1366</option>
+                        <option value="LGA 1700">LGA 1700</option>
                     </optgroup>
                     <optgroup label="AMD">AMD
                         <option value="AM2">AM2</option>

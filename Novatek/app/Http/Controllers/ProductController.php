@@ -348,9 +348,69 @@ class ProductController extends Controller
         $this->AuthLogin();
         $product = Product::where('product_id',$product_id)->first();
         $suppliers = Supplier::all();
-        $category = Category::find($product->category_id);
-        $htmlOption = $this->getCategory($product->category_id);
+        // $category = Category::find($product->category_id);
+        // $htmlOption = $this->getCategory($product->category_id);
         $brands = Brand::all();
+        if(strcasecmp($product->component, 'cpu')==0){
+            $cpu = DB::table('cpu')->where('id',$product->spec_cpu)->first();
+            $category = Category::find($product->category_id);
+            $categories = Category::whereIn('category_id', [$product->category_id, $category->parent_id])->get();
+            return view('admin.product.form_update.cpu',compact('product','suppliers','categories','brands','cpu'));
+        }
+        if(strcasecmp($product->component, 'gpu')==0){
+            $gpu = DB::table('gpu')->where('id',$product->spec_gpu)->first();
+            $category = Category::find($product->category_id);
+            $categories = Category::whereIn('category_id', [$product->category_id, $category->parent_id])->get();
+            return view('admin.product.form_update.gpu',compact('product','suppliers','categories','brands','gpu'));
+        }
+        if(strcasecmp($product->component, 'ram')==0){
+            $ram = DB::table('ram')->where('id',$product->spec_ram)->first();
+            $category = Category::find($product->category_id);
+            $categories = Category::whereIn('category_id', [$product->category_id, $category->parent_id])->get();
+            return view('admin.product.form_update.ram',compact('product','suppliers','categories','brands','ram'));
+        }
+        if(strcasecmp($product->component, 'storage')==0){
+            $storage = DB::table('storage')->where('id',$product->spec_storage)->first();
+            $category = Category::find($product->category_id);
+            $categories = Category::whereIn('category_id', [$product->category_id, $category->parent_id])->get();
+            return view('admin.product.form_update.storage',compact('product','suppliers','categories','brands','storage'));
+        }
+        if(strcasecmp($product->component, 'case')==0){
+            $case = DB::table('case')->where('id',$product->spec_case)->first();
+            $category = Category::find($product->category_id);
+            $categories = Category::whereIn('category_id', [$product->category_id, $category->parent_id])->get();
+            return view('admin.product.form_update.case',compact('product','suppliers','categories','brands','case'));
+        }
+        if(strcasecmp($product->component, 'psu')==0){
+            $psu = DB::table('psu')->where('id',$product->spec_psu)->first();
+            $category = Category::find($product->category_id);
+            $categories = Category::whereIn('category_id', [$product->category_id, $category->parent_id])->get();
+            return view('admin.product.form_update.psu',compact('product','suppliers','categories','brands','psu'));
+        }
+        if(strcasecmp($product->component, 'headphone')==0){
+            $headphone = DB::table('headphone')->where('id',$product->spec_headphone)->first();
+            $category = Category::find($product->category_id);
+            $categories = Category::whereIn('category_id', [$product->category_id, $category->parent_id])->get();
+            return view('admin.product.form_update.headphone',compact('product','suppliers','categories','brands','headphone'));
+        }
+        if(strcasecmp($product->component, 'keyboard')==0){
+            $keyboard = DB::table('keyboard')->where('id',$product->spec_keyboard)->first();
+            $category = Category::find($product->category_id);
+            $categories = Category::whereIn('category_id', [$product->category_id, $category->parent_id])->get();
+            return view('admin.product.form_update.keyboard',compact('product','suppliers','categories','brands','keyboard'));
+        }
+        if(strcasecmp($product->component, 'mouse')==0){
+            $mouse = DB::table('mouse')->where('id',$product->spec_mouse)->first();
+            $category = Category::find($product->category_id);
+            $categories = Category::whereIn('category_id', [$product->category_id, $category->parent_id])->get();
+            return view('admin.product.form_update.mouse',compact('product','suppliers','categories','brands','mouse'));
+        }
+        if(strcasecmp($product->component, 'motherboard')==0){
+            $motherboard = DB::table('motherboard')->where('id',$product->spec_motherboard)->first();
+            $category = Category::find($product->category_id);
+            $categories = Category::whereIn('category_id', [$product->category_id, $category->parent_id])->get();
+            return view('admin.product.form_update.motherboard',compact('product','suppliers','categories','brands','motherboard'));
+        }
         return view('admin.product.update_product',compact('product','suppliers','category','brands','htmlOption'));
     }
     
@@ -366,9 +426,10 @@ class ProductController extends Controller
         $data['product_sku'] = $request->product_sku;
         $data['product_descriptions'] = $request->product_description;
         $data['product_sort_descriptions'] = $request->product_sort_description;
-        $data['product_isHot'] = $request->isHot;
-        $data['product_isNew'] = $request->isNew;
-        $data['product_inStock'] = $request->stock;
+        $data['product_isHot'] = 1;
+        $data['product_isNew'] = 1;
+        $data['product_inStock'] = 1;
+        $data['product_status'] = 0;
         $get_image_gallery = $request->file('product_image_gallery');
         $get_image_main = $request->file('product_image_main');
         // echo $get_image_gallery;
@@ -443,6 +504,81 @@ class ProductController extends Controller
                 $store_gallery = $get_image_gallery->move(public_path().'/images/product', $new_image_gallery);
                 $data['product_main_image'] = $new_image;
                 $data['product_image_gallery'] = $new_image_gallery;
+                $product = Product::find($product_id);
+                if(strcasecmp($data['component'], 'Ram')==0){
+                    $ram = array();
+                    $ram['ram_type'] = $request->ram_type;
+                    $ram['memory_size'] = $request->memory_size;
+                    $ram['ram_speed'] = $request->ram_speed;
+                    $ram['ram_bandwidth'] = $request->ram_bandwidth;
+                    DB::table('ram')->where('id',$product->spec_ram)->update($ram);
+                }
+                else if(strcasecmp($data['component'], 'CPU')==0){
+                    $cpu = array();
+                    $cpu['cpu_socket'] = $request->cpu_socket;
+                    $cpu['cpu_speed'] = $request->cpu_speed;
+                    $cpu['cpu_core'] = $request->cpu_core;
+                    $cpu['cpu_thread'] = $request->cpu_thread;
+                    $cpu['cpu_cache'] = $request->cpu_cache;
+                    DB::table('cpu')->where('id',$product->spec_cpu)->update($cpu);
+                }
+                else if(strcasecmp($data['component'], 'GPU')==0){
+                    $gpu = array();
+                    $gpu['gpu_type'] = $request->gpu_type;
+                    $gpu['gpu_speed'] = $request->gpu_speed;
+                    $gpu['gpu_memory'] = $request->gpu_memory;
+                    DB::table('gpu')->where('id',$product->spec_gpu)->update($gpu);
+                }
+                else if(strcasecmp($data['component'], 'storage')==0){
+                    $storage = array();
+                    $storage['storage_type'] = $request->storage_type;
+                    $storage['storage_speed'] = $request->storage_speed;
+                    $storage['storage_capacity'] = $request->storage_capacity;
+                    DB::table('storage')->where('id',$product->spec_storage)->update($storage);
+                }
+                else if(strcasecmp($data['component'], 'PSU')==0){
+                    $psu = array();
+                    $psu['psu_type'] = $request->psu_type;
+                    $psu['psu_power'] = $request->psu_power;
+                    $psu['psu_efficiency'] = $request->psu_efficiency;
+                    DB::table('psu')->where('id',$product->spec_psu)->update($psu);
+                }
+                else if(strcasecmp($data['component'], 'Mouse')==0){
+                    $mouse = array();
+                    $mouse['mouse_type'] = $request->mouse_type;
+                    $mouse['mouse_dpi'] = $request->mouse_dpi;
+                    $mouse['mouse_wireless'] = $request->mouse_wireless;
+                    DB::table('mouse')->where('id',$product->spec_mouse)->update($mouse);
+                }
+                else if(strcasecmp($data['component'], 'Keyboard')==0){
+                    $keyboard = array();
+                    $keyboard['keyboard_qty'] = $request->keyboard_qty;
+                    $keyboard['keyboard_wireless'] = $request->keyboard_wireless;
+                    $keyboard['keyboard_color'] = $request->keyboard_color;
+                    $keyboard['keyboard_switch'] = $request->keyboard_switch;
+                    DB::table('keyboard')->where('id',$product->spec_keyboard)->update($keyboard);
+                }
+                else if(strcasecmp($data['component'], 'Headphone')==0){
+                    $headphone = array();
+                    $headphone['headphone_type'] = $request->headphone_type;
+                    $headphone['headphone_wireless'] = $request->headphone_wireless;
+                    $headphone['headphone_micro'] = $request->headphone_micro;
+                    DB::table('headphone')->where('id',$product->spec_headphone)->update($headphone);
+                }
+                else if(strcasecmp($data['component'], 'Case')==0){
+                    $case = array();
+                    $case['case_type'] = $request->case_type;
+                    $case['case_size'] = $request->case_size;
+                    $case['case_brand'] = $request->case_brand;
+                    DB::table('case')->where('id',$product->spec_case)->update($case);
+                }
+                else if(strcasecmp($data['component'], 'Motherboard')==0){
+                    $motherboard = array();
+                    $motherboard['motherboard_size'] = $request->motherboard_size;
+                    $motherboard['motherboard_socket'] = $request->motherboard_socket;
+                    $motherboard['motherboard_chipset'] = $request->motherboard_chipset;
+                    DB::table('motherboard')->where('id',$product->spec_motherboard)->update($motherboard);
+                }
                 DB::table('Product')->where('product_id',$product_id)->update($data);
                 
                 Session::put('message', 'Update product successfully');
