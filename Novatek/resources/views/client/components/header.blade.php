@@ -31,7 +31,7 @@
                             </div>
                             <div class="entry hidden-xs hidden-sm"><a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a></div>
                             <div class="entry hidden-xs hidden-sm cart">
-                                <a href="{{ route('client.cart')}}">
+                                <a href="{{ URL::to('show_cart')}}">
                                     <b class="hidden-xs">Your bag</b>
                                     <span class="cart-icon">
                                         <i class="fa fa-shopping-bag" aria-hidden="true"></i>
@@ -119,7 +119,7 @@
                                             </div>
                                         </div>
                                         <div class="col-xs-6 text-right">
-                                            <a class="button size-2 style-3" href="{{ route('client.checkout')}}">
+                                            <a class="button size-2 style-3" href="{{ URL::to('checkout')}}">
                                                 <span class="button-wrapper">
                                                     <span class="icon"><img src="{{ asset('client/img/icon-4.png')}}"alt=""></span>
                                                     <span class="text">proceed to checkout</span>
@@ -163,7 +163,7 @@
                                             <div class="menu-toggle"></div>
                                             <div class="megamenu">
                                                 <div class="links">
-                                                    <a class="active" href="{{ route('client.checkout')}}">Checkout</a>
+                                                    <a class="active" href="{{ URL::to('checkout')}}">Checkout</a>
                                                 </div>
                                                 <div class="content">
                                                     <div class="row nopadding">

@@ -115,7 +115,7 @@ class LoginController extends Controller
 
     public function register(Request $request){
         $data = $request->validate([
-            'user_name' => 'required|regex:/^[0-9\+]+$/',
+            'user_name' => 'required|not_regex:/^[0-9\+]+$/',
             'user_phone'=> array('required','numeric','regex:/^(0?)(3[2-9]|5[6|8|9]|7[0|6-9]|8[0-6|8|9]|9[0-4|6-9])[0-9]{7}$/'),
             'user_email'=>'required|email:rfc,dns',
             'user_address'=>'required',

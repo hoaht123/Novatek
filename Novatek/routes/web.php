@@ -89,11 +89,21 @@ Route::prefix('')->group(function(){
     Route::get('/products',[HomeController::class,'products'])->name('client.products'); 
     Route::get('/category/{$category_id}',[CategoryController::class,'products'])->name('client.categories_show'); 
     Route::get('/product/{product_id}',[HomeController::class,'product_detail'])->name('client.product_detail');
-    Route::get('/cart',[HomeController::class,'cart'])->name('client.cart');
-    Route::get('/checkout',[HomeController::class,'checkout'])->name('client.checkout');
+    // Route::get('/cart',[HomeController::class,'cart'])->name('client.cart');
+    // Route::get('/checkout',[HomeController::class,'checkout'])->name('client.checkout');
     Route::get('/contact',[HomeController::class,'contact'])->name('client.contact');
     Route::get('/about',[HomeController::class,'about'])->name('client.about');
     Route::post('save_contact',[HomeController::class,'save_contact']);
+
+    //Cart
+    Route::post('add_cart_ajax',[App\Http\Controllers\CartController::class,'add_cart_ajax']);
+    Route::get('show_cart',[App\Http\Controllers\CartController::class,'show_cart']);
+    Route::post('update_cart',[App\Http\Controllers\CartController::class,'update_cart']);
+    Route::get('del_product/{session_id}',[App\Http\Controllers\CartController::class,'del_product']);
+    Route::get('del_all_cart',[App\Http\Controllers\CartController::class,'del_all_cart']);
+    Route::get('checkout',[App\Http\Controllers\CartController::class,'checkout']);
+    Route::post('confirm_order',[App\Http\Controllers\CartController::class,'confirm_order']);
+
 
     //Category sidebar clicked
     Route::get('/products/category/{category_id}',[HomeController::class,'category_sidebar_clicked'])->name('category_sidebar_clicked');

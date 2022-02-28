@@ -21,8 +21,10 @@
         </div>
 
         <div class="empty-space col-xs-b35 col-md-b70"></div>
-
-        <div class="container">
+        <form action="{{URL::to('update_cart')}}" method="post">
+            @csrf
+            @if(Session::get('cart') == true)  
+         <div class="container">
             <table class="cart-table">
                 <thead>
                     <tr>
@@ -30,71 +32,38 @@
                         <th>product name</th>
                         <th style="width: 150px;">price</th>
                         <th style="width: 260px;">quantity</th>
-                        <th style="width: 70px;">color</th>
                         <th style="width: 150px;">total</th>
                         <th style="width: 70px;"></th>
                     </tr>
                 </thead>
                 <tbody>
+                    @php
+                     $total = 0;
+                    @endphp
+                    @foreach(Session::get('cart') as $key=>$cart)
+                    @php
+                       
+                            $subtotal = $cart['product_qty'] * $cart['product_price'];
+                            $total +=$subtotal;
+                    @endphp
                     <tr>
                         <td data-title=" ">
-                            <a class="cart-entry-thumbnail" href="#"><img src="{{ asset('client/img/product-1.png')}}" alt=""></a>
+                            <a class="cart-entry-thumbnail" href="#"><img style="width:100px;height:100px" src="{{ asset('images/product/'.$cart['product_image'])}}" alt=""></a>
                         </td>
-                        <td data-title=" "><h6 class="h6"><a href="#">modern beat ht</a></h6></td>
-                        <td data-title="Price: ">$155.00</td>
-                        <td data-title="Quantity: ">
-                            <div class="quantity-select">
-                                <span class="minus"></span>
-                                <span class="number">2</span>
-                                <span class="plus"></span>
-                            </div>
+                        <td data-title=" "><h6 class="h6">{{$cart['product_name']}}</h6></td>
+                        <td data-title="Price: ">${{$cart['product_price']}}</td>
+                        <td>
+                            <input class="cart_qty" type="number" min="1" name="cart_qty[{{$cart['session_id']}}]" value="{{$cart['product_qty']}}" autocomplete="off" size="2">
                         </td>
-                        <td data-title="Color: "><div class="cart-color" style="background: #eee;"></div></td>
-                        <td data-title="Total:">$310.00</td>
+                        <td data-title="Total:">${{$subtotal}}</td>
                         <td data-title="">
-                            <div class="button-close"></div>
+                            <a class="cart_quantity_delete" href="{{URL::to('del_product/'.$cart['session_id'])}}" onclick="return confirm('Are you sure you want to delete')"><i class="fa fa-times"></i></a></div>
                         </td>
                     </tr>
-                    <tr>
-                        <td data-title=" ">
-                            <a class="cart-entry-thumbnail" href="#"><img src="{{ asset('client/img/product-2.png')}}" alt=""></a>
-                        </td>
-                        <td data-title=" "><h6 class="h6"><a href="#">sport beat atx</a></h6></td>
-                        <td data-title="Price: ">$155.00</td>
-                        <td data-title="Quantity: ">
-                            <div class="quantity-select">
-                                <span class="minus"></span>
-                                <span class="number">1</span>
-                                <span class="plus"></span>
-                            </div>
-                        </td>
-                        <td data-title="Color: "><div class="cart-color" style="background: #eee;"></div></td>
-                        <td data-title="Total:">$310.00</td>
-                        <td data-title="">
-                            <div class="button-close"></div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td data-title=" ">
-                            <a class="cart-entry-thumbnail" href="#"><img src="{{ asset('client/img/product-3.png')}}" alt=""></a>
-                        </td>
-                        <td data-title=" "><h6 class="h6"><a href="#">hipster beat hr</a></h6></td>
-                        <td data-title="Price: ">$155.00</td>
-                        <td data-title="Quantity: ">
-                            <div class="quantity-select">
-                                <span class="minus"></span>
-                                <span class="number">1</span>
-                                <span class="plus"></span>
-                            </div>
-                        </td>
-                        <td data-title="Color: "><div class="cart-color" style="background: #eee;"></div></td>
-                        <td data-title="Total:">$310.00</td>
-                        <td data-title=" ">
-                            <div class="button-close"></div>
-                        </td>
-                    </tr>
+                    @endforeach
                 </tbody>
             </table>
+        
             <div class="empty-space col-xs-b35"></div>
             <div class="row">
                 <div class="col-sm-6 col-md-5 col-xs-b10 col-sm-b0">
@@ -111,13 +80,19 @@
                 </div>
                 <div class="col-sm-6 col-md-7 col-sm-text-right">
                     <div class="buttons-wrapper">
-                        <a class="button size-2 style-2" href="#">
+                        <a class="button size-2 style-2" href="{{URL::to('del_all_cart')}}" onclick="return confirm('Are you sure you want to delete all product ')">
                             <span class="button-wrapper">
                                 <span class="icon"><img src="{{ asset('client/img/icon-2.png')}}"alt=""></span>
+                                <span class="text">delete all</span>
+                            </span>
+                        </a>
+                        <a class="button size-2 style-2" href="#">
+                            <span class="button-wrapper">
+                                <span class="icon"><input type="submit" value=""><img src="{{ asset('client/img/icon-2.png')}}"alt=""></span>
                                 <span class="text">update cart</span>
                             </span>
                         </a>
-                        <a class="button size-2 style-3" href="#">
+                        <a class="button size-2 style-3" href="{{URL::to('checkout')}}">
                             <span class="button-wrapper">
                                 <span class="icon"><img src="{{ asset('client/img/icon-4.png')}}"alt=""></span>
                                 <span class="text">proceed to checkout</span>
@@ -126,36 +101,10 @@
                     </div>
                 </div>
             </div>
+        </form>
             <div class="empty-space col-xs-b35 col-md-b70"></div>
             <div class="row">
-                <div class="col-md-6 col-xs-b50 col-md-b0">
-                    <h4 class="h4 col-xs-b25">calculate shipping</h4>
-                    <select class="SlectBox">
-                        <option disabled="disabled" selected="selected">Choose country for shipping</option>
-                        <option value="volvo">Volvo</option>
-                        <option value="saab">Saab</option>
-                        <option value="mercedes">Mercedes</option>
-                        <option value="audi">Audi</option>
-                    </select>
-                    <div class="empty-space col-xs-b20"></div>
-                    <div class="row m10">
-                        <div class="col-sm-6">
-                            <input class="simple-input" type="text" value="" placeholder="State / Country" />
-                            <div class="empty-space col-xs-b20"></div>
-                        </div>
-                        <div class="col-sm-6">
-                            <input class="simple-input" type="text" value="" placeholder="Postcode / Zip" />
-                            <div class="empty-space col-xs-b20"></div>
-                        </div>
-                    </div>
-                    <div class="button size-2 style-2">
-                        <span class="button-wrapper">
-                            <span class="icon"><img src="{{ asset('client/img/icon-1.png')}}"alt=""></span>
-                            <span class="text">update totals</span>
-                        </span>
-                        <input type="submit"/>
-                    </div>
-                </div>
+                <div class="col-md-6"></div>
                 <div class="col-md-6">
                     <h4 class="h4">cart totals</h4>
                     <div class="order-details-entry simple-article size-3 grey uppercase">
@@ -164,7 +113,7 @@
                                 cart subtotal
                             </div>
                             <div class="col-xs-6 col-xs-text-right">
-                                <div class="color">$1195.00</div>
+                                <div class="color">${{$total}}</div>
                             </div>
                         </div>
                     </div>
@@ -184,15 +133,25 @@
                                 order total
                             </div>
                             <div class="col-xs-6 col-xs-text-right">
-                                <div class="color">$1195.00</div>
+                                <div class="color">${{$total}}</div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            
             <div class="empty-space col-xs-b35 col-md-b70"></div>
             <div class="empty-space col-xs-b35 col-md-b70"></div>
         </div>
+        @else
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <h1>Chưa có sản phẩm nào trong giỏ hàng</h1>
+                </div>
+            </div>
+        </div>
+        @endif
         @endsection
 @section('js')
     <!-- masonry -->

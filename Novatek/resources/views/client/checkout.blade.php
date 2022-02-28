@@ -10,7 +10,7 @@
             <div class="empty-space col-xs-b15 col-sm-b30"></div>
             <div class="breadcrumbs">
                 <a href="{{ route('client.home')}}">home</a>
-                <a href="{{ route('client.checkout')}}">checkout</a>
+                <a href="{{ URL::to('checkout')}}">checkout</a>
             </div>
             <div class="empty-space col-xs-b15 col-sm-b50 col-md-b100"></div>
             <div class="text-center">
@@ -25,189 +25,58 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6 col-xs-b50 col-md-b0">
+                    <form>
+                        @csrf
                     <h4 class="h4 col-xs-b25">billing details</h4>
-                    <select class="SlectBox">
-                        <option disabled="disabled" selected="selected">Choose country</option>
-                        <option value="volvo">Volvo</option>
-                        <option value="saab">Saab</option>
-                        <option value="mercedes">Mercedes</option>
-                        <option value="audi">Audi</option>
-                    </select>
+                    <input class="simple-input shipping_name" type="text" name="shipping_name" value="" placeholder="Name" />
                     <div class="empty-space col-xs-b20"></div>
-                    <div class="row m10">
-                        <div class="col-sm-6">
-                            <input class="simple-input" type="text" value="" placeholder="First name" />
-                            <div class="empty-space col-xs-b20"></div>
-                        </div>
-                        <div class="col-sm-6">
-                            <input class="simple-input" type="text" value="" placeholder="Last name" />
-                            <div class="empty-space col-xs-b20"></div>
-                        </div>
-                    </div>
-                    <input class="simple-input" type="text" value="" placeholder="Company name" />
+                    <input class="simple-input shipping_email" type="text" value=""  name="shipping_email" placeholder="Email" />
                     <div class="empty-space col-xs-b20"></div>
-                    <input class="simple-input" type="text" value="" placeholder="Street address" />
+                    <input class="simple-input shipping_phone" type="text" value=""  name="shipping_phone" placeholder="Phone" />
                     <div class="empty-space col-xs-b20"></div>
-                    <div class="row m10">
-                        <div class="col-sm-6">
-                            <input class="simple-input" type="text" value="" placeholder="Appartment" />
-                            <div class="empty-space col-xs-b20"></div>
-                        </div>
-                        <div class="col-sm-6">
-                            <input class="simple-input" type="text" value="" placeholder="Town/City" />
-                            <div class="empty-space col-xs-b20"></div>
-                        </div>
-                    </div>
-                    <div class="row m10">
-                        <div class="col-sm-6">
-                            <input class="simple-input" type="text" value="" placeholder="State/Country" />
-                            <div class="empty-space col-xs-b20"></div>
-                        </div>
-                        <div class="col-sm-6">
-                            <input class="simple-input" type="text" value="" placeholder="Postcode/ZIP" />
-                            <div class="empty-space col-xs-b20"></div>
-                        </div>
-                    </div>
-                    <div class="row m10">
-                        <div class="col-sm-6">
-                            <input class="simple-input" type="text" value="" placeholder="Email" />
-                            <div class="empty-space col-xs-b20"></div>
-                        </div>
-                        <div class="col-sm-6">
-                            <input class="simple-input" type="text" value="" placeholder="Phone" />
-                            <div class="empty-space col-xs-b20"></div>
-                        </div>
-                    </div>
-                    <label class="checkbox-entry">
-                        <input type="checkbox" checked><span>Privacy policy agreement</span>
-                    </label>
-                    <div class="empty-space col-xs-b50"></div>
-                    <label class="checkbox-entry checkbox-toggle-title">
-                        <input type="checkbox"><span>ship to different address?</span>
-                    </label>
-                    <div class="checkbox-toggle-wrapper">
-                        <div class="empty-space col-xs-b25"></div>
-                        <select class="SlectBox">
-                            <option disabled="disabled" selected="selected">Choose country</option>
-                            <option value="volvo">Volvo</option>
-                            <option value="saab">Saab</option>
-                            <option value="mercedes">Mercedes</option>
-                            <option value="audi">Audi</option>
-                        </select>
-                        <div class="empty-space col-xs-b20"></div>
-                        <div class="row m10">
-                            <div class="col-sm-6">
-                                <input class="simple-input" type="text" value="" placeholder="First name" />
-                                <div class="empty-space col-xs-b20"></div>
-                            </div>
-                            <div class="col-sm-6">
-                                <input class="simple-input" type="text" value="" placeholder="Last name" />
-                                <div class="empty-space col-xs-b20"></div>
-                            </div>
-                        </div>
-                        <input class="simple-input" type="text" value="" placeholder="Company name" />
-                        <div class="empty-space col-xs-b20"></div>
-                        <input class="simple-input" type="text" value="" placeholder="Street address" />
-                        <div class="empty-space col-xs-b20"></div>
-                        <div class="row m10">
-                            <div class="col-sm-6">
-                                <input class="simple-input" type="text" value="" placeholder="Appartment" />
-                                <div class="empty-space col-xs-b20"></div>
-                            </div>
-                            <div class="col-sm-6">
-                                <input class="simple-input" type="text" value="" placeholder="Town/City" />
-                                <div class="empty-space col-xs-b20"></div>
-                            </div>
-                        </div>
-                        <div class="row m10">
-                            <div class="col-sm-6">
-                                <input class="simple-input" type="text" value="" placeholder="State/Country" />
-                                <div class="empty-space col-xs-b20"></div>
-                            </div>
-                            <div class="col-sm-6">
-                                <input class="simple-input" type="text" value="" placeholder="Postcode/ZIP" />
-                                <div class="empty-space col-xs-b20"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="empty-space col-xs-b30 col-sm-b60"></div>
-                    <textarea class="simple-input" placeholder="Note about your order"></textarea>
+                    <input class="simple-input shipping_address" type="text" value=""  name="shipping_address" placeholder="Address" />
+                    <div class="empty-space col-xs-b20"></div>
+                    <textarea class="simple-input shipping_note"  name="shipping_note" placeholder="Note about your order"></textarea>
                 </div>
                 <div class="col-md-6">
                     <h4 class="h4 col-xs-b25">your order</h4>
+                    @php
+                     $total = 0;
+                    @endphp
+                    @foreach(Session::get('cart') as $key=>$cart)
+                    @php
+                       
+                            $subtotal = $cart['product_qty'] * $cart['product_price'];
+                            $total +=$subtotal;
+                    @endphp
+                    
                     <div class="cart-entry clearfix">
-                        <a class="cart-entry-thumbnail" href="#"><img src="{{ asset('client/img/product-1.png')}}" alt=""></a>
+                        <a class="cart-entry-thumbnail" href="#"><img style="width: 100px;height:100px" src="{{ asset('images/product/'.$cart['product_image'])}}" alt=""></a>
                         <div class="cart-entry-description">
                             <table>
                                 <tbody>
                                     <tr>
                                         <td>
-                                            <div class="h6"><a href="#">modern beat ht</a></div>
-                                            <div class="simple-article size-1">QUANTITY: 2</div>
+                                            <div class="h6"><a href="#">{{$cart['product_name']}}</a></div>
+                                            <div class="simple-article size-1">QUANTITY: {{$cart['product_qty']}}</div>
                                         </td>
                                         <td>
-                                            <div class="simple-article size-3 grey">$155.00</div>
-                                            <div class="simple-article size-1">TOTAL: $310.00</div>
-                                        </td>
-                                        <td>
-                                            <div class="cart-color" style="background: #eee;"></div>
+                                            <div class="simple-article size-3 grey">${{$cart['product_price']}}</div>
+                                            <div class="simple-article size-1">TOTAL: ${{$subtotal}}</div>
                                         </td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
                     </div>
-                    <div class="cart-entry clearfix">
-                        <a class="cart-entry-thumbnail" href="#"><img src="{{ asset('client/img/product-2.png')}}" alt=""></a>
-                        <div class="cart-entry-description">
-                            <table>
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            <div class="h6"><a href="#">modern beat ht</a></div>
-                                            <div class="simple-article size-1">QUANTITY: 2</div>
-                                        </td>
-                                        <td>
-                                            <div class="simple-article size-3 grey">$155.00</div>
-                                            <div class="simple-article size-1">TOTAL: $310.00</div>
-                                        </td>
-                                        <td>
-                                            <div class="cart-color" style="background: #bf584b;"></div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="cart-entry clearfix">
-                        <a class="cart-entry-thumbnail" href="#"><img src="{{ asset('client/img/product-3.png')}}" alt=""></a>
-                        <div class="cart-entry-description">
-                            <table>
-                                <tbody>
-                                    <tr>
-                                        <td>
-                                            <div class="h6"><a href="#">modern beat ht</a></div>
-                                            <div class="simple-article size-1">QUANTITY: 2</div>
-                                        </td>
-                                        <td>
-                                            <div class="simple-article size-3 grey">$155.00</div>
-                                            <div class="simple-article size-1">TOTAL: $310.00</div>
-                                        </td>
-                                        <td>
-                                            <div class="cart-color" style="background: #facc22;"></div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+                    @endforeach
                     <div class="order-details-entry simple-article size-3 grey uppercase">
                         <div class="row">
                             <div class="col-xs-6">
                                 cart subtotal
                             </div>
                             <div class="col-xs-6 col-xs-text-right">
-                                <div class="color">$1195.00</div>
+                                <div class="color">${{$total}}</div>
                             </div>
                         </div>
                     </div>
@@ -227,32 +96,23 @@
                                 order total
                             </div>
                             <div class="col-xs-6 col-xs-text-right">
-                                <div class="color">$1195.00</div>
+                                <div class="color">${{$total}}</div>
                             </div>
                         </div>
                     </div>
                     <div class="empty-space col-xs-b50"></div>
-                    <h4 class="h4 col-xs-b25">payment method</h4>
-                    <select class="SlectBox">
-                        <option selected="selected">PayPal</option>
-                        <option value="volvo">Volvo</option>
-                        <option value="saab">Saab</option>
-                        <option value="mercedes">Mercedes</option>
-                        <option value="audi">Audi</option>
-                    </select>
                     <div class="empty-space col-xs-b10"></div>
-                    <div class="simple-article size-2">* Etiam mollis tristique mi ac ultrices. Morbi vel neque eget lacus sollicitudin facilisis. Lorem ipsum dolor sit amet semper ante vehicula ociis natoq.</div>
                     <div class="empty-space col-xs-b30"></div>
                     <div class="button block size-2 style-3">
                         <span class="button-wrapper">
-                            <span class="icon"><img src="{{ asset('client/img/icon-4.png')}}"alt=""></span>
+                            <button type="button" class="send_order" name="send_order"><span class="icon"><img src="{{ asset('client/img/icon-4.png')}}"alt=""></span></button>
                             <span class="text">place order</span>
                         </span>
-                        <input type="submit"/>
                     </div>
                 </div>
             </div>
         </div>
+    </form>
 
         <div class="empty-space col-xs-b35 col-md-b70"></div>
 @endsection

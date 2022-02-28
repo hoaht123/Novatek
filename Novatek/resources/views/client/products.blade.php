@@ -102,6 +102,13 @@
                             <div class="row nopadding">
                                 @foreach($products as $product)
                                     <div class="col-sm-4 brand-{{$product->brand_id}}">
+                                        <form>
+                                           @csrf
+                                           <input type="hidden" value="{{$product->product_id}}" class="cart_product_id_{{$product->product_id}}">
+                                           <input type="hidden" value="{{$product->product_name}}" class="cart_product_name_{{$product->product_id}}">
+                                           <input type="hidden" value="{{$product->product_main_image}}" class="cart_product_image_{{$product->product_id}}">
+                                           <input type="hidden" value="{{$product->product_price}}" class="cart_product_price_{{$product->product_id}}">
+                                           <input type="hidden" value="1" class="cart_product_qty_{{$product->product_id}}">
                                         <div class="product-shortcode style-1">
                                             <div class="title">
                                                 <div class="simple-article size-1 color col-xs-b5"><a href="{{ route('client.product_detail',['product_id' => $product->product_id])}}">{{$product ->product_name}}</a></div>
@@ -117,15 +124,16 @@
                                                                 <span class="text">Learn More</span>
                                                             </span>
                                                         </a>
-                                                        <a class="button size-2 style-3" href="#">
+                                                        <a class="button size-2 style-3">
                                                             <span class="button-wrapper">
-                                                                <span class="icon"><img src="{{ asset('client/img/icon-3.png')}}"alt=""></span>
+                                                                <button type="button" class="add_to_cart" data-id="{{$product->product_id}}" name="add-to-cart"> <span class="icon"><img src="{{ asset('client/img/icon-3.png')}}"alt=""></span></button>
                                                                 <span class="text">Add To Cart</span>
                                                             </span>
                                                         </a>
                                                     </div>
                                                 </div>
                                             </div>
+                                        </form>
                                             <div class="price">
                                                 <div class="simple-article size-4"><span class="color">${{$product->product_price}}</span>&nbsp;&nbsp;&nbsp;<span class=""></span></div>
                                             </div>
