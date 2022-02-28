@@ -145,14 +145,14 @@ class LoginController extends Controller
         $values['address'] = $data['user_address'];
         $values['password'] = md5($data['user_password']);
 
-        DB::table('Users')->insert($values);
+        DB::table('users')->insert($values);
         return Redirect::back();
     }
 
 
     public function checkLogin(Request $request){
         $data = $request->all();
-        $check = DB::table('Users')->where('email',$data['user_email'])->where('password',md5($data['user_password']))->first();
+        $check = DB::table('users')->where('email',$data['user_email'])->where('password',md5($data['user_password']))->first();
         if($check){
              Session::put('user_name',$check->name); 
             Session::put('user_id',$check->user_id);

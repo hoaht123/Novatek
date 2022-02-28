@@ -54,7 +54,7 @@ class BrandController extends Controller
 
     public function saveUpdate_brand(Request $request , $brand_id){
         $data = $request->all();
-        DB::table('Brands')->where('brand_id',$brand_id)->update(['brand_name'=>$data['brand_name']]);
+        DB::table('brands')->where('brand_id',$brand_id)->update(['brand_name'=>$data['brand_name']]);
         Session::put('message','Update brand successfully');
         return Redirect::to('admin/view_brand');
 
@@ -62,21 +62,21 @@ class BrandController extends Controller
 
     public function active_brand($brand_id){
         $this->AuthLogin();
-        DB::table('Brands')->where('brand_id',$brand_id)->update(['brand_status'=>0]);
+        DB::table('brands')->where('brand_id',$brand_id)->update(['brand_status'=>0]);
         Session::put('message','Show brand successfully');
         return Redirect::to('admin/view_brand');
     }
 
     public function unactive_brand($brand_id){
         $this->AuthLogin();
-        DB::table('Brands')->where('brand_id',$brand_id)->update(['brand_status'=>1]);
+        DB::table('brands')->where('brand_id',$brand_id)->update(['brand_status'=>1]);
         Session::put('message','Hide brand successfully');
         return Redirect::to('admin/view_brand');
     }
 
     public function delete_brand($brand_id){
         $this->AuthLogin();
-        DB::table('Brands')->where('brand_id',$brand_id)->delete();
+        DB::table('brands')->where('brand_id',$brand_id)->delete();
         Session::put('message','Delete brand successfully');
         return Redirect::to('admin/view_brand');
     }

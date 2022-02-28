@@ -41,7 +41,7 @@ class AdminController extends Controller
 
     public function checkLogin(Request $request){
         $data = $request->all();
-        $check = DB::table('Users')->where('email',$data['admin_email'])->where('password',md5($data['admin_password']))->where('roles','0')->first();
+        $check = DB::table('users')->where('email',$data['admin_email'])->where('password',md5($data['admin_password']))->where('roles','0')->first();
         if($check){
             Session::put('admin_name',$check->name);
             Session::put('admin_id',$check->user_id);
