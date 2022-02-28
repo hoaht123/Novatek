@@ -102,10 +102,6 @@ class CartController extends Controller
 
     public function confirm_order(Request $request){
         $data = $request->all();
-        // echo '<pre>';
-        // print_r($data);
-        // echo '</pre>';
-        // die();
         date_default_timezone_set('Asia/Ho_Chi_Minh');// set thời gian
         $shipping = new Shipping();
         $shipping->shipping_name = $data['shipping_name'];
@@ -114,7 +110,7 @@ class CartController extends Controller
         $shipping->shipping_phone = $data['shipping_phone'];
         $shipping->shipping_note = $data['shipping_note'];
         $shipping->save();
-        $shipping_id = DB::table('shipping')->lastInsertId();
+        $shipping_id = $shipping->shipping_id;
         $sum_quantity = 0;
         $sum_total = 0;
         if(Session::get('cart')){
@@ -123,6 +119,10 @@ class CartController extends Controller
                 $sum_total += $cart['product_price'];
             }
         }
+        // echo '<pre>';
+        // print_r($shipping_id);
+        // echo '</pre>';
+        // die();
         $order_code = substr(md5(microtime()),rand(0,26),5); //tạo mã tự động
         $order = new Invoice();
         $order->user_id = Session::get('user_id');

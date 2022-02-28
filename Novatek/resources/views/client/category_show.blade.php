@@ -101,6 +101,12 @@
                         <div class="products-wrapper">
                             <div class="row nopadding">
                                 @foreach($products as $product)
+                                <form>
+                                        <input type="hidden" value="{{$product->product_id}}" class="cart_product_id_{{$product->product_id}}">
+                                           <input type="hidden" value="{{$product->product_name}}" class="cart_product_name_{{$product->product_id}}">
+                                           <input type="hidden" value="{{$product->product_main_image}}" class="cart_product_image_{{$product->product_id}}">
+                                           <input type="hidden" value="{{$product->product_price}}" class="cart_product_price_{{$product->product_id}}">
+                                           <input type="hidden" value="1" class="cart_product_qty_{{$product->product_id}}">
                                     <div class="col-sm-4">
                                         <div class="product-shortcode style-1">
                                             <div class="title">
@@ -119,13 +125,14 @@
                                                         </a>
                                                         <a class="button size-2 style-3" href="#">
                                                             <span class="button-wrapper">
-                                                                <span class="icon"><img src="client/img/icon-3.png" alt=""></span>
+                                                                <button type="button" class="add_to_cart" data-id="{{$product->product_id}}" name="add-to-cart"> <span class="icon"><img src="{{ asset('client/img/icon-3.png')}}"alt=""></span></button>
                                                                 <span class="text">Add To Cart</span>
                                                             </span>
                                                         </a>
                                                     </div>
                                                 </div>
                                             </div>
+                                        </form>
                                             <div class="price">
                                                 <div class="simple-article size-4"><span class="color">${{$product->product_price}}</span>&nbsp;&nbsp;&nbsp;<span class={{$product->product_price_sale? "line-through" :""}}>{{$product->product_price_sale? $product->product_price_sale : ''}}</span></div>
                                             </div>

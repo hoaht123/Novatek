@@ -24,6 +24,7 @@
 
         <div class="container">
             <div class="row">
+                @if(Session::get('cart') == true)
                 <div class="col-md-6 col-xs-b50 col-md-b0">
                     <form>
                         @csrf
@@ -111,6 +112,9 @@
                     </div>
                 </div>
             </div>
+            @else
+            <div class="col-lg-12 text-center" style="font-size:50px">Nothing in cart</div>
+            @endif
         </div>
     </form>
 

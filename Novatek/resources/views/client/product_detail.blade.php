@@ -22,6 +22,12 @@
                                 <div class="swiper-container swiper-control-top">
                                    <div class="swiper-button-prev hidden"></div>
                                    <div class="swiper-button-next hidden"></div>
+                    <form>
+                        <input type="hidden" value="{{$product->product_id}}" class="cart_product_id_{{$product->product_id}}">
+                                           <input type="hidden" value="{{$product->product_name}}" class="cart_product_name_{{$product->product_id}}">
+                                           <input type="hidden" value="{{$product->product_main_image}}" class="cart_product_image_{{$product->product_id}}">
+                                           <input type="hidden" value="{{$product->product_price}}" class="cart_product_price_{{$product->product_id}}">
+                                           
                                    <div class="swiper-wrapper">                                      
                                             <div class="swiper-slide">
                                                     <div class="swiper-lazy-preloader"></div>
@@ -35,49 +41,6 @@
                                 </div>
 
                                 <div class="empty-space col-xs-b30 col-sm-b60"></div>
-
-                                {{-- <div class="swiper-container swiper-control-bottom" data-breakpoints="1" data-xs-slides="3" data-sm-slides="3" data-md-slides="4" data-lt-slides="4" data-slides-per-view="5" data-center="1" data-click="1">
-                                   <div class="swiper-button-prev hidden"></div>
-                                   <div class="swiper-button-next hidden"></div>
-                                   <div class="swiper-wrapper">
-                                       <div class="swiper-slide">
-                                            <div class="product-small-preview-entry">
-                                                <img src="{{ asset('client/img/product-preview-4_.jpg')}}" alt="" />
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="product-small-preview-entry">
-                                                <img src="{{ asset('client/img/product-preview-5_.jpg')}}" alt="" />
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="product-small-preview-entry">
-                                                <img src="{{ asset('client/img/product-preview-6_.jpg')}}" alt="" />
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="product-small-preview-entry">
-                                                <img src="{{ asset('client/img/product-preview-7_.jpg')}}" alt="" />
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="product-small-preview-entry">
-                                                <img src="{{ asset('client/img/product-preview-8_.jpg')}}" alt="" />
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="product-small-preview-entry">
-                                                <img src="{{ asset('client/img/product-preview-9_.jpg')}}" alt="" />
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <div class="product-small-preview-entry">
-                                                <img src="{{ asset('client/img/product-preview-10_.jpg')}}" alt="" />
-                                            </div>
-                                       </div>
-
-                                   </div>
-                                </div> --}}
                             </div>
 
                         </div>
@@ -109,31 +72,23 @@
                             </div>
                             <div class="simple-article size-3 col-xs-b30">{!!$product->product_descriptions!!}</div>
                             <div class="row col-xs-b40">
-                                <div class="col-sm-3">
-                                    <div class="h6 detail-data-title size-1">size:</div>
+                                <div class="col-sm-6">
+                                    <div class="h6 detail-data-title size-1">Quantity:</div>
                                 </div>
-                            </div>
-                            <div class="row col-xs-b40">
-                                <div class="col-sm-3">
-                                    <div class="h6 detail-data-title size-1">{{$product->inStock}}</div>
-                                </div>
-                                <div class="col-sm-9">
-                                    <div class="quantity-select">
-                                        <span class="minus"></span>
-                                        <span class="number">1</span>
-                                        <span class="plus"></span>
-                                    </div>
+                                <div class="col-sm-6">
+                                    <input type="number" min="1" class="cart_product_qty_{{$product->product_id}}">
                                 </div>
                             </div>
                             <div class="row m5 col-xs-b40">
                                 <div class="col-sm-6 col-xs-b10 col-sm-b0">
                                     <a class="button size-2 style-2 block" href="#">
                                         <span class="button-wrapper">
-                                            <span class="icon"><img src="{{ asset('client/img/icon-2.png')}}"alt=""></span>
+                                            <button type="button" class="add_to_cart" data-id="{{$product->product_id}}" name="add-to-cart"> <span class="icon"><img src="{{ asset('client/img/icon-3.png')}}"alt=""></span></button>
                                             <span class="text">add to cart</span>
                                         </span>
                                     </a>
                                 </div>
+                    </form>
                                 <div class="col-sm-6">
                                     <a class="button size-2 style-1 block noshadow" href="#">
                                     <span class="button-wrapper">

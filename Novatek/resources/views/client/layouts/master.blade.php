@@ -118,10 +118,9 @@
                                         _token:_token
                                     },
                                     success:function(data){
-                                        alert(data);
-                                        // setTimeout(function () {
-                                        //     swal("Đơn hàng", "Thanh toán thành công", "success");
-                                        //           }, 2000);
+                                        setTimeout(function () {
+                                            swal("Đơn hàng", "Thanh toán thành công", "success");
+                                                  }, 2000);
                                     }
                                 }); 	
                                 window.setTimeout(function () {

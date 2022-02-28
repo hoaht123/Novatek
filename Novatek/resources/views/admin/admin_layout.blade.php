@@ -186,7 +186,7 @@
 					        </a><!--//nav-link-->
 					        <div id="submenu-5" class="collapse submenu submenu-5" data-bs-parent="#menu-accordion">
 						        <ul class="submenu-list list-unstyled">
-							        <li class="submenu-item"><a class="submenu-link" href="{{URL::to('/product')}}"><img src="{{asset('images/icons/icons8-geometric-circle-dot-shape-with-ring-pattern-24.png')}}"  style="width:10px;height:10px" alt=""> View Order</a></li>
+							        <li class="submenu-item"><a class="submenu-link" href="{{URL::to('admin/view_order')}}"><img src="{{asset('images/icons/icons8-geometric-circle-dot-shape-with-ring-pattern-24.png')}}"  style="width:10px;height:10px" alt=""> View Order</a></li>
 						        </ul>
 					        </div>
 					    </li><!--//nav-item-->		

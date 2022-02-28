@@ -14,10 +14,10 @@ class Invoice extends Model
     protected $table = 'invoices';
 
     public function user(){
-        return $this->belongsTo(App\Models\Users::class,'user_id');
+        return $this->belongsTo(Users::class,'user_id');
     }
 
     public function shipping(){
-        return $this->belongsTo(App\Models\Shipping::class,'shipping_id');
+        return $this->belongsTo(Shipping::class,'shipping_id');
     }
 }

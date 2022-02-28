@@ -67,6 +67,11 @@ Route::prefix('admin')->group(function(){
     Route::get('/update_supplier/{supplier_id}',[App\Http\Controllers\SupplierController::class,'update_supplier']);
     Route::post('/saveUpdate_supplier/{supplier_id}',[App\Http\Controllers\SupplierController::class,'saveUpdate_supplier']);
 
+    //order
+
+    Route::get('/view_order',[App\Http\Controllers\AdminController::class,'view_order']);
+    Route::get('/invoice_details/{invoice_id}',[App\Http\Controllers\AdminController::class,'invoice_details']);
+
 });
 
 Route::prefix('')->group(function(){

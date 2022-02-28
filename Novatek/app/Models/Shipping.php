@@ -9,6 +9,6 @@ class Shipping extends Model
 {
     use HasFactory;
     protected $fillable = ['shipping_name','shipping_email','shipping_phone','shipping_note'];
-    protected $primaryKey = 'id';
+    protected $primaryKey = 'shipping_id';
     protected $table = 'shipping';
 }

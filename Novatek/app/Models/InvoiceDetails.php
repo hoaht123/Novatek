@@ -12,4 +12,6 @@ class InvoiceDetails extends Model
     protected $primaryKey ='invoice_details_id';
     protected $foreignKey = ['invoice_id','product_id'];
     protected $table = 'invoice_details';
+
+    
 }

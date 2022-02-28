@@ -8,6 +8,8 @@ use App\Models\Social;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
+use App\Models\Invoice;
+use App\Models\InvoiceDetails;
 session_start();
 class AdminController extends Controller
 {
@@ -64,8 +66,23 @@ class AdminController extends Controller
     }
 
     public function view_contact(){
+        $this->AuthLogin();
         $contacts = DB::table('contact')->get();
         return view('admin.view_contact',compact('contacts'));
     }
+
+    public function view_order(){
+        $this->AuthLogin();
+        $invoices = Invoice::paginate(10);
+        return view('admin.order.view_order',compact('invoices'));
+    }
+
+    public function invoice_details($invoice_id){
+        $invoice_details = InvoiceDetails::where('invoice_id',$invoice_id)->get();
+        $invoices = Invoice::where('invoice_id',$invoice_id)->get();
+        return view('admin.order.invoice_details',compact('invoice_details','invoices'));
+    }
+
+
 
 }
