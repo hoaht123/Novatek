@@ -73,25 +73,25 @@ div@extends('admin.admin_layout')
                     Socket
                    <select name="motherboard_socket" class="form-control"style="width:200px">
                     <optgroup label="Intel">Intel
-                        <option {{$motherboard->motherboard_socet == 'LGA 1151'?'selected="selected"': ''}} value="LGA 1151">LGA 1151</option>
-                        <option {{$motherboard->motherboard_socet == 'LGA 1200'?'selected="selected"': ''}} value="LGA1200">LGA1200</option>
-                        <option {{$motherboard->motherboard_socet == 'LGA 1366'?'selected="selected"': ''}} value="LGA 1366">LGA 1366</option>
-                        <option {{$motherboard->motherboard_socet == 'LGA 1700'?'selected="selected"': ''}} value="LGA 1700">LGA 1700</option>
+                        <option {{$motherboard->motherboard_socket == 'LGA 1151'?'selected="selected"': ''}} value="LGA 1151">LGA 1151</option>
+                        <option {{$motherboard->motherboard_socket == 'LGA 1200'?'selected="selected"': ''}} value="LGA1200">LGA1200</option>
+                        <option {{$motherboard->motherboard_socket == 'LGA 1366'?'selected="selected"': ''}} value="LGA 1366">LGA 1366</option>
+                        <option {{$motherboard->motherboard_socket == 'LGA 1700'?'selected="selected"': ''}} value="LGA 1700">LGA 1700</option>
                     </optgroup>
                     <optgroup label="AMD">AMD
-                        <option {{$motherboard->motherboard_socet == 'AMD2'?'selected="selected"': ''}} value="AM2">AM2</option>
-                        <option {{$motherboard->motherboard_socet == 'AMD2+'?'selected="selected"': ''}} value="AM2+">AM2+</option>
-                        <option {{$motherboard->motherboard_socet == 'AMD3'?'selected="selected"': ''}} value="AM3">AM3</option>
-                        <option {{$motherboard->motherboard_socet == 'AMD3+'?'selected="selected"': ''}} value="AM3+">AM3+</option>
-                        <option {{$motherboard->motherboard_socet == 'AMD4'?'selected="selected"': ''}} value="AM4">AM4</option>
+                        <option {{$motherboard->motherboard_socket == 'AMD2'?'selected="selected"': ''}} value="AM2">AM2</option>
+                        <option {{$motherboard->motherboard_socket == 'AMD2+'?'selected="selected"': ''}} value="AM2+">AM2+</option>
+                        <option {{$motherboard->motherboard_socket == 'AMD3'?'selected="selected"': ''}} value="AM3">AM3</option>
+                        <option {{$motherboard->motherboard_socket == 'AMD3+'?'selected="selected"': ''}} value="AM3+">AM3+</option>
+                        <option {{$motherboard->motherboard_socket == 'AMD4'?'selected="selected"': ''}} value="AM4">AM4</option>
                     </optgroup>
                    </select>
                </div>
                 <div class="form-group">
                     Chipset
                    <select name="motherboard_chipset" class="form-control"style="width:200px">
-                    <option {{$motherboard->motherboard_socet == 'Intel'?'selected="selected"': ''}} value="Intel">Intel</option>
-                    <option {{$motherboard->motherboard_socet == 'AMD'?'selected="selected"': ''}} value="AMD">AMD</option>
+                    <option {{$motherboard->motherboard_chipset == 'Intel'?'selected="selected"': ''}} value="Intel">Intel</option>
+                    <option {{$motherboard->motherboard_chipset == 'AMD'?'selected="selected"': ''}} value="AMD">AMD</option>
                    </select>
                </div>
                 {{-- end spec type --}}

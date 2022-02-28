@@ -56,7 +56,6 @@
                      </select>
                 </div>
                 {{-- spec type --}}
-                {{-- <input type="hidden" name="component" value ="Ram"> --}}
                 <div class="form-group">
                     Type
                     <select name="psu_type" class="form-control"style="width:200px">
@@ -68,7 +67,7 @@
                 <div class="form-group">
                     Power
                    <select name="psu_power" class="form-control"style="width:200px">
-                       <option value="120W">120W</option>
+                       <option value="150W">150W</option>
                        <option value="200W">200W</option>
                        <option value="400W">400W</option>
                        <option value="450W">450W</option>
