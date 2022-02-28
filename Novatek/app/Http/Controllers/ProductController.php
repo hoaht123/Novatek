@@ -318,14 +318,14 @@ class ProductController extends Controller
 
     public function active_product($product_id){
         $this->AuthLogin();
-        DB::table('Product')->where('product_id',$product_id)->update(['product_status'=>0]);
+        DB::table('product')->where('product_id',$product_id)->update(['product_status'=>0]);
         Session::put('message','Show product successfully');
         return Redirect::to('admin/view_product');
     }
 
     public function unactive_product($product_id){
         $this->AuthLogin();
-        DB::table('Product')->where('product_id',$product_id)->update(['product_status'=>1]);
+        DB::table('product')->where('product_id',$product_id)->update(['product_status'=>1]);
         Session::put('message','Hide product successfully');
         return Redirect::to('admin/view_product');
     }

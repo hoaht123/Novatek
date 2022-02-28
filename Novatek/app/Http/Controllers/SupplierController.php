@@ -23,18 +23,18 @@ class SupplierController extends Controller
         $supplier['supplier_name'] = $data['supplier_name'];
         $supplier['supplier_address'] = $data['supplier_address'];
         $supplier['supplier_phone'] = $data['supplier_phone'];
-        DB::table('Suppliers')->insert($supplier);
+        DB::table('suppliers')->insert($supplier);
         Session::put('message','Create supplier successfully');
         return Redirect::to('admin/view_supplier');
     }
 
     public function view_supplier(){
-        $suppliers = DB::table('Suppliers')->get();
+        $suppliers = DB::table('suppliers')->get();
         return view('admin.supplier.view_supplier',compact('suppliers'));
     }
 
     public function update_supplier($supplier_id){
-        $suppliers = DB::table('Suppliers')->where('supplier_id',$supplier_id)->first();
+        $suppliers = DB::table('suppliers')->where('supplier_id',$supplier_id)->first();
         return view('admin.supplier.update_supplier',compact('suppliers'));
     }
 
@@ -45,7 +45,7 @@ class SupplierController extends Controller
         $supplier['supplier_name'] = $data['supplier_name'];
         $supplier['supplier_address'] = $data['supplier_address'];
         $supplier['supplier_phone'] = $data['supplier_phone'];
-        DB::table('Suppliers')->where('supplier_id',$supplier_id)->update($supplier);
+        DB::table('suppliers')->where('supplier_id',$supplier_id)->update($supplier);
         Session::put('message','Update supplier successfully');
         return Redirect::to('admin/view_supplier');
     }
