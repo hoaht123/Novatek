@@ -123,7 +123,7 @@ class CartController extends Controller
         // print_r($shipping_id);
         // echo '</pre>';
         // die();
-        $order_code = substr(md5(microtime()),rand(0,26),5); //tạo mã tự động
+        $order_code = 'No'.substr(md5(microtime()),rand(0,26),5); //tạo mã tự động
         $order = new Invoice();
         $order->user_id = Session::get('user_id');
         $order->shipping_id = $shipping_id;
