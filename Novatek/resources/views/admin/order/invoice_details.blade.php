@@ -68,10 +68,16 @@
             </tr> 
             @endforeach
             <tr>
+              <td>Shipping: </td>
+              <td><td><td><td><td>Free Shipping</td></td></td></td></td>
+          </tr>
+            <tr>
                 <td>Total order: </td>
                 <td><td><td><td><td>${{$total}}</td></td></td></td></td>
             </tr>
       </tbody>
     </table>
+    
   </div>
+  <a target="_blank" class="btn btn-primary"href="{{URL::to('admin/print_invoice/'.$invoice_id)}}">Print PDF</a>
   @endsection

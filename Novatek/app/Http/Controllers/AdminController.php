@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Users;
+use App\Models\Shipping;
 use App\Models\Social;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 use App\Models\Invoice;
 use App\Models\InvoiceDetails;
+use Barryvdh\DomPDF\PDF;
 session_start();
 class AdminController extends Controller
 {
@@ -80,7 +82,98 @@ class AdminController extends Controller
     public function invoice_details($invoice_id){
         $invoice_details = InvoiceDetails::where('invoice_id',$invoice_id)->get();
         $invoices = Invoice::where('invoice_id',$invoice_id)->get();
-        return view('admin.order.invoice_details',compact('invoice_details','invoices'));
+        foreach($invoices as $key=>$invoice){
+            $invoice_id = $invoice->invoice_id;
+        }
+        return view('admin.order.invoice_details',compact('invoice_details','invoices','invoice_id'));
+    }
+
+    public function print_invoice($invoice_id){
+        $pdf = \App::make('dompdf.wrapper');
+        $pdf->loadHTML($this->print_invoice_convert($invoice_id));
+        return $pdf->stream();
+    }
+
+    public function print_invoice_convert($invoice_id){
+        $invoice_details = InvoiceDetails::where('invoice_id', $invoice_id)->get();
+        $invoices = Invoice::where('invoice_id', $invoice_id)->get();
+        foreach($invoices as $key=>$invoice){
+            $user_id = $invoice->user_id;
+            $shipping_id = $invoice->shipping_id;
+            $invoice_code = $invoice->invoice_code;
+            $invoice_date = $invoice->created_at;
+        }
+        
+        $user = Users::find($user_id);
+        $shipping = Shipping::find($shipping_id);
+        $output = '';
+        $i = 0;
+        $total = 0;
+        $output =
+        '
+        <style>
+            body{
+                font-family:DejaVu Sans;
+
+            }
+            .table-styling{
+                border:solid 1px #000;
+            }
+            .table-styling tr td {
+                border:solid 1px #000;
+            }
+            span{
+                font-weight:bold;
+            }
+        </style>
+        <h1><center>Công Ty TNHH Notavek</center></h1>
+        <h3><center>Độc lập - Tự do - Hạnh phúc</center></h3>
+        <div style="text-align:right">Order code: '.$invoice_code.'</div>
+        <div>Receiver: '.$shipping->shipping_name.'<div>
+        <div>Email: '.$shipping->shipping_email.'<div>
+        <div>Address: '.$shipping->shipping_address.'<div>
+        <div>Order date: '. $invoice_date.'<div>
+        <div>Note: '.$shipping->shipping_note.'<div>
+        <br><br>
+        <h4><center>Invoice details</center></h4>
+        <table border="1" class="table table-styling">
+            <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>Name</th>
+                    <th>Image</th>
+                    <th>Quantity</th>
+                    <th>Subtotal</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>';
+            foreach($invoice_details as $key=>$in_de){
+                $total += $in_de->quantity *$in_de->subtotal;
+                $output .='
+                <tr>
+                    <td>'.++$i.'</td>
+                    <td>'.$in_de->product_name.'</td>
+                    <td><img style="width:50px;height:50px" src="images/product/'.$in_de->product_image.'" alt="'.$in_de->product_name.'"></td>
+                    <td>'.$in_de->quantity.'</td>
+                    <td>$'.$in_de->subtotal.'</td>
+                    <td>$'.$in_de->subtotal * $in_de->quantity .'</td>
+                </tr>';
+            }
+            $output .='
+            </tbody>
+        </table>';
+        $output .='</div>
+        <div style="float:right">
+        <div >Shipping : Free Shipping </div>
+        <div >Total order: $'.$total.'</div>
+        </div>';
+        $output .= '</div><br></br>
+        <div style="margin-top:50px">
+        <span style="margin-left:50px" >Vote maker</span>
+        <span style="margin-left:350px">Receiver </span></div>';
+
+        return $output;
     }
 
 

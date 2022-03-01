@@ -33,12 +33,11 @@
                 <td>{{$invoice->user->name}}</td>
                 <td>{{$invoice->shipping->shipping_name}}</td>
                 <td>{{$invoice->quantity}}</td>
-                <td>${{$invoice->total * $invoice->quantity}}</td>
+                <td>${{$invoice->total}}</td>
                 <td>{{$invoice->created_at}}</td>
                 <td><a href="{{URL::to('admin/invoice_details/'.$invoice->invoice_id)}}"><i style="font-size:25px" class="fa fa-clipboard"></i></a></td>
             </tr> 
             @endforeach
-        
       </tbody>
     </table>
     {{ $invoices->links('vendor.custom_pagination') }}

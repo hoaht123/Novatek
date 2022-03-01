@@ -177,7 +177,7 @@
 					        <a class="nav-link submenu-toggle" href="#" data-bs-toggle="collapse" data-bs-target="#submenu-5" aria-expanded="false" aria-controls="submenu-1">
 						        <span class="nav-icon"><img src="{{asset('images/icons/icons8-order-256.png')}}" style="width:30px;height:30px" alt="">
 						         </span>
-		                         <span class="nav-link-text">Orders</span>
+		                         <span class="nav-link-text">Invoices</span>
 		                         <span class="submenu-arrow">
 		                             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chevron-down" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
 	  <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"/>
@@ -186,7 +186,7 @@
 					        </a><!--//nav-link-->
 					        <div id="submenu-5" class="collapse submenu submenu-5" data-bs-parent="#menu-accordion">
 						        <ul class="submenu-list list-unstyled">
-							        <li class="submenu-item"><a class="submenu-link" href="{{URL::to('admin/view_order')}}"><img src="{{asset('images/icons/icons8-geometric-circle-dot-shape-with-ring-pattern-24.png')}}"  style="width:10px;height:10px" alt=""> View Order</a></li>
+							        <li class="submenu-item"><a class="submenu-link" href="{{URL::to('admin/view_order')}}"><img src="{{asset('images/icons/icons8-geometric-circle-dot-shape-with-ring-pattern-24.png')}}"  style="width:10px;height:10px" alt=""> View Invoice</a></li>
 						        </ul>
 					        </div>
 					    </li><!--//nav-item-->		

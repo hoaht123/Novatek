@@ -116,7 +116,7 @@ class CartController extends Controller
         if(Session::get('cart')){
             foreach(Session::get('cart') as $key=>$cart){
                 $sum_quantity += $cart['product_qty'];
-                $sum_total += $cart['product_price'];
+                $sum_total += $cart['product_price'] * $cart['product_qty'];
             }
         }
         // echo '<pre>';
