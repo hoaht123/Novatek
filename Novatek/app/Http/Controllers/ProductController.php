@@ -151,7 +151,7 @@ class ProductController extends Controller
         $data['product_sort_descriptions'] = $request->product_sort_description;
         $data['product_isHot'] = 1;
         $data['product_isNew'] = 1;
-        $data['product_inStock'] = 1;
+        $data['product_inStock'] = 0;
         $data['product_status'] = 0;
         $get_image_gallery = $request->file('product_image_gallery');
         $get_image_main = $request->file('product_image_main');
