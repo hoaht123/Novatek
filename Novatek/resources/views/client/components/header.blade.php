@@ -29,93 +29,65 @@
                                     <a href="index1.html">sp</a>
                                 </div>
                             </div>
+                            @php
+                                    $total = 0;
+                                    $sum_quantity = 0;
+                                @endphp
                             <div class="entry hidden-xs hidden-sm"><a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a></div>
                             <div class="entry hidden-xs hidden-sm cart">
                                 <a href="{{ URL::to('show_cart')}}">
                                     <b class="hidden-xs">Your bag</b>
                                     <span class="cart-icon">
                                         <i class="fa fa-shopping-bag" aria-hidden="true"></i>
-                                        <span class="cart-label">5</span>
+                                        @if(Session::get('cart') == true)
+                                        @foreach(Session::get('cart') as $key=>$cart)
+                                        @php
+                                        $sum_quantity += $cart['product_qty'];
+                                        @endphp
+                                        @endforeach
+                                        <span class="cart-label">{{$sum_quantity}}</span>
+                                        @else
+                                        <span class="cart-label">0</span>
+                                        @endif
                                     </span>
-                                    <span class="cart-title hidden-xs">$1195.00</span>
+                                    
                                 </a>
+                                
                                 <div class="cart-toggle hidden-xs hidden-sm">
                                     <div class="cart-overflow">
+                                        @if(Session::get('cart') == true)
+                                        @foreach(Session::get('cart') as $key=>$cart)
+                                         @php
+                            
+                                             $subtotal = $cart['product_qty'] * $cart['product_price'];
+                                             $total +=$subtotal;
+                                        @endphp
                                         <div class="cart-entry clearfix">
-                                            <a class="cart-entry-thumbnail" href="#"><img src="{{ asset('client/img/product-1.png')}}" alt="" /></a>
+                                            <a class="cart-entry-thumbnail" href="#"><img style="width: 50px;height:50px"src="{{ asset('images/product/'.$cart['product_image'])}}" alt="" /></a>
                                             <div class="cart-entry-description">
                                                 <table>
                                                     <tr>
                                                         <td>
-                                                            <div class="h6"><a href="#">modern beat ht</a></div>
-                                                            <div class="simple-article size-1">QUANTITY: 2</div>
+                                                            <div class="h6">{{$cart['product_name']}}</div>
+                                                            <div class="simple-article size-1">QUANTITY: {{$cart['product_qty']}}</div>
                                                         </td>
                                                         <td>
-                                                            <div class="simple-article size-3 grey">$155.00</div>
-                                                            <div class="simple-article size-1">TOTAL: $310.00</div>
+                                                            <div class="simple-article size-3 grey">${{$cart['product_price']}}</div>
+                                                            <div class="simple-article size-1">TOTAL: ${{$cart['product_price'] * $cart['product_qty']}}</div>
                                                         </td>
                                                         <td>
-                                                            <div class="cart-color" style="background: #eee;"></div>
-                                                        </td>
-                                                        <td>
-                                                            <div class="button-close"></div>
+                                                            <a class="cart_quantity_delete" href="{{URL::to('del_product/'.$cart['session_id'])}}" onclick="return confirm('Are you sure you want to delete')"><i class="fa fa-times"></i></a></div>
                                                         </td>
                                                     </tr>
                                                 </table>
                                             </div>
                                         </div>
-                                        <div class="cart-entry clearfix">
-                                            <a class="cart-entry-thumbnail" href="#"><img src="{{ asset('client/img/product-2.png')}}" alt="" /></a>
-                                            <div class="cart-entry-description">
-                                                <table>
-                                                    <tr>
-                                                        <td>
-                                                            <div class="h6"><a href="#">modern beat ht</a></div>
-                                                            <div class="simple-article size-1">QUANTITY: 2</div>
-                                                        </td>
-                                                        <td>
-                                                            <div class="simple-article size-3 grey">$155.00</div>
-                                                            <div class="simple-article size-1">TOTAL: $310.00</div>
-                                                        </td>
-                                                        <td>
-                                                            <div class="cart-color" style="background: #bf584b;"></div>
-                                                        </td>
-                                                        <td>
-                                                            <div class="button-close"></div>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                            </div>
-                                        </div>
-                                        <div class="cart-entry clearfix">
-                                            <a class="cart-entry-thumbnail" href="#"><img src="{{ asset('client/img/product-3.png')}}" alt="" /></a>
-                                            <div class="cart-entry-description">
-                                                <table>
-                                                    <tr>
-                                                        <td>
-                                                            <div class="h6"><a href="#">modern beat ht</a></div>
-                                                            <div class="simple-article size-1">QUANTITY: 2</div>
-                                                        </td>
-                                                        <td>
-                                                            <div class="simple-article size-3 grey">$155.00</div>
-                                                            <div class="simple-article size-1">TOTAL: $310.00</div>
-                                                        </td>
-                                                        <td>
-                                                            <div class="cart-color" style="background: #facc22;"></div>
-                                                        </td>
-                                                        <td>
-                                                            <div class="button-close"></div>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                            </div>
-                                        </div>
-                                    </div>
+                                        @endforeach
                                     <div class="empty-space col-xs-b40"></div>
                                     <div class="row">
                                         <div class="col-xs-6">
                                             <div class="cell-view empty-space col-xs-b50">
-                                                <div class="simple-article size-5 grey">TOTAL <span class="color">$1195.00</span></div>
+                                                <div class="simple-article size-5 grey">TOTAL <span class="color">${{$total}}</span></div>
                                             </div>
                                         </div>
                                         <div class="col-xs-6 text-right">
@@ -127,8 +99,12 @@
                                             </a>
                                         </div>
                                     </div>
+                                    @else
+                            <div class="text-center" style="font-size:20px">Nothing in cart</div>
+                            @endif
                                 </div>
                             </div>
+                            
                             <div class="hamburger-icon">
                                 <span></span>
                                 <span></span>
@@ -159,95 +135,7 @@
                                             <a href="{{ route('client.products')}}">products</a>
                                         </li>
                                         <li class="megamenu-wrapper">
-                                            <a href="#">Pages</a>
-                                            <div class="menu-toggle"></div>
-                                            <div class="megamenu">
-                                                <div class="links">
-                                                    <a class="active" href="{{ URL::to('checkout')}}">Checkout</a>
-                                                </div>
-                                                <div class="content">
-                                                    <div class="row nopadding">
-                                                        <div class="col-xs-6">
-                                                            <div class="product-shortcode style-5">
-                                                                <div class="product-label green">best price</div>
-                                                                <div class="icons">
-                                                                    <a class="entry"><i class="fa fa-check" aria-hidden="true"></i></a>
-                                                                    <a class="entry open-popup" data-rel="3"><i class="fa fa-eye" aria-hidden="true"></i></a>
-                                                                    <a class="entry"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
-                                                                </div>
-                                                                <div class="preview">
-                                                                    <div class="swiper-container" data-loop="1">
-                                                                        <div class="swiper-button-prev style-1"></div>
-                                                                        <div class="swiper-button-next style-1"></div>
-                                                                        <div class="swiper-wrapper">
-                                                                            <div class="swiper-slide">
-                                                                                <img src="{{ asset('client/img/product-61.jpg')}}" alt="" />
-                                                                            </div>
-                                                                            <div class="swiper-slide">
-                                                                                <img src="{{ asset('client/img/product-59.jpg')}}" alt="" />
-                                                                            </div>
-                                                                        </div>
-                                                                    </div> 
-                                                                </div>
-                                                                <div class="content-animate">
-                                                                    <div class="title">
-                                                                        <div class="shortcode-rate-wrapper">
-                                                                            <div class="rate-wrapper align-inline">
-                                                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                                                <i class="fa fa-star-o" aria-hidden="true"></i>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="h6 animate-to-green"><a href="product.html">modern beat nine</a></div>
-                                                                    </div>
-                                                                    <div class="description">
-                                                                        <div class="simple-article text size-2">Mollis nec consequat at In feugiat molestie tortor a malesuada</div>
-                                                                    </div>
-                                                                    <div class="price">
-                                                                        <div class="simple-article size-4 dark">$630.00</div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="preview-buttons">
-                                                                    <div class="buttons-wrapper">
-                                                                        <a class="button size-2 style-2" href="product.html">
-                                                                            <span class="button-wrapper">
-                                                                                <span class="icon"><img src="{{ asset('client/img/icon-1.png')}}"alt=""></span>
-                                                                                <span class="text">Learn More</span>
-                                                                            </span>
-                                                                        </a>
-                                                                        <a class="button size-2 style-3" href="#">
-                                                                            <span class="button-wrapper">
-                                                                                <span class="icon"><img src="{{ asset('client/img/icon-3.png')}}"alt=""></span>
-                                                                                <span class="text">Add To Cart</span>
-                                                                            </span>
-                                                                        </a>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-xs-6">
-                                                            <div class="banner-shortcode style-3 rounded-image text-center" style="background-image: url({{ asset('client/img/background-11')}}.jpg);">
-                                                                <div class="valign-middle-cell">
-                                                                    <div class="valign-middle-content">
-                                                                        <div class="simple-article size-5 light transparent uppercase col-xs-b5"><span class="color">30%</span>DISCOUNT</div>
-                                                                        <h3 class="h3 light col-xs-b15">all models from relax seriece</h3>
-                                                                        <div class="simple-article size-3 light transparent col-xs-b30">Vivamus in tempor eros. Phasellus rhoncus in nunc sit amet mattis. Integer in ipsum vestibulum, molestie arcu ac</div>
-                                                                        <a class="button size-2 style-1" href="#">
-                                                                            <span class="button-wrapper">
-                                                                                <span class="icon"><img src="{{ asset('client/img/icon-1.png')}}"alt=""></span>
-                                                                                <span class="text">learn more</span>
-                                                                            </span>
-                                                                        </a>
-
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <a href="{{ URL::to('checkout')}}">Checkout</a>
                                         </li>
                                         <li><a href="{{ route('client.contact')}}">contact</a></li>
                                     </ul>
