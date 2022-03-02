@@ -1,4 +1,4 @@
-div@extends('admin.admin_layout')
+@extends('admin.admin_layout')
 @section('admin-content')
         <div class="dropdown show ">
             <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

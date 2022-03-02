@@ -19,8 +19,14 @@
     <div class="empty-space col-xs-b25 col-sm-b50"></div>
 
     <div class="h4 col-xs-b25">Price</div>
-    <div id="prices-range"></div>
-    <div class="simple-article size-1">PRICE: <b class="grey">$<span class="min-price">40</span> - $<span class="max-price">300</span></b></div>
+    <div class="price-filter">
+        <label class="price-filter">
+            <button class="btn" value = "100" style ="width: 200px" name="btn-brand">0-100$</button>
+            </label>
+                <div class="empty-space col-xs-b10"></div>
+    </div>
+    {{-- <div id="prices-range"></div>
+    <div class="simple-article size-1">PRICE: <b class="grey">$<span class="min-price">1</span> - $<span class="max-price">1000</span></b></div> --}}
 
     <div class="empty-space col-xs-b25 col-sm-b50"></div>
 

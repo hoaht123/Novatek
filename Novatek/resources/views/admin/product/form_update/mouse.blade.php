@@ -1,4 +1,4 @@
-div@extends('admin.admin_layout')
+@extends('admin.admin_layout')
 @section('admin-content')
         <div class="dropdown show ">
             <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -17,7 +17,7 @@ div@extends('admin.admin_layout')
                 <a class="dropdown-item" href="{{route('create_headphone')}}">Headphone</a>
             </div>
         </div>
-<h2 class="text-center">UPDATE NEW CPU </h1>
+<h2 class="text-center">UPDATE MOUSE {{$mouse->id}} </h1>
 <div class="container">
     <form action="{{URL::to('admin/save_update_product/'.$product->product_id)}}" method="post" enctype="multipart/form-data">
         @csrf
@@ -76,8 +76,8 @@ div@extends('admin.admin_layout')
                 <div class="form-group">
                     Chipset
                    <select name="mouse_chipset" class="form-control"style="width:200px">
-                        <option {{$mouse->mouse_chipset == 'YES'?'selected="selected"': ''}} value="YES">YES</option>
-                        <option {{$mouse->mouse_chipset == 'NO'?'selected="selected"': ''}} value="NO">NO</option>
+                        <option {{$mouse->mouse_wireless == 'YES'?'selected="selected"': ''}} value="YES">YES</option>
+                        <option {{$mouse->mouse_wireless == 'NO'?'selected="selected"': ''}} value="NO">NO</option>
                     </select>
                </div>
                 {{-- end spec type --}}

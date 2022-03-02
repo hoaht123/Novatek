@@ -1,4 +1,4 @@
-div@extends('admin.admin_layout')
+@extends('admin.admin_layout')
 @section('admin-content')
         <div class="dropdown show ">
             <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -71,24 +71,24 @@ div@extends('admin.admin_layout')
                <div class="form-group">
                 Capacity
                <select name="memory_size" class="form-control"style="width:200px">
-                   <option {{$ram->ram_speed == '8GB'?'selected="selected"': ''}} value="8GB">8GB</option>
-                   <option {{$ram->ram_speed == '16GB'?'selected="selected"': ''}} value="16GB">16GB</option>
+                   <option {{$ram->memory_size == '8GB'?'selected="selected"': ''}} value="8GB">8GB</option>
+                   <option {{$ram->memory_size == '16GB'?'selected="selected"': ''}} value="16GB">16GB</option>
                </select>
            </div>
            <div class="form-group">
                 Type
                 <select name="ram_type" class="form-control"style="width:200px">
-                    <option {{$ram->ram_speed == 'DRAM'?'selected="selected"': ''}} value="DRAM">DRAM</option>
-                    <option {{$ram->ram_speed == 'SRAM'?'selected="selected"': ''}} value="SRAM">SRAM</option>
+                    <option {{$ram->ram_type == 'DRAM'?'selected="selected"': ''}} value="DRAM">DRAM</option>
+                    <option {{$ram->ram_type == 'SRAM'?'selected="selected"': ''}} value="SRAM">SRAM</option>
                 </select>
             </div>
             <div class="form-group">
                 Bandwidth
                 <select name="ram_bandwidth" class="form-control"style="width:200px">
-                    <option {{$ram->ram_speed == 'DDR3'?'selected="selected"': ''}} value="DDR3">DDR3 </option>
-                    <option {{$ram->ram_speed == 'DDR4'?'selected="selected"': ''}} value="DDR4">DDR4 </option>
-                    <option {{$ram->ram_speed == 'DDR5'?'selected="selected"': ''}} value="DDR5">DDR5</option>
-                    <option {{$ram->ram_speed == 'DDR6'?'selected="selected"': ''}} value="DDR6">DDR4 </option>
+                    <option {{$ram->ram_bandwidth == 'DDR3'?'selected="selected"': ''}} value="DDR3">DDR3 </option>
+                    <option {{$ram->ram_bandwidth == 'DDR4'?'selected="selected"': ''}} value="DDR4">DDR4 </option>
+                    <option {{$ram->ram_bandwidth == 'DDR5'?'selected="selected"': ''}} value="DDR5">DDR5</option>
+                    <option {{$ram->ram_bandwidth == 'DDR6'?'selected="selected"': ''}} value="DDR6">DDR4 </option>
                 </select>
             </div>
                 {{-- end spec type --}}

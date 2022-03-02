@@ -1,4 +1,4 @@
-div@extends('admin.admin_layout')
+@extends('admin.admin_layout')
 @section('admin-content')
         <div class="dropdown show ">
             <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -63,11 +63,11 @@ div@extends('admin.admin_layout')
                 {{-- spec type --}}
                     <div class="form-group">
                         Key quantity
-                        <input type="number" name="keyboard_qty" value="{{$keyboard->qty}}" class="form-control" style="width:200px">
+                        <input type="number" name="keyboard_qty" value="{{$keyboard->keyboard_qty}}" class="form-control" style="width:200px">
                     </div>
                     <div class="form-group">
                         Color
-                        <input type="number" name="keyboard_color" value="{{$keyboard->color}}" class="form-control" style="width:200px">
+                        <input type="text" name="keyboard_color" value="{{$keyboard->keyboard_color}}" class="form-control" style="width:200px">
                     </div>
                <div class="form-group">
                     Type
