@@ -22,18 +22,12 @@
                             
                             <div class="entry language">
                                 <div class="title"><b>en</b></div>
-                                <div class="language-toggle header-toggle-animation">
-                                    <a href="index1.html">fr</a>
-                                    <a href="index1.html">ru</a>
-                                    <a href="index1.html">it</a>
-                                    <a href="index1.html">sp</a>
-                                </div>
                             </div>
-                            @php
-                                    $total = 0;
-                                    $sum_quantity = 0;
+                                @php
+                                        $total = 0;
+                                        $sum_quantity = 0;
                                 @endphp
-                            <div class="entry hidden-xs hidden-sm"><a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a></div>
+                            <div class="entry hidden-xs hidden-sm"><a href="{{ route('client.wish_list')}}"><i class="fa fa-heart-o" aria-hidden="true"></i></a></div>
                             <div class="entry hidden-xs hidden-sm cart">
                                 <a href="{{ URL::to('show_cart')}}">
                                     <b class="hidden-xs">Your bag</b>

@@ -21,10 +21,14 @@
     <link rel="stylesheet" type="text/css" href="{{asset('css/main.css')}}">
 <!--===============================================================================================-->
 @endsection
-@section('content')
-{{-- <div class="header-empty-space"></div> --}}
+@section('content')  
+@if(session('error') != null)
+    <script>
+        alert('{{session('error')}}');
+    </script>
+@endif
 <div class="container" >
-    <div class="row">   
+    <div class="row"> 
         <div class="col-lg-6" >
             <div class="limiter">
                 <div class="container-login100" style="background:white;">

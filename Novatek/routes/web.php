@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\client\HomeController;
+use App\Http\Controllers\client\UserController;
 
 Route::prefix('admin')->group(function(){
     Route::get('/',[App\Http\Controllers\AdminController::class,'index']);
@@ -113,4 +114,7 @@ Route::prefix('')->group(function(){
 
     //Category sidebar clicked
     Route::get('/products/category/{category_id}',[HomeController::class,'category_sidebar_clicked'])->name('category_sidebar_clicked');
+
+    //Wishlist
+    Route::get('wish_list',[UserController::class,'wish_list'])->name('client.wish_list')->middleware('checkUserLogin');
 });
