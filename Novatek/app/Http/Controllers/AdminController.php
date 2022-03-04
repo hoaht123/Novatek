@@ -126,6 +126,7 @@ class AdminController extends Controller
                 font-weight:bold;
             }
         </style>
+        <img style="width:100px;height:50px" src="client/img/logo-novatek.jpg" alt="">
         <h1><center>Công Ty TNHH Notavek</center></h1>
         <h3><center>Độc lập - Tự do - Hạnh phúc</center></h3>
         <div style="text-align:right">Order code: '.$invoice_code.'</div>
