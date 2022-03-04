@@ -208,7 +208,7 @@ class ProductController extends Controller
                     DB::table('gpu')->insert($gpu);
                     $data['spec_gpu'] = DB::getPdo()->lastInsertId();
                 }
-                else if(strcasecmp($data['component'], 'storage')==0){
+                else if(strcasecmp($data['component'], 'Storage')==0){
                     $storage = array();
                     $storage['storage_type'] = $request->storage_type;
                     $storage['storage_speed'] = $request->storage_speed;

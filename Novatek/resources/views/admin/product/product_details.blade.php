@@ -31,11 +31,66 @@
                      <li>Bandwidth: {{$pro->ram->ram_bandwidth}}</li>
                      <li>Speed : {{$pro->ram->ram_speed}}</li>
                     @endif
+
+                    @if($pro->spec_cpu != null)
+                     <li>Speed : {{$pro->cpu->cpu_speed}}</li>
+                     <li>Core : {{$pro->cpu->cpu_core}}</li>
+                     <li>Socket: {{$pro->cpu->cpu_socket}}</li>
+                     <li>Thread: {{$pro->cpu->cpu_thread}}</li>
+                     <li>Cache : {{$pro->cpu->cpu_cache}}</li>
+                    @endif
+
+                    @if($pro->spec_keyboard != null)
+                     <li>Quantity : {{$pro->keyboard->keyboard_qty}}</li>
+                     <li>Wireless : {{$pro->keyboard->keyboard_wireless}}</li>
+                     <li>Color: {{$pro->keyboard->keyboard_color}}</li>
+                     <li>Switch: {{$pro->keyboard->keyboard_switch}}</li>
+                    @endif
+
+                    @if($pro->spec_vga != null)
+                     <li>Memory : {{$pro->vga->gpu_memory}}</li>
+                     <li>Output ports : {{$pro->vga->Output_Ports}}</li>
+                     <li>Type: {{$pro->vga->gpu_type}}</li>
+                     <li>Speed: {{$pro->vga->gpu_speed}}</li>
+                    @endif
+
+                    @if($pro->spec_psu != null)
+                     <li>Power : {{$pro->psu->psu_power}}</li>
+                     <li>Efficiency : {{$pro->psu->psu_efficiency}}</li>
+                     <li>Type: {{$pro->psu->psu_type}}</li>
+                    @endif
+
+                    @if($pro->spec_storage != null)
+                    <li>Type : {{$pro->storage->storage_type}}</li>
+                    <li>Capacity : {{$pro->storage->storage_capacity}}</li>
+                    <li>Speed: {{$pro->storage->storage_speed}}</li>
+                    <li>Size: {{$pro->storage->storage_size}}</li>
+                    @endif
+
+                    @if($pro->spec_motherboard != null)
+                    <li>Size : {{$pro->motherboard->Size}}</li>
+                    <li>Socket : {{$pro->motherboard->Socket}}</li>
+                    <li>Memory: {{$pro->motherboard->Memory}}</li>
+                    @endif
+
+                    @if($pro->spec_headphone != null)
+                    <li>Type : {{$pro->headphone->headphone_type}}</li>
+                    <li>Wireless : {{$pro->headphone->headphone_wireless}}</li>
+                    <li>Mirco: {{$pro->headphone->headphone_micro}}</li>
+                    @endif
+
+                    @if($pro->spec_mouse != null)
+                    <li>Type : {{$pro->mouse->mouse_type}}</li>
+                    <li>Wireless : {{$pro->mouse->mouse_wireless}}</li>
+                    <li>DPI: {{$pro->mouse->mouse_dpi}}</li>
+                    @endif
+
+
             </ul>
             <div style="font-size:20px">Descriptions : </div>
-            <div>{{$pro->product_descriptions}}</div>
+            <div>{!! $pro->product_descriptions !!}</div>
             <div style="font-size:20px">Sort Descriptions : </div>
-            <div>{{$pro->product_sort_descriptions}}</div>
+            <div>{!! $pro->product_sort_descriptions !!}</div>
         </div>
     </div>
 </div>

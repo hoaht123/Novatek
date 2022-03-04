@@ -33,6 +33,33 @@ class Product extends Model
         return $this->belongsTo(Ram::class,'spec_ram');
     }
 
+    public function cpu(){
+        return $this->belongsTo(Cpu::class,'spec_cpu');
+    }
+
+    public function keyboard(){
+        return $this->belongsTo(Keyboard::class,'spec_keyboard');
+    }
+
+    public function vga(){
+        return $this->belongsTo(Vga::class,'spec_vga');
+    }
+    
+    public function psu(){
+        return $this->belongsTo(Psu::class,'spec_psu');
+    }
+
+    public function storage(){
+        return $this->belongsTo(Storage::class,'spec_storage');
+    }
+
+    public function motherboard(){
+        return $this->belongsTo(Motherboard::class,'spec_motherboard');
+    }
+
+    public function headphone(){
+        return $this->belongsTo(Headphone::class,'spec_headphone');
+    }
 
     
 }
