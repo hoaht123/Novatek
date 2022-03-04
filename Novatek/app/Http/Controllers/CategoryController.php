@@ -58,14 +58,14 @@ class CategoryController extends Controller
 
     public function active_category($category_id){
         $this->AuthLogin();
-        DB::table('Categories')->where('category_id',$category_id)->update(['category_status'=>0]);
+        DB::table('categories')->where('category_id',$category_id)->update(['category_status'=>0]);
         Session::put('message','Show category successfully');
         return Redirect::to('admin/view_category');
     }
 
     public function unactive_category($category_id){
         $this->AuthLogin();
-        DB::table('Categories')->where('category_id',$category_id)->update(['category_status'=>1]);
+        DB::table('categories')->where('category_id',$category_id)->update(['category_status'=>1]);
         Session::put('message','Hide category successfully');
         return Redirect::to('admin/view_category');
     }
@@ -88,13 +88,13 @@ class CategoryController extends Controller
     public function saveUpdate_category(Request $request , $category_id){
         $this->AuthLogin();
         $data = $request->all();
-        DB::table('Categories')->where('category_id',$category_id)->update(['category_name'=>$data['category_name'],'parent_id' =>$data['parent_id']]);
+        DB::table('categories')->where('category_id',$category_id)->update(['category_name'=>$data['category_name'],'parent_id' =>$data['parent_id']]);
         Session::put('message','Update category successfully');
         return Redirect::to('admin/view_category');
     }
 
     public function delete_category($category_id){
-        DB::table('Categories')->where('category_id',$category_id)->delete();
+        DB::table('categories')->where('category_id',$category_id)->delete();
         Session::put('message','Delete category successfully');
         return Redirect::to('admin/view_category');
     }

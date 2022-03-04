@@ -47,7 +47,7 @@ class BrandController extends Controller
 
     public function update_brand($brand_id){
         $this->AuthLogin();
-       $brand = DB::table('Brands')->where('brand_id',$brand_id)->first();
+       $brand = DB::table('brands')->where('brand_id',$brand_id)->first();
         return view('admin.brand.update_brand',compact('brand'));
 
     }
