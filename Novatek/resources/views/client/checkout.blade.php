@@ -81,6 +81,9 @@
                             </div>
                         </div>
                     </div>
+                    @php 
+                     Session::put('total',$total);
+                    @endphp
                     <div class="order-details-entry simple-article size-3 grey uppercase">
                         <div class="row">
                             <div class="col-xs-6">
@@ -101,8 +104,21 @@
                             </div>
                         </div>
                     </div>
-                    <div class="empty-space col-xs-b50"></div>
-                    <div class="empty-space col-xs-b10"></div>
+                    <div class="empty-space col-xs-b30"></div>
+                    <div class="button block size-2 style-3">
+                        <span class="button-wrapper">
+                            <span class="icon"><a href="{{ route('processTransaction') }}"><img src="{{ asset('client/img/icon-4.png')}}"alt=""></a></span>
+                            <span class="text"><img style="width:30px;height:30px" src="{{ asset('images/icons/icons8-paypal-64.png')}}"alt=""></i>Paypal</span>
+                        </span>
+                    </div>
+                    @if(\Session::has('error'))
+        <div class="alert alert-danger">{{ \Session::get('error') }}</div>
+        {{ \Session::forget('error') }}
+    @endif
+    @if(\Session::has('success'))
+        <div class="alert alert-success">{{ \Session::get('success') }}</div>
+        {{ \Session::forget('success') }}
+    @endif
                     <div class="empty-space col-xs-b30"></div>
                     <div class="button block size-2 style-3">
                         <span class="button-wrapper">

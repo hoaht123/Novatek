@@ -148,6 +148,10 @@ class CartController extends Controller
             }
         }
         Session::forget('cart');
-        return Redirect::to('/');
+        return Redirect::to('thanks');
+    }
+
+    public function thanks(){
+        return view('client.thanks');
     }
 }

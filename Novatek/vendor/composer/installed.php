@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '7cf43266f53c0f7a6268515fe1e31b5257cdbe62',
+        'reference' => 'b2725cf1ea8a6ec1be7dee8bd7a94871862c6661',
         'name' => 'laravel/laravel',
         'dev' => true,
     ),
@@ -406,7 +406,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '7cf43266f53c0f7a6268515fe1e31b5257cdbe62',
+            'reference' => 'b2725cf1ea8a6ec1be7dee8bd7a94871862c6661',
             'dev_requirement' => false,
         ),
         'laravel/sail' => array(
@@ -1051,6 +1051,15 @@
             'aliases' => array(),
             'reference' => 'd349854331789aba9205fd755e0c1d1934ef1463',
             'dev_requirement' => true,
+        ),
+        'srmklive/paypal' => array(
+            'pretty_version' => '3.0.13',
+            'version' => '3.0.13.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../srmklive/paypal',
+            'aliases' => array(),
+            'reference' => '064208e94c9997e42668230c1019d7ff85f77794',
+            'dev_requirement' => false,
         ),
         'symfony/console' => array(
             'pretty_version' => 'v6.0.3',

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\client\HomeController;
 use App\Http\Controllers\client\UserController;
+use App\Http\Controllers\PayPalController;
 
 Route::prefix('admin')->group(function(){
     Route::get('/',[App\Http\Controllers\AdminController::class,'index']);
@@ -108,7 +109,7 @@ Route::prefix('')->group(function(){
     Route::post('update_cart',[App\Http\Controllers\CartController::class,'update_cart']);
     Route::get('del_product/{session_id}',[App\Http\Controllers\CartController::class,'del_product']);
     Route::get('del_all_cart',[App\Http\Controllers\CartController::class,'del_all_cart']);
-    Route::get('checkout',[App\Http\Controllers\CartController::class,'checkout']);
+    Route::get('checkout',[App\Http\Controllers\CartController::class,'checkout'])->name('checkout');
     Route::post('confirm_order',[App\Http\Controllers\CartController::class,'confirm_order']);
 
 
@@ -117,4 +118,11 @@ Route::prefix('')->group(function(){
 
     //Wishlist
     Route::get('wish_list',[UserController::class,'wish_list'])->name('client.wish_list')->middleware('checkUserLogin');
+
+    //Paypal
+    Route::get('create-transaction', [PayPalController::class, 'createTransaction'])->name('createTransaction');
+    Route::get('process-transaction', [PayPalController::class, 'processTransaction'])->name('processTransaction');
+    Route::get('success-transaction', [PayPalController::class, 'successTransaction'])->name('successTransaction');
+    Route::get('cancel-transaction', [PayPalController::class, 'cancelTransaction'])->name('cancelTransaction');
+    Route::get('thanks',[App\Http\Controllers\CartController::class,'thanks'])->name('thanks');
 });

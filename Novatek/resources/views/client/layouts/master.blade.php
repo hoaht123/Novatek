@@ -66,12 +66,12 @@
 					data: {cart_product_id:cart_product_id,cart_product_name:cart_product_name,cart_product_image:cart_product_image,cart_product_price:cart_product_price,cart_product_qty:cart_product_qty,_token:_token},
 					success: function (data) {
 						swal({
-							title: "Đã thêm sản phẩm vào giỏ hàng",
-                                text: "Bạn có thể mua hàng tiếp hoặc tới giỏ hàng để tiến hành thanh toán",
+							title: "Product added to cart",
+                                text: "You can continue to purchase or go to the shopping cart to proceed to checkout",
                                 showCancelButton: true,
-                                cancelButtonText: "Xem tiếp",
+                                cancelButtonText: "See more",
                                 confirmButtonClass: "btn-success",
-                                confirmButtonText: "Đi đến giỏ hàng",
+                                confirmButtonText: "Go to cart",
                                 closeOnConfirm: false
 
 						},
@@ -87,13 +87,13 @@
             $(document).ready(function(){
                 $('.send_order').click(function(){
                     swal({
-                         title: "Xác nhận đơn hàng",
-                          text: "Đơn hàng sẽ không được hoàn trả khi đặt, bạn có muốn đặt không?",
+                         title: "Confirm order",
+                          text: "Items are non-refundable upon order, do you want to order?",
                           type: "warning",
                           showCancelButton: true,
                           confirmButtonClass: "btn-danger",
-                          confirmButtonText: "Cảm ơn,mua hàng",
-                          cancelButtonText: "Đóng,chưa mua",
+                          confirmButtonText: "Thanks,purchase",
+                          cancelButtonText: "No",
                           closeOnConfirm: false,
                           closeOnCancel: false,
                         showLoaderOnConfirm: true
@@ -119,15 +119,15 @@
                                     },
                                     success:function(data){
                                         setTimeout(function () {
-                                            swal("Đơn hàng", "Thanh toán thành công", "success");
+                                            swal("Order", "Payment success", "success");
                                                   }, 2000);
                                     }
                                 }); 	
                                 window.setTimeout(function () {
-                                    location.reload();
+                                    window.location="{{URL::to('thanks')}}";
                                 },3000);
                               } else {
-                                    swal("Đóng", "Đơn hàng chưa gửi", "error");
+                                    swal("Cancel", "Order not sent", "error");
                               }
                     });
                 });
