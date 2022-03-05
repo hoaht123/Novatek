@@ -82,6 +82,7 @@ class PayPalController extends Controller
 
         if (isset($response['status']) && $response['status'] == 'COMPLETED') {
             Session::forget('cart');
+            Session::forget('total');
             return redirect()
                 ->route('thanks')
                 ->with('success', 'Transaction complete.');
