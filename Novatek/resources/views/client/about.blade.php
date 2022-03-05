@@ -110,7 +110,7 @@
             </div>
         </div>
 
-        <div class="empty-space col-xs-b35 col-md-b70"></div>
+        {{-- <div class="empty-space col-xs-b35 col-md-b70"></div> --}}
         {{-- <div class="empty-space col-xs-b35 col-md-b70"></div> --}}
 
         <div class="container">
@@ -121,7 +121,7 @@
             </div>
         </div>
 
-        <div class="empty-space col-xs-b35 col-md-b70"></div>
+        {{-- <div class="empty-space col-xs-b35 col-md-b70"></div> --}}
 
         <div class="container">
             <div class="slider-wrapper our-team-slider">
@@ -139,9 +139,9 @@
                                         <div class="simple-article size-1 uppercase color col-xs-b5">co-founder</div>
                                         <div class="h6">Sir Võ Ngọc Hòa</div>
                                     </div>
-                                    <div class="description">
+                                    {{-- <div class="description">
                                         <div class="simple-article text size-2">Mollis nec consequat at In feugiat molestie tortor a malesuada</div>
-                                    </div>
+                                    </div> --}}
                                     <div class="follow light">
                                         <a class="entry" href="#"><i class="fa fa-facebook"></i></a>
                                         <a class="entry" href="#"><i class="fa fa-twitter"></i></a>
@@ -162,9 +162,9 @@
                                         <div class="simple-article size-1 uppercase color col-xs-b5">marketing director</div>
                                         <div class="h6">Dr.Nguyễn Hoàng Tân</div>
                                     </div>
-                                    <div class="description">
+                                    {{-- <div class="description">
                                         <div class="simple-article text size-2"></div>
-                                    </div>
+                                    </div> --}}
                                     <div class="follow light">
                                         <a class="entry" href="#"><i class="fa fa-facebook"></i></a>
                                         <a class="entry" href="#"><i class="fa fa-twitter"></i></a>
@@ -185,9 +185,9 @@
                                         <div class="simple-article size-1 uppercase color col-xs-b5">tech director</div>
                                         <div class="h6">Dr. Triệu Văn Tình</div>
                                     </div>
-                                    <div class="description">
+                                    {{-- <div class="description">
                                         <div class="simple-article text size-2"></div>
-                                    </div>
+                                    </div> --}}
                                     <div class="follow light">
                                         <a class="entry" href="#"><i class="fa fa-facebook"></i></a>
                                         <a class="entry" href="#"><i class="fa fa-twitter"></i></a>
@@ -208,9 +208,9 @@
                                         <div class="simple-article size-1 uppercase color col-xs-b5">co-founder</div>
                                         <div class="h6">Sir Lý Triệu Đạt</div>
                                     </div>
-                                    <div class="description">
+                                    {{-- <div class="description">
                                         <div class="simple-article text size-2"></div>
-                                    </div>
+                                    </div> --}}
                                     <div class="follow light">
                                         <a class="entry" href="#"><i class="fa fa-facebook"></i></a>
                                         <a class="entry" href="#"><i class="fa fa-twitter"></i></a>
@@ -231,9 +231,9 @@
                                         <div class="simple-article size-1 uppercase color col-xs-b5">co-founder</div>
                                         <div class="h6">Tom Cruise</div>
                                     </div>
-                                    <div class="description">
+                                    {{-- <div class="description">
                                         <div class="simple-article text size-2"></div>
-                                    </div>
+                                    </div> --}}
                                     <div class="follow light">
                                         <a class="entry" href="#"><i class="fa fa-facebook"></i></a>
                                         <a class="entry" href="#"><i class="fa fa-twitter"></i></a>
@@ -254,9 +254,9 @@
                                         <div class="simple-article size-1 uppercase color col-xs-b5">marketing director</div>
                                         <div class="h6">Johnny Depp</div>
                                     </div>
-                                    <div class="description">
+                                    {{-- <div class="description">
                                         <div class="simple-article text size-2"></div>
-                                    </div>
+                                    </div> --}}
                                     <div class="follow light">
                                         <a class="entry" href="#"><i class="fa fa-facebook"></i></a>
                                         <a class="entry" href="#"><i class="fa fa-twitter"></i></a>
@@ -277,9 +277,9 @@
                                         <div class="simple-article size-1 uppercase color col-xs-b5">tech director</div>
                                         <div class="h6">Leonardo DiCaprio</div>
                                     </div>
-                                    <div class="description">
+                                    {{-- <div class="description">
                                         <div class="simple-article text size-2"></div>
-                                    </div>
+                                    </div> --}}
                                     <div class="follow light">
                                         <a class="entry" href="#"><i class="fa fa-facebook"></i></a>
                                         <a class="entry" href="#"><i class="fa fa-twitter"></i></a>
@@ -300,9 +300,9 @@
                                         <div class="simple-article size-1 uppercase color col-xs-b5">co-founder</div>
                                         <div class="h6">Keanu Reeves</div>
                                     </div>
-                                    <div class="description">
+                                    {{-- <div class="description">
                                         <div class="simple-article text size-2"></div>
-                                    </div>
+                                    </div> --}}
                                     <div class="follow light">
                                         <a class="entry" href="#"><i class="fa fa-facebook"></i></a>
                                         <a class="entry" href="#"><i class="fa fa-twitter"></i></a>
@@ -375,7 +375,7 @@
             </a>
         </div>
 
-        <div class="empty-space col-xs-b35 col-md-b70"></div>
+        {{-- <div class="empty-space col-xs-b35 col-md-b70"></div> --}}
         {{-- <div class="empty-space col-xs-b35 col-md-b70"></div> --}}
 
         <div class="container">
