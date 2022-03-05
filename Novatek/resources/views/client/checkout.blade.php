@@ -108,32 +108,48 @@
                     <div class="button block size-2 style-3">
                         <span class="button-wrapper">
                             <span class="icon"><a href="{{ route('processTransaction') }}"><img src="{{ asset('client/img/icon-4.png')}}"alt=""></a></span>
-                            <span class="text"><img style="width:30px;height:30px" src="{{ asset('images/icons/icons8-paypal-64.png')}}"alt=""></i>Paypal</span>
+                            <span class="text"><img style="width:30px;height:30px;margin-bottom:-10px" src="{{ asset('images/icons/icons8-paypal-64.png')}}"alt="">Paypal</span>
                         </span>
                     </div>
                     @if(\Session::has('error'))
-        <div class="alert alert-danger">{{ \Session::get('error') }}</div>
-        {{ \Session::forget('error') }}
-    @endif
-    @if(\Session::has('success'))
-        <div class="alert alert-success">{{ \Session::get('success') }}</div>
-        {{ \Session::forget('success') }}
-    @endif
+                        <div class="alert alert-danger">{{ \Session::get('error') }}</div>
+                        {{ \Session::forget('error') }}
+                    @endif
+                    @if(\Session::has('success'))
+                        <div class="alert alert-success">{{ \Session::get('success') }}</div>
+                        {{ \Session::forget('success') }}
+                    @endif      
                     <div class="empty-space col-xs-b30"></div>
                     <div class="button block size-2 style-3">
+                        
+                    </div>
+                    
+                    <div class="button block size-2 style-3">
                         <span class="button-wrapper">
-                            <button type="button" class="send_order" name="send_order"><span class="icon"><img src="{{ asset('client/img/icon-4.png')}}"alt=""></span></button>
+                            <button type="submit" class="send_order" name="send_order"><span class="icon"><img src="{{ asset('client/img/icon-4.png')}}"alt=""></span></button>
                             <span class="text">place order</span>
                         </span>
                     </div>
+                </form>
+                <div class="empty-space col-xs-b30"></div>
+                <form action="{{URL::to('momo_payment')}}" method="post">
+                    @csrf
+                    <input type="hidden" name="total" value="{{$total}}">
+                    <div class="button block size-2 style-3">
+                    <span class="button-wrapper">
+                        <button type="submit" name="payUrl"><span class="icon"><img src="{{ asset('client/img/icon-4.png')}}"alt=""></span></button>
+                        <span class="text"><img style="width:30px;height:30px;margin-bottom:-10px" src="{{ asset('images/icons/momo_icons.jpeg')}}"alt="">momo</span>
+                    </span>
+                    </div>
+                </form>
                 </div>
             </div>
+        
+            
             @else
             <div class="col-lg-12 text-center" style="font-size:50px">Nothing in cart</div>
             @endif
         </div>
-    </form>
-
         <div class="empty-space col-xs-b35 col-md-b70"></div>
 @endsection
 

@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\client\HomeController;
 use App\Http\Controllers\client\UserController;
 use App\Http\Controllers\PayPalController;
+use App\Http\Controllers\MomoController;
 
 Route::prefix('admin')->group(function(){
     Route::get('/',[App\Http\Controllers\AdminController::class,'index']);
@@ -125,4 +126,7 @@ Route::prefix('')->group(function(){
     Route::get('success-transaction', [PayPalController::class, 'successTransaction'])->name('successTransaction');
     Route::get('cancel-transaction', [PayPalController::class, 'cancelTransaction'])->name('cancelTransaction');
     Route::get('thanks',[App\Http\Controllers\CartController::class,'thanks'])->name('thanks');
+
+    //Momo
+    Route::post('momo_payment',[MomoController::class, 'momo_payment']);
 });
