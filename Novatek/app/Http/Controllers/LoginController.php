@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Redirect;
 use App\Models\Social;
 use Laravel\Socialite\Facades\Socialite;
 use App\Models\Users;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 session_start();
 
 class LoginController extends Controller
@@ -144,8 +146,8 @@ class LoginController extends Controller
         $values['roles'] = 1;
         $values['address'] = $data['user_address'];
         $values['password'] = md5($data['user_password']);
-
         DB::table('users')->insert($values);
+        Session::put('register','Register successfully!!');
         return Redirect::back();
     }
 
@@ -171,5 +173,25 @@ class LoginController extends Controller
     public function logout(){
         Session::flush();
         return redirect()->route('client.home');
+    }
+
+    public function forget_password(){
+        return view('client.forget_password');
+    }
+
+    public function send_mail_forget(Request $request){
+        $data = $request->all();
+        $to_name = "Novatek";
+        $to_email = $data['user_email'];
+        $random_pass = substr(md5(microtime()),rand(0,26),8);
+        DB::table('users')->update(['password'=>md5($random_pass)]);
+        // dd($random_pass);
+        $data = array("name"=>"Mail sent from Novatek to get your new password","body"=>"Your new password is :".$random_pass);
+        Mail::send('client.sendmail',$data,function($message) use ($to_name,$to_email){
+            $message->to($to_email)->subject('Forget password');
+            $message->from($to_email,$to_name);
+        });
+        Session::put('sendmail','Email has been sent');
+        return Redirect::to('login');
     }
 }

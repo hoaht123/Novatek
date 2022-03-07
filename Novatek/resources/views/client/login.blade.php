@@ -33,6 +33,13 @@
             <div class="limiter">
                 <div class="container-login100" style="background:white;">
                     <div class="wrap-login100">
+                        <?php
+                                    $sendmail = Session::get('sendmail');
+                                    if($sendmail){
+                                        echo '<script>alert("'.$sendmail.'")</script>';
+                                        Session::put('sendmail',null);
+                                    }
+                               ?>
                         <form class="login100-form validate-form" method="post" action="{{URL::to('checkLogin')}}">
                             @csrf
                             <span class="login100-form-title">
@@ -58,8 +65,16 @@
                                     $message = Session::get('message');
                                     if($message){
                                         echo '<div style="font-size:15px; color:red">'.$message.'</div>';
+                                        Session::put('message', null);
                                     }
                                ?>
+                               <?php
+                               $register = Session::get('register');
+                               if($register){
+                                   echo '<script>alert("'.$register.'")</script>';
+                                   Session::put('register', null);
+                               }
+                          ?>
                             <div class="container-login100-form-btn">
                                 <button type="submit" class="login100-form-btn">
                                     Login
@@ -69,7 +84,7 @@
                                 <span class="txt1">
                                     Forgot
                                 </span>
-                                <a class="txt2" href="#">
+                                <a class="txt2" href="{{URL::to('forget_password')}}">
                                     Username / Password?
                                 </a>
                             </div>
@@ -187,7 +202,7 @@
 @section('js')
 
 <!--===============================================================================================-->	
-{{-- <script src="{{asset('vendor/jquery/jquery-3.2.1.min.js')}}"></script>
+{{-- <script src="{{asset('vendor/jquery/jquery-3.2.1.min.js')}}"></>
 <!--===============================================================================================-->
 	<script src="{{asset('vendor/bootstrap/js/popper.js')}}"></script>
 	<script src="{{asset('vendor/bootstrap/js/bootstrap.min.js')}}"></script> --}}

@@ -93,6 +93,9 @@ Route::prefix('')->group(function(){
     Route::post('/register',[App\Http\Controllers\LoginController::class,'register']);
     //logout
     Route::get('log-out',[App\Http\Controllers\LoginController::class,'logout']);
+    //Fotget password
+    Route::get('forget_password',[App\Http\Controllers\LoginController::class,'forget_password']);
+    Route::post('send_mail_forget',[App\Http\Controllers\LoginController::class,'send_mail_forget']);
 
     Route::get('',[HomeController::class,'index'])->name('client.home'); 
     Route::get('/products',[HomeController::class,'products'])->name('client.products'); 
@@ -129,4 +132,6 @@ Route::prefix('')->group(function(){
 
     //Momo
     Route::post('momo_payment',[MomoController::class, 'momo_payment']);
+
+    
 });

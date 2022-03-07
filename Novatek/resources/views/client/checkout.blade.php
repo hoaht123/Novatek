@@ -104,7 +104,18 @@
                             </div>
                         </div>
                     </div>
+                    
                     <div class="empty-space col-xs-b30"></div>
+
+                    
+                    <div class="button block size-2 style-3">
+                        <span class="button-wrapper">
+                            <button type="submit" class="send_order" name="send_order"><span class="icon"><img src="{{ asset('client/img/icon-4.png')}}"alt=""></span></button>
+                            <span class="text">place order</span>
+                        </span>
+                    </div>
+                </form>
+                <div class="empty-space col-xs-b30"></div>
                     <div class="button block size-2 style-3">
                         <span class="button-wrapper">
                             <span class="icon"><a href="{{ route('processTransaction') }}"><img src="{{ asset('client/img/icon-4.png')}}"alt=""></a></span>
@@ -119,18 +130,6 @@
                         <div class="alert alert-success">{{ \Session::get('success') }}</div>
                         {{ \Session::forget('success') }}
                     @endif      
-                    <div class="empty-space col-xs-b30"></div>
-                    <div class="button block size-2 style-3">
-                        
-                    </div>
-                    
-                    <div class="button block size-2 style-3">
-                        <span class="button-wrapper">
-                            <button type="submit" class="send_order" name="send_order"><span class="icon"><img src="{{ asset('client/img/icon-4.png')}}"alt=""></span></button>
-                            <span class="text">place order</span>
-                        </span>
-                    </div>
-                </form>
                 <div class="empty-space col-xs-b30"></div>
                 <form action="{{URL::to('momo_payment')}}" method="post">
                     @csrf
