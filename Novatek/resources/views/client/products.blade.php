@@ -149,9 +149,39 @@
                                             <div class="description">
                                                 <div class="simple-article text size-2">{{$product->product_sort_descriptions}}</div>
                                                 <div class="icons">
-                                                    <a class="entry"><i class="fa fa-check" aria-hidden="true"></i></a>
+                                                    {{-- <form class="add_wish_list_form_{{$product->product_id}}"> --}}
+                                                        {{-- @csrf --}}
+                                                        <a class="entry"><i class="fa fa-check" aria-hidden="true"></i></a>
+                                                        <a class="entry open-popup" data-rel="3"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                                        {{-- <input type="hidden" name="product_id" class="product_id_{{$product->product_id}}" value="{{$product->product_id}}">                                                    
+                                                        <input type="hidden" name="_token" class="token_{{$product->product_id}}" value="{{ csrf_token() }}">                                                 --}}
+                                                        <button type = "submit" data-id="{{$product->product_id}}" name="add_wish_list_{{$product->product_id}}" class=" entry add_wish_list">
+                                                            <i   class="fa fa-heart-o" style="color:black"  aria-hidden="true"></i>
+                                                            {{-- @php
+                                                             $check = function(){
+                                                                    if(session('user_id') == null){
+                                                                        echo '<i   class="fa fa-heart-o" style="color:black"  aria-hidden="true"></i>';
+                                                                    }else{
+                                                                        $check = false;
+                                                                        foreach($wish_list as $wish){
+                                                                                if($wish->product_id == $product->product_id){
+                                                                                    $check = true;
+                                                                                    return;
+                                                                                }                                                                         
+                                                                        }
+                                                                        if($check){
+                                                                            echo '<i   class="fa fa-heart" style="color:red"  aria-hidden="true"></i>';
+                                                                        }else{
+                                                                            echo '<i   class="fa fa-heart-o" style="color:black"  aria-hidden="true"></i>';                    
+                                                                        }                                                                       
+                                                                    }
+                                                                };  $check();                                                         
+                                                            @endphp --}}
+                                                        </button> 
+                                                    {{-- </form> --}}
+                                                    {{-- <a class="entry"><i class="fa fa-check" aria-hidden="true"></i></a>
                                                     <a class="entry open-popup" data-rel="3"><i class="fa fa-eye" aria-hidden="true"></i></a>
-                                                    <a class="entry"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+                                                    <a class="entry"><i class="fa fa-heart-o" aria-hidden="true"></i></a> --}}
                                                 </div>
                                             </div>
                                         </div>  

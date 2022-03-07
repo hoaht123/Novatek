@@ -133,5 +133,37 @@
                 });
             });
         </script>
+        {{-- Add/romeve wish_list --}}
+        <script>
+            $('.add_wish_list').click(function(e) {
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+                    e.preventDefault();
+                    var id = $(this).data('id');
+                    var cart_product_id = $('.cart_product_id_'+id).val();
+                    var _token = $('input[name="_token"]').val();
+
+                    $.ajax({
+                        url: "{{ URL::to('add_wish_list') }}",
+                        method:"POST",
+                        data:{
+                            product_id:cart_product_id,
+                            _token:_token,
+                        },
+                        success: function (response) {
+                            console.log(response);
+                                    if(response == 'remove') {
+                                        $('button[data-id="'+id+'"]').children('i').removeClass('fa-heart').addClass('fa-heart-o').css("color","black");
+                                    } 
+                                    if(response == 'add') {
+                                        $('button[data-id="'+id+'"]').children('i').removeClass('fa-heart-o').addClass('fa-heart').css("color","red");
+                                    }                         
+                                }
+                        });
+                });
+        </script>
     </body>
 </html>
