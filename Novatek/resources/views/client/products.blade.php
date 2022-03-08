@@ -149,7 +149,7 @@
                                             <div class="description">
                                                 <div class="simple-article text size-2">{{$product->product_sort_descriptions}}</div>
                                                 <div class="icons">
-                                                    <form class="add_wish_list_form" data-id="{{$product->product_id}}" method="POST">
+                                                    <form class="add_wish_list_form" data-id="{{$product->product_id}}">
                                                         @csrf
                                                         <a class="entry"><i class="fa fa-check" aria-hidden="true"></i></a>
                                                         <a class="entry open-popup" data-rel="3"><i class="fa fa-eye" aria-hidden="true"></i></a>

@@ -15,7 +15,6 @@ class UserController extends Controller
     }
 
     public function add_wish_list(Request $request) {
-        dd(session('user_id'));
         $data = $request->all();
         $product_id = $data['product_id'];
         $user_id = session('user_id');

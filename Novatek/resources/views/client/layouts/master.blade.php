@@ -135,21 +135,22 @@
         </script>
         {{-- Add/romeve wish_list --}}
         <script>
-            $(document).ready(function (){        
+            $(document).ready(function (){     
                 $('.add_wish_list_form').submit(function(e) {
-                        // e.preventDefault();
+                        e.preventDefault();
+                        console.log( $(this).serialize() );
                         var id = $(this).data('id');                      
                         var product_id = $('.product_id_'+id).val();
                         var _token = $('.token_'+id).val();
-                        console.log(id + '- ' + product_id + '- ' + _token);
                         $.ajax({
-                            method:"POST",
                             url: "{{ route('client.add_wish_list') }}",
+                            method:"POST",
                             data:{
                                 product_id: product_id,
                                 _token:_token,
                             },
                             success: function (response) {
+                                console.log(response);
                                     if(response.status == 'deleted') {
                                         $('button[data-id="'+id+'"]').children('i').removeClass('fa-heart').addClass('fa-heart-o').css("color","black");
                                     } 
