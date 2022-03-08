@@ -137,33 +137,27 @@
         <script>
             $(document).ready(function (){        
                 $('.add_wish_list_form').submit(function(e) {
-                        e.preventDefault();
-                        console.log(sessionStorage.getItem('user_id'));
-                        if(sessionStorage.getItem('user_id')==null) { 
-                            alert('Please login to add to wish list');
-                        }else {
-                            var id = $(this).data('id');                                                
-                            var product_id = $('.product_id_'+id).val();
-                            var _token = $('.token_'+id).val();
-                            console.log(id + '- ' + product_id + '- ' + _token);
-                            $.ajax({
-                                method:"POST",
-                                url: "{{ route('client.add_wish_list') }}",
-                                data:{
-                                    product_id: product_id,
-                                    _token:_token,
+                        // e.preventDefault();
+                        var id = $(this).data('id');                      
+                        var product_id = $('.product_id_'+id).val();
+                        var _token = $('.token_'+id).val();
+                        console.log(id + '- ' + product_id + '- ' + _token);
+                        $.ajax({
+                            method:"POST",
+                            url: "{{ route('client.add_wish_list') }}",
+                            data:{
+                                product_id: product_id,
+                                _token:_token,
+                            },
+                            success: function (response) {
+                                    if(response.status == 'deleted') {
+                                        $('button[data-id="'+id+'"]').children('i').removeClass('fa-heart').addClass('fa-heart-o').css("color","black");
+                                    } 
+                                    if(response.status == 'added') {
+                                        $('button[data-id="'+id+'"]').children('i').removeClass('fa-heart-o').addClass('fa-heart').css("color","red");
+                                    }                         
                                 },
-                                success: function (response) {
-                                    console.log(response);
-                                        if(response.status == 'deleted') {
-                                            $('button[data-id="'+id+'"]').children('i').removeClass('fa-heart').addClass('fa-heart-o').css("color","black");
-                                        } 
-                                        if(response.status == 'added') {
-                                            $('button[data-id="'+id+'"]').children('i').removeClass('fa-heart-o').addClass('fa-heart').css("color","red");
-                                        }                         
-                                    }
-                            });
-                        }
+                        });
                 });
             });
         </script>

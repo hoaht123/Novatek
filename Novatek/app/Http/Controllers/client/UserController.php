@@ -15,9 +15,13 @@ class UserController extends Controller
     }
 
     public function add_wish_list(Request $request) {
+        dd(session('user_id'));
         $data = $request->all();
         $product_id = $data['product_id'];
         $user_id = session('user_id');
+        if($user_id == null) {
+            return response()->json(['status' => 'failed', 'message' => 'You must login'])->header('Content-Type', 'application/json');
+        }
         $wish_list = Wishlist::where('user_id', $user_id)->where('product_id', $product_id)->first();
         if(!empty($wish_list)>0 ){
             DB::delete('delete from wish_list where user_id = ? and product_id = ?', [$user_id, $product_id]);
