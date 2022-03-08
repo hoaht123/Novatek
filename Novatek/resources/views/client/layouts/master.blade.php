@@ -136,11 +136,6 @@
         {{-- Add/romeve wish_list --}}
         <script>
             $('.add_wish_list').click(function(e) {
-                $.ajaxSetup({
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    }
-                });
                     e.preventDefault();
                     var id = $(this).data('id');
                     var cart_product_id = $('.cart_product_id_'+id).val();

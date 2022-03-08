@@ -45,7 +45,7 @@ Route::prefix('admin')->group(function(){
         Route::get('/storage',[App\Http\Controllers\ProductController::class,'create_storage'])->name('create_storage');
         Route::get('/mouse',[App\Http\Controllers\ProductController::class,'create_mouse'])->name('create_mouse');
         Route::get('/headphone',[App\Http\Controllers\ProductController::class,'create_headphone'])->name('create_headphone');
-        Route::get('/motherboard',[App\Http\Controllers\ProductController::class,'create_motherboard'])->name('create_motherboard');
+        Route::get('/motherboard',[App\Http\Controllers\ProductController::class,'create_motherboard'])->name('create_motherboard'); 
     });
     
     Route::post('/save_product',[App\Http\Controllers\ProductController::class,'save_product'])->name('save_product');
@@ -59,6 +59,15 @@ Route::prefix('admin')->group(function(){
     Route::get('/view_product/active_product/{product_id}',[App\Http\Controllers\ProductController::class,'active_product']);
     Route::get('/view_product/unactive_product/{product_id}',[App\Http\Controllers\ProductController::class,'unactive_product']);
     Route::get('delete_product/{product_id}',[App\Http\Controllers\ProductController::class,'delete_product']);
+
+    //Slider
+    Route::get('/slider',[App\Http\Controllers\SliderController::class,'index'])->name('slider.index');
+    Route::get('slider_create',[App\Http\Controllers\SliderController::class,'create'])->name('slider.create');
+    Route::post('slider_store/',[App\Http\Controllers\SliderController::class,'store'])->name('slider.store');
+    Route::get('slider_edit/{id}',[App\Http\Controllers\SliderController::class,'edit'])->name('slider.edit');
+    Route::post('slider_update/',[App\Http\Controllers\SliderController::class,'update'])->name('slider.update');
+    Route::get('slider_delete/{id}',[App\Http\Controllers\SliderController::class,'destroy'])->name('slider.destroy');
+
     //User
     Route::get('/view_user',[App\Http\Controllers\AdminController::class,'view_user']); 
     Route::get('/delete_user/{user_id}',[App\Http\Controllers\AdminController::class,'delete_user']);
