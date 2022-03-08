@@ -14,6 +14,7 @@
     <!-- App CSS -->  
     <link id="theme-style" rel="stylesheet" href="{{asset('/css/portal.css')}}">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
 	<style type="text/css">
 		.my-active span{
 			background-color: #5cb85c !important;
@@ -24,7 +25,7 @@
 </head> 
 
 <body class="app">   	
-    <header class="app-header fixed-top">	   	            
+    <header class="app-header fixed-top">	  
         <div class="app-header-inner">  
 	        <div class="container-fluid py-2">
 		        <div class="app-header-content"> 

@@ -107,9 +107,9 @@ Route::prefix('')->group(function(){
     Route::post('send_mail_forget',[App\Http\Controllers\LoginController::class,'send_mail_forget']);
 
     Route::get('',[HomeController::class,'index'])->name('client.home'); 
-    Route::get('/products',[HomeController::class,'products'])->name('client.products'); 
+    Route::get('/products',[App\Http\Controllers\client\ProductController::class,'products'])->name('client.products'); 
     Route::get('/category/{$category_id}',[CategoryController::class,'products'])->name('client.categories_show'); 
-    Route::get('/product/{product_id}',[HomeController::class,'product_detail'])->name('client.product_detail');
+    Route::get('/product/{product_id}',[App\Http\Controllers\client\ProductController::class,'product_detail'])->name('client.product_detail');
     // Route::get('/cart',[HomeController::class,'cart'])->name('client.cart');
     // Route::get('/checkout',[HomeController::class,'checkout'])->name('client.checkout');
     Route::get('/contact',[HomeController::class,'contact'])->name('client.contact');
@@ -127,7 +127,7 @@ Route::prefix('')->group(function(){
 
 
     //Category sidebar clicked
-    Route::get('/products/category/{category_id}',[HomeController::class,'category_sidebar_clicked'])->name('category_sidebar_clicked');
+    Route::get('/products/category/{category_id}',[App\Http\Controllers\client\ProductController::class,'category_sidebar_clicked'])->name('category_sidebar_clicked');
 
     //Wishlist
     Route::get('wish_list',[UserController::class,'wish_list'])->name('client.wish_list')->middleware('checkUserLogin');

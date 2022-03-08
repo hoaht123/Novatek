@@ -13,51 +13,20 @@ use Illuminate\Support\Facades\Redirect;
 session_start(); 
 class HomeController extends Controller
 {
-    public function index()
-    {
+    public function index(){
         $sliders = DB::select('select * from slider');
-
-        return view('client.home', compact('sliders'));
+        $hotProducts = DB::select('select * from product where product_isHot = 1');
+        // $saleProducts = DB::select('select * from product where product_isSale = 1');
+        $newProducts = DB::select('select * from product where product_isNew = 1');
+        return view('client.home', compact('sliders','hotProducts','newProducts'));
     }
-    public function products()
-    {
-        $brands = Brand::all();
-        $categories = Category::where('parent_id',0)->get();
-        $products = Product::where('product_status',0)->paginate(9);
-        return view('client.products', compact('categories','brands','products'));
-    }
-    public function product_detail($product_id)
-    {
-        $brands = Brand::all();
-        $categories = Category::where('parent_id',0)->get();
-        $product = Product::where('product_id',$product_id)->first();
-        return view('client.product_detail', compact('product','categories','brands'));
-    }
-    public function category_sidebar_clicked($category_id){
-        $arr = Array();
-        $brands = Brand::all();
-        $categories = Category::where('parent_id',0)->get();
-        $category = Category::find($category_id);
-        $arr[0] = $category->category_id;
-        if($category->parent_id == 0){
-            $categories1 = Category::where('parent_id',$category_id)->get();
-            for($i=0;$i<count($categories1);$i++){
-                $arr[$i+1]=$categories1[$i]->category_id;
-            }
-        }
-        $products = Product::whereIn('category_id',$arr)->paginate(9);
-        return view('client.products', compact('categories','brands','products'));
-    }
-    public function cart()
-    {
+    public function cart(){
         return view('client.cart');
     }
-    public function checkout()
-    {
+    public function checkout(){
         return view('client.checkout');
     }
-    public function contact()
-    {
+    public function contact(){
         return view('client.contact');
     }
     public function save_contact(Request $request){
@@ -85,8 +54,7 @@ class HomeController extends Controller
         Session::put('correct','Thank you contacted !');
         return Redirect::back();
     }
-    public function about()
-    {
+    public function about(){
         return view('client.about');
     }
 }

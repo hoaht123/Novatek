@@ -15,7 +15,7 @@
                 <div class="swiper-container" data-parallax="1" data-auto-height="1">
                    <div class="swiper-wrapper">
                        @foreach($sliders as $slider) 
-                        <div class="swiper-slide" style="background-image: url({{ asset('client/img/'.$slider->image)}});">
+                        <div class="swiper-slide" style="background-image: url({{ asset('images/sliders/'.$slider->image)}});">
                             <div class="container">
                                 <div class="row">
                                     <div class="col-sm-6 col-sm-offset-6">
@@ -176,12 +176,7 @@
                                         <a class="entry"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
                                     </div>
                                 </div>
-                                <div class="price">
-                                    <div class="color-selection">
-                                        <div class="entry active" style="color: #a7f050;"></div>
-                                        <div class="entry" style="color: #50e3f0;"></div>
-                                        <div class="entry" style="color: #eee;"></div>
-                                    </div>
+                                <div class="price">                              
                                     <div class="simple-article size-4"><span class="dark">$155.00</span></div>
                                 </div>
                             </div>
@@ -221,11 +216,6 @@
                                     </div>
                                 </div>
                                 <div class="price">
-                                    <div class="color-selection">
-                                        <div class="entry active" style="color: #7d3f99;"></div>
-                                        <div class="entry" style="color: #3481c7;"></div>
-                                        <div class="entry" style="color: #bf584b;"></div>
-                                    </div>
                                     <div class="simple-article size-4"><span class="color">$155.00</span>&nbsp;&nbsp;&nbsp;<span class="line-through">$350.00</span></div>
                                 </div>
                             </div>
@@ -264,11 +254,6 @@
                                     </div>
                                 </div>
                                 <div class="price">
-                                    <div class="color-selection">
-                                        <div class="entry active" style="color: #3b8bd5;"></div>
-                                        <div class="entry" style="color: #e1191d;"></div>
-                                        <div class="entry" style="color: #facc22;"></div>
-                                    </div>
                                     <div class="simple-article size-4"><span class="dark">$190.00</span></div>
                                 </div>
                             </div>
@@ -307,11 +292,6 @@
                                     </div>
                                 </div>
                                 <div class="price">
-                                    <div class="color-selection">
-                                        <div class="entry active" style="color: #c16e31;"></div>
-                                        <div class="entry" style="color: #a4c131;"></div>
-                                        <div class="entry" style="color: #68c131;"></div>
-                                    </div>
                                     <div class="simple-article size-4"><span class="dark">$185.00</span></div>
                                 </div>
                             </div>
@@ -438,11 +418,6 @@
                                     </div>
                                 </div>
                                 <div class="price">
-                                    <div class="color-selection">
-                                        <div class="entry active" style="color: #3b8bd5;"></div>
-                                        <div class="entry" style="color: #e1191d;"></div>
-                                        <div class="entry" style="color: #facc22;"></div>
-                                    </div>
                                     <div class="simple-article size-4"><span class="dark">$190.00</span></div>
                                 </div>
                             </div>
@@ -481,11 +456,6 @@
                                     </div>
                                 </div>
                                 <div class="price">
-                                    <div class="color-selection">
-                                        <div class="entry active" style="color: #c16e31;"></div>
-                                        <div class="entry" style="color: #a4c131;"></div>
-                                        <div class="entry" style="color: #68c131;"></div>
-                                    </div>
                                     <div class="simple-article size-4"><span class="dark">$185.00</span></div>
                                 </div>
                             </div>

@@ -1,6 +1,6 @@
 @extends('admin.admin_layout')
 @section('admin-content')
-<h2 class="text-center">Edit image slider </h1>
+<h2 class="text-center">Add image slider </h1>
 <div class="container" style="margin-left: 300px">
     <?php
     if(!empty($message)){
