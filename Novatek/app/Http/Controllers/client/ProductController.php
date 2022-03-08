@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Brand;
 use App\Models\Product;
+use App\Models\Wishlist;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -15,7 +16,7 @@ class ProductController extends Controller
         $brands = Brand::all();
         $categories = Category::where('parent_id',0)->get();
         $products = Product::where('product_status',0)->paginate(9);
-        return view('client.products', compact('categories','brands','products'));
+        return view('client.products', compact('categories','brands','products',));
     }
     public function product_detail($product_id)
     {

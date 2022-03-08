@@ -131,7 +131,7 @@ Route::prefix('')->group(function(){
 
     //Wishlist
     Route::get('wish_list',[UserController::class,'wish_list'])->name('client.wish_list')->middleware('checkUserLogin');
-    Route::post('products/add_wish_list',[UserController::class,'add_wish_list'])->name('client.add_wish_list')->middleware('checkUserLogin');
+    Route::post('products/add_wish_list',[UserController::class,'add_wish_list'])->name('add_wish_list');
 
     //Paypal
     Route::get('create-transaction', [PayPalController::class, 'createTransaction'])->name('createTransaction');

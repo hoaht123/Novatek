@@ -143,14 +143,16 @@
                         var product_id = $('.product_id_'+id).val();
                         var _token = $('.token_'+id).val();
                         $.ajax({
-                            url: "{{ route('client.add_wish_list') }}",
+                            url: "{{ route('add_wish_list') }}",
                             method:"POST",
                             data:{
                                 product_id: product_id,
                                 _token:_token,
                             },
                             success: function (response) {
-                                console.log(response);
+                                    if(response.status == 'failed') {
+                                        alert(response.message);
+                                    } 
                                     if(response.status == 'deleted') {
                                         $('button[data-id="'+id+'"]').children('i').removeClass('fa-heart').addClass('fa-heart-o').css("color","black");
                                     } 
