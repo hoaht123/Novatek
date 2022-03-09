@@ -6,12 +6,17 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Wishlist;
+use App\Models\Category;
+use App\Models\Brand;
+use App\Models\Product;
 
 class UserController extends Controller
 {
     public function wish_list() {
-        $products = DB::select('select * from wish_list where user_id = ?', [session('user_id')]);
-        return view('client.products', compact('products'));
+        $brands = Brand::all();
+        $categories = Category::all();
+        $products = DB::table('wish_list')->join('product', 'wish_list.product_id', '=', 'product.product_id')->where('user_id', session('user_id'))->paginate(9);
+        return view('client.products', compact('products','brands','categories'))->with(['title'=>'Wish List']);
     }
 
     public function add_wish_list(Request $request) {

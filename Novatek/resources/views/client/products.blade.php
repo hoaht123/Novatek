@@ -11,6 +11,9 @@
             <div class="breadcrumbs">
                 <a href="{{ route('client.home')}}">home</a>
                 <a href="{{ route('client.products')}}">products</a>
+                @if(!empty($title))
+                <a>{{$title}}</a>
+                @endif
             </div>
             <div class="empty-space col-xs-b15 col-sm-b50 col-md-b20"></div>
             <div class="row">
