@@ -152,7 +152,7 @@
                         </div>
                     </div>
                     <div class="header-search-wrapper">
-                        <div class="header-search-content">
+                        <div class="header-search-content" style="background:rgba(0, 0, 0, 0.9); color:#fff">
                             <div class="container-fluid">
                                 <div class="row">
                                     <div class="col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3">
@@ -167,11 +167,11 @@
                                     </div>
                                 
                                 </div>
-                                <div class="row" style="margin-top:10px" id="search_value">
+                                <div class="row" style="margin-left:; margin-top:10px; padding-right:100px" id="search_value">
                                     
                                 </div>
                             </div>
-                            <div class="button-close"></div>
+                            <div style="background-color:rgb(240, 82, 82)" class="button-close"></div>
                         </div>
                     </div>
                 </div>
