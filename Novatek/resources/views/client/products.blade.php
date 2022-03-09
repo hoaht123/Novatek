@@ -161,7 +161,7 @@
                                                         <input type="hidden" name="_method" value="POST">                                                
                                                         <button type = "submit" data-id="{{$product->product_id}}" name="add_wish_list_{{$product->product_id}}" class=" entry add_wish_list">
                                                             @php
-                                                                $wish_list = App\Models\WishList::where('product_id',$product->product_id)->where('user_id',Session::get('user_id'))->first();
+                                                                $wish_list = App\Models\Wishlist::where('product_id',$product->product_id)->where('user_id',Session::get('user_id'))->first();
                                                                 if(!empty($wish_list)){
                                                                     echo '<i class="fa fa-heart" style="color:red" aria-hidden="true"></i>';
                                                                 }else{
