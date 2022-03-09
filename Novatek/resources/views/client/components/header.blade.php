@@ -156,14 +156,19 @@
                             <div class="container-fluid">
                                 <div class="row">
                                     <div class="col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3">
-                                        <form>
+                                        
+                                        
                                             <div class="search-submit">
                                                 <i class="fa fa-search" aria-hidden="true"></i>
                                                 <input type="submit"/>
                                             </div>
-                                            <input class="simple-input style-1" type="text" value="" placeholder="Enter keyword" />
-                                        </form>
+                                            <input class="simple-input style-1" id="search" type="text" value="" placeholder="Enter keyword" />
+                                            {{ csrf_field() }}
                                     </div>
+                                
+                                </div>
+                                <div class="row" style="margin-top:10px" id="search_value">
+                                    
                                 </div>
                             </div>
                             <div class="button-close"></div>
@@ -172,3 +177,29 @@
                 </div>
             </div>
         </header>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+
+                $('#search').keyup(function(){ //bắt sự kiện keyup khi người dùng gõ từ khóa tim kiếm
+                var query = $(this).val(); //lấy gía trị ng dùng gõ
+                if(query != '') //kiểm tra khác rỗng thì thực hiện đoạn lệnh bên dưới
+                {
+                    var _token = $('input[name="_token"]').val(); // token để mã hóa dữ liệu
+                    $.ajax({
+                    url:"{{ route('search') }}", // đường dẫn khi gửi dữ liệu đi 'search' là tên route mình đặt bạn mở route lên xem là hiểu nó là cái j.
+                    method:"POST", // phương thức gửi dữ liệu.
+                    data:{query:query, _token:_token},
+                    success:function(data){ //dữ liệu nhận về
+                        $('#search_value').html(data); //nhận dữ liệu dạng html và gán vào cặp thẻ có id là countryList
+                    }
+                    });
+                }else{
+                    var output = '';
+                    $('#search_value').html(output);
+                }
+                });
+                });
+               
+        </script>

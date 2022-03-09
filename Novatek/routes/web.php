@@ -144,5 +144,8 @@ Route::prefix('')->group(function(){
     //Momo
     Route::post('momo_payment',[MomoController::class, 'momo_payment']);
 
+    //Search
+    Route::post('search',[HomeController::class, 'search'])->name('search');
+
     
 });

@@ -56,4 +56,27 @@ class HomeController extends Controller
     public function about(){
         return view('client.about');
     }
+
+    public function search(Request $request){
+        $output = '';
+        if($request->get('query') != '')
+        {
+            $query = $request->get('query');
+            $data = DB::table('product')
+            ->where('product_name', 'LIKE', "%{$query}%")
+            ->get();
+           
+            foreach($data as $row)
+            { 
+               $output .= '
+               <div style="font-size:30px;margin-left:400px"><img style="width:50px;height:50px" src="images/product/'.$row->product_main_image.'" alt=""><a href="product/'.$row->product_id.'">'.$row->product_name.'</a></div>
+               ';
+           }
+           echo $output;
+       }else{
+            $output = '';
+            echo $output;
+       }
+    }
+    
 }
