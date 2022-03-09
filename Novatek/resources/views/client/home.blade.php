@@ -146,21 +146,30 @@
                             <div class="product-shortcode style-1 big">
                                 <div class="product-label green">best price</div>
                                 <div class="preview">
-                                    <img src="client/img/product-62.jpg" alt="">
+                                    <img src="{{ asset('images/product'.$saleProduct->product_main_image) }}" alt="{{ $saleProduct->product_name }}">
                                     <div class="preview-buttons valign-middle">
                                         <div class="valign-middle-content">
-                                            <a class="button size-2 style-2" href="#">
+                                            <a class="button size-2 style-2" href="{{ route('client.product_detail',['product_id'=> $saleProduct->product_id]) }}">
                                                 <span class="button-wrapper">
                                                     <span class="icon"><img src="client/img/icon-1.png" alt=""></span>
                                                     <span class="text">Learn More</span>
                                                 </span>
                                             </a>
-                                            <a class="button size-2 style-3" href="#">
-                                                <span class="button-wrapper">
-                                                    <span class="icon"><img src="client/img/icon-3.png" alt=""></span>
-                                                    <span class="text">Add To Cart</span>
-                                                </span>
-                                            </a>
+                                            @if(Session::get('user_id') == true)
+                                                        <a class="button size-2 style-3">
+                                                            <span class="button-wrapper">
+                                                                <button type="button" class="add_to_cart" data-id="{{$saleProduct->product_id}}" name="add-to-cart"> <span class="icon"><img src="{{ asset('client/img/icon-3.png')}}"alt=""></span></button>
+                                                                <span class="text">Add To Cart</span>
+                                                            </span>
+                                                        </a>
+                                                        @else
+                                                        <a class="button size-2 style-3" href="{{URL::to('login')}}">
+                                                            <span class="button-wrapper">
+                                                                <span class="icon"><img src="{{ asset('client/img/icon-3.png')}}"alt=""></span>
+                                                                <span class="text">Add To Cart</span>
+                                                            </span>
+                                                        </a>
+                                                        @endif
                                         </div>
                                     </div>
                                 </div>
@@ -169,7 +178,7 @@
                                     <div class="h6 animate-to-green"><a href="#">modern beat ht</a></div>
                                 </div>
                                 <div class="description">
-                                    <div class="simple-article text size-2">Mollis nec consequat at In feugiat molestie tortor a malesuada etiam a venenatis ipsum</div>
+                                    <div class="simple-article text size-2">{{ $saleProduct->product_sort_descriptions }}</div>
                                     <div class="icons">
                                         <a class="entry"><i class="fa fa-check" aria-hidden="true"></i></a>
                                         <a class="entry open-popup" data-rel="3"><i class="fa fa-eye" aria-hidden="true"></i></a>
@@ -177,7 +186,7 @@
                                     </div>
                                 </div>
                                 <div class="price">                              
-                                    <div class="simple-article size-4"><span class="dark">$155.00</span></div>
+                                    <div class="simple-article size-4"><span class="dark">${{ $saleProduct->product_price }}</span></div>
                                 </div>
                             </div>
                         </div>

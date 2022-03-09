@@ -15,10 +15,10 @@ class HomeController extends Controller
 {
     public function index(){
         $sliders = DB::select('select * from slider');
-        $hotProducts = DB::select('select * from product where product_isHot = 1');
-        // $saleProducts = DB::select('select * from product where product_isSale = 1');
-        $newProducts = DB::select('select * from product where product_isNew = 1');
-        return view('client.home', compact('sliders','hotProducts','newProducts'));
+        $hotProduct = Product::where('product_isHot',1)->orderBy('created_at','desc')->first();
+        $newProduct = Product::where('product_isNew',1)->orderBy('created_at','desc')->first();
+        $saleProduct = Product::orderBy('product_price','asc')->first();
+        return view('client.home', compact('sliders','hotProduct','newProduct','saleProduct'));
     }
     public function cart(){
         return view('client.cart');
