@@ -106,6 +106,7 @@ Route::prefix('')->group(function(){
     Route::get('forget_password',[App\Http\Controllers\LoginController::class,'forget_password']);
     Route::post('send_mail_forget',[App\Http\Controllers\LoginController::class,'send_mail_forget']);
 
+    //product
     Route::get('',[HomeController::class,'index'])->name('client.home'); 
     Route::get('/products',[App\Http\Controllers\client\ProductController::class,'products'])->name('client.products'); 
     Route::get('/category/{$category_id}',[CategoryController::class,'products'])->name('client.categories_show'); 

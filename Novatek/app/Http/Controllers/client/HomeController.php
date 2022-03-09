@@ -15,10 +15,9 @@ class HomeController extends Controller
 {
     public function index(){
         $sliders = DB::select('select * from slider');
-        $hotProduct = Product::where('product_isHot',1)->orderBy('created_at','desc')->first();
-        $newProduct = Product::where('product_isNew',1)->orderBy('created_at','desc')->first();
-        $saleProduct = Product::orderBy('product_price','asc')->first();
-        return view('client.home', compact('sliders','hotProduct','newProduct','saleProduct'));
+        $hotProducts = Product::inRandomOrder()->limit(8)->get();
+        $newProducts = Product::inRandomOrder()->limit(20)->get();
+        return view('client.home', compact('sliders','hotProducts','newProducts'));
     }
     public function cart(){
         return view('client.cart');
