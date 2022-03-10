@@ -42,6 +42,7 @@
                                     $message = Session::get('message');
                                     if($message){
                                         echo '<div style="font-size:15px; color:red">'.$message.'</div>';
+										Session::put('message',null);
                                     }
                                ?>
 							<div class="text-center">

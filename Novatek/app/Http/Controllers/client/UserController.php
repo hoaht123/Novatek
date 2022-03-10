@@ -9,6 +9,9 @@ use App\Models\Wishlist;
 use App\Models\Category;
 use App\Models\Brand;
 use App\Models\Product;
+use Illuminate\Support\Facades\Session;
+use App\Models\Users;
+use Illuminate\Support\Facades\Redirect;
 
 class UserController extends Controller
 {
@@ -41,6 +44,32 @@ class UserController extends Controller
 
 
     public function information_user(){
-        return view('client.information_user');
+        $invoices = DB::table('invoices')->where('user_id', Session::get('user_id'))->get();
+        $user = DB::table('users')->where('user_id', '=', Session::get('user_id'))->first();
+        return view('client.information_user',compact('user','invoices'));
+    }
+    public function update_infor_user(Request $request , $user_id){
+        $data = $request->all();
+        $user = Users::find($user_id);
+        $user['name'] = $data['user_name'];
+        $user['phone'] = $data['user_phone'];
+        $user['address'] = $data['user_address'];
+        $user->save();
+        Session::put('update_success','Update information successfully');
+        return Redirect::back();
+    }
+    public function change_password(Request $request, $user_id){
+        $data = $request->all();
+        $check_password = DB::table('users')->where('user_id', $user_id)->where('password',md5( $data['old_password']))->first();
+        if(!$check_password){
+            Session::put('change_password','Your password is incorrect');
+            return Redirect::back();
+        }else{
+            $change_password = Users::find($user_id);
+            $change_password['password'] = md5($data['new_password']);
+            $change_password->save();
+            Session::put('change_password_success','Change password successfully');
+            return Redirect::back();
+        }
     }
 }

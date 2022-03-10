@@ -52,6 +52,7 @@
             $(document).ready(function(){
                 $('.add_to_cart').click(function(){
 				//lấy id từ data-id_product của từng sp
+                
 				var id = $(this).data('id');
 				//Lấy value
 				var cart_product_id = $('.cart_product_id_'+id).val();

@@ -110,7 +110,7 @@
                     
                     <div class="button block size-2 style-3">
                         <span class="button-wrapper">
-                            <button type="submit" class="send_order" name="send_order"><span class="icon"><img src="{{ asset('client/img/icon-4.png')}}"alt=""></span></button>
+                            <button type="button" class="send_order" name="send_order"><span class="icon"><img src="{{ asset('client/img/icon-4.png')}}"alt=""></span></button>
                             <span class="text">place order</span>
                         </span>
                     </div>
