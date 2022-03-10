@@ -69,7 +69,7 @@ class HomeController extends Controller
             foreach($data as $row)
             { 
                $output .= '
-               <div style="font-size:30px;margin-left:400px"><img style="width:50px;height:50px" src="images/product/'.$row->product_main_image.'" alt=""><a href="product/'.$row->product_id.'">'.$row->product_name.'</a></div>
+               <div style="font-size:30px;margin-left:440px"><img style="width:50px;height:50px" src="images/product/'.$row->product_main_image.'" alt=""><a href="product/'.$row->product_id.'">'.$row->product_name.'</a></div>
                ';
            }
            echo $output;

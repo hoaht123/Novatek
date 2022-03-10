@@ -14,7 +14,7 @@
     <div class="tabulation-menu-wrapper text-center">
         <div class="tabulation-title simple-input">description</div>
         <ul class="tabulation-toggle">
-            <li><a class="tab-menu active">Information</a></li>
+            <li><a class="tab-menu active">Profile</a></li>
             <li><a class="tab-menu">Change password</a></li>
             <li><a class="tab-menu">History order</a></li>
         </ul>
@@ -41,7 +41,7 @@
                 <label for="">Phone: </label>
                 <input type="text" style="width:300px" name="user_phone"  value="{{$user->phone}}" class="form-control" placeholder="" >
             </div>
-            <button type="submit" class="btn btn-primary">Update</button>
+            <button type="submit" class="btn btn-primary">Save profile</button>
             <?php
                 $update_success = Session::get('update_success');
                 if($update_success){
