@@ -19,14 +19,22 @@
     <div class="empty-space col-xs-b25 col-sm-b50"></div>
 
     <div class="h4 col-xs-b25">Price</div>
-    <div class="price-filter">
-        <label class="price-filter">
-            <button class="btn" value = "100" style ="width: 200px" name="btn-brand">0-100$</button>
-            </label>
-                <div class="empty-space col-xs-b10"></div>
-    </div>
-    {{-- <div id="prices-range"></div>
-    <div class="simple-article size-1">PRICE: <b class="grey">$<span class="min-price">1</span> - $<span class="max-price">1000</span></b></div> --}}
+    {{-- <div class="price-filter">
+        <label id="price-filter">
+            <button class="btn" min = "0" max= "100" style ="width: 200px" name="btn-brand">0-100$</button>
+            <button class="btn" min = "100" max= "200" style ="width: 200px" name="btn-brand">100-200$</button>
+            <button class="btn" min = "200" max= "300" style ="width: 200px" name="btn-brand">200-300$</button>
+            <button class="btn" min = "300" max= "400" style ="width: 200px" name="btn-brand">300-400$</button>
+        </label>
+            <div class="empty-space col-xs-b10"></div>
+    </div> --}}
+    <div id="prices-range"></div>
+    <div class="simple-article size-1">PRICE: <b class="grey">$<span class="min-price">1</span> - $<span class="max-price">1000</span></b></div>
+    {{-- <div>
+        <label for="volume">PRICE:</label>
+        <input type="range " id="volume" name="volume"
+               min="0" max="1000">
+      </div> --}}
 
     <div class="empty-space col-xs-b25 col-sm-b50"></div>
 
@@ -39,60 +47,16 @@
         <div class="empty-space col-xs-b10"></div>
     @endforeach
 
-
-    {{-- <div class="empty-space col-xs-b25 col-sm-b50"></div>
-
-    <div class="h4 col-xs-b25">Choose Color</div>
-    <div class="color-selection size-1">
-        <div class="entry active" style="color: #a7f050;"></div>
-        <div class="entry" style="color: #50e3f0;"></div>
-        <div class="entry" style="color: #eee;"></div>
-        <div class="entry" style="color: #4d900c;"></div>
-        <div class="entry" style="color: #edb82c;"></div>
-        <div class="entry" style="color: #7d3f99;"></div>
-        <div class="entry" style="color: #3481c7;"></div>
-        <div class="entry" style="color: #bf584b;"></div>
-    </div> --}}
-
-    {{-- <div class="empty-space col-xs-b25 col-sm-b50"></div>
-
-    <div class="h4 col-xs-b25">Operation System</div>
-    <label class="checkbox-entry">
-        <input type="checkbox"><span>Android</span>
-    </label>
-    <div class="empty-space col-xs-b10"></div>
-    <label class="checkbox-entry">
-        <input type="checkbox"><span>IOS</span>
-    </label>
-    <div class="empty-space col-xs-b10"></div>
-    <label class="checkbox-entry">
-        <input type="checkbox"><span>Windows Phone</span>
-    </label>
-    <div class="empty-space col-xs-b10"></div>
-    <label class="checkbox-entry">
-        <input type="checkbox"><span>Symbian</span>
-    </label>
-    <div class="empty-space col-xs-b10"></div>
-    <label class="checkbox-entry">
-        <input type="checkbox"><span>Blackberry OS</span>
-    </label> --}}
-
     <div class="empty-space col-xs-b25 col-sm-b50"></div>
 
     <div class="h4 col-xs-b25">Popular Tags</div>
     <div class="tags light clearfix">
-        <a class="tag">headphoness</a>
-        <a class="tag">accessories</a>
-        <a class="tag">new</a>
-        <a class="tag">wireless</a>
-        <a class="tag">cables</a>
-        <a class="tag">devices</a>
-        <a class="tag">gadgets</a>
-        <a class="tag">brands</a>
-        <a class="tag">replacements</a>
-        <a class="tag">cases</a>
-        <a class="tag">cables</a>
-        <a class="tag">professional</a>
+        @php 
+            $category = App\Models\Category::all();
+        @endphp
+        @foreach($category as $cate)
+        <a class="tag" href="{{ route('client.tag_clicked',['category_id'=>$cate->category_id])}}">{{ $cate->category_name }}</a>
+        @endforeach
     </div>
 
     <div class="empty-space col-xs-b25 col-sm-b50"></div>

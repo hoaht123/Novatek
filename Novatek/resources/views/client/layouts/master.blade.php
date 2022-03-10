@@ -78,8 +78,8 @@
 						},
 						function(){
 							window.location.href = "{{url('/show_cart')}}";
-							});
-					}
+							});  
+					},
 				});
 			});
             });
@@ -133,13 +133,23 @@
                     });
                 });
             });
+
+            //fillter by check box
+        $(document).ready(function(){
+            $('.checkbox-entry .btn').click(function(){
+                var brand = $(this).val();
+                $('.nopadding .col-sm-4').hide();
+                $('.checkbox-entry .btn').removeClass('btn-info');
+                $(this).addClass('btn-info');
+                $('.nopadding .brand-'+brand).show();
+            })
+        })
         </script>
         {{-- Add/romeve wish_list --}}
         <script>
             $(document).ready(function (){     
                 $('.add_wish_list_form').submit(function(e) {
-                        e.preventDefault();
-                        console.log( $(this).serialize() );
+                        e.preventDefault();                 
                         var id = $(this).data('id');                      
                         var product_id = $('.product_id_'+id).val();
                         var _token = $('.token_'+id).val();
@@ -155,13 +165,40 @@
                                         alert(response.message);
                                     } 
                                     if(response.status == 'deleted') {
-                                        $('button[data-id="'+id+'"]').children('i').removeClass('fa-heart').addClass('fa-heart-o').css("color","black");
-                                    } 
+                                        $('button[data-id="'+id+'"]').children('i').removeClass('fa-heart').addClass('fa-heart-o').css("color","black");  
+                                        alert(response.message);                                   
+                                    }
                                     if(response.status == 'added') {
                                         $('button[data-id="'+id+'"]').children('i').removeClass('fa-heart-o').addClass('fa-heart').css("color","red");
+                                        alert(response.message);
                                     }                         
                                 },
                         });
+                });
+            });
+        </script>
+        {{-- Show pop-up product --}}
+        <script>
+            $(document).ready(function(){
+                $('a[data-rel="3"]').click(function(e){
+                    e.preventDefault();
+                    var id = $(this).parent().data('id');
+                    var _token = $('.token_'+id).val();
+                    $.ajax({
+                        url: "{{ route('client.popup_product')}}",
+                        type: "POST",
+                        data: {
+                            product_id: id,
+                            _token:_token
+                        },
+                        success: function(data){
+                            $('#replace-data-rel-3').replaceWith(data);
+                            $('.popup-content').removeClass('active');
+                            $('.popup-content[data-rel="3"]').removeClass('active');
+                            $('.popup-content[data-rel="3"]').addClass('active');
+                            $('html').addClass('overflow-hidden');
+                        }
+                    });     
                 });
             });
         </script>

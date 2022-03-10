@@ -111,6 +111,11 @@ Route::prefix('')->group(function(){
     Route::get('/products',[App\Http\Controllers\client\ProductController::class,'products'])->name('client.products'); 
     Route::get('/category/{$category_id}',[CategoryController::class,'products'])->name('client.categories_show'); 
     Route::get('/product/{product_id}',[App\Http\Controllers\client\ProductController::class,'product_detail'])->name('client.product_detail');
+    Route::get('/tag/{category_id}',[App\Http\Controllers\client\ProductController::class,'tag_clicked'])->name('client.tag_clicked');
+    Route::post('/product/popup_product',[App\Http\Controllers\client\ProductController::class,'popup_product'])->name('client.popup_product');
+    Route::post('/product/filter_range',[App\Http\Controllers\client\ProductController::class,'filter_range'])->name('client.filter_range');
+
+
     // Route::get('/cart',[HomeController::class,'cart'])->name('client.cart');
     // Route::get('/checkout',[HomeController::class,'checkout'])->name('client.checkout');
     Route::get('/contact',[HomeController::class,'contact'])->name('client.contact');
