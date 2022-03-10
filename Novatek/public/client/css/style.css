@@ -588,7 +588,7 @@ header{position: fixed; left: 0; top: 0; width: 100%; z-index: 10; -webkit-backf
 /*-------------------------------------------------------------------------------------------------------------------------------*/
 /* 06 - FOOTER */
 /*-------------------------------------------------------------------------------------------------------------------------------*/
-footer{background: #343434; position: relative;}
+footer{background: #585858; position: relative;}
 footer a, .tag{transition: all .15s; -webkit-transition: all .15s;}
 .footer-top{border-bottom: 1px rgba(255,255,255,.05) solid; padding: 60px 0;}
 .footer-bottom{padding: 30px 0;}
