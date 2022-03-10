@@ -162,12 +162,19 @@ class UserController extends Controller
     public function review_product(Request $request){
         $data = array();
         // dd($request->all());
+        $check = DB::table('review')->where('product_id',$request->product_id)->where('user_id',$request->user_id)->first();
+        // dd($check);
         $data['user_id'] = $request->user_id;
         $data['product_id'] = $request->product_id;
         $data['comment'] = $request->user_comment;
         $data['rating'] = $request->rating_start;
         $data['created_at'] = now();
-        DB::table('review')->insert($data);
+        // dd($check);
+        if($check){
+            DB::table('review')->where('user_id',$request->user_id)->where('product_id',$request->product_id)->update($data);
+        }else{
+            DB::table('review')->insert($data);
+        }
         return Redirect::back();
 
     }

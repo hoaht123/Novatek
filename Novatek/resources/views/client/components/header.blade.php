@@ -144,7 +144,7 @@
                                             </div>
                                         </nav>
                                     </div>
-                                    <div class="header-bottom-icon toggle-search"><i class="fa fa-search" aria-hidden="true"></i></div>
+                                    <div class="header-bottom-icon toggle-search"><i style="top:10px" class="fa fa-search" aria-hidden="true"></i></div>
                                     <div class="header-bottom-icon visible-rd"><i class="fa fa-heart-o" aria-hidden="true"></i></div>
                                     <div class="header-bottom-icon visible-rd">
                                         <i class="fa fa-shopping-bag" aria-hidden="true"></i>
@@ -160,7 +160,7 @@
                                                 
                                                 
                                                     <div class="search-submit">
-                                                        <i class="fa fa-search" aria-hidden="true"></i>
+                                                        <i style="top:15px" class="fa fa-search" aria-hidden="true"></i>
                                                         <input type="submit"/>
                                                     </div>
                                                     <input class="simple-input style-1" id="search" type="text" value="" placeholder="Enter keyword" />
