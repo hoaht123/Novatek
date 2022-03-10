@@ -74,11 +74,7 @@
                     <div class="align-inline spacing-1">
                         <div class="simple-article size-1">SHOWING <b class="grey">15</b> OF <b class="grey">2 358</b> RESULTS</div>
                     </div>
-                    <div class="align-inline spacing-1 hidden-xs">
-                        <a class="pagination toggle-products-view active"><img src="{{ asset('client/img/icon-14.png')}}"alt="" /><img src="{{ asset('client/img/icon-15.png')}}"alt="" /></a>
-                        <a class="pagination toggle-products-view"><img src="{{ asset('client/img/icon-16.png')}}"alt="" /><img src="{{ asset('client/img/icon-17.png')}}"alt="" /></a>
-                    </div>
-                    <div class="align-inline spacing-1 filtration-cell-width-1">
+                    <div style="margin-left: 100px" class="align-inline spacing-1 filtration-cell-width-1">
                         <select class="SlectBox small">
                             <option disabled="disabled" selected="selected">Most popular products</option>
                             <option value="volvo">Volvo</option>
@@ -155,7 +151,7 @@
                                                     <form style="margin:0px;padding:0px" class="add_wish_list_form" data-id="{{$product->product_id}}">
                                                         @csrf
                                                         <a class="entry"><i class="fa fa-check" aria-hidden="true"></i></a>
-                                                        <a class="entry open-popup" data-rel="3"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                                        <a class="entry open-popup" data-rel="3" data-id="{{$product->product_id}}"><i class="fa fa-eye" aria-hidden="true"></i></a>
                                                         <input type="hidden" name="product_id" class="product_id_{{$product->product_id}}" value="{{$product->product_id}}">                                                    
                                                         <input type="hidden" name="_token" class="token_{{$product->product_id}}" value="{{ csrf_token() }}">                                                
                                                         <input type="hidden" name="_method" value="POST">                                                
@@ -351,6 +347,7 @@
         $(document).ready(function(){
             var minVal = parseInt($('.min-price').text());
             var maxVal = parseInt($('.max-price').text());
+
             $( "#prices-range" ).slider({
                 range: true,
                 min: minVal,
@@ -364,16 +361,6 @@
             });
         });
         
-        //fillter by check box
-        $(document).ready(function(){
-            $('.checkbox-entry .btn').click(function(){
-                var brand = $(this).val();
-                $('.nopadding .col-sm-4').hide();
-                $('.checkbox-entry .btn').removeClass('btn-info');
-                $(this).addClass('btn-info');
-                $('.nopadding .brand-'+brand).show();
-            })
-        })
     </script>
 @endsection
 
