@@ -27,7 +27,8 @@ class ProductController extends Controller
         $product = Product::where('product_id',$product_id)->first();
         $reviews = Review::where('product_id',$product_id)->get();
         $Avg_rating = Review::where('product_id',$product_id)->avg('rating');
-        return view('client.product_detail', compact('product','categories','brands','reviews','Avg_rating'));
+        $count_review = Review::where('product_id',$product_id)->count();
+        return view('client.product_detail', compact('product','categories','brands','reviews','Avg_rating','count_review'));
     }
     public function category_sidebar_clicked($category_id){
         $arr = Array();

@@ -56,7 +56,7 @@
                                         <div id="rateYo_product"></div>
                                         <input type="hidden" name="" id="rating_product" >
                                     </div>
-                                    <div class="simple-article size-2 align-inline">128 Reviews</div>
+                                    <div class="simple-article size-2 align-inline">{{$count_review}} Reviews</div>
                                 </div>
                             </div>
                             <div class="row">
@@ -128,8 +128,7 @@
                             <div class="tabulation-title simple-input">description</div>
                             <ul class="tabulation-toggle">
                                 <li><a class="tab-menu active">description</a></li>
-                                <li><a class="tab-menu">technical specs</a></li>
-                                <li><a class="tab-menu">testimonials</a></li>
+                                <li><a class="tab-menu">review</a></li>
                             </ul>
                         </div>
                         <div class="empty-space col-xs-b30 col-sm-b60"></div>
@@ -140,147 +139,7 @@
                             </div>
                         </div>
 
-                        <div class="tab-entry">
-                            <div class="h5">watch 38mm</div>
-                            <div class="empty-space col-xs-b15"></div>
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="product-description-entry row nopadding">
-                                        <div class="col-xs-6">
-                                            <div class="h6">height:</div>
-                                        </div>
-                                        <div class="col-xs-6 text-right">
-                                            <div class="simple-article size-2">38.6mm</div>
-                                        </div>
-                                    </div>  
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="product-description-entry row nopadding">
-                                        <div class="col-xs-6">
-                                            <div class="h6">width:</div>
-                                        </div>
-                                        <div class="col-xs-6 text-right">
-                                            <div class="simple-article size-2">33.3mm</div>
-                                        </div>
-                                    </div>  
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="product-description-entry row nopadding">
-                                        <div class="col-xs-6">
-                                            <div class="h6">depth:</div>
-                                        </div>
-                                        <div class="col-xs-6 text-right">
-                                            <div class="simple-article size-2">10.5mm</div>
-                                        </div>
-                                    </div>  
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="product-description-entry row nopadding">
-                                        <div class="col-xs-6">
-                                            <div class="h6">case:</div>
-                                        </div>
-                                        <div class="col-xs-6 text-right">
-                                            <div class="simple-article size-2">40g</div>
-                                        </div>
-                                    </div>  
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="product-description-entry row nopadding">
-                                        <div class="col-xs-6">
-                                            <div class="h6">material:</div>
-                                        </div>
-                                        <div class="col-xs-6 text-right">
-                                            <div class="simple-article size-2">Stainless Steel</div>
-                                        </div>
-                                    </div>  
-                                </div>
-                            </div>
-                            <div class="empty-space col-xs-b30 col-sm-b60"></div>
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="simple-article size-2 text-center">
-                                        <img src="{{ asset('client/img/thumbnail-19.jpg')}}" alt="" />
-                                        <p><br/>Stainless Steel</p>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="simple-article size-2 text-center">
-                                        <img src="{{ asset('client/img/thumbnail-20.jpg')}}" alt="" />
-                                        <p><br/>Space Black Stainless Steel</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="empty-space col-xs-b30 col-sm-b60"></div>
-                            <div class="h5">watch 42mm</div>
-                            <div class="empty-space col-xs-b15"></div>
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="product-description-entry row nopadding">
-                                        <div class="col-xs-6">
-                                            <div class="h6">height:</div>
-                                        </div>
-                                        <div class="col-xs-6 text-right">
-                                            <div class="simple-article size-2">42.0mm</div>
-                                        </div>
-                                    </div>  
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="product-description-entry row nopadding">
-                                        <div class="col-xs-6">
-                                            <div class="h6">width:</div>
-                                        </div>
-                                        <div class="col-xs-6 text-right">
-                                            <div class="simple-article size-2">35.9mm</div>
-                                        </div>
-                                    </div>  
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="product-description-entry row nopadding">
-                                        <div class="col-xs-6">
-                                            <div class="h6">depth:</div>
-                                        </div>
-                                        <div class="col-xs-6 text-right">
-                                            <div class="simple-article size-2">10.5mm</div>
-                                        </div>
-                                    </div>  
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="product-description-entry row nopadding">
-                                        <div class="col-xs-6">
-                                            <div class="h6">case:</div>
-                                        </div>
-                                        <div class="col-xs-6 text-right">
-                                            <div class="simple-article size-2">50g</div>
-                                        </div>
-                                    </div>  
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="product-description-entry row nopadding">
-                                        <div class="col-xs-6">
-                                            <div class="h6">material:</div>
-                                        </div>
-                                        <div class="col-xs-6 text-right">
-                                            <div class="simple-article size-2">Space Black Stainless Steel</div>
-                                        </div>
-                                    </div>  
-                                </div>
-                            </div>
-                            <div class="empty-space col-xs-b30 col-sm-b60"></div>
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="simple-article size-2 text-center">
-                                        <img src="{{ asset('client/img/thumbnail-21.jpg')}}" alt="" />
-                                        <p><br/>Stainless Steel</p>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="simple-article size-2 text-center">
-                                        <img src="{{ asset('client/img/thumbnail-22.jpg')}}" alt="" />
-                                        <p><br/>Space Black Stainless Steel</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                       
 
                         <div class="tab-entry">
                             @foreach($reviews as $key=>$review)
