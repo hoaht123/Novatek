@@ -158,4 +158,17 @@ class UserController extends Controller
         </div>';
         return $output;
     }
+
+    public function review_product(Request $request){
+        $data = array();
+        // dd($request->all());
+        $data['user_id'] = $request->user_id;
+        $data['product_id'] = $request->product_id;
+        $data['comment'] = $request->user_comment;
+        $data['rating'] = $request->rating_start;
+        $data['created_at'] = now();
+        DB::table('review')->insert($data);
+        return Redirect::back();
+
+    }
 }

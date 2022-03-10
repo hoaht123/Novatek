@@ -53,11 +53,8 @@
                                 </div>
                                 <div class="col-sm-6 col-sm-text-right">
                                     <div class="rate-wrapper align-inline">
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                                        <div id="rateYo_product"></div>
+                                        <input type="hidden" name="" id="rating_product" >
                                     </div>
                                     <div class="simple-article size-2 align-inline">128 Reviews</div>
                                 </div>
@@ -286,107 +283,32 @@
                         </div>
 
                         <div class="tab-entry">
+                            @foreach($reviews as $key=>$review)
                             <div class="testimonial-entry">
                                 <div class="row col-xs-b20">
                                     <div class="col-xs-8">
-                                        <img class="preview" src="{{ asset('client/img/testimonial-1.jpg')}}" alt="" />
+                                        <img class="preview" src="https://img.icons8.com/office/16/000000/user.png" alt="" />
                                         <div class="heading-description">
-                                            <div class="h6 col-xs-b5">Dorian gray</div>
+                                            <div class="h6 col-xs-b5">{{$review->user->name}}</div>
                                             <div class="rate-wrapper align-inline">
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                {{-- <div id="rateYo_user_{{$review->review_id}}"></div>
+                                                <input type="hidden" id="review" value="{{$review->review_id}}">
+                                                <input type="hidden" id="rating_user_{{$review->review_id}}" value="{{$review->rating}}"> --}}
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-xs-4 text-right">
-                                        <div class="simple-article size-1 grey">20:45 APR 07 / 15</div>
+                                        <div class="simple-article size-1 grey">{{$review->created_at}}</div>
                                     </div>
                                 </div>
-                                <div class="simple-article size-2 col-xs-b15">Sed sodales sed orci molestie tristique. Nunc dictum, erat id molestie vestibulum, ex leo vestibulum justo, luctus tempor erat sem quis diam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur vulputate elit. </div>
-                                <div class="pros">
-                                    <div class="simple-article size-2 col-xs-b15">Runc dictum, erat id molestie vestibulum, ex leo vestibulum justo, luctus tempor erat sem quis</div>
-                                </div>
-                                <div class="cons">
-                                    <div class="simple-article size-2 col-xs-b25">Do not have</div>
-                                </div>
+                                <div class="simple-article size-2 col-xs-b15">{{$review->comment}}</div>
                             </div>
-                            <div class="testimonial-entry">
-                                <div class="row col-xs-b20">
-                                    <div class="col-xs-8">
-                                        <img class="preview" src="{{ asset('client/img/testimonial-2.jpg')}}" alt="" />
-                                        <div class="heading-description">
-                                            <div class="h6 col-xs-b5">alan doe</div>
-                                            <div class="rate-wrapper align-inline">
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star-o" aria-hidden="true"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-4 text-right">
-                                        <div class="simple-article size-1 grey">20:45 APR 07 / 15</div>
-                                    </div>
-                                </div>
-                                <div class="simple-article size-2 col-xs-b15">Sed sodales sed orci molestie tristique. Nunc dictum, erat id molestie vestibulum, ex leo vestibulum justo, luctus tempor erat sem quis diam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur vulputate elit. </div>
-                                <div class="pros">
-                                    <div class="simple-article size-2 col-xs-b15">Runc dictum, erat id molestie vestibulum, ex leo vestibulum justo, luctus tempor erat sem quis</div>
-                                </div>
-                                <div class="cons">
-                                    <div class="simple-article size-2 col-xs-b25">Do not have</div>
-                                </div>
-                            </div>
-                            <div class="testimonial-entry">
-                                <div class="row col-xs-b20">
-                                    <div class="col-xs-8">
-                                        <img class="preview" src="{{ asset('client/img/testimonial-3.jpg')}}" alt="" />
-                                        <div class="heading-description">
-                                            <div class="h6 col-xs-b5">samantha rae</div>
-                                            <div class="rate-wrapper align-inline">
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star" aria-hidden="true"></i>
-                                                <i class="fa fa-star-o" aria-hidden="true"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-4 text-right">
-                                        <div class="simple-article size-1 grey">20:45 APR 07 / 15</div>
-                                    </div>
-                                </div>
-                                <div class="simple-article size-2 col-xs-b15">Sed sodales sed orci molestie tristique. Nunc dictum, erat id molestie vestibulum, ex leo vestibulum justo, luctus tempor erat sem quis diam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur vulputate elit. </div>
-                                <div class="pros">
-                                    <div class="simple-article size-2 col-xs-b15">Runc dictum, erat id molestie vestibulum, ex leo vestibulum justo, luctus tempor erat sem quis</div>
-                                </div>
-                                <div class="cons">
-                                    <div class="simple-article size-2 col-xs-b25">Do not have</div>
-                                </div>
-                            </div>
-                            <form>
+                            @endforeach
+                            <form action="{{URL::to('review_product')}}" method="post">
+                                @csrf
                                 <div class="row m10">
-                                    <div class="col-sm-6">
-                                        <input class="simple-input" type="text" value="" placeholder="Your name" />
-                                        <div class="empty-space col-xs-b20"></div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <input class="simple-input" type="text" value="" placeholder="Your name" />
-                                        <div class="empty-space col-xs-b20"></div>
-                                    </div>
                                     <div class="col-sm-12">
-                                        <input class="simple-input" type="text" value="" placeholder="Describe the pros" />
-                                        <div class="empty-space col-xs-b20"></div>
-                                    </div>
-                                    <div class="col-sm-12">
-                                        <input class="simple-input" type="text" value="" placeholder="Describe cons" />
-                                        <div class="empty-space col-xs-b20"></div>
-                                    </div>
-                                    <div class="col-sm-12">
-                                        <textarea class="simple-input" placeholder="Your comment"></textarea>
+                                        <textarea class="simple-input" name="user_comment" placeholder="Your comment"></textarea>
                                         <div class="empty-space col-xs-b20"></div>
                                     </div>
                                 </div>
@@ -398,18 +320,30 @@
                                             <div class="empty-space col-xs-b5"></div>
                                         </div>
                                         <div class="rate-wrapper set align-inline">
-                                            <i class="fa fa-star-o" aria-hidden="true"></i>
-                                            <i class="fa fa-star-o" aria-hidden="true"></i>
-                                            <i class="fa fa-star-o" aria-hidden="true"></i>
-                                            <i class="fa fa-star-o" aria-hidden="true"></i>
-                                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                                            @if(Session::get('user_id'))
+                                            <div id="rateYo"></div>
+                                            @else
+                                            <div id="rateYo1"></div>
+                                            @endif
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <input class="simple-input" name="rating_start" type="hidden" id="rating_start" />
+                                            <div class="empty-space col-xs-b20"></div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <input class="simple-input" name="product_id" value="{{$product->product_id}}" type="hidden" />
+                                            <div class="empty-space col-xs-b20"></div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <input class="simple-input" name="user_id" value="{{Session::get('user_id')}}" type="hidden" />
+                                            <div class="empty-space col-xs-b20"></div>
                                         </div>
                                     </div>
                                     <div class="col-xs-6 text-right">
                                         <div class="button size-2 style-3">
                                             <span class="button-wrapper">
                                                 <span class="icon"><img src="{{ asset('client/img/icon-4.png')}}"alt=""></span>
-                                                <span class="text">submit</span>
+                                                <span class="text"><input type="submit">submit</span>
                                             </span>
                                             <input type="submit" value="">
                                         </div>
@@ -804,10 +738,14 @@
                 </div>
             </div>
         </div>
+@section('css')
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.css">
+@endsection
 @section('js')
     <!-- range slider -->
     <script src="{{ asset('js/jquery-ui.min.js')}}"></script>
     <script src="{{ asset('js/jquery.ui.touch-punch.min.js')}}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js"></script>
     <script>
         $(document).ready(function(){
             var minVal = parseInt($('.min-price').text());
@@ -824,6 +762,41 @@
                 }
             });
         });
+    </script>
+    <script>
+        $(function () {
+            $("#rateYo").rateYo({
+            rating: 0,
+            starWidth: "20px"
+            }).on("rateyo.set", function (e, data) {
+                $('#rating_start').val(data.rating);
+            // alert("The rating is set to " + data.rating + "!");
+            });
+            });
+    </script>
+    <script>
+        $(function () {
+            let Avg_rate = '{{$Avg_rating}}';
+            $("#rateYo_product").rateYo({
+            rating: Avg_rate,
+            starWidth: "20px"
+            }).on("rateyo.set", function (e, data) {
+                $('#rating_productt').val(data.rating);
+            // alert("The rating is set to " + data.rating + "!");
+            });
+        });
+    </script>
+    <script>
+        $(function () {
+            $("#rateYo1").rateYo({
+            rating: 0,
+            starWidth: "20px"
+            }).on("rateyo.set", function (e, data) {
+                alert('You must logging in to rate');
+                // window.location.href = "{{URL::to('login')}}";
+            // alert("The rating is set to " + data.rating + "!");
+            });
+            });
     </script>
 
 @endsection

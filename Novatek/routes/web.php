@@ -152,5 +152,8 @@ Route::prefix('')->group(function(){
     Route::post('change_password/{user_id}',[UserController::class, 'change_password']);
     Route::get('view_invoice_user/{invoice_id}',[UserController::class, 'view_invoice_user']);
 
+    //Review
+    Route::post('review_product',[UserController::class, 'review_product']);
+
     
 });

@@ -7,7 +7,9 @@ use App\Models\Category;
 use App\Models\Brand;
 use App\Models\Product;
 use App\Models\Wishlist;
+use App\Models\Review;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
@@ -23,7 +25,9 @@ class ProductController extends Controller
         $brands = Brand::all();
         $categories = Category::where('parent_id',0)->get();
         $product = Product::where('product_id',$product_id)->first();
-        return view('client.product_detail', compact('product','categories','brands'));
+        $reviews = Review::where('product_id',$product_id)->get();
+        $Avg_rating = Review::where('product_id',$product_id)->avg('rating');
+        return view('client.product_detail', compact('product','categories','brands','reviews','Avg_rating'));
     }
     public function category_sidebar_clicked($category_id){
         $arr = Array();
