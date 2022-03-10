@@ -45,7 +45,7 @@
             <?php
                 $update_success = Session::get('update_success');
                 if($update_success){
-                    echo '<div style="color:green;font-size:15px">'.$update_success.'</div>';
+                    echo '<script>alert("'.$update_success.'");</script>';
                     Session::put('update_success', null);
                 }
                 ?>
@@ -65,7 +65,7 @@
                         <?php
                             $change_password = Session::get('change_password');
                             if($change_password){
-                                echo '<div style="color:red;font-size:15px">'.$change_password.'</div>';
+                                echo '<script>alert("'.$change_password.'");</script>';
                                 Session::put('change_password', null);
                             }
                         ?>
@@ -78,7 +78,8 @@
                     <?php
                             $change_password_success = Session::get('change_password_success');
                             if($change_password_success){
-                                echo '<div style="color:green;font-size:15px">'.$change_password_success.'</div>';
+                                // echo '<div style="color:green;font-size:15px">'.$change_password_success.'</div>';
+                                echo '<script>alert("'.$change_password_success.'");</script>';
                                 Session::put('change_password_success', null);
                             }
                     ?>
@@ -106,7 +107,7 @@
                                 <td>{{$invoice->invoice_code}}</td>
                                 <td>{{$invoice->created_at}}</td>
                                 <td>Success</td>
-                                <td><a href="{{URL::to('view_invoice_user/'.$invoice->invoice_id)}}">View in PDF</a></td>
+                                <td><a target="_blank" class="btn btn-primary"href="{{URL::to('view_invoice_user/'.$invoice->invoice_id)}}">View in PDF</a></td>
                             </tr>
                             @endforeach
                         </tbody>

@@ -4,7 +4,7 @@
                 <div class="footer-top">
                     <div class="row">
                         <div class="col-sm-6 col-md-3 col-xs-b30 col-md-b0">
-                            <img style="width:200px;height:50px" src="{{ asset('client/img/logo-novatek.png')}}" alt="" />
+                            <img style="width:200px;height:50px" src="{{ asset('client/img/31.svg')}}" alt="" />
                             <div class="empty-space col-xs-b20"></div>
                             <div class="simple-article size-2 light fulltransparent">At NovaTek, we are dedicated to providing you with the entire information technology solution needed.</div>
                             <div class="empty-space col-xs-b20"></div>

@@ -111,11 +111,13 @@
                     <div class="button block size-2 style-3">
                         <span class="button-wrapper">
                             <button type="button" class="send_order" name="send_order"><span class="icon"><img src="{{ asset('client/img/icon-4.png')}}"alt=""></span></button>
-                            <span class="text">place order</span>
+                            <span class="text">check cash</span>
                         </span>
                     </div>
                 </form>
-                <div class="empty-space col-xs-b30"></div>
+                <div class="popup-or">
+                    <span>or</span>
+                </div>
                     <div class="button block size-2 style-3">
                         <span class="button-wrapper">
                             <span class="icon"><a href="{{ route('processTransaction') }}"><img src="{{ asset('client/img/icon-4.png')}}"alt=""></a></span>

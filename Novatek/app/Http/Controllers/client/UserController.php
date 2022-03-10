@@ -12,7 +12,11 @@ use App\Models\Product;
 use Illuminate\Support\Facades\Session;
 use App\Models\Users;
 use Illuminate\Support\Facades\Redirect;
-
+use Barryvdh\DomPDF\PDF;
+use App\Models\Invoice;
+use App\Models\InvoiceDetails;
+use App\Models\Shipping;
+session_start();
 class UserController extends Controller
 {
     public function wish_list() {
@@ -71,5 +75,87 @@ class UserController extends Controller
             Session::put('change_password_success','Change password successfully');
             return Redirect::back();
         }
+    }
+
+    public function view_invoice_user($invoice_id){
+        $pdf = \App::make('dompdf.wrapper');
+        $pdf->loadHTML($this->view_invoice_user_convert($invoice_id));
+        return $pdf->stream();
+    }
+
+    public function view_invoice_user_convert($invoice_id){
+        $invoice_details = InvoiceDetails::where('invoice_id', $invoice_id)->get();
+        $invoices = Invoice::where('invoice_id', $invoice_id)->get();
+        foreach($invoices as $key=>$invoice){
+            $user_id = $invoice->user_id;
+            $shipping_id = $invoice->shipping_id;
+            $invoice_code = $invoice->invoice_code;
+            $invoice_date = $invoice->created_at;
+        }
+        
+        $user = Users::find($user_id);
+        $shipping = Shipping::find($shipping_id);
+        $output = '';
+        $i = 0;
+        $total = 0;
+        $output =
+        '
+        <style>
+            body{
+                font-family:DejaVu Sans;
+
+            }
+            .table-styling{
+                border:solid 1px #000;
+            }
+            .table-styling tr td {
+                border:solid 1px #000;
+            }
+            span{
+                font-weight:bold;
+            }
+        </style>
+        <img style="width:100px;height:50px" src="client/img/logo-novatek.jpg" alt="">
+        <div style="text-align:right">Order code: '.$invoice_code.'</div>
+        <div>Receiver: '.$shipping->shipping_name.'<div>
+        <div>Email: '.$shipping->shipping_email.'<div>
+        <div>Address: '.$shipping->shipping_address.'<div>
+        <div>Order date: '. $invoice_date.'<div>
+        <div>Note: '.$shipping->shipping_note.'<div>
+        
+        <h4><center>Invoice details</center></h4>
+        <table border="1" class="table table-styling" style="text-align:center">
+            <thead>
+                <tr>
+                    <th>STT</th>
+                    <th>Name</th>
+                    <th>Image</th>
+                    <th>Quantity</th>
+                    <th>Subtotal</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>';
+            foreach($invoice_details as $key=>$in_de){
+                $total += $in_de->quantity *$in_de->subtotal;
+                $output .='
+                <tr>
+                    <td>'.++$i.'</td>
+                    <td style="width:300px">'.$in_de->product_name.'</td>
+                    <td style="width:100px"><img style="width:50px;height:50px" src="images/product/'.$in_de->product_image.'" alt="'.$in_de->product_name.'"></td>
+                    <td>'.$in_de->quantity.'</td>
+                    <td>$'.$in_de->subtotal.'</td>
+                    <td style="width:100px">$'.$in_de->subtotal * $in_de->quantity .'</td>
+                </tr>';
+            }
+            $output .='
+            </tbody>
+        </table>';
+        $output .='</div>
+        <div style="float:right">
+        <div >Shipping : Free Shipping </div>
+        <div >Total order: $'.$total.'</div>
+        </div>';
+        return $output;
     }
 }

@@ -150,7 +150,7 @@ Route::prefix('')->group(function(){
     Route::get('information_user',[UserController::class, 'information_user']);
     Route::post('update_infor_user/{user_id}',[UserController::class, 'update_infor_user']);
     Route::post('change_password/{user_id}',[UserController::class, 'change_password']);
-    
+    Route::get('view_invoice_user/{invoice_id}',[UserController::class, 'view_invoice_user']);
 
     
 });
