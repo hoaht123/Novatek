@@ -54,7 +54,7 @@
                     <div class="icon-description-shortcode style-1">
                         <img class="icon" src={{ asset("client/img/icon-28.png") }} alt="">
                         <div class="title h6">email</div>
-                        <div class="description simple-article size-2"><a href="mailto:offce@novatek.com">offce@novatek.com</a></div>
+                        <div class="description simple-article size-2"><a href="#">office@novatek.com</a></div>
                     </div>
                 </div>
                 <div class="col-sm-3">
