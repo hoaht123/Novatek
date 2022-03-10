@@ -38,4 +38,9 @@ class UserController extends Controller
             return response()->json(['status' => 'added', 'message' => 'Product added to wish list'])->header('Content-Type', 'application/json');
         }
     }
+
+
+    public function information_user(){
+        return view('client.information_user');
+    }
 }

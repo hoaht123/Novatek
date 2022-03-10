@@ -146,6 +146,8 @@ Route::prefix('')->group(function(){
 
     //Search
     Route::post('search',[HomeController::class, 'search'])->name('search');
+    //Information user
+    Route::get('information_user',[UserController::class, 'information_user']);
 
     
 });

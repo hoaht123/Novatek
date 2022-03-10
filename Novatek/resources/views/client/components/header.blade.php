@@ -13,16 +13,17 @@
                                     $user_name = Session::get('user_name');
                                 ?>
                                 @if($user_name)
-                                {{$user_name}}
+                                <a href="{{URL::to('information_user')}}"><i class="fa fa-user"></i></a> {{$user_name}}
                                 <a style="margin-left:10px " href="{{URL::to('log-out')}}">Logout</a>
                                 @else
                                 <a href="{{URL::to('login')}}"><b>login</b></a>&nbsp; or &nbsp;<a  href="{{URL::to('login')}}"><b>register</b></a>
                                 @endif
+                                
                             </div>
                             
-                            <div class="entry language">
+                            {{-- <div class="entry language">
                                 <div class="title"><b>en</b></div>
-                            </div>
+                            </div> --}}
                                 @php
                                         $total = 0;
                                         $sum_quantity = 0;
