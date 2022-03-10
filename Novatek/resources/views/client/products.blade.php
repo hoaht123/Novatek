@@ -147,12 +147,12 @@
                                             </div>
                                         </form>
                                             <div class="price">
-                                                <div class="simple-article size-4"><span class="color">${{$product->product_price}}</span>&nbsp;&nbsp;&nbsp;<span class=""></span></div>
+                                                <div class="simple-article size-4"><span class="color">${{$product->product_price}}.00</span>&nbsp;&nbsp;&nbsp;<span class=""></span></div>
                                             </div>
-                                            <div class="description">
+                                            <div class="description" style="margin-top:20px">
                                                 <div class="simple-article text size-2">{{$product->product_sort_descriptions}}</div>
                                                 <div class="icons">
-                                                    <form class="add_wish_list_form" data-id="{{$product->product_id}}">
+                                                    <form style="margin:0px;padding:0px" class="add_wish_list_form" data-id="{{$product->product_id}}">
                                                         @csrf
                                                         <a class="entry"><i class="fa fa-check" aria-hidden="true"></i></a>
                                                         <a class="entry open-popup" data-rel="3"><i class="fa fa-eye" aria-hidden="true"></i></a>

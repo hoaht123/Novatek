@@ -77,8 +77,8 @@
 						},
 						function(){
 							window.location.href = "{{url('/show_cart')}}";
-							});
-					}
+							});  
+					},
 				});
 			});
             });
@@ -137,7 +137,7 @@
         <script>
             $(document).ready(function (){     
                 $('.add_wish_list_form').submit(function(e) {
-                        e.preventDefault();
+                        e.preventDefault();                 
                         console.log( $(this).serialize() );
                         var id = $(this).data('id');                      
                         var product_id = $('.product_id_'+id).val();
@@ -154,10 +154,12 @@
                                         alert(response.message);
                                     } 
                                     if(response.status == 'deleted') {
-                                        $('button[data-id="'+id+'"]').children('i').removeClass('fa-heart').addClass('fa-heart-o').css("color","black");
-                                    } 
+                                        $('button[data-id="'+id+'"]').children('i').removeClass('fa-heart').addClass('fa-heart-o').css("color","black");  
+                                        alert(response.message);                                   
+                                    }
                                     if(response.status == 'added') {
                                         $('button[data-id="'+id+'"]').children('i').removeClass('fa-heart-o').addClass('fa-heart').css("color","red");
+                                        alert(response.message);
                                     }                         
                                 },
                         });
