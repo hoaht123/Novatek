@@ -26,16 +26,19 @@
             <div class="row">
                 @if(Session::get('cart') == true)
                 <div class="col-md-6 col-xs-b50 col-md-b0">
+                    @php
+                        $user = App\Models\Users::where('user_id', session('user_id'))->first();
+                    @endphp
                     <form>
                         @csrf
                     <h4 class="h4 col-xs-b25">billing details</h4>
-                    <input class="simple-input shipping_name" type="text" name="shipping_name" value="" placeholder="Name" />
+                    <input class="simple-input shipping_name" type="text" name="shipping_name"  placeholder="Name" value="{{ $user->name}}" />
                     <div class="empty-space col-xs-b20"></div>
-                    <input class="simple-input shipping_email" type="text" value=""  name="shipping_email" placeholder="Email" />
+                    <input class="simple-input shipping_email" type="text"   name="shipping_email" placeholder="Email" value="{{ $user->email}}" />
                     <div class="empty-space col-xs-b20"></div>
-                    <input class="simple-input shipping_phone" type="text" value=""  name="shipping_phone" placeholder="Phone" />
+                    <input class="simple-input shipping_phone" type="text"   name="shipping_phone" placeholder="Phone" value="{{ $user->phone}}" />
                     <div class="empty-space col-xs-b20"></div>
-                    <input class="simple-input shipping_address" type="text" value=""  name="shipping_address" placeholder="Address" />
+                    <input class="simple-input shipping_address" type="text"   name="shipping_address" placeholder="Address" value="{{ $user->address}}" />
                     <div class="empty-space col-xs-b20"></div>
                     <textarea class="simple-input shipping_note"  name="shipping_note" placeholder="Note about your order"></textarea>
                 </div>
