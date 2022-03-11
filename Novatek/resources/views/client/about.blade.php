@@ -26,9 +26,16 @@
         {{-- <div class="empty-space col-xs-b35 col-md-b70"></div> --}}
 
         <div class="container">
+            <div class="breadcrumbs">
+                <a href="{{ route('client.home')}}">home</a>
+                <a href="{{ route('client.about')}}">about us</a>
+                @if(!empty($title))
+                <a>{{$title}}</a>
+                @endif
+            </div>
             <div class="row">
                 <div class="col-sm-5">
-                    <div class="simple-article size-3 grey uppercase col-xs-b5">about us</div>
+                    <div class="simple-article size-3 grey uppercase col-xs-b5"></div>
                     <div class="h2">NOVATEK</div>
                     <div class="title-underline left"><span></span></div>
                     <div class="simple-article size-4 grey">Over 22 million IT professionals, small businesses, local governments, students, engineers, programmers, makers, tech enthusiasts, gamers, computer product and electronic device customers have relied on NovaTek for their communication and information technology support needs since 1979.</div>

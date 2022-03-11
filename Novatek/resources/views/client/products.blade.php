@@ -19,7 +19,7 @@
             <div class="row">
                 <div class="col-md-9 col-md-push-3">
                     <div class="align-inline spacing-1">
-                        <div class="h4">Sport gadgets</div>
+                        <div class="h4">All products</div>
                     </div>
                     <div class="align-inline spacing-1">
                         
