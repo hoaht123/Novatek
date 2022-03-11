@@ -18,7 +18,8 @@ class ProductController extends Controller
         $brands = Brand::all();
         $categories = Category::where('parent_id',0)->get();
         $products = Product::where('product_status',0)->paginate(9);
-        return view('client.products', compact('categories','brands','products',));
+        $total = count(Product::where('product_status',0)->get());
+        return view('client.products', compact('categories','brands','products','total'));
     }
     public function product_detail($product_id)
     {
@@ -43,23 +44,36 @@ class ProductController extends Controller
             }
         }
         $products = Product::whereIn('category_id',$arr)->paginate(9);
-        return view('client.products', compact('categories','brands','products'));
+        $total = count(Product::whereIn('category_id',$arr)->get());
+        return view('client.products', compact('categories','brands','products','total'));
     }
 
     public function tag_clicked($category_id){
         $brands = Brand::all();
         $categories = Category::where('category_id',$category_id)->get();
         $products = Product::where('category_id',$category_id)->paginate(9);
-        return view('client.products', compact('categories','brands','products'));
+        $total = count(Product::where('category_id',$category_id)->get());
+        return view('client.products', compact('categories','brands','products','total'));
+    }
+
+    public function product_price( $min, $max, Request $request ){
+        $price = array();
+        $price[0] = $min;
+        $price[1] = $max;
+        $brands = Brand::all();
+        $categories = Category::where('parent_id',0)->get();
+        $products = Product::whereIn('product_price',$price)->paginate(9);
+        $total = count(Product::whereIn('product_price',$price)->get());
+        return view('client.products', compact('categories','brands','products','total'));
     }
 
     public function popup_product( Request $request) {
         $product_id = $request->product_id;
         $product = Product::where('product_id',$product_id)->first();
         if($product->inStock == 1){
-            $inStock = 'Yes';
+            $inStock = 'outStock';
         }else{
-            $inStock = 'No';
+            $inStock = 'inStock';
         }
         return '
         <div id="replace-data-rel-3" class="popup-content" data-rel="3">
@@ -102,7 +116,7 @@ class ProductController extends Controller
                         <div class="h3 col-xs-b25">'.$product->product_name.'</div>
                         <div class="row col-xs-b25">
                             <div class="col-sm-6">
-                                <div class="simple-article size-5 grey">PRICE: <span class="color">'.$product->product_price.'.00</span></div>        
+                                <div class="simple-article size-5 grey">PRICE: <span class="color">$'.$product->product_price.'.00</span></div>        
                             </div>
                             <div class="col-sm-6 col-sm-text-right">
                                 <div class="rate-wrapper align-inline">
