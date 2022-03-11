@@ -74,15 +74,9 @@ class ProductController extends Controller
                                <div class="swiper-button-next hidden"></div>
                                 <div class="swiper-wrapper">
                                     <div class="swiper-slide">
-                                        <div class="swiper-lazy-preloader"></div>
+                                        <div class=""></div>
                                         <div class="product-big-preview-entry swiper-lazy" data-background="">
                                             <img style="width: 100%; height:70%" src="images/product/'.$product->product_main_image.'" alt="">
-                                        </div>
-                                   </div>
-                                   <div class="swiper-slide">
-                                        <div class="swiper-lazy-preloader"></div>
-                                        <div class="product-big-preview-entry swiper-lazy" data-background="">
-                                            <img style="width: 100%; height:70%" src="images/product/'.$product->product_image_gallery.'" alt="">
                                         </div>
                                    </div>
                                </div>
@@ -96,11 +90,6 @@ class ProductController extends Controller
                                     <div class="swiper-slide">
                                         <div class="product-small-preview-entry">
                                             <img style="width:100px; height:100px" src="images/product/'.$product->product_main_image.'" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div class="product-small-preview-entry">
-                                            <img style="width:100px; height:100px" src="images/product/'.$product->product_image_gallery.'" alt="">
                                         </div>
                                     </div>
                                </div>
@@ -157,12 +146,16 @@ class ProductController extends Controller
                                 </a>
                             </div>
                             <div class="col-sm-6">
-                                <a class="button size-2 style-1 block noshadow" href="#">
-                                <span class="button-wrapper">
-                                    <span class="icon"><i class="fa fa-heart-o" aria-hidden="true"></i></span>
-                                    <span class="text">add to favourites</span>
-                                </span>
-                                </a>
+                                <form style="margin:0px;padding:0px" method="POST" class="add_wish_list_form" data-id="'.$product->product_id.'">
+                                    <input type="hidden" name="product_id" class="product_id_'.$product->product_id.'" value="'.$product->product_id.'">                                                    
+                                    <input type="hidden" name="_token" class="token_'.$product->product_id.'" value="'.csrf_token().'">  
+                                    <a type="submit" class="button size-2 style-1 block noshadow">
+                                        <span class="button-wrapper">
+                                            <span class="icon"><i class="fa fa-heart-o" aria-hidden="true"></i></span>
+                                            <span class="text">add to favourites</span>
+                                        </span>
+                                    </a>
+                                </form>
                             </div>
                         </div>
                         <div class="row">
