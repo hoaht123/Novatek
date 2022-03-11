@@ -22,7 +22,7 @@
                                 <div class="swiper-container swiper-control-top">
                                    <div class="swiper-button-prev hidden"></div>
                                    <div class="swiper-button-next hidden"></div>
-                    <form>
+                <form>
                         <input type="hidden" value="{{$product->product_id}}" class="cart_product_id_{{$product->product_id}}">
                                            <input type="hidden" value="{{$product->product_name}}" class="cart_product_name_{{$product->product_id}}">
                                            <input type="hidden" value="{{$product->product_main_image}}" class="cart_product_image_{{$product->product_id}}">
@@ -30,17 +30,19 @@
                                            
                                    <div class="swiper-wrapper">                                      
                                             <div class="swiper-slide">
-                                                    <div class="swiper-lazy-preloader"></div>
-                                                    <div class="product-big-preview-entry swiper-lazy" data-background="{{asset('images/product/'.$product->product_main_image)}}"></div>
+                                                    {{-- <div class="swiper-lazy-preloader"></div> --}}
+                                                    <div class="product-big-preview-entry " >
+                                                        <img style="width:100%;height:75%" src="{{asset('images/product/'.$product->product_main_image)}}" alt="">
+                                                    </div>
                                             </div>
                                             <div class="swiper-slide">
-                                                <div class="swiper-lazy-preloader"></div>
-                                                <div class="product-big-preview-entry swiper-lazy" data-background="{{asset('images/product/'.$product->product_image_gallery)}}"></div>
+                                                {{-- <div class="swiper-lazy-preloader"></div> --}}
+                                                <div class="product-big-preview-entry " >
+                                                    <img style="width:100%;height:75%" src="{{{asset('images/product/'.$product->product_image_gallery)}}}" alt="">
+                                                </div>
                                             </div>
                                    </div>                                                                      
                                 </div>
-
-                                <div class="empty-space col-xs-b30 col-sm-b60"></div>
                             </div>
 
                         </div>
@@ -73,13 +75,13 @@
                                     <div class="h6 detail-data-title size-1">Quantity:</div>
                                 </div>
                                 <div class="col-sm-6">
-                                    <input type="number" min="1" class="cart_product_qty_{{$product->product_id}}">
+                                    <input type="number" value="1" min="1" class="cart_product_qty_{{$product->product_id}}">
                                 </div>
                             </div>
                             <div class="row m5 col-xs-b40">
                                 <div class="col-sm-6 col-xs-b10 col-sm-b0">
                                     @if(Session::get('user_id') == true)
-                                    <a class="button size-2 style-2 block" href="#">
+                                    <a class="button size-2 style-2 block">
                                         <span class="button-wrapper">
                                             <button type="button" class="add_to_cart" data-id="{{$product->product_id}}" name="add-to-cart"> <span class="icon"><img src="{{ asset('client/img/icon-3.png')}}"alt=""></span></button>
                                             <span class="text">add to cart</span>
@@ -121,7 +123,6 @@
                         </div>
                     </div>
 
-                    <div class="empty-space col-xs-b35 col-md-b70"></div>
 
                     <div class="tabs-block">
                         <div class="tabulation-menu-wrapper text-center">
@@ -131,7 +132,7 @@
                                 <li><a class="tab-menu">review</a></li>
                             </ul>
                         </div>
-                        <div class="empty-space col-xs-b30 col-sm-b60"></div>
+            
 
                         <div class="tab-entry visible">
                             <div class="row">
