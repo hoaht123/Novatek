@@ -4,7 +4,7 @@
 @endsection
 @section('content')
     <div id="content-block">
-        <div class="block-entry fixed-background" style="background-image: url(client/img/background-23.jpg);">
+        <div class="block-entry fixed-background" style="background-image: url(client/img/1809534.jpg);">
             <div class="container">
                 <div class="row">
                     <div class="col-sm-6 col-sm-offset-3">
