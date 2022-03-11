@@ -135,7 +135,7 @@
                             </ul>
                         </div>
             
-
+                        <div class="empty-space col-xs-b15 col-sm-b30"></div>
                         <div class="tab-entry visible">
                             <div class="row">
                                     {!!$product->product_descriptions!!}
@@ -143,7 +143,7 @@
                         </div>
 
                        
-
+                        <div class="empty-space col-xs-b15 col-sm-b30"></div>
                         <div class="tab-entry">
                             @foreach($reviews as $key=>$review)
                             <div class="testimonial-entry">
@@ -182,10 +182,10 @@
                                             <div class="empty-space col-xs-b5"></div>
                                         </div>
                                         <div class="rate-wrapper set align-inline">
-                                            @if(Session::get('user_id'))
-                                            <div id="rateYo"></div>
-                                            @else
+                                            @if(Session::get('user_id') == null )
                                             <div id="rateYo1"></div>
+                                            @else
+                                            <div id="rateYo"></div>
                                             @endif
                                         </div>
                                         <div class="col-sm-12">
