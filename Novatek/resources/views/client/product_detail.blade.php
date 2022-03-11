@@ -2,6 +2,7 @@
 @section('title')
     <title>Detail</title>
 @endsection
+
 @section('content')
         <div class="header-empty-space"></div>
 
@@ -156,6 +157,7 @@
                                                 {{-- <div id="rateYo_user_{{$review->review_id}}"></div>
                                                 <input type="hidden" id="review" value="{{$review->review_id}}">
                                                 <input type="hidden" id="rating_user_{{$review->review_id}}" value="{{$review->rating}}"> --}}
+                                                <input data-role="rating" data-value="{{$review->rating}}">
                                             </div>
                                         </div>
                                     </div>
@@ -660,5 +662,6 @@
             });
             });
     </script>
+    
 
 @endsection
