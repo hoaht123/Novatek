@@ -65,13 +65,13 @@
                                                     <a class="button size-2 style-1" href="{{route('client.product_detail',['product_id' =>$slider->product_id])}}">
                                                         <span class="button-wrapper">
                                                             <span class="icon"><img src="client/img/icon-1.png" alt=""></span>
-                                                            <span class="text">Learn More</span>
+                                                            {{-- <span class="text">Learn More</span> --}}
                                                         </span>
                                                     </a>
                                                     <a class="button size-2 style-2" href="#">
-                                                        {{-- <span class="button-wrapper">
+                                                        <span class="button-wrapper">
                                                             <span class="icon"><img src="client/img/icon-2.png" alt=""></span>
-                                                            <span class="text">Add To Cart</span> --}}
+                                                            {{-- <span class="text">Add To Cart</span> --}}
                                                         </span>
                                                     </a>
                                                 </div>
@@ -108,9 +108,9 @@
 
             <div class="row nopadding">
                 <div class="col-sm-6">
-                    <div class="banner-shortcode style-3 wide" style="background-image: url(client/img/background-9.jpg);">
+                    <div class="banner-shortcode style-3 wide" style="background-image: url(client/img/niUykGh442nbmj9P.jpg);">
                         <div class="valign-middle-cell">
-                            <div class="valign-middle-content">
+                            {{-- <div class="valign-middle-content">
                                 <div class="simple-article size-3 light transparent uppercase col-xs-b5">relax collection</div>
                                 <h3 class="h3 light">your perfect sound</h3>
                                 <div class="title-underline left"><span></span></div>
@@ -121,14 +121,14 @@
                                         <span class="text">learn more</span>
                                     </span>
                                 </a>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-6">
-                    <div class="banner-shortcode style-3 wide" style="background-image: url(client/img/background-10.jpg);">
+                    <div class="banner-shortcode style-3 wide" style="background-image: url(client/img/img_2710092851.jpg);">
                         <div class="valign-middle-cell">
-                            <div class="valign-middle-content">
+                            {{-- <div class="valign-middle-content">
                                 <div class="simple-article size-3 light transparent uppercase col-xs-b5">street collection</div>
                                 <h3 class="h3 light">noise is not a problem</h3>
                                 <div class="title-underline left"><span></span></div>
@@ -139,7 +139,7 @@
                                         <span class="text">learn more</span>
                                     </span>
                                 </a>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>
@@ -189,8 +189,8 @@
                                     </div>
                                 </div>
                                 <div class="title">
-                                    <div class="simple-article size-1 color col-xs-b5"><a href="#">COLOREX EDITION</a></div>
-                                    <div class="h6 animate-to-green"><a href="#">hipster beat hr</a></div>
+                                    {{-- <div class="simple-article size-1 color col-xs-b5"><a href="#">COLOREX EDITION</a></div>
+                                    <div class="h6 animate-to-green"><a href="#">hipster beat hr</a></div> --}}
                                 </div>
                                 <div class="description">
                                     <div class="simple-article text size-2">{{$product->product_sort_descriptions}}</div>
@@ -292,8 +292,8 @@
                                         </div>
                                     </div>
                                     <div class="title">
-                                        <div class="simple-article size-1 color col-xs-b5"><a href="#">COLOREX EDITION</a></div>
-                                        <div class="h6 animate-to-green"><a href="#">hipster beat hr</a></div>
+                                        {{-- <div class="simple-article size-1 color col-xs-b5"><a href="#">COLOREX EDITION</a></div>
+                                        <div class="h6 animate-to-green"><a href="#">hipster beat hr</a></div> --}}
                                     </div>
                                     <div class="description">
                                         <div class="simple-article text size-2">{{$product->product_sort_descriptions}}</div>
@@ -329,9 +329,9 @@
                     <div class="col-sm-6 col-sm-offset-6">
                         <div class="cell-view simple-banner-height text-center">
                             <div class="empty-space col-sm-b35"></div>
-                            <div class="simple-article grey uppercase size-5 col-xs-b5"><span class="color">special offers</span> for subscribers</div>
+                            <div class="simple-article grey uppercase size-5 col-xs-b5"><span class="color">special offers</span></div>
                             <h3 class="h3 col-xs-b15">new offers every week <span class="color">+</span> discount system <span class="color">+</span> best prices</h3>
-                            <div class="simple-article size-3 col-xs-b25 col-sm-b50">Praesent nec finibus massa. Phasellus id auctor lacus, at iaculis lorem. Donec quis arcu elit. In vehicula purus sem, eu mattis est lacinia sit amet.</div>
+                            <div class="simple-article size-3 col-xs-b25 col-sm-b50">GOOD THINGS HAPPEN EVERY TIME YOU SHOP<br>From big treats to little thank yous and a charity donation with every purchase.</div>
                             <div class="single-line-form">
                                 <input class="simple-input" type="text" value="" placeholder="Enter your email">
                                 <div class="button size-2 style-3">
@@ -347,7 +347,7 @@
                     </div>
                 </div>
                 <div class="row-background left hidden-xs">
-                    <img src="client/img/background-8.jpg" alt="" />
+                    <img src="client/img/nzxt3.jpg" alt="" />
                 </div>
             </div>
         </div>
