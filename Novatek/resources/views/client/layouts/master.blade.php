@@ -84,6 +84,7 @@
 			});
             });
         </script>
+        {{-- Send order --}}
         <script>
             $(document).ready(function(){
                 $('.send_order').click(function(){
@@ -134,7 +135,7 @@
                 });
             });
 
-            //fillter by check box
+            //fillter by Brand
         $(document).ready(function(){
             $('.checkbox-entry .btn').click(function(){
                 var brand = $(this).val();
@@ -148,11 +149,11 @@
         {{-- Add/romeve wish_list --}}
         <script>
             $(document).ready(function (){     
-                $('.add_wish_list_form').submit(function(e) {
+                $('.add_wish_list').click(function(e) {
                         e.preventDefault();                 
                         var id = $(this).data('id');                      
-                        var product_id = $('.product_id_'+id).val();
-                        var _token = $('.token_'+id).val();
+                        var product_id = $('.cart_product_id_'+id).val();
+                        var _token = $('input[name="_token"]').val();
                         $.ajax({
                             url: "{{ route('add_wish_list') }}",
                             method:"POST",
@@ -182,8 +183,8 @@
             $(document).ready(function(){
                 $('a[data-rel="3"]').click(function(e){
                     e.preventDefault();
-                    var id = $(this).parent().data('id');
-                    var _token = $('.token_'+id).val();
+                    var id = $(this).data('id');
+                    var _token = $('input[name="_token"]').val();
                     $.ajax({
                         url: "{{ route('client.popup_product')}}",
                         type: "POST",

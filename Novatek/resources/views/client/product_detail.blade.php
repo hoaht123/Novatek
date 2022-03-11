@@ -9,10 +9,9 @@
         <div class="container">
             <div class="empty-space col-xs-b15 col-sm-b30"></div>
             <div class="breadcrumbs">
-                <a href="#">home</a>
-                <a href="#">accessories</a>
-                <a href="#">gadgets</a>
-                <a href="#">sport gadgets</a>
+                <a href="{{ route('client.home')}}">home</a>
+                <a href="{{ route('client.products')}}">product</a>
+                <a href="#">{{ $product->product_name }}</a>
             </div>
             <div class="empty-space col-xs-b15 col-sm-b50 col-md-b100"></div>
             <div class="row">
@@ -99,15 +98,16 @@
                                     </a>
                                     @endif
                                 </div>
-                    </form>
+                                
                                 <div class="col-sm-6">
                                     <a class="button size-2 style-1 block noshadow" href="#">
-                                    <span class="button-wrapper">
+                                    <span class="button-wrapper add_wish_list" data-id="{{$product->product_id}}">
                                         <span class="icon"><i class="fa fa-heart-o" aria-hidden="true"></i></span>
                                         <span class="text">add to favourites</span>
                                     </span>
                                 </a>
                                 </div>
+                    </form>
                             </div>
                             <div class="row">
                                 <div class="col-sm-3">

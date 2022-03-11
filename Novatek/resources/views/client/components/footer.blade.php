@@ -68,18 +68,12 @@
                             <h6 class="h6 light">popular tags</h6>
                             <div class="empty-space col-xs-b20"></div>
                             <div class="tags clearfix">
-                                <a class="tag">headphoness</a>
-                                <a class="tag">accessories</a>
-                                <a class="tag">new</a>
-                                <a class="tag">wireless</a>
-                                <a class="tag">cables</a>
-                                <a class="tag">devices</a>
-                                <a class="tag">gadgets</a>
-                                <a class="tag">brands</a>
-                                <a class="tag">replacements</a>
-                                <a class="tag">cases</a>
-                                <a class="tag">cables</a>
-                                <a class="tag">professional</a>
+                                @php
+                                    $tags = App\Models\Category::inRandomOrder()->limit(15)->get();
+                                @endphp
+                                @foreach($tags as $tag)
+                                    <a class="tag" href="{{ route('client.tag_clicked',['category_id'=>$tag->category_id])}}">{{ $tag->category_name }}</a>
+                                @endforeach
                             </div>
                         </div>
                     </div>
