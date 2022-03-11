@@ -82,10 +82,12 @@
                                 <div class="col-sm-6 col-xs-b10 col-sm-b0">
                                     @if(Session::get('user_id') == true)
                                     <a class="button size-2 style-2 block">
-                                        <span class="button-wrapper">
-                                            <button type="button" class="add_to_cart" data-id="{{$product->product_id}}" name="add-to-cart"> <span class="icon"><img src="{{ asset('client/img/icon-3.png')}}"alt=""></span></button>
-                                            <span class="text">add to cart</span>
-                                        </span>
+                                            <button style="background:#343434" type="button" class="add_to_cart" data-id="{{$product->product_id}}" name="add-to-cart">
+                                                <span class="button-wrapper">
+                                                 <span class="icon"><img src="{{ asset('client/img/icon-3.png')}}"alt=""></span> 
+                                                 <span class="text">ADD TO CART</span>
+                                                </span>
+                                            </button>
                                     </a>
                                     @else
                                     <a class="button size-2 style-2 block" href="{{URL::to('login')}}">
