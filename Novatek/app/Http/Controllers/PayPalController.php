@@ -26,7 +26,7 @@ class PayPalController extends Controller
      */
     public function processTransaction(Request $request)
     {
-        $total = Session::get('total');
+        $total = Session::get('after_total');
 
         $provider = new PayPalClient;
         $provider->setApiCredentials(config('paypal'));
@@ -82,7 +82,7 @@ class PayPalController extends Controller
 
         if (isset($response['status']) && $response['status'] == 'COMPLETED') {
             Session::forget('cart');
-            Session::forget('total');
+            Session::forget('after_total');
             return redirect()
                 ->route('thanks')
                 ->with('success', 'Transaction complete.');

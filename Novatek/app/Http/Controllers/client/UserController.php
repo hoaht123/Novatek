@@ -187,6 +187,7 @@ class UserController extends Controller
     }
 
     public function review_product(Request $request){
+        date_default_timezone_set('Asia/Ho_Chi_Minh');// set thời gian
         $data = array();
         // dd($request->all());
         $check = DB::table('review')->where('product_id',$request->product_id)->where('user_id',$request->user_id)->first();

@@ -135,10 +135,12 @@ class CartController extends Controller
         $order->created_at = now();
         $order->save();
         $invoice_id = $order->invoice_id;
-
-        $quantity_coupon = Coupon::where('voucher_code',Session::get('coupon_code'))->first();
+        
+        if(Session::get('coupon_code') != ''){
+            $quantity_coupon = Coupon::where('voucher_code',Session::get('coupon_code'))->first();
         DB::table('vouchers')->where('voucher_code',Session::get('coupon_code'))->update(['voucher_quantity' => $quantity_coupon->voucher_quantity - 1]);
-
+        }
+        
         if(Session::get('cart')){
             foreach(Session::get('cart') as $key=>$cart){
                 $order_details = new InvoiceDetails();
@@ -154,6 +156,7 @@ class CartController extends Controller
         Session::forget('cart');
         Session::forget('after_total');
         Session::forget('coupon_code');
+        Session::forget('coupon');
         return Redirect::to('thanks');
     }
 

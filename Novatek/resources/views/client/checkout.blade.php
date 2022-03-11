@@ -207,7 +207,7 @@
                 <div class="empty-space col-xs-b30"></div>
                 <form action="{{URL::to('momo_payment')}}" method="post">
                     @csrf
-                    <input type="hidden" name="total" value="{{$total}}">
+                    <input type="hidden" name="total" value="{{Session::get('after_total')}}">
                     <div class="button block size-2 style-3">
                     <span class="button-wrapper">
                         <button type="submit" name="payUrl"><span class="icon"><img src="{{ asset('client/img/icon-4.png')}}"alt=""></span></button>
