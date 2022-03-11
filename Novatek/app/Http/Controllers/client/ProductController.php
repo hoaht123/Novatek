@@ -56,6 +56,11 @@ class ProductController extends Controller
     public function popup_product( Request $request) {
         $product_id = $request->product_id;
         $product = Product::where('product_id',$product_id)->first();
+        if($product->inStock == 1){
+            $inStock = 'Yes';
+        }else{
+            $inStock = 'No';
+        }
         return '
         <div id="replace-data-rel-3" class="popup-content" data-rel="3">
         <div class="layer-close"></div>
@@ -71,13 +76,13 @@ class ProductController extends Controller
                                     <div class="swiper-slide">
                                         <div class="swiper-lazy-preloader"></div>
                                         <div class="product-big-preview-entry swiper-lazy" data-background="">
-                                            <img style="width: 100%; height:100%" src="images/product/'.$product->product_main_image.'" alt="">
+                                            <img style="width: 100%; height:70%" src="images/product/'.$product->product_main_image.'" alt="">
                                         </div>
                                    </div>
                                    <div class="swiper-slide">
                                         <div class="swiper-lazy-preloader"></div>
                                         <div class="product-big-preview-entry swiper-lazy" data-background="">
-                                            <img style="width: 100%; height:100%" src="images/product/'.$product->product_image_gallery.'" alt="">
+                                            <img style="width: 100%; height:70%" src="images/product/'.$product->product_image_gallery.'" alt="">
                                         </div>
                                    </div>
                                </div>
@@ -126,7 +131,7 @@ class ProductController extends Controller
                                 <div class="simple-article size-3 col-xs-b5">ITEM NO.: <span class="grey">'.$product->product_id.'</span></div>
                             </div>
                             <div class="col-sm-6 col-sm-text-right">
-                                <div class="simple-article size-3 col-xs-b20">AVAILABLE.: <span class="grey">'.$product->product_inStock.'</span></div>
+                                <div class="simple-article size-3 col-xs-b20">AVAILABLE.: <span class="grey">'.$inStock.'</span></div>
                             </div>
                         </div>
                         <div class="simple-article size-3 col-xs-b30">'.$product->product_descriptions.'</div>
