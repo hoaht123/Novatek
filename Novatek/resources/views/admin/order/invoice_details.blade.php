@@ -71,9 +71,47 @@
               <td>Shipping: </td>
               <td><td><td><td><td>Free Shipping</td></td></td></td></td>
           </tr>
+          <tr>
+            <td>Tax: </td>
+            <td><td><td><td><td>8%</td></td></td></td></td>
+          </tr>
+          
+          @if($coupon == '')
+          @php
+          $tax = $total * 8/100;
+          $after_total =  $total + $tax;
+          @endphp
+          <tr>
+            <td>Coupon: </td>
+            <td><td><td><td><td>{{$coupon}}</td></td></td></td></td>
+          </tr>
+          @else
+            @if($coupon->voucher_options == 'Percent')
+            @php
+            $tax = $total * 8/100;
+            $total_tax =  $total + $tax;
+            $coupon_total =  $total_tax * $coupon->voucher_value/100;
+            $after_total = $total_tax - $coupon_total;
+            @endphp
+            <tr>
+              <td>Coupon: </td>
+              <td><td><td><td><td>{{$coupon->voucher_code}} - {{$coupon->voucher_value}}%</td></td></td></td></td>
+            </tr>
+            @else
+            @php
+            $tax = $total * 8/100;
+            $total_tax =  $total + $tax ;
+            $after_total =  $total_tax - $coupon->voucher_value;
+            @endphp
+            <tr>
+              <td>Coupon: </td>
+              <td><td><td><td><td>{{$coupon->voucher_code}} - {{$coupon->voucher_value}}$</td></td></td></td></td>
+            </tr>
+            @endif
+          @endif
             <tr>
                 <td>Total order: </td>
-                <td><td><td><td><td>${{$total}}</td></td></td></td></td>
+                <td><td><td><td><td>${{$after_total}}</td></td></td></td></td>
             </tr>
       </tbody>
     </table>

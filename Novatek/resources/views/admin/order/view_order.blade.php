@@ -11,6 +11,7 @@
             <th>Customer</th>
             <th>Shipping name</th>
             <th>Quantity</th>
+            <th>Coupon code</th>
             <th>Total</th>
             <th>Date</th>
             <th>Action</th>
@@ -33,6 +34,7 @@
                 <td>{{$invoice->user->name}}</td>
                 <td>{{$invoice->shipping->shipping_name}}</td>
                 <td>{{$invoice->quantity}}</td>
+                <td>{{$invoice->coupon_code}}</td>
                 <td>${{$invoice->total}}</td>
                 <td>{{$invoice->created_at}}</td>
                 <td><a href="{{URL::to('admin/invoice_details/'.$invoice->invoice_id)}}"><i style="font-size:25px" class="fa fa-clipboard"></i></a></td>

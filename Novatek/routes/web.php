@@ -85,7 +85,15 @@ Route::prefix('admin')->group(function(){
     Route::get('/invoice_details/{invoice_id}',[App\Http\Controllers\AdminController::class,'invoice_details']);
     Route::get('print_invoice/{invoice_id}',[App\Http\Controllers\AdminController::class,'print_invoice']);
 
+    //Coupon
+    Route::get('/create_coupon',[App\Http\Controllers\CouponController::class,'create_coupon']);
+    Route::post('/save_coupon',[App\Http\Controllers\CouponController::class,'save_coupon']);
+    Route::get('/view_coupon',[App\Http\Controllers\CouponController::class,'view_coupon']);
+    Route::get('/update_coupon/{coupon_id}',[App\Http\Controllers\CouponController::class,'update_coupon']);
+    Route::post('/saveUpdate_coupon/{coupon_id}',[App\Http\Controllers\CouponController::class,'saveUpdate_coupon']);
+    Route::get('/delete_coupon/{coupon_id}',[App\Http\Controllers\CouponController::class,'delete_coupon']);
 });
+
 
 Route::prefix('')->group(function(){
     //Login facebook
@@ -159,6 +167,11 @@ Route::prefix('')->group(function(){
 
     //Review
     Route::post('review_product',[UserController::class, 'review_product']);
+
+    //Coupon
+    Route::post('add_coupon',[App\Http\Controllers\CouponController::class,'add_coupon']);
+    Route::get('delete_coupon_cart',[App\Http\Controllers\CouponController::class,'delete_coupon_cart']);
+
 
     
 });

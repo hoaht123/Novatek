@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 use App\Models\Invoice;
+use App\Models\Coupon;
 use App\Models\InvoiceDetails;
 use Barryvdh\DomPDF\PDF;
 session_start();
@@ -84,8 +85,15 @@ class AdminController extends Controller
         $invoices = Invoice::where('invoice_id',$invoice_id)->get();
         foreach($invoices as $key=>$invoice){
             $invoice_id = $invoice->invoice_id;
+            $coupon_code =  $invoice->coupon_code;
         }
-        return view('admin.order.invoice_details',compact('invoice_details','invoices','invoice_id'));
+        if($coupon_code == ''){
+            $coupon = '';
+        }else{
+            $coupon = Coupon::where('voucher_code',$coupon_code)->first();
+        }
+       
+        return view('admin.order.invoice_details',compact('invoice_details','invoices','invoice_id','coupon'));
     }
 
     public function print_invoice($invoice_id){
@@ -102,8 +110,13 @@ class AdminController extends Controller
             $shipping_id = $invoice->shipping_id;
             $invoice_code = $invoice->invoice_code;
             $invoice_date = $invoice->created_at;
+            $coupon_code = $invoice->coupon_code;
         }
-        
+        if($coupon_code == ''){
+            $coupon = '';
+        }else{
+            $coupon = Coupon::where('voucher_code',$coupon_code)->first();
+        }
         $user = Users::find($user_id);
         $shipping = Shipping::find($shipping_id);
         $output = '';
@@ -167,10 +180,29 @@ class AdminController extends Controller
         $output .='</div>
         <div style="float:right">
         <div >Shipping : Free Shipping </div>
-        <div >Total order: $'.$total.'</div>
+        <div >Tax : 8% </div>';
+        if($coupon == ''){
+            $tax = $total * 8/100;
+            $after_total = $total + $tax;
+            $output .= '<div >Coupon :  </div>';
+        }else{
+            if($coupon->voucher_options == 'Percent'){
+                $tax = $total * 8/100;
+                $tax_total = $total + $tax;
+                $coupon_total =  $tax_total * $coupon->voucher_value/100;
+                $after_total =  $tax_total -  $coupon_total;
+                $output .= '<div >Coupon : '.$coupon->voucher_code.' - '.$coupon->voucher_value.'%  </div>';
+            }else{
+                $tax = $total * 8/100;
+                $tax_total = $total + $tax;
+                $after_total = $tax_total - $coupon->voucher_value;
+                $output .= '<div >Coupon : '.$coupon->voucher_code.' - '.$coupon->voucher_value.'$  </div>';
+            }
+        }
+        $output .='<div >Total order: $'.$after_total.'</div>
         </div>';
         $output .= '</div><br></br>
-        <div style="margin-top:50px">
+        <div style="margin-top:100px">
         <span style="margin-left:50px" >Vote maker</span>
         <span style="margin-left:350px">Receiver </span></div>';
 

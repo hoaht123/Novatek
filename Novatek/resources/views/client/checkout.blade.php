@@ -97,10 +97,82 @@
                     <div class="order-details-entry simple-article size-3 grey uppercase">
                         <div class="row">
                             <div class="col-xs-6">
+                                tax
+                            </div>
+                            <div class="col-xs-6 col-xs-text-right">
+                                <div class="color">8%</div>
+                            </div>
+                        </div>
+                    </div>
+                    @php
+                    $coupon_code = Session::get('coupon');
+                    @endphp
+                    @if($coupon_code)
+                        @foreach($coupon_code as $key=>$coupon)
+                            @if($coupon['coupon_options'] == 'Percent')
+                            <div class="order-details-entry simple-article size-3 grey uppercase">
+                                <div class="row">
+                                    <div class="col-xs-6">
+                                        coupon 
+                                    </div>
+                                    <div class="col-xs-6 col-xs-text-right">
+                                        <div class="color">{{$coupon['coupon_code']}} - {{$coupon['coupon_number']}}% </div>
+                                    </div>
+                                    @php
+                                        $tax = $total * 8/100;
+                                        $total_after_tax = $total + $tax;
+                                        $coupon_cash = $total_after_tax * $coupon['coupon_number']/100;
+                                        $after_total = $total_after_tax - $coupon_cash;
+                                        Session::put('coupon_code',$coupon['coupon_code']);
+                                    @endphp
+                                </div>
+                            </div>
+                            @else
+                            <div class="order-details-entry simple-article size-3 grey uppercase">
+                                <div class="row">
+                                    <div class="col-xs-6">
+                                        coupon 
+                                    </div>
+                                    <div class="col-xs-6 col-xs-text-right">
+                                        <div class="color">{{$coupon['coupon_code']}} - {{$coupon['coupon_number']}}$</div>
+                                    </div>
+                                    @php
+                                        $tax = $total * 8/100;
+                                        $total_after_tax = $total + $tax;
+                                        $after_total = $total_after_tax - $coupon['coupon_number'];
+                                        Session::put('coupon_code',$coupon['coupon_code']);
+                                    @endphp
+                                </div>
+                            </div>
+                            @endif
+                        @endforeach
+                    @else
+                    @php
+                    $tax = $total * 8/100;
+                    $after_total = $total + $tax;
+                    Session::put('coupon_code','');
+                     @endphp
+                     <div class="order-details-entry simple-article size-3 grey uppercase">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                coupon 
+                            </div>
+                            <div class="col-xs-6 col-xs-text-right">
+                                <div class="color"></div>
+                            </div>
+                        </div>
+                    </div>
+                    @endif
+                    <div class="order-details-entry simple-article size-3 grey uppercase">
+                        <div class="row">
+                            <div class="col-xs-6">
                                 order total
                             </div>
                             <div class="col-xs-6 col-xs-text-right">
-                                <div class="color">${{$total}}</div>
+                                <div class="color">${{$after_total}}</div>
+                                @php
+                                Session::put('after_total', $after_total);
+                                @endphp
                             </div>
                         </div>
                     </div>

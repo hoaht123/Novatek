@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Redirect;
 use App\Models\Invoice;
 use App\Models\InvoiceDetails;
 use App\Models\Shipping;
+use App\Models\Coupon;
 session_start();
 class CartController extends Controller
 {
@@ -129,11 +130,14 @@ class CartController extends Controller
         $order->shipping_id = $shipping_id;
         $order->invoice_code = $order_code;
         $order->quantity = $sum_quantity;
-        $order->total = $sum_total;
+        $order->total = Session::get('after_total');
+        $order->coupon_code = Session::get('coupon_code');
         $order->created_at = now();
         $order->save();
-
         $invoice_id = $order->invoice_id;
+
+        $quantity_coupon = Coupon::where('voucher_code',Session::get('coupon_code'))->first();
+        DB::table('vouchers')->where('voucher_code',Session::get('coupon_code'))->update(['voucher_quantity' => $quantity_coupon->voucher_quantity - 1]);
 
         if(Session::get('cart')){
             foreach(Session::get('cart') as $key=>$cart){
@@ -148,6 +152,8 @@ class CartController extends Controller
             }
         }
         Session::forget('cart');
+        Session::forget('after_total');
+        Session::forget('coupon_code');
         return Redirect::to('thanks');
     }
 

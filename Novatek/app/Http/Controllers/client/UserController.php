@@ -14,6 +14,7 @@ use App\Models\Users;
 use Illuminate\Support\Facades\Redirect;
 use Barryvdh\DomPDF\PDF;
 use App\Models\Invoice;
+use App\Models\Coupon;
 use App\Models\InvoiceDetails;
 use App\Models\Shipping;
 session_start();
@@ -91,6 +92,12 @@ class UserController extends Controller
             $shipping_id = $invoice->shipping_id;
             $invoice_code = $invoice->invoice_code;
             $invoice_date = $invoice->created_at;
+            $coupon_code = $invoice->coupon_code;
+        }
+        if($coupon_code == ''){
+            $coupon = '';
+        }else{
+            $coupon = Coupon::where('voucher_code',$coupon_code)->first();
         }
         
         $user = Users::find($user_id);
@@ -152,9 +159,28 @@ class UserController extends Controller
             </tbody>
         </table>';
         $output .='</div>
-        <div style="float:right">
+        <div style="float:right;margin-top:30px">
         <div >Shipping : Free Shipping </div>
-        <div >Total order: $'.$total.'</div>
+        <div >Tax : 8% </div>';
+        if($coupon == ''){
+            $tax = $total * 8/100;
+            $after_total = $total + $tax;
+            $output .= '<div >Coupon :  </div>';
+        }else{
+            if($coupon->voucher_options == 'Percent'){
+                $tax = $total * 8/100;
+                $tax_total = $total + $tax;
+                $coupon_total =  $tax_total * $coupon->voucher_value/100;
+                $after_total =  $tax_total -  $coupon_total;
+                $output .= '<div >Coupon : '.$coupon->voucher_code.' - '.$coupon->voucher_value.'%  </div>';
+            }else{
+                $tax = $total * 8/100;
+                $tax_total = $total + $tax;
+                $after_total = $tax_total - $coupon->voucher_value;
+                $output .= '<div >Coupon : '.$coupon->voucher_code.' - '.$coupon->voucher_value.'$  </div>';
+            }
+        }
+        $output .='<div >Total order: $'.$after_total.'</div>
         </div>';
         return $output;
     }

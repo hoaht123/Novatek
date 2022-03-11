@@ -76,7 +76,7 @@
                                     <div class="h6 detail-data-title size-1">Quantity:</div>
                                 </div>
                                 <div class="col-sm-6">
-                                    <input type="number" value="1" min="1" class="cart_product_qty_{{$product->product_id}}">
+                                    <input class="simple-input" type="number" value="1" min="1" class="cart_product_qty_{{$product->product_id}}">
                                 </div>
                             </div>
                             <div class="row m5 col-xs-b40">
@@ -157,7 +157,6 @@
                                                 {{-- <div id="rateYo_user_{{$review->review_id}}"></div>
                                                 <input type="hidden" id="review" value="{{$review->review_id}}">
                                                 <input type="hidden" id="rating_user_{{$review->review_id}}" value="{{$review->rating}}"> --}}
-                                                <input data-role="rating" data-value="{{$review->rating}}">
                                             </div>
                                         </div>
                                     </div>
