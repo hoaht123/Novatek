@@ -149,12 +149,10 @@
                                                 <div class="simple-article text size-2">{{$product->product_sort_descriptions}}</div>
                                                 <div class="icons">
                                                     <form style="margin:0px;padding:0px" class="add_wish_list_form" data-id="{{$product->product_id}}">
-                                                        @csrf
                                                         <a class="entry"><i class="fa fa-check" aria-hidden="true"></i></a>
                                                         <a class="entry open-popup" data-rel="3" data-id="{{$product->product_id}}"><i class="fa fa-eye" aria-hidden="true"></i></a>
                                                         <input type="hidden" name="product_id" class="product_id_{{$product->product_id}}" value="{{$product->product_id}}">                                                    
-                                                        <input type="hidden" name="_token" class="token_{{$product->product_id}}" value="{{ csrf_token() }}">                                                
-                                                        <input type="hidden" name="_method" value="POST">                                                
+                                                        <input type="hidden" name="_token" class="token_{{$product->product_id}}" value="{{ csrf_token() }}">                                                                                          
                                                         <button type = "submit" data-id="{{$product->product_id}}" name="add_wish_list_{{$product->product_id}}" class=" entry add_wish_list">
                                                             @php
                                                                 $wish_list = App\Models\Wishlist::where('product_id',$product->product_id)->where('user_id',Session::get('user_id'))->first();
