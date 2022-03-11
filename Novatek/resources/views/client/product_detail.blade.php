@@ -654,7 +654,7 @@
             rating: 0,
             starWidth: "20px"
             }).on("rateyo.set", function (e, data) {
-                alert('You must logging in to rate');
+                swal("You must have loggin to rating!");
                 // window.location.href = "{{URL::to('login')}}";
             // alert("The rating is set to " + data.rating + "!");
             });
