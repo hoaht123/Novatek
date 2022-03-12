@@ -173,8 +173,8 @@ Route::prefix('')->group(function(){
     //Coupon
     Route::post('add_coupon',[App\Http\Controllers\CouponController::class,'add_coupon']);
     Route::get('delete_coupon_cart',[App\Http\Controllers\CouponController::class,'delete_coupon_cart']);
-    Route::post('get_coupon',[App\Http\Controllers\CouponController::class,'get_coupon']);
-    Route::post('get_coupon_promo',[App\Http\Controllers\CouponController::class,'get_coupon_promo']);
+    Route::post('get_coupon',[App\Http\Controllers\CouponController::class,'get_coupon'])->middleware('checkUserLogin');
+    Route::post('get_coupon_promo',[App\Http\Controllers\CouponController::class,'get_coupon_promo'])->middleware('checkUserLogin');
 
 
     
