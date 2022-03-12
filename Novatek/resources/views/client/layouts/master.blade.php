@@ -54,6 +54,7 @@
 				//lấy id từ data-id_product của từng sp
                 
 				var id = $(this).data('id');
+                console.log(id);
 				//Lấy value
 				var cart_product_id = $('.cart_product_id_'+id).val();
 				var cart_product_name = $('.cart_product_name_'+id).val();
@@ -166,11 +167,11 @@
                                         alert(response.message);
                                     } 
                                     if(response.status == 'deleted') {
-                                        $('button[data-id="'+id+'"]').children('i').removeClass('fa-heart').addClass('fa-heart-o').css("color","black");  
+                                        $('.wish-list-'+id).removeClass('fa-heart').addClass('fa-heart-o').css("color","black");  
                                         alert(response.message);                                   
                                     }
                                     if(response.status == 'added') {
-                                        $('button[data-id="'+id+'"]').children('i').removeClass('fa-heart-o').addClass('fa-heart').css("color","red");
+                                        $('.wish-list-'+id).removeClass('fa-heart-o').addClass('fa-heart').css("color","red");
                                         alert(response.message);
                                     }                         
                                 },

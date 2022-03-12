@@ -17,16 +17,17 @@
             <div class="row">
                 <div class="col-md-9 col-md-push-3">
                     <div class="row">
+                        <form>
                         <div class="col-sm-6 col-xs-b30 col-sm-b0">
                             <div class="main-product-slider-wrapper swipers-couple-wrapper">
                                 <div class="swiper-container swiper-control-top">
                                    <div class="swiper-button-prev hidden"></div>
                                    <div class="swiper-button-next hidden"></div>
-                <form>
-                        <input type="hidden" value="{{$product->product_id}}" class="cart_product_id_{{$product->product_id}}">
-                                           <input type="hidden" value="{{$product->product_name}}" class="cart_product_name_{{$product->product_id}}">
-                                           <input type="hidden" value="{{$product->product_main_image}}" class="cart_product_image_{{$product->product_id}}">
-                                           <input type="hidden" value="{{$product->product_price}}" class="cart_product_price_{{$product->product_id}}">
+                                   @csrf
+                                   <input type="hidden" value="{{$product->product_id}}" class="cart_product_id_{{$product->product_id}}">
+                                   <input type="hidden" value="{{$product->product_name}}" class="cart_product_name_{{$product->product_id}}">
+                                   <input type="hidden" value="{{$product->product_main_image}}" class="cart_product_image_{{$product->product_id}}">
+                                   <input type="hidden" value="{{$product->product_price}}" class="cart_product_price_{{$product->product_id}}">
                                            
                                    <div class="swiper-wrapper">                                      
                                             <div class="swiper-slide">
@@ -41,7 +42,8 @@
                                                     <img style="width:100%;height:60%" src="{{{asset('images/product/'.$product->product_image_gallery)}}}" alt="">
                                                 </div>
                                             </div>
-                                   </div>                                                                      
+                                   </div> 
+                                                                                                    
                                 </div>
                             </div>
 
@@ -75,19 +77,19 @@
                                     <div class="h6 detail-data-title size-1">Quantity:</div>
                                 </div>
                                 <div class="col-sm-6">
-                                    <input class="simple-input" type="number" value="1" min="1" class="cart_product_qty_{{$product->product_id}}">
+                                    <input class="simple-input cart_product_qty_{{$product->product_id}}" type="number" value="1" min="1">
                                 </div>
                             </div>
                             <div class="row m5 col-xs-b40">
                                 <div class="col-sm-6 col-xs-b10 col-sm-b0">
                                     @if(Session::get('user_id') == true)
-                                    <a class="button size-2 style-2 block">
-                                            <button style="background:#343434" type="button" class="add_to_cart" data-id="{{$product->product_id}}" name="add-to-cart">
+                                    <a class="button size-2 style-2 block add_to_cart" data-id="{{$product->product_id}}" name="add-to-cart">
+                                            {{-- <button style="background:#343434" type="button" class="add_to_cart" data-id="{{$product->product_id}}" name="add-to-cart"> --}}
                                                 <span class="button-wrapper">
                                                  <span class="icon"><img src="{{ asset('client/img/icon-3.png')}}"alt=""></span> 
                                                  <span class="text">ADD TO CART</span>
                                                 </span>
-                                            </button>
+                                            {{-- </button> --}}
                                     </a>
                                     @else
                                     <a class="button size-2 style-2 block" href="{{URL::to('login')}}">
@@ -100,14 +102,16 @@
                                 </div>
                                 
                                 <div class="col-sm-6">
-                                    <a class="button size-2 style-1 block noshadow" href="#">
-                                    <span class="button-wrapper add_wish_list" data-id="{{$product->product_id}}">
-                                        <span class="icon"><i class="fa fa-heart-o" aria-hidden="true"></i></span>
+                                    <a class="button size-2 style-1 block noshadow add_wish_list" data-id="{{$product->product_id}}" href="#">
+                                    <span class="button-wrapper" >
+                                        <span class="icon">
+                                            @include('client.components.in_wish_list')
+                                        </span>
                                         <span class="text">add to favourites</span>
                                     </span>
                                 </a>
                                 </div>
-                    </form>
+                    
                             </div>
                             <div class="row">
                                 <div class="col-sm-3">
@@ -124,6 +128,7 @@
                                 </div>
                             </div>
                         </div>
+                    </form> 
                     </div>
 
 

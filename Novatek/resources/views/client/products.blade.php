@@ -90,14 +90,7 @@
                                                         <a class="entry"><i class="fa fa-check" aria-hidden="true"></i></a>
                                                         <a class="entry open-popup" data-rel="3" data-id="{{$product->product_id}}"><i class="fa fa-eye" aria-hidden="true"></i></a>
                                                         <button  data-id="{{$product->product_id}}" name="add_wish_list_{{$product->product_id}}" class=" entry add_wish_list">
-                                                            @php
-                                                                $in_wish_list = App\Models\Wishlist::where('product_id',$product->product_id)->where('user_id',Session::get('user_id'))->first();
-                                                                if(!empty($in_wish_list)){
-                                                                    echo '<i class="fa fa-heart" style="color:red" aria-hidden="true"></i>';
-                                                                }else{
-                                                                    echo '<i class="fa fa-heart-o" style="color:black" aria-hidden="true"></i>';
-                                                                }
-                                                            @endphp
+                                                            @include('client.components.in_wish_list')
                                                         </button> 
                                                     </div>
                                                 </div>

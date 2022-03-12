@@ -45,7 +45,6 @@
                                                 <span class="cart-label">0</span>
                                                 @endif
                                             </span>
-                                            
                                         </a>
                                         
                                         <div class="cart-toggle hidden-xs hidden-sm">
