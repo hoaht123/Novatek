@@ -134,17 +134,28 @@
                         <div class="cell-view empty-space col-lg-b50">
                             <div class="simple-article size-3 light transparent">ONLY 200 PROMO CODES ON DISCOUNT!</div>
                         </div>
+
                     </div>
+                    <?php
+            $message_coupon = Session::get('message_coupon');
+            if($message_coupon){
+                echo '<script>alert("'.$message_coupon.'");</script>';
+                Session::put('message_coupon', null);
+            }
+             ?>
                     <div class="col-lg-4">
                         <div class="single-line-form">
-                            <input class="simple-input light" type="text" value="" placeholder="Your email">
+                            <form action="{{URL::to('get_coupon_promo')}}" method="post">
+                                @csrf
+                            <input class="simple-input light" type="text" name="user_mail" placeholder="Your email">
                             <div class="button size-2 style-1">
                                 <span class="button-wrapper">
-                                    <span class="icon"><img src="{{ asset('client/img/icon-1.png')}}"alt=""></span>
+                                    <button type="submit"><span class="icon"><img src="client/img/icon-4.png" alt=""></span></button>
                                     <span class="text">submit</span>
                                 </span>
                                 <input type="submit" value="">
                             </div>
+                        </form>
                         </div>
                     </div>
                 </div>

@@ -13,7 +13,7 @@
 
 @section('content')
     
-
+        
         <div class="header-empty-space"></div>
 
         <div class="content-margins grey">
@@ -323,7 +323,13 @@
                         <div class="swiper-pagination relative-pagination visible-xs visible-sm"></div>
                     </div>
                 </div>
-
+                <?php
+            $message_coupon = Session::get('message_coupon');
+            if($message_coupon){
+                echo '<script>alert("'.$message_coupon.'");</script>';
+                Session::put('message_coupon', null);
+            }
+             ?>
             <div class="container">
                 <div class="row">
                     <div class="col-sm-6 col-sm-offset-6">
@@ -333,14 +339,16 @@
                             <h3 class="h3 col-xs-b15">new offers every week <span class="color">+</span> discount system <span class="color">+</span> best prices</h3>
                             <div class="simple-article size-3 col-xs-b25 col-sm-b50">GOOD THINGS HAPPEN EVERY TIME YOU SHOP<br>From big treats to little thank yous and a charity donation with every purchase.</div>
                             <div class="single-line-form">
-                                <input class="simple-input" type="text" value="" placeholder="Enter your email">
+                                <form action="{{URL::to('get_coupon')}}" method="post">
+                                    @csrf
+                                <input class="simple-input" type="text" name="user_mail" placeholder="Enter your email">
                                 <div class="button size-2 style-3">
                                     <span class="button-wrapper">
-                                        <span class="icon"><img src="client/img/icon-4.png" alt=""></span>
+                                        <button type="submit"><span class="icon"><img src="client/img/icon-4.png" alt=""></span></button>
                                         <span class="text">submit</span>
                                     </span>
-                                    <input type="submit" value="">
                                 </div>
+                                </form>
                             </div>
                             <div class="empty-space col-xs-b35"></div>
                         </div>

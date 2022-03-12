@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Mail;
 use App\Models\Coupon;
 class CouponController extends Controller
 {
@@ -103,6 +104,50 @@ class CouponController extends Controller
         Session::forget('coupon');
         Session::put('message','Clear code successfully');
         return redirect()->back();
+    }
+
+    public function get_coupon(Request $request){
+        $get_coupon = Coupon::inRandomOrder()->where('voucher_quantity','>',0)->first();
+        $data = $request->all();
+        $check_email = DB::table('users')->where('email',$request->user_mail)->first();
+        if(!$check_email){
+            Session::put('message_coupon','Email invalid.Try again');
+            return redirect()->back();
+        }else{
+        $to_name = "Novatek";
+        $to_email = $data['user_mail'];
+        $data = array("name"=>"NEW OFFERS EVERY WEEK + DISCOUNT SYSTEM + BEST PRICES","body"=>"GOOD THINGS HAPPEN EVERY TIME YOU SHOP
+        From big treats to little thank yous and a charity donation with every purchase","user_email"=>"Hi ". $to_email,"coupon"=>"Give you a coupon is ".$get_coupon->voucher_code);
+        Mail::send('client.mail_getcoupon',$data,function($message) use ($to_name,$to_email){
+            $message->to($to_email)->subject('SPECIAL OFFERS');
+            $message->from($to_email,$to_name);
+        });
+        Session::put('message_coupon','Email has been sent');
+        return Redirect::back();
+        }
+
+    }
+
+    public function get_coupon_promo(Request $request){
+        $get_coupon = Coupon::inRandomOrder()->where('voucher_quantity','>',0)->first();
+        $data = $request->all();
+        $check_email = DB::table('users')->where('email',$request->user_mail)->first();
+        if(!$check_email){
+            Session::put('message_coupon','Email invalid.Try again');
+            return redirect()->back();
+        }else{
+        $to_name = "Novatek";
+        $to_email = $data['user_mail'];
+        $data = array("name"=>"ONLY 200 PROMO CODES ON DISCOUNT!","body"=>"GOOD THINGS HAPPEN EVERY TIME YOU SHOP
+        From big treats to little thank yous and a charity donation with every purchase","user_email"=>"Hi ". $to_email,"coupon"=>"Give you a coupon is ".$get_coupon->voucher_code);
+        Mail::send('client.mail_getcoupon',$data,function($message) use ($to_name,$to_email){
+            $message->to($to_email)->subject('DONT MISS YOUR CHANCE');
+            $message->from($to_email,$to_name);
+        });
+        Session::put('message_coupon','Email has been sent');
+        return Redirect::back();
+        }
+
     }
 }
 
