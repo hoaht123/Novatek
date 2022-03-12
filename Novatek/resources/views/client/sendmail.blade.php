@@ -8,6 +8,7 @@
 </head>
 <body>
     <h1>{{$name}}</h1>
+    <h3>{{$user_email}}</h3>
     <h4>{{$body}}</h4>
 </body>
 </html> 

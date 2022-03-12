@@ -38,7 +38,7 @@
                             <span class="login100-form-title">
                                 FORGET PASSWORD
                             </span>
-                            <span>Send mail to get your password:</span>
+                            <span style="color:green;font-size:15px">*Enter your email to get new password</span>
                             <div class="wrap-input100 validate-input" >
                                 <input class="input100" type="text" value="{{old('user_email')}}" name="user_email" placeholder="Email">
                                 <span class="focus-input100"></span>

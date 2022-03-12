@@ -186,7 +186,7 @@ class LoginController extends Controller
         $random_pass = substr(md5(microtime()),rand(0,26),8);
         DB::table('users')->update(['password'=>md5($random_pass)]);
         // dd($random_pass);
-        $data = array("name"=>"Mail sent from Novatek to get your new password","body"=>"Your new password is :".$random_pass);
+        $data = array("name"=>"Mail sent from Novatek to get your new password","body"=>"Your new password is : ".$random_pass,"user_email"=>"Hi ". $to_email);
         Mail::send('client.sendmail',$data,function($message) use ($to_name,$to_email){
             $message->to($to_email)->subject('Forget password');
             $message->from($to_email,$to_name);
