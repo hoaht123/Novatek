@@ -141,11 +141,9 @@
                             <div class="row">
                                     @php
                                         $pro = App\Models\Product::find($product->product_id);
-                                        // var_dump($product);
                                         $column = 'spec_'.strtolower($pro->component);
                                         $count =strlen($pro->component);
                                         $id = $pro->$column;
-                                        // $technical = DB::select('SELECT * FROM '.strtolower($pro->component).' WHERE id = '.$id);
                                         $technicals = DB::table(strtolower($pro->component))->where('id',$id)->get();
                                         $technical= (array)$technicals[0];
                                         $key = array_keys($technical);
