@@ -168,7 +168,7 @@ Route::prefix('')->group(function(){
     Route::get('view_invoice_user/{invoice_id}',[UserController::class, 'view_invoice_user']);
 
     //Review
-    Route::post('review_product',[UserController::class, 'review_product']);
+    Route::post('review_product',[UserController::class, 'review_product'])->middleware('checkUserLogin');
 
     //Coupon
     Route::post('add_coupon',[App\Http\Controllers\CouponController::class,'add_coupon']);
