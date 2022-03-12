@@ -32,13 +32,13 @@
                                             <div class="swiper-slide">
                                                     {{-- <div class="swiper-lazy-preloader"></div> --}}
                                                     <div class="product-big-preview-entry " >
-                                                        <img style="width:100%;height:75%" src="{{asset('images/product/'.$product->product_main_image)}}" alt="">
+                                                        <img style="width:100%;height:60%" src="{{asset('images/product/'.$product->product_main_image)}}" alt="">
                                                     </div>
                                             </div>
                                             <div class="swiper-slide">
                                                 {{-- <div class="swiper-lazy-preloader"></div> --}}
                                                 <div class="product-big-preview-entry " >
-                                                    <img style="width:100%;height:75%" src="{{{asset('images/product/'.$product->product_image_gallery)}}}" alt="">
+                                                    <img style="width:100%;height:60%" src="{{{asset('images/product/'.$product->product_image_gallery)}}}" alt="">
                                                 </div>
                                             </div>
                                    </div>                                                                      
@@ -131,7 +131,7 @@
                         <div class="tabulation-menu-wrapper text-center">
                             <div class="tabulation-title simple-input">description</div>
                             <ul class="tabulation-toggle">
-                                <li><a class="tab-menu active">description</a></li>
+                                <li><a class="tab-menu active">Technical</a></li>
                                 <li><a class="tab-menu">review</a></li>
                             </ul>
                         </div>
@@ -139,7 +139,35 @@
                         <div class="empty-space col-xs-b15 col-sm-b30"></div>
                         <div class="tab-entry visible">
                             <div class="row">
-                                    {!!$product->product_descriptions!!}
+                                    @php
+                                        $pro = App\Models\Product::find($product->product_id);
+                                        // var_dump($product);
+                                        $column = 'spec_'.strtolower($pro->component);
+                                        $count =strlen($pro->component);
+                                        $id = $pro->$column;
+                                        // $technical = DB::select('SELECT * FROM '.strtolower($pro->component).' WHERE id = '.$id);
+                                        $technicals = DB::table(strtolower($pro->component))->where('id',$id)->get();
+                                        $technical= (array)$technicals[0];
+                                        $key = array_keys($technical);
+                                        $value = array_values($technical);
+                                    @endphp
+                                    <table class="table">
+                                        <tr>
+                                            <td style="padding-left:100px;font-weight: bold;" class="text-uppercase">Name</td>
+                                            <td style="padding-left:50px; font-style: italic;" class="text-uppercase">{{ $pro->product_name }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding-left:100px; font-weight: bold;" class="text-uppercase">Component</td>
+                                            <td style="padding-left:50px; font-style: italic;" class="text-uppercase">{{ $pro->component }}</td>
+                                        </tr>
+                                                           
+                                        @for($i=1;$i<count($key);$i++)
+                                            <tr>
+                                                <td style="padding-left:100px; font-weight: bold;" class="text-uppercase">{{ substr($key[$i],$count+1) }}</td>
+                                                <td style="padding-left:50px; font-style: italic;" class="text-uppercase">{{$value[$i]}}</td>
+                                            </tr>
+                                            @endfor
+                                    </table>
                             </div>
                         </div>
 
