@@ -210,5 +210,11 @@ class AdminController extends Controller
     }
 
 
+    public function change_status_invoice($invoice_id){
+        DB::table('invoices')->where('invoice_id',$invoice_id)->update(['invoice_status' => 'Paid']);
+        return Redirect::back();
+    }
+
+
 
 }

@@ -98,6 +98,7 @@
                                 <th>Order code</th>
                                 <th>Date</th>
                                 <th>Status</th>
+                                <th>Payment</th>
                                 <th>View</th>
                             </tr>
                         </thead>
@@ -106,7 +107,22 @@
                             <tr>
                                 <td>{{$invoice->invoice_code}}</td>
                                 <td>{{$invoice->created_at}}</td>
-                                <td>Success</td>
+                                <td>
+                                    @if($invoice->invoice_status == 'Paid')
+                                    <span class="badge badge-success">{{$invoice->invoice_status}}</span>
+                                     @else
+                                    <span class="badge badge-primary">{{$invoice->invoice_status}}</span>
+                                     @endif
+                                </td>
+                                <td>
+                                    @if($invoice->payment == 'Paypal')
+                                    <img style="width:50px;height:50px" src="{{ asset('images/icons/paypal.png')}}"alt="">
+                                @elseif($invoice->payment == 'Momo')
+                                <img style="width:30px;height:30px;margin-left:7%" src="{{ asset('images/icons/momo_icons.jpeg')}}"alt="">
+                                @else
+                                <img style="width:50px;height:50px" src="{{ asset('images/icons/cash.png')}}"alt="">
+                                @endif
+                                </td>
                                 <td><a target="_blank" class="btn btn-primary"href="{{URL::to('view_invoice_user/'.$invoice->invoice_id)}}">View in PDF</a></td>
                             </tr>
                             @endforeach

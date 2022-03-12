@@ -84,6 +84,8 @@ Route::prefix('admin')->group(function(){
     Route::get('/view_order',[App\Http\Controllers\AdminController::class,'view_order']);
     Route::get('/invoice_details/{invoice_id}',[App\Http\Controllers\AdminController::class,'invoice_details']);
     Route::get('print_invoice/{invoice_id}',[App\Http\Controllers\AdminController::class,'print_invoice']);
+    Route::get('change_status_invoice/{invoice_id}',[App\Http\Controllers\AdminController::class,'change_status_invoice']);
+
 
     //Coupon
     Route::get('/create_coupon',[App\Http\Controllers\CouponController::class,'create_coupon']);

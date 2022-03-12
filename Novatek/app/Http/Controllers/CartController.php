@@ -132,6 +132,8 @@ class CartController extends Controller
         $order->quantity = $sum_quantity;
         $order->total = Session::get('after_total');
         $order->coupon_code = Session::get('coupon_code');
+        $order->payment ='Cash';
+        $order->invoice_status ='Wait for payment';
         $order->created_at = now();
         $order->save();
         $invoice_id = $order->invoice_id;
