@@ -1,23 +1,7 @@
 @extends('admin.admin_layout')
 @section('admin-content')
-        <div class="dropdown show ">
-            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Choose component
-            </a>
-          
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <a class="dropdown-item" href="{{route('create_motherboard')}}">Motherboard</a>
-                <a class="dropdown-item" href="{{route('create_cpu')}}">CPU</a>
-                <a class="dropdown-item" href="{{route('create_ram')}}">RAM</a>
-                <a class="dropdown-item" href="{{route('create_gpu')}}">GPU</a>
-                <a class="dropdown-item" href="{{route('create_storage')}}">SSD/HDD</a>
-                <a class="dropdown-item" href="{{route('create_psu')}}">PSU</a>
-                <a class="dropdown-item" href="{{route('create_mouse')}}">Mouse</a>
-                <a class="dropdown-item" href="{{route('create_keyboard')}}">Keyboard</a>
-                <a class="dropdown-item" href="{{route('create_headphone')}}">Headphone</a>
-            </div>
-        </div>
-<h2 class="text-center">UPDATE NEW CPU </h1>
+
+<h2 class="text-center">UPDATE HEADPHONE </h1>
 <div class="container">
     <form action="{{URL::to('admin/save_update_product/'.$product->product_id)}}" method="post" enctype="multipart/form-data">
         @csrf

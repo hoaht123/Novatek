@@ -17,7 +17,7 @@
                 <a class="dropdown-item" href="{{route('create_headphone')}}">Headphone</a>
             </div>
         </div>
-<h2 class="text-center">CREATE NEW MOUSE </h1>
+<h2 class="text-center">CREATE NEW VGA </h1>
 <div class="container">
     <form action="{{URL::to('admin/save_product')}}" method="post" enctype="multipart/form-data">
         @csrf
@@ -34,7 +34,7 @@
                             @foreach($category as $cate)
                             <option value="{{$cate->category_id}}">{!! $cate->parent_id ==0? $cate->category_name : '&nbsp;&nbsp;&nbsp;&nbsp;'.$cate->category_name !!}</option>
                             @endforeach
-
+                            {{-- {!! $htmlOption !!} --}}
                         </select>
                 </div>
                 <div class="form-group" >
@@ -57,22 +57,36 @@
                 </div>
                 {{-- spec type --}}
                 <div class="form-group">
-                    Type
-                    <select name="mouse_type" class="form-control"style="width:200px">
-                        <option value="LINEAR">LINEAR</option>
-                        <option value="SWITCHED">SWITCHED</option>
-                        <option value="BATTERY-BASE">BATTERY-BASE</option>
+                    Vram
+                    <select name="vga_vram" class="form-control"style="width:200px">
+                        <option value="1GB">1GB</option>
+                        <option value="2GB">2GB</option>
+                        <option value="3GB">3GB</option>
+                        <option value="6GB">6GB</option>
+                        <option value="8GB">8GB</option>
+                        <option value="12GB">12GB</option>
+                        <option value="16GB">16GB</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    DPI
-                    <input type="text" name="mouse_dpi" class="form-control" style="width:200px">
+                    Graphics card 
+                   <input type="text" name="vga_graphics" class="form-control"style="width:200px">
                </div>
                <div class="form-group">
-                Wireless
-                    <select name="mouse_wireless" class="form-control"style="width:200px">
-                        <option value="YES">YES</option>
-                        <option value="NO">NO</option>
+                    LED
+                    <select name="vga_led" class="form-control"style="width:200px">
+                        <option value="No">No</option>
+                        <option value="Single">Single</option>
+                        <option value="RGB">RGB</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    Bandwith
+                    <select name="vga_bandwidth" class="form-control"style="width:200px">
+                        <option value="64-bit">64-bit</option>
+                        <option value="128-bit">128-bit</option>
+                        <option value="192-bit">192-bit</option>
+                        <option value="256-bit">256-bit</option>
                     </select>
                 </div>
                 {{-- end spec type --}}

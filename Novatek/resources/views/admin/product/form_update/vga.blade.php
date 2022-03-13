@@ -1,7 +1,6 @@
 @extends('admin.admin_layout')
 @section('admin-content')
-
-<h2 class="text-center">UPDATE MOUSE {{$mouse->id}} </h1>
+<h2 class="text-center">UPDATE VGA </h1>
 <div class="container">
     <form action="{{URL::to('admin/save_update_product/'.$product->product_id)}}" method="post" enctype="multipart/form-data">
         @csrf
@@ -46,24 +45,38 @@
                 </div>
                 {{-- spec type --}}
                 <div class="form-group">
-                    Type
-                    <select name="mouse_type" class="form-control"style="width:200px">
-                        <option {{$mouse->mouse_type == 'LINEAR'?'selected="selected"': ''}} value="LINEAR">LINEAR</option>
-                        <option {{$mouse->mouse_type == 'SWITCHED'?'selected="selected"': ''}} value="SWITCHED">SWITCHED</option>
-                        <option {{$mouse->mouse_type == 'BATTERY-BASE'?'selected="selected"': ''}} value="BATTERY-BASE">BATTERY-BASE</option>
+                    Vram
+                    <select name="vga_vram" class="form-control"style="width:200px">
+                        <option {{ $vga->vga_vram=='1GB'? 'selected="selected"': ''}} value="1GB">1GB</option>
+                        <option {{ $vga->vga_vram=='2GB'? 'selected="selected"': ''}} value="2GB">2GB</option>
+                        <option {{ $vga->vga_vram=='3GB'? 'selected="selected"': ''}} value="3GB">3GB</option>
+                        <option {{ $vga->vga_vram=='6GB'? 'selected="selected"': ''}} value="6GB">6GB</option>
+                        <option {{ $vga->vga_vram=='8GB'? 'selected="selected"': ''}} value="8GB">8GB</option>
+                        <option {{ $vga->vga_vram=='12GB'? 'selected="selected"': ''}} value="12GB">12GB</option>
+                        <option {{ $vga->vga_vram=='16GB'? 'selected="selected"': ''}} value="16GB">16GB</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    DPI
-                    <input type="text" name="mouse_dpi" value="{{$mouse->mouse_dpi}}" class="form-control" style="width:200px">
+                    Graphics card 
+                   <input type="text" name="vga_graphics" class="form-control"style="width:200px" value="{{ $vga->vga_graphics }}">
                </div>
-                <div class="form-group">
-                    Chipset
-                   <select name="mouse_chipset" class="form-control"style="width:200px">
-                        <option {{$mouse->mouse_wireless == 'YES'?'selected="selected"': ''}} value="YES">YES</option>
-                        <option {{$mouse->mouse_wireless == 'NO'?'selected="selected"': ''}} value="NO">NO</option>
+               <div class="form-group">
+                    LED
+                    <select name="vga_led" class="form-control"style="width:200px">
+                        <option {{ $vga->vga_led=='No'?'selected="selected"': ''}} value="No">No</option>
+                        <option {{ $vga->vga_led=='Single'?'selected="selected"': ''}} value="Single">Single</option>
+                        <option {{ $vga->vga_led=='RGB'?'selected="selected"': ''}} value="RGB">RGB</option>
                     </select>
-               </div>
+                </div>
+                <div class="form-group">
+                    Bandwith
+                    <select name="vga_bandwidth" class="form-control"style="width:200px">
+                        <option {{ $vga->vga_bandwidth=='64-bit' ? 'selected="selected"' : '' }} value="64-bit">64-bit</option>
+                        <option {{ $vga->vga_bandwidth=='128-bit' ? 'selected="selected"' : '' }} value="128-bit">128-bit</option>
+                        <option {{ $vga->vga_bandwidth=='192-bit' ? 'selected="selected"' : '' }} value="192-bit">192-bit</option>
+                        <option {{ $vga->vga_bandwidth=='256-bit' ? 'selected="selected"' : '' }} value="256-bit">256-bit</option>
+                    </select>
+                </div>
                 {{-- end spec type --}}
             </div>
             <div class="col">

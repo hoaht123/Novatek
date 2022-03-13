@@ -1,23 +1,7 @@
 @extends('admin.admin_layout')
 @section('admin-content')
-        <div class="dropdown show ">
-            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Choose component
-            </a>
-          
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <a class="dropdown-item" href="{{route('create_psu')}}">psu</a>
-                <a class="dropdown-item" href="{{route('create_cpu')}}">CPU</a>
-                <a class="dropdown-item" href="{{route('create_ram')}}">RAM</a>
-                <a class="dropdown-item" href="{{route('create_gpu')}}">GPU</a>
-                <a class="dropdown-item" href="{{route('create_storage')}}">SSD/HDD</a>
-                <a class="dropdown-item" href="{{route('create_psu')}}">PSU</a>
-                <a class="dropdown-item" href="{{route('create_psu')}}">psu</a>
-                <a class="dropdown-item" href="{{route('create_keyboard')}}">Keyboard</a>
-                <a class="dropdown-item" href="{{route('create_headphone')}}">Headphone</a>
-            </div>
-        </div>
-<h2 class="text-center">UPDATE NEW PSU </h1>
+
+<h2 class="text-center">UPDATE PSU </h1>
 <div class="container">
     <form action="{{URL::to('admin/save_update_product/'.$product->product_id)}}" method="post" enctype="multipart/form-data">
         @csrf
@@ -62,19 +46,8 @@
                 </div>
                 {{-- spec type --}}
                 <div class="form-group">
-                    Type
-                    <select name="psu_type" class="form-control"style="width:200px">
-                        <option {{$psu->psu_type == 'LINEAR'?'selected="selected"': ''}} value="LINEAR">LINEAR</option>
-                        <option {{$psu->psu_type == 'SWITCHED'?'selected="selected"': ''}} value="SWITCHED">SWITCHED</option>
-                        <option {{$psu->psu_type == 'BATTERY-BASE'?'selected="selected"': ''}} value="BATTERY-BASE">BATTERY-BASE</option>
-                    </select>
-                </div>
-                <div class="form-group">
                     Power
                    <select name="psu_power" class="form-control"style="width:200px">
-                       <option {{$psu->psu_power == '150W'?'selected="selected"': ''}} value="150W">150W</option>
-                       <option {{$psu->psu_power == '200W'?'selected="selected"': ''}} value="200W">200W</option>
-                        <option {{$psu->psu_power == '250W'?'selected="selected"': ''}} value="250W">250W</option>
                         <option {{$psu->psu_power == '300W'?'selected="selected"': ''}} value="300W">300W</option>
                         <option {{$psu->psu_power == '350W'?'selected="selected"': ''}} value="350W">350W</option>
                         <option {{$psu->psu_power == '400W'?'selected="selected"': ''}} value="400W">400W</option>
@@ -85,16 +58,14 @@
                         <option {{$psu->psu_power == '650W'?'selected="selected"': ''}} value="650W">650W</option>
                         <option {{$psu->psu_power == '700W'?'selected="selected"': ''}} value="700W">700W</option>
                         <option {{$psu->psu_power == '750W'?'selected="selected"': ''}} value="750W">750W</option>
-                        <option {{$psu->psu_power == '800W'?'selected="selected"': ''}} value="800W">800W</option>
-                        <option {{$psu->psu_power == '850W'?'selected="selected"': ''}} value="850W">850W</option>
-                        <option {{$psu->psu_power == '900W'?'selected="selected"': ''}} value="900W">900W</option>
-                        <option {{$psu->psu_power == '950W'?'selected="selected"': ''}} value="950W">950W</option>
-                        <option {{$psu->psu_power == '1000W'?'selected="selected"': ''}} value="1000W">1000W</option>
+                        <option {{$psu->psu_power == '1200W'?'selected="selected"': ''}} value="1200W">1200W</option>
+                        <option {{$psu->psu_power == '1600W'?'selected="selected"': ''}} value="1600W">1200W</option>
                    </select>
                </div>
                <div class="form-group">
                 Efficiency
                 <select name="psu_efficiency" class="form-control"style="width:200px">
+                    <option {{$psu->psu_power == 'KHT'?'selected="selected"': ''}} value="KHT">KHT</option>
                     <option {{$psu->psu_power == '80 PLUS'?'selected="selected"': ''}} value="80 PLUS">80 PLUS</option>
                     <option {{$psu->psu_power == '80 PLUS BROZEN'?'selected="selected"': ''}} value="80 PLUS BROZEN">80 PLUS BROZEN</option>
                     <option {{$psu->psu_power == '80 PLUS SLIVER'?'selected="selected"': ''}} value="80 PLUS SLIVER">80 PLUS SLIVER</option>
