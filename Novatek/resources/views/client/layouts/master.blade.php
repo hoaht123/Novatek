@@ -167,12 +167,22 @@
                                         alert(response.message);
                                     } 
                                     if(response.status == 'deleted') {
-                                        $('.wish-list-'+id).removeClass('fa-heart').addClass('fa-heart-o').css("color","black");  
-                                        alert(response.message);                                   
+                                        $('.wish-list-'+id).removeClass('fa-heart').addClass('fa-heart-o').css("color","black");
+                                        swal({
+                                            title: "Delete",
+                                            text: response.message ,
+                                            imageUrl: 'images/icons/icon-heart.png'
+                                            });  
+                                        // alert(response.message);                                   
                                     }
                                     if(response.status == 'added') {
                                         $('.wish-list-'+id).removeClass('fa-heart-o').addClass('fa-heart').css("color","red");
-                                        alert(response.message);
+                                        swal({
+                                            title: "Success",
+                                            text: response.message ,
+                                            imageUrl: 'images/icons/icon-heart.png'
+                                            });
+                                        // alert(response.message);
                                     }                         
                                 },
                         });
