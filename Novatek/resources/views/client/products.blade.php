@@ -50,7 +50,7 @@
                                            <input type="hidden" value="1" class="cart_product_qty_{{$product->product_id}}">
                                             <div class="product-shortcode style-1">
                                                 <div class="title">
-                                                    <div class="simple-article size-1 color col-xs-b5"><a href="{{ route('client.product_detail',['product_id' => $product->product_id])}}">{{$product ->product_name}}</a></div>
+                                                    <div class="simple-article size-1 color col-xs-b5"><a href="{{ route('client.product_detail',['product_id' => $product->product_id])}}">{{$product ->component}}</a></div>
                                                     <div class="h6 animate-to-green"><a href="{{ route('client.product_detail',['product_id' => $product->product_id])}}">{{$product ->product_name}}</a></div>
                                                 </div>
                                                 <div class="preview">
