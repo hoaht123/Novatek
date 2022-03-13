@@ -41,7 +41,7 @@ Route::prefix('admin')->group(function(){
         Route::get('/cpu',[App\Http\Controllers\ProductController::class,'create_cpu'])->name('create_cpu');
         Route::get('/keyboard',[App\Http\Controllers\ProductController::class,'create_keyboard'])->name('create_keyboard');
         Route::get('/psu',[App\Http\Controllers\ProductController::class,'create_psu'])->name('create_psu');
-        Route::get('/gpu',[App\Http\Controllers\ProductController::class,'create_gpu'])->name('create_gpu');
+        Route::get('/vga',[App\Http\Controllers\ProductController::class,'create_vga'])->name('create_vga');
         Route::get('/storage',[App\Http\Controllers\ProductController::class,'create_storage'])->name('create_storage');
         Route::get('/mouse',[App\Http\Controllers\ProductController::class,'create_mouse'])->name('create_mouse');
         Route::get('/headphone',[App\Http\Controllers\ProductController::class,'create_headphone'])->name('create_headphone');

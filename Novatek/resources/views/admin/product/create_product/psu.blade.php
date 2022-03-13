@@ -9,7 +9,7 @@
                 <a class="dropdown-item" href="{{route('create_motherboard')}}">Motherboard</a>
                 <a class="dropdown-item" href="{{route('create_cpu')}}">CPU</a>
                 <a class="dropdown-item" href="{{route('create_ram')}}">RAM</a>
-                <a class="dropdown-item" href="{{route('create_gpu')}}">GPU</a>
+                <a class="dropdown-item" href="{{route('create_vga')}}">VGA</a>
                 <a class="dropdown-item" href="{{route('create_storage')}}">SSD/HDD</a>
                 <a class="dropdown-item" href="{{route('create_psu')}}">PSU</a>
                 <a class="dropdown-item" href="{{route('create_mouse')}}">Mouse</a>
@@ -57,18 +57,10 @@
                 </div>
                 {{-- spec type --}}
                 <div class="form-group">
-                    Type
-                    <select name="psu_type" class="form-control"style="width:200px">
-                        <option value="LINEAR">LINEAR</option>
-                        <option value="SWITCHED">SWITCHED</option>
-                        <option value="BATTERY-BASE">BATTERY-BASE</option>
-                    </select>
-                </div>
-                <div class="form-group">
                     Power
                    <select name="psu_power" class="form-control"style="width:200px">
-                       <option value="150W">150W</option>
-                       <option value="200W">200W</option>
+                       <option value="300W">300W</option>
+                       <option value="350W">350W</option>
                        <option value="400W">400W</option>
                        <option value="450W">450W</option>
                        <option value="500W">500W</option>
@@ -76,14 +68,14 @@
                        <option value="650W">650W</option>
                        <option value="700W">700W</option>
                        <option value="750W">750W</option>
-                       <option value="1000W">1000W</option>
                        <option value="1200W">1200W</option>
-                       <option value="1250W">1250W</option>
+                       <option value="1600W">1600W</option>
                    </select>
                </div>
                <div class="form-group">
                     Efficiency
                     <select name="psu_efficiency" class="form-control"style="width:200px">
+                        <option value="KHT">KHT</option>
                         <option value="80 PLUS">80 PLUS</option>
                         <option value="80 PLUS BROZEN">80 PLUS BROZEN</option>
                         <option value="80 PLUS SLIVER">80 PLUS SLIVER</option>

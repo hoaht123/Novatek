@@ -43,7 +43,7 @@ class ProductController extends Controller
         $brand = Brand::all();
         return view('admin.product.create_product.ram',compact('supplier','category','brand'));
     }
-    public function create_gpu(){
+    public function create_vga(){
         $this->AuthLogin();
         $supplier = Supplier::all();
         $cate = Category::where('category_name','like','gpu')->first();
@@ -51,7 +51,7 @@ class ProductController extends Controller
         // $parent_id='';
         // $htmlOption = $this->getCategory($parent_id);
         $brand = Brand::all();
-        return view('admin.product.create_product.gpu',compact('supplier','category','brand'));
+        return view('admin.product.create_product.vga',compact('supplier','category','brand'));
     }
     public function create_motherboard(){
         $this->AuthLogin();
@@ -183,7 +183,7 @@ class ProductController extends Controller
                 $data['product_image_gallery'] = $new_image_gallery;
                 if(strcasecmp($data['component'], 'Ram')==0){
                     $ram = array();
-                    $ram['ram_type'] = $request->ram_type;
+                    $ram['ram_led'] = $request->ram_led;
                     $ram['memory_size'] = $request->memory_size;
                     $ram['ram_speed'] = $request->ram_speed;
                     $ram['ram_bandwidth'] = $request->ram_bandwidth;
@@ -193,26 +193,28 @@ class ProductController extends Controller
                 else if(strcasecmp($data['component'], 'CPU')==0){
                     $cpu = array();
                     $cpu['cpu_socket'] = $request->cpu_socket;
-                    $cpu['cpu_speed'] = $request->cpu_speed;
+                    $cpu['cpu_gpu_integration'] = $request->cpu_gpu_integration;
                     $cpu['cpu_core'] = $request->cpu_core;
                     $cpu['cpu_thread'] = $request->cpu_thread;
                     $cpu['cpu_cache'] = $request->cpu_cache;
                     DB::table('cpu')->insert($cpu);
                     $data['spec_cpu'] = DB::getPdo()->lastInsertId();
                 }
-                else if(strcasecmp($data['component'], 'GPU')==0){
-                    $gpu = array();
-                    $gpu['gpu_type'] = $request->gpu_type;
-                    $gpu['gpu_speed'] = $request->gpu_speed;
-                    $gpu['gpu_memory'] = $request->gpu_memory;
-                    DB::table('gpu')->insert($gpu);
-                    $data['spec_gpu'] = DB::getPdo()->lastInsertId();
+                else if(strcasecmp($data['component'], 'VGA')==0){
+                    $vga = array();
+                    $vga['vga_vram'] = $request->vga_vram;
+                    $vga['vga_graphics'] = $request->vga_graphics;
+                    $vga['vga_led'] = $request->vga_led;
+                    $vga['vga_bandwidth'] = $request->vga_bandwidth;
+                    DB::table('vga')->insert($vga);
+                    $data['spec_vga'] = DB::getPdo()->lastInsertId();
                 }
                 else if(strcasecmp($data['component'], 'Storage')==0){
                     $storage = array();
                     $storage['storage_type'] = $request->storage_type;
                     $storage['storage_speed'] = $request->storage_speed;
                     $storage['storage_capacity'] = $request->storage_capacity;
+                    $storage['storage_size'] = $request->storage_size;
                     DB::table('storage')->insert($storage);
                     $data['spec_storage'] = DB::getPdo()->lastInsertId();
                 }
@@ -357,8 +359,8 @@ class ProductController extends Controller
             $categories = Category::whereIn('category_id', [$product->category_id, $category->parent_id])->get();
             return view('admin.product.form_update.cpu',compact('product','suppliers','categories','brands','cpu'));
         }
-        if(strcasecmp($product->component, 'gpu')==0){
-            $gpu = DB::table('gpu')->where('id',$product->spec_gpu)->first();
+        if(strcasecmp($product->component, 'vga')==0){
+            $gpu = DB::table('vga')->where('id',$product->spec_vga)->first();
             $category = Category::find($product->category_id);
             $categories = Category::whereIn('category_id', [$product->category_id, $category->parent_id])->get();
             return view('admin.product.form_update.gpu',compact('product','suppliers','categories','brands','gpu'));
@@ -509,7 +511,7 @@ class ProductController extends Controller
                 $product = Product::find($product_id);
                 if(strcasecmp($data['component'], 'Ram')==0){
                     $ram = array();
-                    $ram['ram_type'] = $request->ram_type;
+                    $ram['ram_led'] = $request->ram_type;
                     $ram['memory_size'] = $request->memory_size;
                     $ram['ram_speed'] = $request->ram_speed;
                     $ram['ram_bandwidth'] = $request->ram_bandwidth;
@@ -518,24 +520,26 @@ class ProductController extends Controller
                 else if(strcasecmp($data['component'], 'CPU')==0){
                     $cpu = array();
                     $cpu['cpu_socket'] = $request->cpu_socket;
-                    $cpu['cpu_speed'] = $request->cpu_speed;
+                    $cpu['cpu_gpu_integration'] = $request->cpu_gpu_integration;
                     $cpu['cpu_core'] = $request->cpu_core;
                     $cpu['cpu_thread'] = $request->cpu_thread;
                     $cpu['cpu_cache'] = $request->cpu_cache;
                     DB::table('cpu')->where('id',$product->spec_cpu)->update($cpu);
                 }
-                else if(strcasecmp($data['component'], 'GPU')==0){
-                    $gpu = array();
-                    $gpu['gpu_type'] = $request->gpu_type;
-                    $gpu['gpu_speed'] = $request->gpu_speed;
-                    $gpu['gpu_memory'] = $request->gpu_memory;
-                    DB::table('gpu')->where('id',$product->spec_gpu)->update($gpu);
+                else if(strcasecmp($data['component'], 'vga')==0){
+                    $vga = array();
+                    $vga['vga_vram'] = $request->vga_vram;
+                    $vga['vga_graphics'] = $request->vga_graphics;
+                    $vga['vga_led'] = $request->vga_led;
+                    $vga['vga_bandwidth'] = $request->vga_bandwidth;
+                    DB::table('vga')->where('id',$product->spec_vga)->update($vga);
                 }
                 else if(strcasecmp($data['component'], 'storage')==0){
                     $storage = array();
                     $storage['storage_type'] = $request->storage_type;
                     $storage['storage_speed'] = $request->storage_speed;
                     $storage['storage_capacity'] = $request->storage_capacity;
+                    $storage['storage_size'] = $request->storage_size;
                     DB::table('storage')->where('id',$product->spec_storage)->update($storage);
                 }
                 else if(strcasecmp($data['component'], 'PSU')==0){

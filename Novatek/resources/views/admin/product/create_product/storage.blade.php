@@ -9,7 +9,7 @@
                 <a class="dropdown-item" href="{{route('create_motherboard')}}">Motherboard</a>
                 <a class="dropdown-item" href="{{route('create_cpu')}}">CPU</a>
                 <a class="dropdown-item" href="{{route('create_ram')}}">RAM</a>
-                <a class="dropdown-item" href="{{route('create_gpu')}}">GPU</a>
+                <a class="dropdown-item" href="{{route('create_vga')}}">VGA</a>
                 <a class="dropdown-item" href="{{route('create_storage')}}">SSD/HDD</a>
                 <a class="dropdown-item" href="{{route('create_psu')}}">PSU</a>
                 <a class="dropdown-item" href="{{route('create_mouse')}}">Mouse</a>
@@ -63,14 +63,24 @@
                     </select>
                 </div>
                 <div class="form-group">
+                    Size
+                   <select name="storage_size" class="form-control"style="width:200px">
+                       <option value="2.5inch">2.5inch</option>
+                       <option value="3.5inch">3.5inch</option>
+                       <option value="M2.2280">M2.2280</option>
+                   </select>
+               </div>
+                <div class="form-group">
                     Capacity
                    <select name="storage_size" class="form-control"style="width:200px">
                        <option value="120GB">120GB</option>
                        <option value="128GB">128GB</option>
                        <option value="240GB">240GB</option>
+                       <option value="250GB">250GB</option>
                        <option value="256GB">256GB</option>
                        <option value="500GB">500GB</option>
                        <option value="1TB">1TB</option>
+                       <option value="2TB">2TB</option>
                    </select>
                </div>
             </div>

@@ -9,7 +9,7 @@
                 <a class="dropdown-item" href="{{route('create_motherboard')}}">Motherboard</a>
                 <a class="dropdown-item" href="{{route('create_cpu')}}">CPU</a>
                 <a class="dropdown-item" href="{{route('create_ram')}}">RAM</a>
-                <a class="dropdown-item" href="{{route('create_gpu')}}">GPU</a>
+                <a class="dropdown-item" href="{{route('create_vga')}}">VGA</a>
                 <a class="dropdown-item" href="{{route('create_storage')}}">SSD/HDD</a>
                 <a class="dropdown-item" href="{{route('create_psu')}}">PSU</a>
                 <a class="dropdown-item" href="{{route('create_mouse')}}">Mouse</a>
@@ -67,14 +67,19 @@
                     Socket
                    <select name="motherboard_socket" class="form-control"style="width:200px">
                     <optgroup label="Intel">Intel
-                        <option value="LGA 1151">LGA 1151</option>
+                        <option value="LGA775">LGA775</option>
+                        <option value="LGA 1150">LGA 1150</option>
+                        <option value="LGA 1151-V1">LGA 1151-V1</option>
+                        <option value="LGA 1151-V2">LGA 1151-V2</option>
+                        <option value="LGA1155">LGA1155</option>
                         <option value="LGA1200">LGA1200</option>
                         <option value="LGA 1366">LGA 1366</option>
                         <option value="LGA 1700">LGA 1700</option>
+                        <option value="FCLGA2066">FCLGA2066</option>
                     </optgroup>
                     <optgroup label="AMD">AMD
-                        <option value="AM2">AM2</option>
-                        <option value="AM2+">AM2+</option>
+                        <option value="AMD FM2+">AMD FM2+</option>
+                        <option value="AMD sTRX4">AMD sTRX4</option>
                         <option value="AM3">AM3</option>
                         <option value="AM4">AM4</option>
                     </optgroup>
@@ -83,8 +88,37 @@
                 <div class="form-group">
                     Chipset
                    <select name="motherboard_chipset" class="form-control"style="width:200px">
-                    <option value="Intel">Intel</option>
-                    <option value="AMD">AMD</option>
+                    <optgroup label="Intel">Intel
+                        <option value="B85">B85</option>
+                        <option value="B150">B150</option>
+                        <option value="B250">B250</option>
+                        <option value="B360">B360</option>
+                        <option value="B365">B365</option>
+                        <option value="B560">B560</option>
+                        <option value="G31">G31</option>
+                        <option value="H61">H61</option>
+                        <option value="H81">H81</option>
+                        <option value="H110">H110</option>
+                        <option value="H310">H310</option>
+                        <option value="H510">H510</option>
+                        <option value="X299">X299</option>
+                        <option value="X570">X570</option>
+                        <option value="Z170">Z170</option>
+                        <option value="Z270">Z270</option>
+                        <option value="Z390">Z390</option>
+                        
+                    </optgroup>
+                    <optgroup label="AMD">AMD
+                        <option value="A520">A520</option>
+                        <option value="A68">A68</option>
+                        <option value="A320">A320</option>
+                        <option value="B350">B350</option>
+                        <option value="B450">B450</option>
+                        <option value="B550">B550</option>
+                        <option value="X470">X470</option>
+                        <option value="X570">X570</option>
+                        <option value="TRX40">TRX40</option>                     
+                    </optgroup>
                    </select>
                </div>
                 {{-- end spec type --}}

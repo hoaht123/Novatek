@@ -9,7 +9,7 @@
                 <a class="dropdown-item" href="{{route('create_motherboard')}}">Motherboard</a>
                 <a class="dropdown-item" href="{{route('create_cpu')}}">CPU</a>
                 <a class="dropdown-item" href="{{route('create_ram')}}">RAM</a>
-                <a class="dropdown-item" href="{{route('create_gpu')}}">GPU</a>
+                <a class="dropdown-item" href="{{route('create_vga')}}">VGA</a>
                 <a class="dropdown-item" href="{{route('create_storage')}}">SSD/HDD</a>
                 <a class="dropdown-item" href="{{route('create_psu')}}">PSU</a>
                 <a class="dropdown-item" href="{{route('create_mouse')}}">Mouse</a>
@@ -58,22 +58,33 @@
                 <div class="form-group">
                      Speed
                     <select name="ram_speed" class="form-control"style="width:200px">
-                        <option value="1333 MHz - 2133 MHz">1333 MHz - 2133 MHz</option>
-                        <option value="2133 MHz - 2666 MHz">2133 MHz - 2666 MHz</option>
+                        <option value="1333 MHz">1333 MHz</option>
+                        <option value="1600 MHz">1600 MHz</option>
+                        <option value="2400 MHz">2400 MHz</option>
+                        <option value="2666 MHz">2666 MHz</option>
+                        <option value="2800 MHz">2800 MHz</option>
+                        <option value="3000 MHz">3000 MHz</option>
+                        <option value="3200 MHz">3200 MHz</option>
+                        <option value="3333 MHz">3333 MHz</option>
                     </select>
                 </div>
                 <div class="form-group">
                     Capacity
                    <select name="memory_size" class="form-control"style="width:200px">
+                       <option value="2GB">2GB</option>
+                       <option value="4GB">4GB</option>
                        <option value="8GB">8GB</option>
                        <option value="16GB">16GB</option>
+                       <option value="32GB">32GB</option>
+                       <option value="64GB">64GB</option>
                    </select>
                </div>
                <div class="form-group">
-                    Type
-                    <select name="ram_type" class="form-control"style="width:200px">
-                        <option value="DRAM">DRAM</option>
-                        <option value="SRAM">SRAM</option>
+                    LED
+                    <select name="ram_led" class="form-control"style="width:200px">
+                        <option value="No">No</option>
+                        <option value="Single">Single</option>
+                        <option value="RGB">RGB</option>
                     </select>
                 </div>
                 <div class="form-group">

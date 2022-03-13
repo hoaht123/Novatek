@@ -1,23 +1,6 @@
 @extends('admin.admin_layout')
 @section('admin-content')
-        <div class="dropdown show ">
-            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Choose component
-            </a>
-          
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <a class="dropdown-item" href="{{route('create_ram')}}">ram</a>
-                <a class="dropdown-item" href="{{route('create_cpu')}}">CPU</a>
-                <a class="dropdown-item" href="{{route('create_ram')}}">RAM</a>
-                <a class="dropdown-item" href="{{route('create_gpu')}}">GPU</a>
-                <a class="dropdown-item" href="{{route('create_storage')}}">SSD/HDD</a>
-                <a class="dropdown-item" href="{{route('create_ram')}}">ram</a>
-                <a class="dropdown-item" href="{{route('create_ram')}}">ram</a>
-                <a class="dropdown-item" href="{{route('create_keyboard')}}">Keyboard</a>
-                <a class="dropdown-item" href="{{route('create_headphone')}}">Headphone</a>
-            </div>
-        </div>
-<h2 class="text-center">UPDATE NEW RAM </h1>
+<h2 class="text-center">UPDATE RAM </h1>
 <div class="container">
     <form action="{{URL::to('admin/save_update_product/'.$product->product_id)}}" method="post" enctype="multipart/form-data">
         @csrf
@@ -63,10 +46,7 @@
                 {{-- spec type --}}
                 <div class="form-group">
                     Speed
-                   <select name="ram_speed" class="form-control"style="width:200px">
-                       <option {{$ram->ram_speed == '1333 MHz - 2133 MHz'?'selected="selected"': ''}} value="1333 MHz - 2133 MHz">1333 MHz - 2133 MHz</option>
-                       <option {{$ram->ram_speed == '2133 MHz - 2666 MHz'?'selected="selected"': ''}} value="2133 MHz - 2666 MHz">2133 MHz - 2666 MHz</option>
-                   </select>
+                   <input name="ram_speed" class="form-control"style="width:200px" value="{{ $ram->ram_speed }}">
                </div>
                <div class="form-group">
                 Capacity
@@ -77,9 +57,10 @@
            </div>
            <div class="form-group">
                 Type
-                <select name="ram_type" class="form-control"style="width:200px">
-                    <option {{$ram->ram_type == 'DRAM'?'selected="selected"': ''}} value="DRAM">DRAM</option>
-                    <option {{$ram->ram_type == 'SRAM'?'selected="selected"': ''}} value="SRAM">SRAM</option>
+                <select name="ram_led" class="form-control"style="width:200px">
+                    <option {{$ram->ram_led == 'No'?'selected="selected"': ''}} value="No">No</option>
+                    <option {{$ram->ram_led == 'Single'?'selected="selected"': ''}} value="Single">Single</option>
+                    <option {{$ram->ram_led == 'RGB'?'selected="selected"': ''}} value="RGB">RGB</option>
                 </select>
             </div>
             <div class="form-group">
@@ -88,7 +69,7 @@
                     <option {{$ram->ram_bandwidth == 'DDR3'?'selected="selected"': ''}} value="DDR3">DDR3 </option>
                     <option {{$ram->ram_bandwidth == 'DDR4'?'selected="selected"': ''}} value="DDR4">DDR4 </option>
                     <option {{$ram->ram_bandwidth == 'DDR5'?'selected="selected"': ''}} value="DDR5">DDR5</option>
-                    <option {{$ram->ram_bandwidth == 'DDR6'?'selected="selected"': ''}} value="DDR6">DDR4 </option>
+                    <option {{$ram->ram_bandwidth == 'DDR6'?'selected="selected"': ''}} value="DDR6">DDR6 </option>
                 </select>
             </div>
                 {{-- end spec type --}}

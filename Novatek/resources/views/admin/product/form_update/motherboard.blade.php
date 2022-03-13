@@ -1,23 +1,7 @@
 @extends('admin.admin_layout')
 @section('admin-content')
-        <div class="dropdown show ">
-            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Choose component
-            </a>
-          
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <a class="dropdown-item" href="{{route('create_motherboard')}}">Motherboard</a>
-                <a class="dropdown-item" href="{{route('create_cpu')}}">CPU</a>
-                <a class="dropdown-item" href="{{route('create_ram')}}">RAM</a>
-                <a class="dropdown-item" href="{{route('create_gpu')}}">GPU</a>
-                <a class="dropdown-item" href="{{route('create_storage')}}">SSD/HDD</a>
-                <a class="dropdown-item" href="{{route('create_psu')}}">PSU</a>
-                <a class="dropdown-item" href="{{route('create_mouse')}}">Mouse</a>
-                <a class="dropdown-item" href="{{route('create_keyboard')}}">Keyboard</a>
-                <a class="dropdown-item" href="{{route('create_headphone')}}">Headphone</a>
-            </div>
-        </div>
-<h2 class="text-center">UPDATE NEW CPU </h1>
+
+<h2 class="text-center">UPDATE MOTHERBOARD NO.:{{ $motherboard->id}} </h1>
 <div class="container">
     <form action="{{URL::to('admin/save_update_product/'.$product->product_id)}}" method="post" enctype="multipart/form-data">
         @csrf
@@ -63,36 +47,15 @@
                 {{-- spec type --}}
                 <div class="form-group">
                     Size
-                    <select name="motherboard_size" class="form-control"style="width:200px">
-                        <option {{$motherboard->motherboard_size == 'ATX'?'selected="selected"': ''}} value="ATX">ATX</option>
-                        <option {{$motherboard->motherboard_size == 'Micro ATX'?'selected="selected"': ''}} value="Micro ATX">Micro ATX</option>
-                        <option {{$motherboard->motherboard_size == 'Mini ITX'?'selected="selected"': ''}} value="Mini ITX">Mini ITX</option>
-                    </select>
+                    <input type="text" name="motherboard_size" class="form-control"style="width:200px" value="{{ $motherboard->motherboard_size }}">
                 </div>
                 <div class="form-group">
                     Socket
-                   <select name="motherboard_socket" class="form-control"style="width:200px">
-                    <optgroup label="Intel">Intel
-                        <option {{$motherboard->motherboard_socket == 'LGA 1151'?'selected="selected"': ''}} value="LGA 1151">LGA 1151</option>
-                        <option {{$motherboard->motherboard_socket == 'LGA 1200'?'selected="selected"': ''}} value="LGA1200">LGA1200</option>
-                        <option {{$motherboard->motherboard_socket == 'LGA 1366'?'selected="selected"': ''}} value="LGA 1366">LGA 1366</option>
-                        <option {{$motherboard->motherboard_socket == 'LGA 1700'?'selected="selected"': ''}} value="LGA 1700">LGA 1700</option>
-                    </optgroup>
-                    <optgroup label="AMD">AMD
-                        <option {{$motherboard->motherboard_socket == 'AMD2'?'selected="selected"': ''}} value="AM2">AM2</option>
-                        <option {{$motherboard->motherboard_socket == 'AMD2+'?'selected="selected"': ''}} value="AM2+">AM2+</option>
-                        <option {{$motherboard->motherboard_socket == 'AMD3'?'selected="selected"': ''}} value="AM3">AM3</option>
-                        <option {{$motherboard->motherboard_socket == 'AMD3+'?'selected="selected"': ''}} value="AM3+">AM3+</option>
-                        <option {{$motherboard->motherboard_socket == 'AMD4'?'selected="selected"': ''}} value="AM4">AM4</option>
-                    </optgroup>
-                   </select>
+                   <input type="text" name="motherboard_socket" class="form-control"style="width:200px" value="{{ $motherboard->motherboard_socket }}">
                </div>
                 <div class="form-group">
                     Chipset
-                   <select name="motherboard_chipset" class="form-control"style="width:200px">
-                    <option {{$motherboard->motherboard_chipset == 'Intel'?'selected="selected"': ''}} value="Intel">Intel</option>
-                    <option {{$motherboard->motherboard_chipset == 'AMD'?'selected="selected"': ''}} value="AMD">AMD</option>
-                   </select>
+                    <input type="text" name="motherboard_chipset" class="form-control"style="width:200px" value="{{ $motherboard_chipset->motherboard_chipset}}">
                </div>
                 {{-- end spec type --}}
             </div>

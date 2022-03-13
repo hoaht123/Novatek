@@ -1,23 +1,6 @@
 @extends('admin.admin_layout')
 @section('admin-content')
-        <div class="dropdown show ">
-            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Choose component
-            </a>
-          
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <a class="dropdown-item" href="{{route('create_storage')}}">storage</a>
-                <a class="dropdown-item" href="{{route('create_cpu')}}">CPU</a>
-                <a class="dropdown-item" href="{{route('create_storage')}}">storage</a>
-                <a class="dropdown-item" href="{{route('create_gpu')}}">GPU</a>
-                <a class="dropdown-item" href="{{route('create_storage')}}">SSD/HDD</a>
-                <a class="dropdown-item" href="{{route('create_storage')}}">storage</a>
-                <a class="dropdown-item" href="{{route('create_storage')}}">storage</a>
-                <a class="dropdown-item" href="{{route('create_keyboard')}}">Keyboard</a>
-                <a class="dropdown-item" href="{{route('create_headphone')}}">Headphone</a>
-            </div>
-        </div>
-<h2 class="text-center">UPDATE NEW DISK </h1>
+<h2 class="text-center">UPDATE STORAGE </h1>
 <div class="container">
     <form action="{{URL::to('admin/save_update_product/'.$product->product_id)}}" method="post" enctype="multipart/form-data">
         @csrf
@@ -69,14 +52,24 @@
                    </select>
                </div>
                <div class="form-group">
+                Size
+               <select name="storage_size" class="form-control"style="width:200px">
+                   <option {{$storage->storage_type == '2.5inch'?'selected="selected"': ''}} value="2.5inch">2.5inch</option>
+                   <option {{$storage->storage_type == '3.5inch'?'selected="selected"': ''}} value="3.5inch">3.5inch</option>
+                   <option {{$storage->storage_type == 'M2.2280'?'selected="selected"': ''}} value="M2.2280">M2.2280</option>
+               </select>
+           </div>
+               <div class="form-group">
                 Capacity
                <select name="storage_size" class="form-control"style="width:200px">
                    <option {{$storage->storage_size == '120GB'?'selected="selected"': ''}} value="120GB">120GB</option>
                    <option {{$storage->storage_size == '128GB'?'selected="selected"': ''}} value="128GB">128GB</option>
                    <option {{$storage->storage_size == '240GB'?'selected="selected"': ''}} value="240GB">240GB</option>
+                   <option {{$storage->storage_size == '250GB'?'selected="selected"': ''}} value="250GB">250GB</option>
                    <option {{$storage->storage_size == '256GB'?'selected="selected"': ''}} value="256GB">256GB</option>
                    <option {{$storage->storage_size == '500GB'?'selected="selected"': ''}} value="500GB">500GB</option>
                    <option {{$storage->storage_size == '1TB'?'selected="selected"': ''}} value="1TB">1TB</option>
+                   <option {{$storage->storage_size == '2TB'?'selected="selected"': ''}} value="2TB">2TB</option>
                </select>
            </div>
                 {{-- end spec type --}}

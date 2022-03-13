@@ -9,7 +9,7 @@
                 <a class="dropdown-item" href="{{route('create_motherboard')}}">Motherboard</a>
                 <a class="dropdown-item" href="{{route('create_cpu')}}">CPU</a>
                 <a class="dropdown-item" href="{{route('create_ram')}}">RAM</a>
-                <a class="dropdown-item" href="{{route('create_gpu')}}">GPU</a>
+                <a class="dropdown-item" href="{{route('create_vga')}}">VGA</a>
                 <a class="dropdown-item" href="{{route('create_storage')}}">SSD/HDD</a>
                 <a class="dropdown-item" href="{{route('create_psu')}}">PSU</a>
                 <a class="dropdown-item" href="{{route('create_mouse')}}">Mouse</a>
@@ -56,27 +56,31 @@
                      </select>
                 </div>
                 {{-- spec type --}}
-                {{-- <input type="hidden" name="component" value ="Ram"> --}}
                     <div class="form-group">
                         Socket
                        <select name="cpu_socket" class="form-control"style="width:200px">
                         <optgroup label="Intel">Intel
-                            <option value="LGA 1151">LGA 1151</option>
+                            <option value="LGA775">LGA775</option>
+                            <option value="LGA 1150">LGA 1150</option>
+                            <option value="LGA 1151-V1">LGA 1151-V1</option>
+                            <option value="LGA 1151-V2">LGA 1151-V2</option>
+                            <option value="LGA1155">LGA1155</option>
+                            <option value="LGA1200">LGA1200</option>
                             <option value="LGA 1366">LGA 1366</option>
-                            <option value="LGA 1200">LGA 1200</option>
-                            <option value="LGA 1700">LGA1700</option>
+                            <option value="LGA 1700">LGA 1700</option>
+                            <option value="FCLGA2066">FCLGA2066</option>
                         </optgroup>
                         <optgroup label="AMD">AMD
-                            <option value="AM2">AM2</option>
-                            <option value="AM2+">AM2+</option>
+                            <option value="AMD FM2+">AMD FM2+</option>
+                            <option value="AMD sTRX4">AMD sTRX4</option>
                             <option value="AM3">AM3</option>
                             <option value="AM4">AM4</option>
                         </optgroup>
                        </select>
                    </div>
                 <div class="form-group">
-                    Speed
-                    <input type="text" name="cpu_speed" class="form-control" style="width:200px">
+                    GPU integration
+                    <input type="text" name="cpu_gpu_integration" class="form-control" style="width:200px">
                </div>
                <div class="form-group">
                     Core
@@ -85,17 +89,23 @@
                         <option value="4">4</option>
                         <option value="6">6</option>
                         <option value="8">8</option>
+                        <option value="10">10</option>
+                        <option value="12">12</option>
+                        <option value="14">14</option>
                         <option value="16">16</option>
                     </select>
                 </div>
                 <div class="form-group">
                     Thread
                     <select name="cpu_thread" class="form-control"style="width:200px">
+                        <option value="2">2</option>
                         <option value="4">4</option>
                         <option value="8">8</option>
                         <option value="12">12</option>
                         <option value="16">16</option>
+                        <option value="20">20</option>
                         <option value="24">24</option>
+                        <option value="28">28</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -105,6 +115,15 @@
                         <option value="512KB">512KB</option>
                         <option value="1MB">1MB</option>
                         <option value="2MB">2MB</option>
+                        <option value="3MB">3MB</option>
+                        <option value="4MB">4MB</option>
+                        <option value="6MB">6MB</option>
+                        <option value="8MB">8MB</option>
+                        <option value="9MB">9MB</option>
+                        <option value="10MB">10MB</option>
+                        <option value="12MB">12MB</option>
+                        <option value="16MB">16MB</option>
+                        <option value="32MB">32MB</option>
                     </select>
                 </div>
                 {{-- end spec type --}}
