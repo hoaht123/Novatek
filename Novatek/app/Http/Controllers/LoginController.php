@@ -140,15 +140,22 @@ class LoginController extends Controller
         ]);
         $data = $request->all();
         $values = array();
-        $values['name'] = $data['user_name'];
-        $values['phone'] = $data['user_phone'];
-        $values['email'] = $data['user_email'];
-        $values['roles'] = 1;
-        $values['address'] = $data['user_address'];
-        $values['password'] = md5($data['user_password']);
-        DB::table('users')->insert($values);
-        Session::put('register','Register successfully!!');
+        $check_user_email = Users::where('email', $data['user_email'])->first();
+        if($check_user_email){
+            Session::put('register','Email exists .Try another email');
         return Redirect::back();
+        }else{
+            $values['name'] = $data['user_name'];
+            $values['phone'] = $data['user_phone'];
+            $values['email'] = $data['user_email'];
+            $values['roles'] = 1;
+            $values['address'] = $data['user_address'];
+            $values['password'] = md5($data['user_password']);
+            DB::table('users')->insert($values);
+            Session::put('register','Register successfully!!');
+            return Redirect::back();
+        }
+       
     }
 
 
