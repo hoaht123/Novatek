@@ -193,7 +193,7 @@
                                     <div class="h6 animate-to-green"><a href="#">hipster beat hr</a></div> --}}
                                 </div>
                                 <div class="description">
-                                    <div class="simple-article text size-2">{{$product->product_sort_descriptions}}</div>
+                                    <div class="simple-article text size-2">{!!$product->product_sort_descriptions!!}</div>
                                     <div class="icons">
                                         <a class="entry"><i class="fa fa-check" aria-hidden="true"></i></a>
                                         <a class="entry open-popup" data-rel="3" data-id="{{$product->product_id}}"><i class="fa fa-eye" aria-hidden="true"></i></a>
@@ -289,7 +289,7 @@
                                         <div class="h6 animate-to-green"><a href="#">hipster beat hr</a></div> --}}
                                     </div>
                                     <div class="description">
-                                        <div class="simple-article text size-2">{{$product->product_sort_descriptions}}</div>
+                                        <div class="simple-article text size-2">{!!$product->product_sort_descriptions!!}</div>
                                         <div class="icons">
                                             <a class="entry"><i class="fa fa-check" aria-hidden="true"></i></a>
                                             <a class="entry open-popup" data-rel="3" data-id="{{$product->product_id}}"><i class="fa fa-eye" aria-hidden="true"></i></a>
