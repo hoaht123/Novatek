@@ -50,7 +50,7 @@
             // for ($i=0; $i < count($key); $i++) {
             //     $id[$i] = $key[$i]->product_id;
             // }
-            $popular = DB::select(' select * from product where product_price between 100 and 200 order by product_price limit 3');
+            $popular = DB::select(' select * from product where product_price between 100 and 300 order by product_price asc limit 3');
         @endphp
         <div class="h4 col-xs-b25">popular</div>
         @foreach($popular as $product)

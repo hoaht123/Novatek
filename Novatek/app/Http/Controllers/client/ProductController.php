@@ -15,7 +15,7 @@ class ProductController extends Controller
 {
     public function products()
     {
-        $brands = Brand::all();
+        $brands = Brand::inRandomOrder()->limit(5)->get();
         $categories = Category::where('parent_id',0)->get();
         $products = Product::where('product_status',0)->paginate(9);
         $total = count(Product::where('product_status',0)->get());

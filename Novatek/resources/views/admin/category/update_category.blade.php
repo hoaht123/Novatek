@@ -13,7 +13,7 @@
             <div class="form-group" style="margin-top:50px">
                 <label>Chọn danh mục cha</label>
                 <select class="form-control" name="parent_id" style="width:650px">
-                  <option value="">Chọn danh mục cha</option>
+                  <option value="0">Chọn danh mục cha</option>
                   {!! $htmlOption !!}
                 </select>
             </div>

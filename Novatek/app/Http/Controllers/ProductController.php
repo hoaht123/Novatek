@@ -46,8 +46,8 @@ class ProductController extends Controller
     public function create_vga(){
         $this->AuthLogin();
         $supplier = Supplier::all();
-        $cate = Category::where('category_name','like','gpu')->first();
-        $category = DB::select('select * from categories where category_name like "gpu" or parent_id ='. $cate->category_id);
+        $cate = Category::where('category_name','like','vga')->first();
+        $category = DB::select('select * from categories where category_name like "vga" or parent_id ='. $cate->category_id);
         // $parent_id='';
         // $htmlOption = $this->getCategory($parent_id);
         $brand = Brand::all();
@@ -360,10 +360,10 @@ class ProductController extends Controller
             return view('admin.product.form_update.cpu',compact('product','suppliers','categories','brands','cpu'));
         }
         if(strcasecmp($product->component, 'vga')==0){
-            $gpu = DB::table('vga')->where('id',$product->spec_vga)->first();
+            $vga = DB::table('vga')->where('id',$product->spec_vga)->first();
             $category = Category::find($product->category_id);
             $categories = Category::whereIn('category_id', [$product->category_id, $category->parent_id])->get();
-            return view('admin.product.form_update.gpu',compact('product','suppliers','categories','brands','gpu'));
+            return view('admin.product.form_update.vga',compact('product','suppliers','categories','brands','vga'));
         }
         if(strcasecmp($product->component, 'ram')==0){
             $ram = DB::table('ram')->where('id',$product->spec_ram)->first();
