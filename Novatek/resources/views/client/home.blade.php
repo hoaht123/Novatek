@@ -171,20 +171,22 @@
                                                 </span>
                                             </a>
                                             @if(Session::get('user_id') == true)
-                                                        <a class="button size-2 style-3">
-                                                            <span class="button-wrapper">
-                                                                <button type="button" class="add_to_cart" data-id="{{$product->product_id}}" name="add-to-cart"> <span class="icon"><img src="{{ asset('client/img/icon-3.png')}}"alt=""></span></button>
-                                                                <span class="text">Add To Cart</span>
-                                                            </span>
+                                                            <a class="button size-2 style-3 add_to_cart" data-id="{{$product->product_id}}" name="add-to-cart">
+                                                                {{-- <button style="background:#343434" type="button" class="add_to_cart" data-id="{{$product->product_id}}" name="add-to-cart"> --}}
+                                                                    <span class="button-wrapper">
+                                                                     <span class="icon"><img src="{{ asset('client/img/icon-3.png')}}"alt=""></span> 
+                                                                     <span class="text">ADD TO CART</span>
+                                                                    </span>
+                                                                {{-- </button> --}}
                                                         </a>
-                                                        @else
-                                                        <a class="button size-2 style-3" href="{{URL::to('login')}}">
-                                                            <span class="button-wrapper">
-                                                                <span class="icon"><img src="{{ asset('client/img/icon-3.png')}}"alt=""></span>
-                                                                <span class="text">Add To Cart</span>
-                                                            </span>
-                                                        </a>
-                                                        @endif
+                                                            @else
+                                                            <a class="button size-2 style-3" href="{{URL::to('login')}}">
+                                                                <span class="button-wrapper">
+                                                                    <span class="icon"><img src="{{ asset('client/img/icon-3.png')}}"alt=""></span>
+                                                                    <span class="text">Add To Cart</span>
+                                                                </span>
+                                                            </a>
+                                                            @endif
                                         </div>
                                     </div>
                                 </div>
@@ -267,20 +269,22 @@
                                                     </span>
                                                 </a>
                                                 @if(Session::get('user_id') == true)
-                                                        <a class="button size-2 style-3">
-                                                            <span class="button-wrapper">
-                                                                <button type="button" class="add_to_cart" data-id="{{$product->product_id}}" name="add-to-cart"> <span class="icon"><img src="{{ asset('client/img/icon-3.png')}}"alt=""></span></button>
-                                                                <span class="text">Add To Cart</span>
-                                                            </span>
+                                                            <a class="button size-2 style-3 add_to_cart" data-id="{{$product->product_id}}" name="add-to-cart">
+                                                                {{-- <button style="background:#343434" type="button" class="add_to_cart" data-id="{{$product->product_id}}" name="add-to-cart"> --}}
+                                                                    <span class="button-wrapper">
+                                                                     <span class="icon"><img src="{{ asset('client/img/icon-3.png')}}"alt=""></span> 
+                                                                     <span class="text">ADD TO CART</span>
+                                                                    </span>
+                                                                {{-- </button> --}}
                                                         </a>
-                                                        @else
-                                                        <a class="button size-2 style-3" href="{{URL::to('login')}}">
-                                                            <span class="button-wrapper">
-                                                                <span class="icon"><img src="{{ asset('client/img/icon-3.png')}}"alt=""></span>
-                                                                <span class="text">Add To Cart</span>
-                                                            </span>
-                                                        </a>
-                                                        @endif
+                                                            @else
+                                                            <a class="button size-2 style-3" href="{{URL::to('login')}}">
+                                                                <span class="button-wrapper">
+                                                                    <span class="icon"><img src="{{ asset('client/img/icon-3.png')}}"alt=""></span>
+                                                                    <span class="text">Add To Cart</span>
+                                                                </span>
+                                                            </a>
+                                                            @endif
                                             </div>
                                         </div>
                                     </div>

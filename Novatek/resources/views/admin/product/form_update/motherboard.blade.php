@@ -55,7 +55,7 @@
                </div>
                 <div class="form-group">
                     Chipset
-                    <input type="text" name="motherboard_chipset" class="form-control"style="width:200px" value="{{ $motherboard_chipset->motherboard_chipset}}">
+                    <input type="text" name="motherboard_chipset" class="form-control"style="width:200px" value="{{ $motherboard->motherboard_chipset}}">
                </div>
                 {{-- end spec type --}}
             </div>
