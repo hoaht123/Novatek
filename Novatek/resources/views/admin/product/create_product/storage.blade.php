@@ -72,7 +72,7 @@
                </div>
                 <div class="form-group">
                     Capacity
-                   <select name="storage_size" class="form-control"style="width:200px">
+                   <select name="storage_capacity" class="form-control"style="width:200px">
                        <option value="120GB">120GB</option>
                        <option value="128GB">128GB</option>
                        <option value="240GB">240GB</option>
