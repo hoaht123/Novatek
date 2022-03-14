@@ -61,7 +61,7 @@
            </div>
                <div class="form-group">
                 Capacity
-               <select name="storage_size" class="form-control"style="width:200px">
+               <select name="storage_capacity" class="form-control"style="width:200px">
                    <option {{$storage->storage_size == '120GB'?'selected="selected"': ''}} value="120GB">120GB</option>
                    <option {{$storage->storage_size == '128GB'?'selected="selected"': ''}} value="128GB">128GB</option>
                    <option {{$storage->storage_size == '240GB'?'selected="selected"': ''}} value="240GB">240GB</option>
