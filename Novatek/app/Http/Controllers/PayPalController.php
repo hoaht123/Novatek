@@ -6,16 +6,15 @@ use Illuminate\Http\Request;
 use Srmklive\PayPal\Services\PayPal as PayPalClient;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\DB;
+use App\Models\Users;
 use App\Models\Invoice;
 use App\Models\InvoiceDetails;
 use App\Models\Shipping;
 use App\Models\Coupon;
-use App\Models\Users;
 session_start();
-
 class PayPalController extends Controller
 {
-     /**
+    /**
      * create transaction.
      *
      * @return \Illuminate\Http\Response
@@ -30,13 +29,15 @@ class PayPalController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function processTransaction(Request $request)
+    public function processTransaction()
     {
         $total = Session::get('after_total');
 
         $provider = new PayPalClient;
         $provider->setApiCredentials(config('paypal'));
         $paypalToken = $provider->getAccessToken();
+
+        // dd($paypalToken);
 
         $response = $provider->createOrder([
             "intent" => "CAPTURE",
@@ -48,11 +49,12 @@ class PayPalController extends Controller
                 0 => [
                     "amount" => [
                         "currency_code" => "USD",
-                        "value" => $total
+                        "value" => round($total) 
                     ]
                 ]
             ]
         ]);
+        // dd($response);  
 
         if (isset($response['id']) && $response['id'] != null) {
 
@@ -142,7 +144,7 @@ class PayPalController extends Controller
                 ->with('success', 'Transaction complete.');
         } else {
             return redirect()
-                ->route('checkout')
+                ->route('createTransaction')
                 ->with('error', $response['message'] ?? 'Something went wrong.');
         }
     }
@@ -155,7 +157,7 @@ class PayPalController extends Controller
     public function cancelTransaction(Request $request)
     {
         return redirect()
-            ->route('checkout')
+            ->route('createTransaction')
             ->with('error', $response['message'] ?? 'You have canceled the transaction.');
     }
 }
