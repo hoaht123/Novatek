@@ -22,7 +22,7 @@
                 <td>{{$i++}}</td>
                 <td>{{$contact->contact_name}}</td>
                 <td>{{$contact->contact_phone}}</td>
-                <td>{{$contact->contact_email}}</td>
+                <td>{{$contact->contact_mail}}</td>
                 <td>{{$contact->contact_message}}</td>
             </tr>
             @endforeach
