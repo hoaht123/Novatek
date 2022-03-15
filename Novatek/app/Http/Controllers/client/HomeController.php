@@ -45,7 +45,7 @@ class HomeController extends Controller
         ]);
         $contact = array();
         $contact['contact_name'] = $data['contact_name'];
-        $contact['contact_email'] = $data['contact_email'];
+        $contact['contact_mail'] = $data['contact_email'];
         $contact['contact_phone']  = $data['contact_phone'];
         $contact['contact_message'] = $data['contact_message'];
         
