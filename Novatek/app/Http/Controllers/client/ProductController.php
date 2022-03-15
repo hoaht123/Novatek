@@ -62,7 +62,7 @@ class ProductController extends Controller
         $price[1] = $max;
         $brands = Brand::all();
         $categories = Category::where('parent_id',0)->get();
-        $products = Product::whereIn('product_price',$price)->paginate(9);
+        $products = Product::where('product_price','>=',$min)->where('product_price','<=',$max)->paginate(9);
         $total = count(Product::whereIn('product_price',$price)->get());
         return view('client.products', compact('categories','brands','products','total'));
     }

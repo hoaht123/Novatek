@@ -20,7 +20,7 @@
 
     <div class="h4 col-xs-b25">Price</div>
     <div class="price-filter">
-            <a class="price-btn" href="{{ route('client.product_price',['min'=>000,'max'=>100]) }}">
+            <a class="price-btn" href="{{ route('client.product_price',['min'=>0,'max'=>100]) }}">
                 <button class="btn" data-min = "0" data-max= "100" style ="width: 200px" name="btn-brand">0-100$</button>
             </a>
             <div class="empty-space col-xs-b10"></div>
