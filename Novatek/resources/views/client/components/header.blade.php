@@ -152,7 +152,7 @@
                                 </div>
                             </div>
                             <div class="header-search-wrapper">
-                                <div class="header-search-content" style="background:rgba(0, 0, 0, 0.9); color:#fff">
+                                <div class="header-search-content" style="background:rgba(255, 255, 255, 0.8); color:black">
                                     <div class="container-fluid">
                                         <div class="row">
                                             <div class="col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3">
