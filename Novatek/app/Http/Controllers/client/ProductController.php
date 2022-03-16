@@ -56,6 +56,14 @@ class ProductController extends Controller
         return view('client.products', compact('categories','brands','products','total'));
     }
 
+    public function brand_clicked($brand_id){
+        $categories = Category::where('parent_id',0)->get();
+        $products = Product::where('brand_id',$brand_id)->paginate(9);
+        $brands = DB::table('product')->leftJoin('brands','product.brand_id','=','brands.brand_id')->select('brands.brand_id','brands.brand_name')->groupBy('brands.brand_id','brands.brand_name')->get();
+        $total = count($products);
+        return view('client.products', compact('categories','brands','products','total'));
+    }
+
     public function product_price( $min, $max, Request $request ){
         $price = array();
         $price[0] = $min;
