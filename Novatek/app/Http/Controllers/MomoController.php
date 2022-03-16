@@ -42,7 +42,7 @@ class MomoController extends Controller
         $accessKey = 'klm05TvNBzhg7h7j';
         $secretKey = 'at67qH6mk8w5Y1nAyMoYKMWACiEi2bsa';
         $orderInfo = "Thanh toán qua MoMo";
-        $amount = $data['total'] * 22840;
+        $amount = round($data['total']) * 22840;
         $orderId = time() . "";
         $redirectUrl = "http://localhost:8080/Novatek-2/Novatek/public/thanks";
         $ipnUrl = "http://localhost:8080/Novatek-2/Novatek/public/thanks";
