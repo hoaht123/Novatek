@@ -45,7 +45,9 @@
     <div class="h4 col-xs-b25" id="check-brand">Brands</div>
         <label class="checkbox-entry">
             @foreach($brands as $brand)
-                <button class="btn" style="width:98px; margin-bottom:5px;" value = "{{ $brand->brand_id}}"  name="btn-brand">{{ $brand->brand_name}}</button>  
+                <a href="{{ route('client.brand_clicked',['brand_id'=>$brand->brand_id])}}">
+                    <button class="btn" style="width:98px; margin-bottom:5px;" value = "{{ $brand->brand_id}}"  name="btn-brand">{{ $brand->brand_name}}</button>  
+                </a>
             @endforeach
         </label>
         <div class="empty-space col-xs-b10"></div>

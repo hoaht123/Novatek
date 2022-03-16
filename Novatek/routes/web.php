@@ -122,6 +122,7 @@ Route::prefix('')->group(function(){
     Route::get('/category/{$category_id}',[CategoryController::class,'products'])->name('client.categories_show'); 
     Route::get('/product/{product_id}',[App\Http\Controllers\client\ProductController::class,'product_detail'])->name('client.product_detail');
     Route::get('/tag/{category_id}',[App\Http\Controllers\client\ProductController::class,'tag_clicked'])->name('client.tag_clicked');
+    Route::get('/brands/{brand_id}',[App\Http\Controllers\client\ProductController::class,'brand_clicked'])->name('client.brand_clicked');
     Route::post('/product/popup_product',[App\Http\Controllers\client\ProductController::class,'popup_product'])->name('client.popup_product');
     Route::get('/products/price-{min}-{max}',[App\Http\Controllers\client\ProductController::class,'product_price'])->name('client.product_price');
 
