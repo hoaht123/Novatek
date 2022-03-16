@@ -43,12 +43,13 @@
     <div class="empty-space col-xs-b25 col-sm-b50"></div>
 
     <div class="h4 col-xs-b25" id="check-brand">Brands</div>
-    @foreach($products as $product)
         <label class="checkbox-entry">
-        <button class="btn" value = "{{ $product->brand_id}}" style ="width: 200px" name="btn-brand">{{ $product->brand_name}}</button>
+            @foreach($brands as $brand)
+                <button class="btn" style="width:98px; margin-bottom:5px;" value = "{{ $brand->brand_id}}"  name="btn-brand">{{ $brand->brand_name}}</button>  
+            @endforeach
         </label>
         <div class="empty-space col-xs-b10"></div>
-    @endforeach
+        
 
     <div class="empty-space col-xs-b25 col-sm-b50"></div>
 
