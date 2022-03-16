@@ -232,7 +232,7 @@
                             <li><button class ="button-filter btn btn-info" value="All">ALL</button></li>
                             <li><button class ="button-filter btn" value="Ram">RAM</button></li>
                             <li><button class ="button-filter btn" value="Cpu">CPU</button></li>
-                            <li><button class ="button-filter btn" value="Gpu">GPU</button></li>
+                            <li><button class ="button-filter btn" value="Vga">VGA</button></li>
                             <li><button class ="button-filter btn" value="Psu">PSU</button></li>
                             <li><button class ="button-filter btn" value="Headphone">HEADPHONE</button></li>
                             <li><button class ="button-filter btn" value="Motherboard">MOTHERBOARD</button></li>
