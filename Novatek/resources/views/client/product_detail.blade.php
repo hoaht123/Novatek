@@ -23,6 +23,7 @@
                                 <div class="swiper-container swiper-control-top">
                                    <div class="swiper-button-prev hidden"></div>
                                    <div class="swiper-button-next hidden"></div>
+                                
                                    @csrf
                                    <input type="hidden" value="{{$product->product_id}}" class="cart_product_id_{{$product->product_id}}">
                                    <input type="hidden" value="{{$product->product_name}}" class="cart_product_name_{{$product->product_id}}">
@@ -57,8 +58,13 @@
                                 </div>
                                 <div class="col-sm-6 col-sm-text-right">
                                     <div class="rate-wrapper align-inline">
+                                        @if($Avg_rating != 0)
                                         <div id="rateYo_product"></div>
                                         <input type="hidden" name="" id="rating_product" >
+                                        @else
+                                        <div id="rateYo_product_0"></div>
+                                        <input type="hidden" name="" id="rating_product" >
+                                        @endif
                                     </div>
                                     <div class="simple-article size-2 align-inline">{{$count_review}} Reviews</div>
                                 </div>
@@ -84,6 +90,7 @@
                                 <div class="col-sm-6 col-xs-b10 col-sm-b0">
                                     @if(Session::get('user_id') == true)
                                     <a class="button size-2 style-2 block add_to_cart" data-id="{{$product->product_id}}" name="add-to-cart">
+                                    {{-- <a class="button size-2 style-2 block"> --}}
                                             {{-- <button style="background:#343434" type="button" class="add_to_cart" data-id="{{$product->product_id}}" name="add-to-cart"> --}}
                                                 <span class="button-wrapper">
                                                  <span class="icon"><img src="{{ asset('client/img/icon-3.png')}}"alt=""></span> 
@@ -527,25 +534,19 @@
     <script src="{{ asset('js/jquery.ui.touch-punch.min.js')}}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/rateYo/2.3.2/jquery.rateyo.min.js"></script>
     <script>
-        $(document).ready(function(){
-            var minVal = parseInt($('.min-price').text());
-            var maxVal = parseInt($('.max-price').text());
-            $( "#prices-range" ).slider({
-                range: true,
-                min: minVal,
-                max: maxVal,
-                step: 5,
-                values: [ minVal, maxVal ],
-                slide: function( event, ui ) {
-                    $('.min-price').text(ui.values[ 0 ]);
-                    $('.max-price').text(ui.values[ 1 ]);
-                }
+        $(function () {
+            $("#rateYo").rateYo({
+            rating: 0,
+            starWidth: "20px"
+            }).on("rateyo.set", function (e, data) {
+                $('#rating_start').val(data.rating);
+            // alert("The rating is set to " + data.rating + "!");
             });
-        });
+            });
     </script>
     <script>
         $(function () {
-            $("#rateYo").rateYo({
+            $("#rateYo_product_0").rateYo({
             rating: 0,
             starWidth: "20px"
             }).on("rateyo.set", function (e, data) {
