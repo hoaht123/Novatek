@@ -15,11 +15,10 @@ class ProductController extends Controller
 {
     public function products()
     {
-        $brands = Brand::inRandomOrder()->limit(5)->get();
         $categories = Category::where('parent_id',0)->get();
-        $products = Product::where('product_status',0)->paginate(9);
+        $products = DB::table('product')->leftJoin('brands','product.brand_id','=','brands.brand_id')->orderBy('product_id','desc')->paginate(12);
         $total = count(Product::where('product_status',0)->get());
-        return view('client.products', compact('categories','brands','products','total'));
+        return view('client.products', compact('categories','products','total'));
     }
     public function product_detail($product_id)
     {
